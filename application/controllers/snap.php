@@ -1,6 +1,7 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-class Snap extends CI_Controller {
+class Snap extends CI_Controller
+{
 
 	/**
 	 * Index Page for this controller.
@@ -20,127 +21,126 @@ class Snap extends CI_Controller {
 
 
 	public function __construct()
-    {
+	{
 		parent::__construct();
 		$this->load->model('Pelanggan_model');
-        $params = array('server_key' => 'SB-Mid-server-p3tc7DjNg2eIGlBgNCrGUfif', 'production' => false);
+		$params = array('server_key' => 'SB-Mid-server-p3tc7DjNg2eIGlBgNCrGUfif', 'production' => false);
 		$this->load->library('midtrans');
 		$this->midtrans->config($params);
-		$this->load->helper('url');	
-	
-	
-    }
+		$this->load->helper('url');
+	}
 
-    public function index()
-    {
-    	$this->load->view('checkout_snap');
-    }
+	public function index()
+	{
+		$this->load->view('checkout_snap');
+	}
 	public function token()
-    {
-        $id = $this->session->userdata('id_pelanggan');
-        $pelanggan = $this->Pelanggan_model->sudah_login($id);
-        $keranjang = $this->cart->contents();
-        $kode['kode'] = $this->db->order_by('kode_transaksi', 'DESC');
-        $this->db->limit(1);
-        $cek = $this->db->get('tbl_transaksi');
-        ;
-        if ($cek->num_rows() == 0) {
-        $date = date('dmY');
-        $kode       ="INV/".$date."/HSP/000000001";
-        }else{
-        $noUrut 	 			= substr($cek->row()->kode_transaksi, 17, 26);
-        $noUrut++;
-        $kode				="INV/".date('dmY')."/HSP/".sprintf("%09s", $noUrut);
+	{
+		$id = $this->session->userdata('id_pelanggan');
+		$pelanggan = $this->Pelanggan_model->sudah_login($id);
+		$keranjang = $this->cart->contents();
+		$kode['kode'] = $this->db->order_by('kode_transaksi', 'DESC');
+		$this->db->limit(1);
+		$cek = $this->db->get('tbl_transaksi');;
+		if ($cek->num_rows() == 0) {
+			$date = date('dmY');
+			$kode       = "INV/" . $date . "/HSP/000000001";
+		} else {
+			$noUrut 	 			= substr($cek->row()->kode_transaksi, 17, 26);
+			$noUrut++;
+			$kode				= "INV/" . date('dmY') . "/HSP/" . sprintf("%09s", $noUrut);
 		}
 		// ini harus di foreach ya? v gajuga sii ini mah cara gua aja biar ke panggil
 		// kepanggil apa? = itu yg id price qty sm total
 		// ok
 		// fixed nih.
-		foreach($this->cart->contents() as $u) {
-		// var_dump($u);die;
-		// Required
-		$transaction_details = array(
-		  'order_id' => $kode,
-		  'gross_amount' => $u['price']*$u['qty'], // no decimal allowed for creditcard
-		);
-	};
-	// break dulu, lu bikin akun github coba
-
-		foreach($this->cart->contents() as $x) {
-		// var_dump($u);die;
-		// Required
-		
-		$item_details = array(
-			  'id' => $x['id'],
-			  'price' => $x['price'],
-			  'quantity' => $x['qty'],
-			  'name' => $x['name']
+		foreach ($this->cart->contents() as $u) {
+			// var_dump($u);die;
+			// Required
+			$transaction_details = array(
+				'order_id' => $kode,
+				'gross_amount' => $u['price'] * $u['qty'], // no decimal allowed for creditcard
 			);
-	};
-	var_dump($transaction_details);
-	var_dump($item_details);
+		};
+		$id_item_details = [];
+		$price_item_details = [];
+		$quantity_item_details = [];
+		$name_item_details = [];
+		// var_dump($this->cart->contents());
+		foreach ($this->cart->contents() as $x) {
+			array_push($id_item_details, $x['id']);
+			array_push($price_item_details, $x['price']);
+			array_push($quantity_item_details, $x['qty']);
+			array_push($name_item_details, $x['name']);
+		};
+		$item_details = [
+			'id' => $id_item_details,
+			'price' => $price_item_details,
+			'quantity' => $quantity_item_details,
+			'name' => $name_item_details,
+		];
 
 		// Optional
 		$billing_address = array(
-		  'first_name'    => $pelanggan->nama_pelanggan,
-		  'address'       => $pelanggan->alamat,$pelanggan->id_kec,$pelanggan->id_kel,$pelanggan->id_prov,
-		  'city'          => $pelanggan->id_kab,
-		  'postal_code'   => $pelanggan->kode_pos,
-		  'phone'         => $pelanggan->telepon,
-		  'country_code'  => 'IDN'
+			'first_name'    => $pelanggan->nama_pelanggan,
+			'address'       => $pelanggan->alamat, $pelanggan->id_kec, $pelanggan->id_kel, $pelanggan->id_prov,
+			'city'          => $pelanggan->id_kab,
+			'postal_code'   => $pelanggan->kode_pos,
+			'phone'         => $pelanggan->telepon,
+			'country_code'  => 'IDN'
 		);
 
 		// Optional
 		$shipping_address = array(
-		  'first_name'    => "Obet",
-		  'last_name'     => "Supriadi",
-		  'address'       => $pelanggan->alamat,$pelanggan->id_kec,$pelanggan->id_kel,$pelanggan->id_prov,
-		  'city'          => $pelanggan->id_kab,
-		  'postal_code'   => $pelanggan->kode_pos,
-		  'phone'         => "08113366345",
-		  'country_code'  => 'IDN'
+			'first_name'    => "Obet",
+			'last_name'     => "Supriadi",
+			'address'       => $pelanggan->alamat, $pelanggan->id_kec, $pelanggan->id_kel, $pelanggan->id_prov,
+			'city'          => $pelanggan->id_kab,
+			'postal_code'   => $pelanggan->kode_pos,
+			'phone'         => "08113366345",
+			'country_code'  => 'IDN'
 		);
 
 		// Optional
 		$customer_details = array(
-          'first_name'    => $pelanggan->nama_pelanggan,
-          'last_name'     => "",
-		  'email'         => $pelanggan->email,
-		  'phone'         => $pelanggan->telepon,
-		  'billing_address'  => $billing_address,
-		   'shipping_address' => $shipping_address
+			'first_name'    => $pelanggan->nama_pelanggan,
+			'last_name'     => "",
+			'email'         => $pelanggan->email,
+			'phone'         => $pelanggan->telepon,
+			'billing_address'  => $billing_address,
+			'shipping_address' => $shipping_address
 		);
 
 		// Data yang akan dikirim untuk request redirect_url.
-        $credit_card['secure'] = true;
-        //ser save_card true to enable oneclick or 2click
-        //$credit_card['save_card'] = true;
+		$credit_card['secure'] = true;
+		//ser save_card true to enable oneclick or 2click
+		//$credit_card['save_card'] = true;
 
-        $time = time();
-        $custom_expiry = array(
-            'start_time' => date("Y-m-d H:i:s O",$time),
-            'unit' => 'hour', 
-            'duration'  => 1
-        );
-        //itu mi
-        $transaction_data = array(
-            'transaction_details'=> $transaction_details,
-            'item_details'       => $item_details,
-            // 'item_details'       => $this->cart->contents(),
-            'customer_details'   => $customer_details,
-            'credit_card'        => $credit_card,
-            'expiry'             => $custom_expiry
-        );
+		$time = time();
+		$custom_expiry = array(
+			'start_time' => date("Y-m-d H:i:s O", $time),
+			'unit' => 'hour',
+			'duration'  => 1
+		);
+		//itu mi
+		$transaction_data = array(
+			'transaction_details' => $transaction_details,
+			'item_details'       => $item_details,
+			// 'item_details'       => $this->cart->contents(),
+			'customer_details'   => $customer_details,
+			'credit_card'        => $credit_card,
+			'expiry'             => $custom_expiry
+		);
 
 		error_log(json_encode($transaction_data));
 		$snapToken = $this->midtrans->getSnapToken($transaction_data);
 		error_log($snapToken);
 		echo $snapToken;
-    }
+	}
 
-    // public function token()
-    // {
-		
+	// public function token()
+	// {
+
 	// 	// Required
 	// 	$transaction_details = array(
 	// 	  'order_id' => rand(),
@@ -199,37 +199,36 @@ class Snap extends CI_Controller {
 	// 	);
 
 	// 	// Data yang akan dikirim untuk request redirect_url.
-    //     $credit_card['secure'] = true;
-    //     //ser save_card true to enable oneclick or 2click
-    //     //$credit_card['save_card'] = true;
+	//     $credit_card['secure'] = true;
+	//     //ser save_card true to enable oneclick or 2click
+	//     //$credit_card['save_card'] = true;
 
-    //     $time = time();
-    //     $custom_expiry = array(
-    //         'start_time' => date("Y-m-d H:i:s O",$time),
-    //         'unit' => 'hour', 
-    //         'duration'  => 1
-    //     );
-        
-    //     $transaction_data = array(
-    //         'transaction_details'=> $transaction_details,
-    //         'item_details'       => $item_details,
-    //         'customer_details'   => $customer_details,
-    //         'credit_card'        => $credit_card,
-    //         'expiry'             => $custom_expiry
-    //     );
+	//     $time = time();
+	//     $custom_expiry = array(
+	//         'start_time' => date("Y-m-d H:i:s O",$time),
+	//         'unit' => 'hour', 
+	//         'duration'  => 1
+	//     );
+
+	//     $transaction_data = array(
+	//         'transaction_details'=> $transaction_details,
+	//         'item_details'       => $item_details,
+	//         'customer_details'   => $customer_details,
+	//         'credit_card'        => $credit_card,
+	//         'expiry'             => $custom_expiry
+	//     );
 
 	// 	error_log(json_encode($transaction_data));
 	// 	$snapToken = $this->midtrans->getSnapToken($transaction_data);
 	// 	error_log($snapToken);
 	// 	echo $snapToken;
-    // }
+	// }
 
-    public function finish()
-    {
-    	$result = json_decode($this->input->post('result_data'));
-    	echo 'RESULT <br><pre>';
-    	var_dump($result);
-    	echo '</pre>' ;
-
-    }
+	public function finish()
+	{
+		$result = json_decode($this->input->post('result_data'));
+		echo 'RESULT <br><pre>';
+		var_dump($result);
+		echo '</pre>';
+	}
 }
