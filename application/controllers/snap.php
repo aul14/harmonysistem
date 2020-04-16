@@ -54,14 +54,19 @@ class Snap extends CI_Controller
 		// kepanggil apa? = itu yg id price qty sm total
 		// ok
 		// fixed nih.
+		$count = count($this->cart->contents());
 		foreach ($this->cart->contents() as $u) {
 			// var_dump($u);die;
 			// Required
 			$transaction_details = array(
 				'order_id' => $kode,
-				'gross_amount' => $u['price'] * $u['qty'], // no decimal allowed for creditcard
+				'gross_amount' => $this->cart->total(),
+				// 'gross_amount' => $u['price'] * $u['qty'], // no decimal allowed for creditcard
 			);
 		};
+		// jadi katanya gross amount sama price ga sama yup ga sama dimana nya
+
+		// var_dump($transaction_details['gross_amount']); // 18 000 000
 
 		$item_details = [];
 		foreach ($this->cart->contents() as $key) {
