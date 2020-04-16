@@ -62,23 +62,49 @@ class Snap extends CI_Controller
 				'gross_amount' => $u['price'] * $u['qty'], // no decimal allowed for creditcard
 			);
 		};
-		$id_item_details = [];
-		$price_item_details = [];
-		$quantity_item_details = [];
-		$name_item_details = [];
-		// var_dump($this->cart->contents());
-		foreach ($this->cart->contents() as $x) {
-			array_push($id_item_details, $x['id']);
-			array_push($price_item_details, $x['price']);
-			array_push($quantity_item_details, $x['qty']);
-			array_push($name_item_details, $x['name']);
-		};
-		$item_details = [
-			'id' => $id_item_details,
-			'price' => $price_item_details,
-			'quantity' => $quantity_item_details,
-			'name' => $name_item_details,
-		];
+
+			$item1_details = array(
+		  'id' => 'a1',
+		  'price' => 18000,
+		  'quantity' => 3,
+		  'name' => "Apple"
+		);
+
+		// Optional
+		$item2_details = array(
+		  'id' => 'a2',
+		  'price' => 20000,
+		  'quantity' => 2,
+		  'name' => "Orange"
+		);
+
+		// Optional
+		$item_details = array ($item1_details, $item2_details);
+
+
+
+
+
+
+
+		// $id_item_details = [];
+		// $price_item_details = [];
+		// $quantity_item_details = [];
+		// $name_item_details = [];
+		// // var_dump($this->cart->contents());
+		// foreach ($this->cart->contents() as $x) {
+		// 	array_push($id_item_details, $x['id']);
+		// 	array_push($price_item_details, $x['price']); //ini bukan bawaan midtrans?
+		// 	array_push($quantity_item_details, $x['qty']);
+		// 	array_push($name_item_details, $x['name']);
+		// };
+		// $item_details = [
+		// 	'id' => $id_item_details,
+		// 	'price' => $price_item_details,
+		// 	'quantity' => $quantity_item_details,
+		// 	'name' => $name_item_details,
+		// ];
+		// var_dump($item_details);
 
 		// Optional
 		$billing_address = array(
@@ -142,7 +168,7 @@ class Snap extends CI_Controller
 	// {
 
 	// 	// Required
-	// 	$transaction_details = array(
+	// 	$transaction_details = array( ini bawaan midtrans udh gua ubah
 	// 	  'order_id' => rand(),
 	// 	  'gross_amount' => 94000, // no decimal allowed for creditcard
 	// 	);

@@ -14,7 +14,7 @@
 						</span>
 					</div>
 					<div class="wrap-input100 validate-input" data-validate = "Email wajib diisi">
-						<input class="input100" type="text" name="email_karyawan" >
+						<input class="input100" type="text" name="email_karyawan" autofocus>
 						<?= form_error('email_karyawan', '<small class="text-danger">', '</small>'); ?>
 						<span class="focus-input100"></span>
 					</div>
@@ -28,7 +28,7 @@
 					</div>
 					<div class="wrap-input100 validate-input" data-validate = "Password wajib diisi">
 						<input class="input100" type="password" name="password" >
-						<?= form_error('email_karyawan', '<small class="text-danger">', '</small>'); ?>
+						<?= form_error('password', '<small class="text-danger">', '</small>'); ?>
 						<span class="focus-input100"></span>
 					</div>
 
