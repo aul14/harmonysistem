@@ -63,23 +63,35 @@ class Snap extends CI_Controller
 			);
 		};
 
-			$item1_details = array(
-		  'id' => 'a1',
-		  'price' => 18000,
-		  'quantity' => 3,
-		  'name' => "Apple"
-		);
+		$item_details = [];
+		foreach ($this->cart->contents() as $key) {
+			$temp = [
+				'id' => $key['id'],
+				'price' => $key['price'],
+				'quantity' => $key['qty'],
+				'name' => $key['name'],
+			];
+			array_push($item_details, $temp);
+		};
 
-		// Optional
-		$item2_details = array(
-		  'id' => 'a2',
-		  'price' => 20000,
-		  'quantity' => 2,
-		  'name' => "Orange"
-		);
+		// var_dump($item_details);
+		// $item1_details = array(
+		// 	'id' => 'a1',
+		// 	'price' => 18000,
+		// 	'quantity' => 3,
+		// 	'name' => "Apple"
+		// );
 
-		// Optional
-		$item_details = array ($item1_details, $item2_details);
+		// // Optional
+		// $item2_details = array(
+		// 	'id' => 'a2',
+		// 	'price' => 20000,
+		// 	'quantity' => 2,
+		// 	'name' => "Orange"
+		// );
+
+		// // Optional
+		// $item_details = array($item1_details, $item2_details);
 
 
 
