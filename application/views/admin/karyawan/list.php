@@ -16,7 +16,7 @@
    
 
     <div class="row mb-3 col-lg-6">
-        <a class="nav-link btn btn-info bg-lawrence mr-3" href="<?= site_url('admin/karyawan/tambah') ?>">
+        <a class="nav-link btn btn-info bg-gradient-primary mr-3" href="<?= site_url('admin/karyawan/tambah') ?>">
             <i class="fas fa-user-plus"></i>
             <span>Tambah Karyawan Baru</span></a>
     </div>

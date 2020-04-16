@@ -14,9 +14,9 @@ class Login extends CI_Controller {
     
     public function index()
     {
-        // if ($this->session->userdata('email_karyawan')) {
-        //    redirect('admin/beranda','refresh');
-        // }
+        if ($this->session->userdata('email_karyawan')) {
+           redirect('admin/beranda','refresh');
+        }
         $this->form_validation->set_rules('email_karyawan', 'Email Karyawan', 'required');
         $this->form_validation->set_rules('password', 'Password', 'required');
         
