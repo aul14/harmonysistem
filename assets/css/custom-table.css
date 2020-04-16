@@ -1,0 +1,32 @@
+td,
+th {
+	border: 1px solid black;
+}
+
+table {
+	margin: 15px 0;
+	border: 1px solid black;
+	table-layout: fixed;
+	width: 100%;
+	/* must have this set */
+}
+
+html {
+	background: #ccc;
+}
+
+body {
+	max-width: 400px;
+	margin: 0 auto;
+	background: white;
+	padding: 10px;
+}
+
+.sturdy td:nth-child(1),
+.sturdy td:nth-child(3) {
+	width: 25%;
+}
+
+.sturdy td:nth-child(2) {
+	width: 50%;
+}
