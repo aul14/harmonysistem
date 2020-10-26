@@ -61,7 +61,6 @@ class Karyawan extends CI_Controller
         
         $pass = stripslashes(htmlspecialchars(strip_tags($this->input->post('password'))));
         $lowercase = preg_match('@[a-z]@', $pass);
-        $uppercase = preg_match('@[A-Z]@', $pass);
         $number    = preg_match('@[0-9]@', $pass);
        
         if ($this->form_validation->run() == false) {
