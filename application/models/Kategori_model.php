@@ -8,7 +8,7 @@ class Kategori_model extends CI_Model {
     public function listing()
     {
         $this->db->select('*');
-        $this->db->from('tbl_kategori');
+        $this->db->from('kategori');
         $this->db->order_by('id_kategori', 'desc');
         $query = $this->db->get();
         return $query->result();
@@ -22,7 +22,7 @@ class Kategori_model extends CI_Model {
     public function detail($id_kategori)
     {
         $this->db->select('*');
-        $this->db->from('tbl_kategori');
+        $this->db->from('kategori');
         $this->db->where('id_kategori', $id_kategori);
         $this->db->order_by('id_kategori', 'desc');
         $query = $this->db->get();
@@ -31,7 +31,7 @@ class Kategori_model extends CI_Model {
     public function read($slug_kategori)
     {
         $this->db->select('*');
-        $this->db->from('tbl_kategori');
+        $this->db->from('kategori');
         $this->db->where('slug_kategori', $slug_kategori);
         $this->db->order_by('id_kategori', 'desc');
         $query = $this->db->get();
@@ -40,12 +40,12 @@ class Kategori_model extends CI_Model {
    
     public function tambah($data)
     {
-        $this->db->insert('tbl_kategori', $data);
+        $this->db->insert('kategori', $data);
     }
     public function hapus($id)
     {
         $this->db->where('id_kategori', $id);
-        $this->db->delete('tbl_kategori');
+        $this->db->delete('kategori');
     }
 
 }

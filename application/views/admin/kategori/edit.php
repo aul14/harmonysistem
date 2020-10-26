@@ -8,33 +8,31 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
 <?= $this->session->flashdata('notifKategori', '<small class="text-danger">', '</small>'); ?>
-    <!-- Page Heading -->
-    <!-- Basic Card Example -->
-    <div class="col-sm-10 offset-1">
-        <div class="card shadow mb-4">
-            <div class="card-header py-3 bg-lawrence">
-                <h6 class="m-0 font-weight-bold text-white">Edit Kategori Produk</h6>
-               
-            </div>
+<h1 class="h3 text-gray-800"><?= $title; ?></h1>
+<h6 class="mb-4">Harmony Sistem</h6>
+<!-- Basic Card Example -->
+<div class="row">
+<div class="col">
 
-            <form action="" method="post">
-                <div class="row mt-3">
-                    <div class="col-sm-3 offset-1">
-                        <label for="nama_kategori">Nama Kategori</label>
-                    </div>
-                    <div class="col-sm-7">
+            <form action="" method="post" accept-charset="utf-8">
+            <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>">
+            <div class="form-group row">
+                
+                        <label for="nama_kategori" class="col-sm-2 col-form-label">Nama Kategori</label>
+                
+                    <div class="col-sm-6">
                         <input type="text" name="nama_kategori" id="nama_kategori" class="form-control" placeholder="Masukkan Nama Kategori" value="<?= $kategori->nama_kategori ?>" required autofocus>
                         <?= form_error('nama_kategori', '<small class="text-danger">', '</small>'); ?>
 
                     </div>
                 </div>
 
-                <div class="row mt-3">
-                    <div class="col-sm-3 offset-1">
-                        <label for="urutan">Urutan</label>
+                <div class="form-group row">
+                   
+                        <label for="urutan" class="col-sm-2 col-form-label">Urutan</label>
             
-                    </div>
-                    <div class="col-sm-7">
+                
+                    <div class="col-sm-6">
                   
                         <input type="text" name="urutan" id="urutan" class="form-control"  placeholder="Masukkan Urutan" value="<?= $kategori->urutan ?>" >
                         <?= form_error('urutan', '<small class="text-danger">', '</small>'); ?>
@@ -42,18 +40,12 @@
                 </div>
                              
 
-                <div class="row mt-5">
-                    <div class="col-sm-3  offset-1 ">
-                        <a href="<?php echo site_url('admin/kategori') ?>" class="btn btn-outline-success btn-xs"><i class="fas fa-chevron-left">
-                                Kembali
-                            </i></a>
-
-                    </div>
-                    <div class="col-sm-7">
-                        <button type="submit" name="simpan" class="btn btn-outline-primary float-sm-right"><i class="fas fa-save">&nbsp;Simpan</i></button>
-                        <button type="reset" class="btn btn-outline-danger float-sm-right mr-2"><i class="fas fa-times-circle">&nbsp;Batal</i></button>
-                    </div>
+                <div class="form-group row justify-content-end">
+                   <div class="col-sm-10">
+                    <button type="submit" name="simpan" class="btn btn-outline-primary"><i class="fas fa-save">&nbsp;Simpan</i></button>
+                    <button type="reset" class="btn btn-outline-danger "><i class="fas fa-times-circle">&nbsp;Batal</i></button>
                 </div>
+         </div>
 
             </form>
         </div>

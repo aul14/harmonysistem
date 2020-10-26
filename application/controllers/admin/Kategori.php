@@ -23,8 +23,12 @@ class Kategori extends CI_Controller {
     public function index()
     {
         $data['title'] = "Data Kategori Produk";
-        $data['tbl_kategori'] = $this->Kategori_model->listing();
-        $data['karyawan'] = $this->db->get_where('tbl_karyawan', [
+        $data['kategori'] = $this->Kategori_model->listing();
+        $data['tbl_pesan'] = $this->beranda_model->tampilPesan();
+        $data['pesan'] = $this->beranda_model->hitungPesan();
+        $data['hitung'] = $this->beranda_model->hitung();
+        $data['transaksi3'] = $this->beranda_model->tampilTransaksi();
+        $data['karyawan'] = $this->db->get_where('karyawan', [
             'nama_karyawan' => $this->session->userdata('nama_karyawan')
         ])->row_array();
         $this->load->view('admin/layout/head', $data);
@@ -35,12 +39,25 @@ class Kategori extends CI_Controller {
     }
     public function tambah()
     {
-        $this->form_validation->set_rules('nama_kategori', 'Nama Kategori', 'required|is_unique[tbl_kategori.nama_kategori]');
+        if ($_SESSION['id_jabatan'] == 3 or $_SESSION['id_jabatan'] == 4) {
+            $this->session->set_flashdata('notifKategori', '<div class="alert alert-danger alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                <span aria-hidden="true">&times;&nbsp;&nbsp;</span>
+            </button>
+            <strong>Gagal!</strong> Akses tidak diberikan.
+            </div>');
+        redirect('admin/kategori');
+        }
+        $this->form_validation->set_rules('nama_kategori', 'Nama Kategori', 'required|is_unique[kategori.nama_kategori]');
         
         
         if ($this->form_validation->run() == false) {
             $data['title'] = "Tambah Kategori Produk";
-            $data['karyawan'] = $this->db->get_where('tbl_karyawan', [
+            $data['tbl_pesan'] = $this->beranda_model->tampilPesan();
+            $data['pesan'] = $this->beranda_model->hitungPesan();
+            $data['hitung'] = $this->beranda_model->hitung();
+            $data['transaksi3'] = $this->beranda_model->tampilTransaksi();
+            $data['karyawan'] = $this->db->get_where('karyawan', [
                 'nama_karyawan' => $this->session->userdata('nama_karyawan')
             ])->row_array();
             $this->load->view('admin/layout/head', $data);
@@ -52,8 +69,8 @@ class Kategori extends CI_Controller {
             $slug_kategori = url_title($this->input->post('nama_kategori'), 'dash', TRUE);
             $data = [
                 'slug_kategori' => $slug_kategori,
-                'nama_kategori' => htmlspecialchars($this->input->post('nama_kategori')),
-                'urutan' => htmlspecialchars($this->input->post('urutan'))
+                'nama_kategori' => stripslashes(htmlspecialchars(strip_tags($this->input->post('nama_kategori')))),
+                'urutan' => stripslashes(htmlspecialchars(strip_tags($this->input->post('urutan'))))
             ];
             $this->Kategori_model->tambah($data);
             $this->session->set_flashdata('notifKategori', '<div class="alert alert-success alert-dismissible" role="alert">
@@ -69,11 +86,24 @@ class Kategori extends CI_Controller {
     }
     public function edit($id_kategori)
     {
+        if ($_SESSION['id_jabatan'] == 3 or $_SESSION['id_jabatan'] == 4) {
+            $this->session->set_flashdata('notifKategori', '<div class="alert alert-danger alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                <span aria-hidden="true">&times;&nbsp;&nbsp;</span>
+            </button>
+            <strong>Gagal!</strong> Akses tidak diberikan.
+            </div>');
+        redirect('admin/kategori');
+        }
         $data['kategori'] = $this->Kategori_model->detail($id_kategori);
         
         if ($this->form_validation->run() ==  FALSE) {
             $data['title'] = "Edit Kategori Produk";
-            $data['karyawan'] = $this->db->get_where('tbl_karyawan', [
+            $data['tbl_pesan'] = $this->beranda_model->tampilPesan();
+            $data['pesan'] = $this->beranda_model->hitungPesan();
+            $data['hitung'] = $this->beranda_model->hitung();
+            $data['transaksi3'] = $this->beranda_model->tampilTransaksi();
+            $data['karyawan'] = $this->db->get_where('karyawan', [
                 'nama_karyawan' => $this->session->userdata('nama_karyawan')
             ])->row_array();
             $this->load->view('admin/layout/head', $data);
@@ -87,11 +117,11 @@ class Kategori extends CI_Controller {
             $data = [
                 'id_kategori' => $id_kategori,
                 'slug_kategori' => $slug_kategori,
-                'nama_kategori' => htmlspecialchars($this->input->post('nama_kategori')),
-                'urutan' => htmlspecialchars($this->input->post('urutan'))
+                'nama_kategori' => stripslashes(htmlspecialchars(strip_tags($this->input->post('nama_kategori')))),
+                'urutan' => stripslashes(htmlspecialchars(strip_tags($this->input->post('urutan'))))
             ];
             $where = ['id_kategori' => $id_kategori];
-            $this->Kategori_model->update($where, $data, 'tbl_kategori');
+            $this->Kategori_model->update($where, $data, 'kategori');
             $this->session->set_flashdata('notifKategori', '<div class="alert alert-success alert-dismissible" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;&nbsp; &nbsp;</span>
@@ -105,6 +135,15 @@ class Kategori extends CI_Controller {
     }
     public function hapus($id)
     {
+        if ($_SESSION['id_jabatan'] == 3 or $_SESSION['id_jabatan'] == 4) {
+            $this->session->set_flashdata('notifKategori', '<div class="alert alert-danger alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                <span aria-hidden="true">&times;&nbsp;&nbsp;</span>
+            </button>
+            <strong>Gagal!</strong> Akses tidak diberikan.
+            </div>');
+        redirect('admin/kategori');
+        }
         $this->Kategori_model->hapus($id);
         $this->session->set_flashdata('notifKategori', '<div class="alert alert-success alert-dismissible" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">

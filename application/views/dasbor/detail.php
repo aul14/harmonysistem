@@ -24,13 +24,12 @@
                 <table class="table table-bordered" width="100%" >
                     <thead>
                         <tr>
-                            <th>Kode Transaksi</th>
-                            <th><?= $header_transaksi->kode_transaksi ?></th>
+                            <th>No. Transaksi</th>
+                            <th><?= $header_transaksi->order_id ?></th>
                 
                         </tr>
                     </thead>
                     <tbody>
-                       
                         <tr>
                             <td>Tanggal Transaksi</td>
                             <td><?= $header_transaksi->tanggal_transaksi ?></td>
@@ -44,8 +43,63 @@
                             <td><?= $header_transaksi->alamat_pengiriman ?></td>
                         </tr>
                         <tr>
+                            <td>Tipe Pembayaran</td>
+                            <td><?= $header_transaksi->payment_type ?></td>
+                        </tr>
+                        <tr>
+                            <td>Kode Pembayaran</td>
+                            <td><?= $header_transaksi->va_number ?> <?= $header_transaksi->bill_key ?> <?= $header_transaksi->permata_va_number ?> <?= $header_transaksi->payment_code ?></td>
+                        </tr>
+                        
+                        <?php foreach($midtrans as $m) { 
+                        $id = $m->order_id;
+                        if($m->transaction_status == 'pending'){
+                   
+                            $cek=$this->Konfigurasi_model->cekstatus($id);
+                            // echo $m->transaction_status."-".$cek['transaction_status'];
+                            if($cek['transaction_status'] != 'pending'){
+                              // echo "JALANKAN UPDATE";
+                              $update = $this->Konfigurasi_model->update_midtrans($cek['order_id'],$cek['transaction_status']);
+                              
+                            } 
+                            
+                          }
+                        ?>
+                        <tr> 
                             <td>Status Pembayaran</td>
-                            <td><?= $header_transaksi->status_bayar ?></td>
+                            <td><?= $m->transaction_status ?></td>
+                           
+                        </tr>
+                        <?php } ?>
+                        <?php foreach($midtrans as $m) { 
+                          $id = $m->order_id;
+                          if($m->transaction_status == 'settlement'){
+                              $cek=$this->Konfigurasi_model->cekstatus($id);
+                              if($cek['transaction_status'] == 'deny') {
+                                $data = [
+                                    'pengiriman'=>'dibatalkan',
+                                    'transaction_status' => 'deny'
+                                  ];
+                                  $this->db->update('transaksi',$data,['order_id'=>$id]);
+                              }  else if($cek['transaction_status'] == 'expire') {
+                                $data = [
+                                    'pengiriman'=>'dibatalkan',
+                                    'transaction_status' => 'expire'
+                                  ];
+                                  $this->db->update('transaksi',$data,['order_id'=>$id]);
+                              }    
+                          } 
+                        ?>
+                       
+                        <tr>
+                            <td>Pengiriman</td>
+                            <td><?= $m->pengiriman ?></td>
+                        </tr>
+                        <?php } ?>
+                        <tr>
+                            <td>Intruksi Pembayaran</td>
+                            <td><a href="<?= $header_transaksi->cara_bayar ?>" class="btn btn-success btn-sm" ><i class="fa fa-download"></i>&nbsp;Download Intruksi Pembayaran</a>
+                        </td>
                         </tr>
                       
                     </tbody>

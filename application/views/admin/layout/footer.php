@@ -6,7 +6,7 @@
  <footer class="sticky-footer bg-white">
    <div class="container my-auto">
      <div class="copyright text-center my-auto">
-       <span>Copyright &copy; Harmony Sistem 2020</span>
+       <span>Copyright &copy; Harmony Sistem <?= date('Y'); ?></span>
      </div>
    </div>
  </footer>
@@ -43,25 +43,21 @@
  </div>
 
  <!-- Bootstrap core JavaScript-->
+    <script src="<?= base_url(); ?>assets/vendor/jquery/jquery.min.js"></script>
+    <script src="<?= base_url(); ?>assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
- <script src="<?php echo base_url('assets/jquery/jquery.min.js') ?>"></script>
- <script src="<?php echo base_url('assets/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="<?= base_url(); ?>assets/vendor/jquery-easing/jquery.easing.min.js"></script>
 
- <!-- Core plugin JavaScript-->
- <script src="<?php echo base_url('assets/jquery-easing/jquery.easing.min.js') ?>"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="<?= base_url(); ?>assets/js/sb-admin-2.min.js"></script>
 
- <!-- Custom scripts for all pages-->
- <script src="<?php echo base_url('assets/js/sb-admin-2.min.js') ?>"></script>
+    <!-- Datepicker -->
 
- <!-- Page level plugins -->
- 
-<!-- Datepicker -->
-<script src="<?= base_url(); ?>assets/vendor/daterangepicker/moment.min.js"></script>
-<script src="<?= base_url(); ?>assets/vendor/daterangepicker/daterangepicker.min.js"></script>
- <!-- Page level custom scripts -->
- <script src="<?php echo base_url('assets/js/demo/chart-area-demo.js') ?>"></script>
- <script src="<?php echo base_url('assets/js/demo/chart-pie-demo.js') ?>"></script>
- <!-- Page level plugins -->
+    <script src="<?= base_url(); ?>assets/vendor/daterangepicker/moment.min.js"></script>
+    <script src="<?= base_url(); ?>assets/vendor/daterangepicker/daterangepicker.min.js"></script>
+
+    <!-- Page level plugins -->
     <script src="<?= base_url(); ?>assets/vendor/datatables/jquery.dataTables.min.js"></script>
     <script src="<?= base_url(); ?>assets/vendor/datatables/dataTables.bootstrap4.min.js"></script>
     <script src="<?= base_url(); ?>assets/vendor/datatables/buttons/js/dataTables.buttons.min.js"></script>
@@ -74,20 +70,18 @@
     <script src="<?= base_url(); ?>assets/vendor/datatables/buttons/js/buttons.colVis.min.js"></script>
     <script src="<?= base_url(); ?>assets/vendor/datatables/responsive/js/dataTables.responsive.min.js"></script>
     <script src="<?= base_url(); ?>assets/vendor/datatables/responsive/js/responsive.bootstrap4.min.js"></script>
- <script type="text/javascript" src="<?php echo base_url() ?>assets/js/plugins/loaders/pace.min.js"></script>
+    <script src="<?= base_url() ?>assets/calender/js/pignose.calendar.js"></script>
+    <script src="<?= base_url() ?>assets/ckeditor/ckeditor.js" type="text/javascript"></script>
+    <script src="<?= base_url() ?>assets/ckeditor/samples/js/sample.js" type="text/javascript"></script>
+    <script>
+        CKEDITOR.replace( 'keterangan', { 
+        enterMode: CKEDITOR.ENTER_BR, 
+        on: {'instanceReady': function (evt) {      }},
+        });      
+    CKEDITOR.config.removePlugins = 'elementspath';
+    
+    </script>
 
- <script type="text/javascript" src="<?php echo base_url() ?>assets/js/plugins/ui/moment/moment.min.js"></script>
- <script src="<?php echo base_url() ?>assets/calender/js/pignose.calendar.js"></script>
- <script src="<?= base_url() ?>assets/ckeditor/ckeditor.js" type="text/javascript"></script>
- <script src="<?= base_url() ?>assets/ckeditor/samples/js/sample.js" type="text/javascript"></script>
-<script>
-    CKEDITOR.replace( 'keterangan', { 
-    enterMode: CKEDITOR.ENTER_BR, 
-    on: {'instanceReady': function (evt) {      }},
-    });      
-   CKEDITOR.config.removePlugins = 'elementspath';
-   
-</script>
  
  
  <script type="text/javascript">
@@ -168,8 +162,8 @@
                     "<'row'<'col-md-12'tr>>" +
                     "<'row px-2 px-md-4 py-3'<'col-md-5'i><'col-md-7'p>>",
                 lengthMenu: [
-                    [5, 10, 25, 50, 100, -1],
-                    [5, 10, 25, 50, 100, "All"]
+                    [10, 20, 30, 50, 100, -1],
+                    [10, 20, 30, 50, 100, "All"]
                 ],
                 columnDefs: [{
                     targets: -1,
@@ -223,7 +217,7 @@
                 data: {
                     labels: ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Agu", "Sep", "Okt", "Nov", "Des"],
                     datasets: [{
-                            label: "Total Transaksi",
+                            label: "Total Transaksi Sukses",
                             lineTension: 0.3,
                             backgroundColor: "rgba(78, 115, 223, 0.05)",
                             borderColor: "rgba(78, 115, 223, 1)",
@@ -235,9 +229,54 @@
                             pointHoverBorderColor: "#5a5c69",
                             pointHitRadius: 10,
                             pointBorderWidth: 2,
-                            data: <?= json_encode($transaksi); ?>,
+                            data: <?= json_encode($transaksi);  ?>,
                         },
-                       
+                        {
+                            label: "Total Transaksi Deny",
+                            lineTension: 0.3,
+                            backgroundColor: "rgba(231, 74, 59, 0.05)",
+                            borderColor: "#e74a3b",
+                            pointRadius: 3,
+                            pointBackgroundColor: "#e74a3b",
+                            pointBorderColor: "#e74a3b",
+                            pointHoverRadius: 3,
+                            pointHoverBackgroundColor: "#5a5c69",
+                            pointHoverBorderColor: "#5a5c69",
+                            pointHitRadius: 10,
+                            pointBorderWidth: 2,
+                            data: <?= json_encode($transaksi5); ?>,
+                        },
+                        {
+                            label: "Total Transaksi Expire",
+                            lineTension: 0.3,
+                            backgroundColor: "rgba(231, 74, 59, 0.05)",
+                            borderColor: "#ffa600",
+                            pointRadius: 3,
+                            pointBackgroundColor: "#ffa600",
+                            pointBorderColor: "#ffa600",
+                            pointHoverRadius: 3,
+                            pointHoverBackgroundColor: "#5a5c69",
+                            pointHoverBorderColor: "#5a5c69",
+                            pointHitRadius: 10,
+                            pointBorderWidth: 2,
+                            data: <?= json_encode($transaksi4); ?>,
+                        },
+                        {
+                            label: "Total Transaksi Pending",
+                            lineTension: 0.3,
+                            backgroundColor: "rgba(231, 74, 59, 0.05)",
+                            borderColor: "#33ff33",
+                            pointRadius: 3,
+                            pointBackgroundColor: "#33ff33",
+                            pointBorderColor: "#33ff33",
+                            pointHoverRadius: 3,
+                            pointHoverBackgroundColor: "#5a5c69",
+                            pointHoverBorderColor: "#5a5c69",
+                            pointHitRadius: 10,
+                            pointBorderWidth: 2,
+                            data: <?= json_encode($transaksi2); ?>,
+                        }
+
                     ],
                 },
                 options: {
@@ -306,6 +345,15 @@
            
         </script>
     <?php endif; ?>
+    
+    <script type="text/javascript">
+       	$("#dikemas").click(function(e){
+        e.preventDefault();
+        
+	    $('#dikemas').addClass('disabled');
+        $('#dikemas').removeAttr('data-toggle');
+    	});
+    </script>
  </body>
 
  </html>

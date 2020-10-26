@@ -22,11 +22,13 @@
      <p class="alert alert-warning">Tidak memiliki akun? Silahkan
         <a href="<?= base_url('registrasi') ?>" class="btn btn-info" >Daftar disini</a>
     </p>
+    
    <div class="col-md-12">
        <?=
         validation_errors('<div class="alert alert-warning">','</div>');
        ?>
-      <form action="" method="post">
+      <form action="" method="post" accept-charset="utf-8">
+      <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>">
        <table class="table table-bordered">
            <tbody>
                <tr>
@@ -46,7 +48,7 @@
                    <th></th>
                    <td>
                        <button class="btn btn-success btn-lg"  type="submit"><i class="fa fa-lock"></i>&nbsp;Login</button>
-                       <button class="btn btn-warning btn-lg" type="reset"><i class="fa fa-close"></i>&nbsp;Reset</button>
+                       
                    </td>
                </tr>
            </tbody>

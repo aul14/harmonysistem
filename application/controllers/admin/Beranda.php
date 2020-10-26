@@ -26,19 +26,29 @@ class Beranda extends CI_Controller
     {
         $data['title'] = "Halaman Admin";
         $data['pelanggan'] = $this->beranda_model->hitungPelanggan();
+        $data['pesan'] = $this->beranda_model->hitungPesan();
+        $data['hitung'] = $this->beranda_model->hitung();
+        $data['transaksi3'] = $this->beranda_model->tampilTransaksi();
+        $data['tbl_pesan'] = $this->beranda_model->tampilPesan();
         $data['produk'] = $this->beranda_model->hitungProduk();
         $data['tbl_karyawan'] = $this->beranda_model->hitungKaryawan();
-        $data['barang_min'] = $this->beranda_model->min('tbl_produk', 'stok', 10);
-        $data['karyawan'] = $this->db->get_where('tbl_karyawan', [
+        $data['barang_min'] = $this->beranda_model->min('produk', 'stok', 10);
+        $data['karyawan'] = $this->db->get_where('karyawan', [
             'nama_karyawan' => $this->session->userdata('nama_karyawan')
         ])->row_array();
 
          // Line Chart
          $bln = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
          $data['transaksi'] = [];
+         $data['transaksi2'] = [];
+         $data['transaksi4'] = [];
+         $data['transaksi5'] = [];
  
          foreach ($bln as $b) {
             $data['transaksi'][] = $this->beranda_model->chartTransaksi($b);
+            $data['transaksi2'][] = $this->beranda_model->chartTransaksi2($b);
+            $data['transaksi4'][] = $this->beranda_model->chartTransaksi3($b);
+            $data['transaksi5'][] = $this->beranda_model->chartTransaksi4($b);
          }
         $this->load->view('admin/layout/head', $data);
         $this->load->view('admin/layout/sidebar');

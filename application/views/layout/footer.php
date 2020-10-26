@@ -3,7 +3,7 @@ $site = $this->Konfigurasi_model->listing();
 $nav_produk_footer = $this->Konfigurasi_model->nav_produk();
 ?>
 <!-- Footer -->
-<footer class="bg5 p-t-45 p-b-43 p-l-45 p-r-45">
+<footer class="p-t-45 p-b-43 p-l-45 p-r-45" style="background-color: #ebebeb;">
 <div class="flex-w p-b-90">
 	<div class="w-size6 p-t-30 p-l-15 p-r-15 respon3">
 		<h4 class="s-text12 p-b-30">
@@ -12,9 +12,9 @@ $nav_produk_footer = $this->Konfigurasi_model->nav_produk();
 
 		<div>
 			<p class="s-text7 w-size27">
-				<?= nl2br($site->alamat) ?>
-				<br><i class="fa fa-envelope"></i> <?= $site->email ?>
-				<br><i class="fa fa-phone"></i> <?= $site->telepon ?>
+			<i class="fas fa-map-marker-alt"></i>&nbsp; <?= nl2br($site->alamat) ?>
+				<br><i class="fa fa-envelope"></i>&nbsp; <?= $site->email ?>
+				<br><i class="fa fa-phone"></i>&nbsp; <?= $site->telepon ?>
 			</p>
 
 			<div class="flex-m p-t-30">
@@ -27,7 +27,7 @@ $nav_produk_footer = $this->Konfigurasi_model->nav_produk();
 
 	<div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
 		<h4 class="s-text12 p-b-30">
-			Kategori Produk
+			Kategori
 		</h4>
 
 		<ul>
@@ -47,26 +47,21 @@ $nav_produk_footer = $this->Konfigurasi_model->nav_produk();
 		</h4>
 
 		<ul>
+		
 			<li class="p-b-9">
-				<a href="#" class="s-text7">
-					Search
+				<a href="<?= base_url('about') ?>" class="s-text7">
+					Tentang Kami
 				</a>
 			</li>
 
 			<li class="p-b-9">
-				<a href="#" class="s-text7">
-					About Us
+				<a href="<?= base_url('kontak') ?>" class="s-text7">
+					Hubungi Kami
 				</a>
 			</li>
 
 			<li class="p-b-9">
-				<a href="#" class="s-text7">
-					Contact Us
-				</a>
-			</li>
-
-			<li class="p-b-9">
-				<a href="#" class="s-text7">
+				<a href="<?= base_url('kontak') ?>" class="s-text7">
 					Returns
 				</a>
 			</li>
@@ -106,31 +101,30 @@ $nav_produk_footer = $this->Konfigurasi_model->nav_produk();
 	</div>
 
 	<div class="w-size8 p-t-30 p-l-15 p-r-15 respon3">
-		<h4 class="s-text12 p-b-30">
-			Newsletter
-		</h4>
+				<h4 class="s-text12 p-b-30">
+					Newsletter
+				</h4>
 
-		<form>
-			<div class="effect1 w-size9">
-				<input class="s-text7 bg6 w-full p-b-5" type="text" name="email" placeholder="email@example.com">
-				<span class="effect1-line"></span>
+				<form>
+					<div class="effect1 w-size9">
+						<input class="s-text7 bg6 w-full p-b-5" type="text" name="email" placeholder="email@example.com">
+						<span class="effect1-line"></span>
+					</div>
+
+					<div class="w-size2 p-t-20">
+						<!-- Button -->
+						<button class="flex-c-m size2 bg4 bo-rad-23 hov1 m-text3 trans-0-4">
+							Subscribe
+						</button>
+					</div>
+
+				</form>
 			</div>
-
-			<div class="w-size2 p-t-20">
-				<!-- Button -->
-				<button class="flex-c-m size2 bg4 bo-rad-23 hov1 m-text3 trans-0-4">
-					Subscribe
-				</button>
-			</div>
-
-		</form>
-	</div>
-</div>
-
+		</div>
 <div class="t-center p-l-15 p-r-15">
-
+	<img class="img img-responsive" width="450" src="<?= base_url('assets/upload/konfigurasi/payment.png') ?>" alt="">
 	<div class="t-center s-text8 p-t-20">
-		<strong>Copyright © 2020 Harmony Sistem. by <a href="https://harmonysistem.co.id" ><strong> <i>Harmony Sistem</strong></a></i></strong>
+		<strong>Copyright © <?= date('Y'); ?> Harmony Sistem. by <a href="<?= base_url() ?>" ><strong> <i>Harmony Sistem</strong></a></i></strong>
 	</div>
 </div>
 </footer>
@@ -150,7 +144,8 @@ $nav_produk_footer = $this->Konfigurasi_model->nav_produk();
 
 
 <!--===============================================================================================-->
-<script type="text/javascript" src="<?= base_url() ?>assets/template/vendor/jquery/jquery-3.2.1.min.js"></script>
+<script src="<?= base_url(); ?>assets/vendor/jquery/jquery.min.js"></script>
+
 <!--===============================================================================================-->
 <script type="text/javascript" src="<?= base_url() ?>assets/template/vendor/animsition/js/animsition.min.js"></script>
 <!--===============================================================================================-->
@@ -174,7 +169,8 @@ $(".selection-1").select2({
 <!--===============================================================================================-->
 <script type="text/javascript" src="<?= base_url() ?>assets/template/vendor/sweetalert/sweetalert.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url() ?>assets/js/plugins/ui/moment/moment.min.js"></script>
-<script src="<?php echo base_url() ?>assets/calender/js/pignose.calendar.js"></script>
+<script src="<?= base_url() ?>assets/calender/js/pignose.calendar.js"></script>
+
 <script type="text/javascript">
 $('.block2-btn-addcart').each(function(){
 	var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
@@ -228,17 +224,8 @@ $('.block2-btn-addwishlist').each(function(){
    });
  </script>
 
- <script>
-$.ajax({
-	type: "post",
-	url: "<?= base_url('beranda/konfirmasi/') ?>",
-	data: $('#id_rekening input[type=\'radio\']:checked,'),
-	dataType: "json",
-	success: function (response) {
-		$('#rekening .card-body').html(html);
-	}
-}); 
-
- </script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhjcrba7OFou4Do510Y4pPffdXBz6oNf4"></script>
+<script src="<?= base_url() ?>assets/template/js/map.js"></script>
+ 
 </body>
 </html>

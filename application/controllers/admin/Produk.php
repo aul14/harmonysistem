@@ -27,8 +27,12 @@ class Produk extends CI_Controller {
     public function index()
     {
         $data['title'] = "Data Produk";
-        $data['tbl_produk'] = $this->Produk_model->listing();
-        $data['karyawan'] = $this->db->get_where('tbl_karyawan', [
+        $data['produk'] = $this->Produk_model->listing();
+        $data['pesan'] = $this->beranda_model->hitungPesan();
+        $data['hitung'] = $this->beranda_model->hitung();
+        $data['transaksi3'] = $this->beranda_model->tampilTransaksi();
+        $data['tbl_pesan'] = $this->beranda_model->tampilPesan();
+        $data['karyawan'] = $this->db->get_where('karyawan', [
             'nama_karyawan' => $this->session->userdata('nama_karyawan')
         ])->row_array();
         $this->load->view('admin/layout/head', $data);
@@ -39,6 +43,15 @@ class Produk extends CI_Controller {
     }
     public function gambar($id_produk)
     {
+        if ($_SESSION['id_jabatan'] == 3 or $_SESSION['id_jabatan'] == 4) {
+            $this->session->set_flashdata('notifProduk', '<div class="alert alert-danger alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                <span aria-hidden="true">&times;&nbsp;&nbsp;</span>
+            </button>
+            <strong>Gagal!</strong> Akses tidak diberikan.
+            </div>');
+        redirect('admin/produk');
+        }
         $produk = $this->Produk_model->detail($id_produk);
         $gambar = $this->Produk_model->gambar($id_produk);
 
@@ -62,7 +75,11 @@ class Produk extends CI_Controller {
                     'gambar' => $gambar,
                     'eror' => $this->upload->display_errors(),
                 ];
-                $data['karyawan'] = $this->db->get_where('tbl_karyawan', [
+                $data['tbl_pesan'] = $this->beranda_model->tampilPesan();
+                $data['pesan'] = $this->beranda_model->hitungPesan();
+                $data['hitung'] = $this->beranda_model->hitung();
+                $data['transaksi3'] = $this->beranda_model->tampilTransaksi();
+                $data['karyawan'] = $this->db->get_where('karyawan', [
                     'nama_karyawan' => $this->session->userdata('nama_karyawan')
                 ])->row_array();
                 $this->load->view('admin/layout/head', $data);
@@ -91,7 +108,7 @@ class Produk extends CI_Controller {
 
                 $data = [
                     'id_produk' => $id_produk,
-                    'judul_gambar' => htmlspecialchars($this->input->post('judul_gambar')),
+                    'judul_gambar' => stripslashes(htmlspecialchars(strip_tags($this->input->post('judul_gambar')))),
                     'gambar' => $upload_gambar['upload_data']['file_name'],
 
                 ];
@@ -113,7 +130,11 @@ class Produk extends CI_Controller {
             'produk' => $produk,
             'gambar' => $gambar,
         ];
-        $data['karyawan'] = $this->db->get_where('tbl_karyawan', [
+        $data['tbl_pesan'] = $this->beranda_model->tampilPesan();
+        $data['pesan'] = $this->beranda_model->hitungPesan();
+        $data['hitung'] = $this->beranda_model->hitung();
+        $data['transaksi3'] = $this->beranda_model->tampilTransaksi();
+        $data['karyawan'] = $this->db->get_where('karyawan', [
             'nama_karyawan' => $this->session->userdata('nama_karyawan')
         ])->row_array();
         $this->load->view('admin/layout/head', $data);
@@ -124,10 +145,19 @@ class Produk extends CI_Controller {
     }
     public function tambah()
     {
+        if ($_SESSION['id_jabatan'] == 3 or $_SESSION['id_jabatan'] == 4) {
+            $this->session->set_flashdata('notifProduk', '<div class="alert alert-danger alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                <span aria-hidden="true">&times;&nbsp;&nbsp;</span>
+            </button>
+            <strong>Gagal!</strong> Akses tidak diberikan.
+            </div>');
+        redirect('admin/produk');
+        }
         $kategori = $this->Kategori_model->listing();
         //validasi input
         $this->form_validation->set_rules('nama_produk', 'Nama Produk', 'trim|required');
-        $this->form_validation->set_rules('kode_produk', 'Kode Produk', 'trim|required|is_unique[tbl_produk.kode_produk]', ['is_unique' => '%s sudah ada. Buat kode produk baru']);
+        $this->form_validation->set_rules('kode_produk', 'Kode Produk', 'trim|required|is_unique[produk.kode_produk]', ['is_unique' => '%s sudah ada. Buat kode produk baru']);
 
         if ($this->form_validation->run()) {
 
@@ -145,7 +175,11 @@ class Produk extends CI_Controller {
                     'kategori' => $kategori,
                     'eror' => $this->upload->display_errors(),
                 ];
-                $data['karyawan'] = $this->db->get_where('tbl_karyawan', [
+                $data['tbl_pesan'] = $this->beranda_model->tampilPesan();
+                $data['pesan'] = $this->beranda_model->hitungPesan();
+                $data['hitung'] = $this->beranda_model->hitung();
+                $data['transaksi3'] = $this->beranda_model->tampilTransaksi();
+                $data['karyawan'] = $this->db->get_where('karyawan', [
                     'nama_karyawan' => $this->session->userdata('nama_karyawan')
                 ])->row_array();
                 $this->load->view('admin/layout/head', $data);
@@ -176,17 +210,17 @@ class Produk extends CI_Controller {
                 $data = [
                     'id_karyawan' =>  $this->session->userdata('id_karyawan'),
                     'id_kategori' => $this->input->post('id_kategori'),
-                    'kode_produk' => htmlspecialchars($this->input->post('kode_produk')),
-                    'nama_produk' => htmlspecialchars($this->input->post('nama_produk')),
+                    'kode_produk' => stripslashes(htmlspecialchars(strip_tags($this->input->post('kode_produk')))),
+                    'nama_produk' => stripslashes(htmlspecialchars(strip_tags($this->input->post('nama_produk')))),
                     'slug_produk' => $slug_produk,
-                    'keterangan' => trim(stripslashes(htmlspecialchars($this->input->post('keterangan')))),
-                    'keywords' => htmlspecialchars($this->input->post('keywords')),
-                    'harga' => htmlspecialchars($this->input->post('harga')),
-                    'stok' => htmlspecialchars($this->input->post('stok')),
+                    'keterangan' => trim(stripslashes(htmlspecialchars(strip_tags($this->input->post('keterangan'))))),
+                    'keywords' => stripslashes(htmlspecialchars(strip_tags($this->input->post('keywords')))),
+                    'harga' => stripslashes(htmlspecialchars(strip_tags($this->input->post('harga')))),
+                    'stok' => stripslashes(htmlspecialchars(strip_tags($this->input->post('stok')))),
                     'gambar' => $upload_gambar['upload_data']['file_name'],
-                    'berat' => htmlspecialchars($this->input->post('berat')),
-                    'ukuran' => htmlspecialchars($this->input->post('ukuran')),
-                    'status_produk' => htmlspecialchars($this->input->post('status_produk')),
+                    'berat' => stripslashes(htmlspecialchars(strip_tags($this->input->post('berat')))),
+                    'ukuran' => stripslashes(htmlspecialchars(strip_tags($this->input->post('ukuran')))),
+                    'status_produk' => stripslashes(htmlspecialchars(strip_tags($this->input->post('status_produk')))),
                     'tanggal_post' => date('Y-m-d H:i:s')
                 ];
 
@@ -206,9 +240,13 @@ class Produk extends CI_Controller {
             'title' => 'Tambah Produk',
             'kategori' => $kategori,
         ];
-        $data['karyawan'] = $this->db->get_where('tbl_karyawan', [
+        $data['karyawan'] = $this->db->get_where('karyawan', [
             'nama_karyawan' => $this->session->userdata('nama_karyawan')
         ])->row_array();
+        $data['tbl_pesan'] = $this->beranda_model->tampilPesan();
+        $data['pesan'] = $this->beranda_model->hitungPesan();
+        $data['hitung'] = $this->beranda_model->hitung();
+        $data['transaksi3'] = $this->beranda_model->tampilTransaksi();
         $this->load->view('admin/layout/head', $data);
         $this->load->view('admin/layout/sidebar');
         $this->load->view('admin/layout/nav', $data);
@@ -217,6 +255,15 @@ class Produk extends CI_Controller {
     }
     public function edit($id_produk)
     {
+        if ($_SESSION['id_jabatan'] == 3 or $_SESSION['id_jabatan'] == 4) {
+            $this->session->set_flashdata('notifProduk', '<div class="alert alert-danger alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                <span aria-hidden="true">&times;&nbsp;&nbsp;</span>
+            </button>
+            <strong>Gagal!</strong> Akses tidak diberikan.
+            </div>');
+        redirect('admin/produk');
+        }
         $produk = $this->Produk_model->detail($id_produk);
         $kategori = $this->Kategori_model->listing();
           //validasi input
@@ -243,7 +290,11 @@ class Produk extends CI_Controller {
                           'produk' => $produk,
                           'eror' => $this->upload->display_errors()  
                       ];
-                      $data['karyawan'] = $this->db->get_where('tbl_karyawan', [
+                      $data['tbl_pesan'] = $this->beranda_model->tampilPesan();
+                      $data['pesan'] = $this->beranda_model->hitungPesan();
+                      $data['hitung'] = $this->beranda_model->hitung();
+                      $data['transaksi3'] = $this->beranda_model->tampilTransaksi();
+                      $data['karyawan'] = $this->db->get_where('karyawan', [
                         'nama_karyawan' => $this->session->userdata('nama_karyawan')
                     ])->row_array();
                         $this->load->view('admin/layout/head', $data);
@@ -254,7 +305,7 @@ class Produk extends CI_Controller {
                   } else {
   
                       $this->db->where('id_produk', $id_produk);
-                      $query = $this->db->get('tbl_produk');
+                      $query = $this->db->get('produk');
                       $row = $query->row();
                       // var_dump($row);die;
                       unlink('./assets/upload/produk/' . $row->gambar);
@@ -281,21 +332,21 @@ class Produk extends CI_Controller {
                       $data = [
                           'id_produk' => $id_produk,
                           'id_karyawan' => $this->session->userdata('id_karyawan'),
-                          'id_kategori' => htmlspecialchars($this->input->post('id_kategori')),
-                          'kode_produk' => htmlspecialchars($this->input->post('kode_produk')),
-                          'nama_produk' => htmlspecialchars($this->input->post('nama_produk')),
+                          'id_kategori' => stripslashes(htmlspecialchars(strip_tags($this->input->post('id_kategori')))),
+                          'kode_produk' => stripslashes(htmlspecialchars(strip_tags($this->input->post('kode_produk')))),
+                          'nama_produk' => stripslashes(htmlspecialchars(strip_tags($this->input->post('nama_produk')))),
                           'slug_produk' => $slug_produk,
-                          'keterangan' => htmlspecialchars($this->input->post('keterangan')),
-                          'keywords' => htmlspecialchars($this->input->post('keywords')),
-                          'harga' => htmlspecialchars($this->input->post('harga')),
-                          'stok' => htmlspecialchars($this->input->post('stok')),
+                          'keterangan' => stripslashes(htmlspecialchars(strip_tags($this->input->post('keterangan')))),
+                          'keywords' => stripslashes(htmlspecialchars(strip_tags($this->input->post('keywords')))),
+                          'harga' => stripslashes(htmlspecialchars(strip_tags($this->input->post('harga')))),
+                          'stok' => stripslashes(htmlspecialchars(strip_tags($this->input->post('stok')))),
                           'gambar' => $upload_gambar['upload_data']['file_name'],
-                          'berat' => htmlspecialchars($this->input->post('berat')),
-                          'ukuran' => htmlspecialchars($this->input->post('ukuran')),
-                          'status_produk' => htmlspecialchars($this->input->post('status_produk'))
+                          'berat' => stripslashes(htmlspecialchars(strip_tags($this->input->post('berat')))),
+                          'ukuran' => stripslashes(htmlspecialchars(strip_tags($this->input->post('ukuran')))),
+                          'status_produk' => stripslashes(htmlspecialchars(strip_tags($this->input->post('status_produk'))))
                       ];
                       $where = ['id_produk' => $id_produk];
-                      $this->Produk_model->update($where, $data, 'tbl_produk');
+                      $this->Produk_model->update($where, $data, 'produk');
                       $this->session->set_flashdata('notifProduk', '<div class="alert alert-success alert-dismissible" role="alert">
                       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                           <span aria-hidden="true">&times;&nbsp; &nbsp;</span>
@@ -312,19 +363,19 @@ class Produk extends CI_Controller {
                       'id_produk' => $id_produk,
                       'id_karyawan' => $this->session->userdata('id_karyawan'),
                       'id_kategori' => $this->input->post('id_kategori'),
-                      'kode_produk' => htmlspecialchars($this->input->post('kode_produk')),
-                      'nama_produk' => htmlspecialchars($this->input->post('nama_produk')),
+                      'kode_produk' => stripslashes(htmlspecialchars(strip_tags($this->input->post('kode_produk')))),
+                      'nama_produk' => stripslashes(htmlspecialchars(strip_tags($this->input->post('nama_produk')))),
                       'slug_produk' => $slug_produk,
-                      'keterangan' => htmlspecialchars($this->input->post('keterangan')),
-                      'keywords' => htmlspecialchars($this->input->post('keywords')),
-                      'harga' => htmlspecialchars($this->input->post('harga')),
-                      'stok' => htmlspecialchars($this->input->post('stok')),
-                      'berat' => htmlspecialchars($this->input->post('berat')),
-                      'ukuran' => htmlspecialchars($this->input->post('ukuran')),
-                      'status_produk' => htmlspecialchars($this->input->post('status_produk'))
+                      'keterangan' => stripslashes(htmlspecialchars(strip_tags($this->input->post('keterangan')))),
+                      'keywords' => stripslashes(htmlspecialchars(strip_tags($this->input->post('keywords')))),
+                      'harga' => stripslashes(htmlspecialchars(strip_tags($this->input->post('harga')))),
+                      'stok' => stripslashes(htmlspecialchars(strip_tags($this->input->post('stok')))),
+                      'berat' => stripslashes(htmlspecialchars(strip_tags($this->input->post('berat')))),
+                      'ukuran' => stripslashes(htmlspecialchars(strip_tags($this->input->post('ukuran')))),
+                      'status_produk' => stripslashes(htmlspecialchars(strip_tags($this->input->post('status_produk'))))
                   ];
                   $where = ['id_produk' => $id_produk];
-                  $this->Produk_model->update($where, $data, 'tbl_produk');
+                  $this->Produk_model->update($where, $data, 'produk');
                   $this->session->set_flashdata('notifProduk', '<div class="alert alert-success alert-dismissible" role="alert">
                       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                           <span aria-hidden="true">&times;&nbsp; &nbsp;</span>
@@ -341,9 +392,13 @@ class Produk extends CI_Controller {
             'kategori' => $kategori,
             'produk' => $produk, 
         ];
-        $data['karyawan'] = $this->db->get_where('tbl_karyawan', [
+        $data['karyawan'] = $this->db->get_where('karyawan', [
             'nama_karyawan' => $this->session->userdata('nama_karyawan')
         ])->row_array();
+        $data['tbl_pesan'] = $this->beranda_model->tampilPesan();
+        $data['pesan'] = $this->beranda_model->hitungPesan();
+        $data['hitung'] = $this->beranda_model->hitung();
+        $data['transaksi3'] = $this->beranda_model->tampilTransaksi();
           $this->load->view('admin/layout/head', $data);
           $this->load->view('admin/layout/sidebar');
           $this->load->view('admin/layout/nav', $data);
@@ -352,6 +407,15 @@ class Produk extends CI_Controller {
     }
     public function hapus($id_produk)
     {
+        if ($_SESSION['id_jabatan'] == 3 or $_SESSION['id_jabatan'] == 4) {
+            $this->session->set_flashdata('notifProduk', '<div class="alert alert-danger alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                <span aria-hidden="true">&times;&nbsp;&nbsp;</span>
+            </button>
+            <strong>Gagal!</strong> Akses tidak diberikan.
+            </div>');
+        redirect('admin/produk');
+        }
         $produk = $this->Produk_model->detail($id_produk);
         unlink('./assets/upload/produk/' . $produk->gambar);
         unlink('./assets/upload/produk/thumbs/' . $produk->gambar);
@@ -366,6 +430,15 @@ class Produk extends CI_Controller {
     }
     public function hapus_gambar($id_produk, $id_gambar)
     {
+        if ($_SESSION['id_jabatan'] == 3 or $_SESSION['id_jabatan'] == 4) {
+            $this->session->set_flashdata('notifProduk', '<div class="alert alert-danger alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                <span aria-hidden="true">&times;&nbsp;&nbsp;</span>
+            </button>
+            <strong>Gagal!</strong> Akses tidak diberikan.
+            </div>');
+        redirect('admin/produk');
+        }
         $gambar = $this->Produk_model->detail_gambar($id_gambar);
         unlink('./assets/upload/produk/' . $gambar->gambar);
         unlink('./assets/upload/produk/thumbs/' . $gambar->gambar);

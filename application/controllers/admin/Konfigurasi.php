@@ -34,7 +34,11 @@ class Konfigurasi extends CI_Controller {
                 'title' => 'Konfigurasi Website',
                 'konfigurasi' => $konfigurasi,
             ];
-            $data['karyawan'] = $this->db->get_where('tbl_karyawan', [
+            $data['pesan'] = $this->beranda_model->hitungPesan();
+            $data['tbl_pesan'] = $this->beranda_model->tampilPesan();
+            $data['hitung'] = $this->beranda_model->hitung();
+            $data['transaksi3'] = $this->beranda_model->tampilTransaksi();
+            $data['karyawan'] = $this->db->get_where('karyawan', [
                 'nama_karyawan' => $this->session->userdata('nama_karyawan')
             ])->row_array();
             $this->load->view('admin/layout/head', $data);
@@ -46,24 +50,24 @@ class Konfigurasi extends CI_Controller {
             $data = [
                 'id_konfigurasi' => $konfigurasi->id_konfigurasi,
                 'id_karyawan' => $this->session->userdata('id_karyawan'),
-                'namaweb' => htmlspecialchars($this->input->post('namaweb')),
-                'tagline' => htmlspecialchars($this->input->post('tagline')),
-                'email' => htmlspecialchars($this->input->post('email')),
-                'website' => htmlspecialchars($this->input->post('website')),
-                'keywords' => htmlspecialchars($this->input->post('keywords')),
-                'metatext' => htmlspecialchars($this->input->post('metatext')),
-                'telepon' => htmlspecialchars($this->input->post('telepon')),
-                'whatsapp' => htmlspecialchars($this->input->post('whatsapp')),
-                'alamat' => htmlspecialchars($this->input->post('alamat')),
-                'facebook' => htmlspecialchars($this->input->post('facebook')),
-                'instagram' => htmlspecialchars($this->input->post('instagram')),
-                'deskripsi' => htmlspecialchars($this->input->post('deskripsi'))
+                'namaweb' => stripslashes(htmlspecialchars(strip_tags($this->input->post('namaweb')))),
+                'tagline' => stripslashes(htmlspecialchars(strip_tags($this->input->post('tagline')))),
+                'email' => stripslashes(htmlspecialchars(strip_tags($this->input->post('email')))),
+                'website' => stripslashes(htmlspecialchars(strip_tags($this->input->post('website')))),
+                'keywords' => stripslashes(htmlspecialchars(strip_tags($this->input->post('keywords')))),
+                'metatext' => stripslashes(htmlspecialchars(strip_tags($this->input->post('metatext')))),
+                'telepon' => stripslashes(htmlspecialchars(strip_tags($this->input->post('telepon')))),
+                'whatsapp' => stripslashes(htmlspecialchars(strip_tags($this->input->post('whatsapp')))),
+                'alamat' => stripslashes(htmlspecialchars(strip_tags($this->input->post('alamat')))),
+                'facebook' => stripslashes(htmlspecialchars(strip_tags($this->input->post('facebook')))),
+                'instagram' => stripslashes(htmlspecialchars(strip_tags($this->input->post('instagram')))),
+                'deskripsi' => stripslashes(htmlspecialchars(strip_tags($this->input->post('deskripsi'))))
                
 
             ];
 
             $where = ['id_konfigurasi' => $konfigurasi->id_konfigurasi];
-            $this->Konfigurasi_model->update($where, $data, 'tbl_konfigurasi');
+            $this->Konfigurasi_model->update($where, $data, 'konfigurasi');
             $this->session->set_flashdata('notifKonfigurasi', '<div class="alert alert-success alert-dismissible" role="alert">
                       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                           <span aria-hidden="true">&times;&nbsp; &nbsp;</span>
@@ -100,7 +104,11 @@ class Konfigurasi extends CI_Controller {
                         'konfigurasi' => $konfigurasi,
                         'eror' => $this->upload->display_errors(),
                     ];
-                    $data['karyawan'] = $this->db->get_where('tbl_karyawan', [
+                    $data['tbl_pesan'] = $this->beranda_model->tampilPesan();
+                    $data['pesan'] = $this->beranda_model->hitungPesan();
+                    $data['hitung'] = $this->beranda_model->hitung();
+                    $data['transaksi3'] = $this->beranda_model->tampilTransaksi();
+                    $data['karyawan'] = $this->db->get_where('karyawan', [
                         'nama_karyawan' => $this->session->userdata('nama_karyawan')
                     ])->row_array();
                     $this->load->view('admin/layout/head', $data);
@@ -111,7 +119,7 @@ class Konfigurasi extends CI_Controller {
                 } else {
 
                     $this->db->where('id_konfigurasi', $konfigurasi->id_konfigurasi);
-                    $query = $this->db->get('tbl_konfigurasi');
+                    $query = $this->db->get('konfigurasi');
                     $row = $query->row();
                     // var_dump($row);die;
                     unlink('./assets/upload/konfigurasi/' . $row->logo);
@@ -135,13 +143,13 @@ class Konfigurasi extends CI_Controller {
                     //end thumbnail
                     $data = [
                         'id_konfigurasi' => $konfigurasi->id_konfigurasi,
-                        'namaweb' => htmlspecialchars($this->input->post('namaweb')),
+                        'namaweb' => stripslashes(htmlspecialchars(strip_tags($this->input->post('namaweb')))),
                         'logo' => $upload_gambar['upload_data']['file_name']
 
                     ];
 
                     $where = ['id_konfigurasi' => $konfigurasi->id_konfigurasi];
-                    $this->Konfigurasi_model->update($where, $data, 'tbl_konfigurasi');
+                    $this->Konfigurasi_model->update($where, $data, 'konfigurasi');
                     $this->session->set_flashdata('notifKonfigurasi', '<div class="alert alert-success alert-dismissible" role="alert">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;&nbsp; &nbsp;</span>
@@ -155,12 +163,12 @@ class Konfigurasi extends CI_Controller {
             } else {
                 $data = [
                     'id_konfigurasi' => $konfigurasi->id_konfigurasi,
-                    'namaweb' => htmlspecialchars($this->input->post('namaweb')),
+                    'namaweb' => stripslashes(htmlspecialchars(strip_tags($this->input->post('namaweb')))),
                     //'logo' => $upload_gambar['upload_data']['file_name']
 
                 ];
                 $where = ['id_konfigurasi' => $konfigurasi->id_konfigurasi];
-                $this->Konfigurasi_model->update($where, $data, 'tbl_konfigurasi');
+                $this->Konfigurasi_model->update($where, $data, 'konfigurasi');
                 $this->session->set_flashdata('notifKonfigurasi', '<div class="alert alert-success alert-dismissible" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;&nbsp; &nbsp;</span>
@@ -175,9 +183,13 @@ class Konfigurasi extends CI_Controller {
             'title' => 'Konfigurasi Logo Website ',
             'konfigurasi' => $konfigurasi        
         ];
-        $data['karyawan'] = $this->db->get_where('tbl_karyawan', [
+        $data['karyawan'] = $this->db->get_where('karyawan', [
             'nama_karyawan' => $this->session->userdata('nama_karyawan')
         ])->row_array();
+        $data['pesan'] = $this->beranda_model->hitungPesan();
+        $data['tbl_pesan'] = $this->beranda_model->tampilPesan();
+        $data['hitung'] = $this->beranda_model->hitung();
+        $data['transaksi3'] = $this->beranda_model->tampilTransaksi();
         $this->load->view('admin/layout/head', $data);
         $this->load->view('admin/layout/sidebar');
         $this->load->view('admin/layout/nav', $data);
@@ -209,7 +221,11 @@ class Konfigurasi extends CI_Controller {
                         'konfigurasi' => $konfigurasi,
                         'eror' => $this->upload->display_errors(),
                     ];
-                    $data['karyawan'] = $this->db->get_where('tbl_karyawan', [
+                    $data['pesan'] = $this->beranda_model->hitungPesan();
+                    $data['tbl_pesan'] = $this->beranda_model->tampilPesan();
+                    $data['hitung'] = $this->beranda_model->hitung();
+                    $data['transaksi3'] = $this->beranda_model->tampilTransaksi();
+                    $data['karyawan'] = $this->db->get_where('karyawan', [
                         'nama_karyawan' => $this->session->userdata('nama_karyawan')
                     ])->row_array();
                     $this->load->view('admin/layout/head', $data);
@@ -220,7 +236,7 @@ class Konfigurasi extends CI_Controller {
                 } else {
 
                     $this->db->where('id_konfigurasi', $konfigurasi->id_konfigurasi);
-                    $query = $this->db->get('tbl_konfigurasi');
+                    $query = $this->db->get('konfigurasi');
                     $row = $query->row();
                     // var_dump($row);die;
                     unlink('./assets/upload/konfigurasi/' . $row->icon);
@@ -244,13 +260,13 @@ class Konfigurasi extends CI_Controller {
                     //end thumbnail
                     $data = [
                         'id_konfigurasi' => $konfigurasi->id_konfigurasi,
-                        'namaweb' => htmlspecialchars($this->input->post('namaweb')),
+                        'namaweb' => stripslashes(htmlspecialchars(strip_tags($this->input->post('namaweb')))),
                         'icon' => $upload_gambar['upload_data']['file_name']
 
                     ];
 
                     $where = ['id_konfigurasi' => $konfigurasi->id_konfigurasi];
-                    $this->Konfigurasi_model->update($where, $data, 'tbl_konfigurasi');
+                    $this->Konfigurasi_model->update($where, $data, 'konfigurasi');
                     $this->session->set_flashdata('notifKonfigurasi', '<div class="alert alert-success alert-dismissible" role="alert">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;&nbsp; &nbsp;</span>
@@ -264,12 +280,12 @@ class Konfigurasi extends CI_Controller {
             } else {
                 $data = [
                     'id_konfigurasi' => $konfigurasi->id_konfigurasi,
-                    'namaweb' => htmlspecialchars($this->input->post('namaweb')),
+                    'namaweb' => stripslashes(htmlspecialchars(strip_tags($this->input->post('namaweb')))),
                     //'logo' => $upload_gambar['upload_data']['file_name']
 
                 ];
                 $where = ['id_konfigurasi' => $konfigurasi->id_konfigurasi];
-                $this->Konfigurasi_model->update($where, $data, 'tbl_konfigurasi');
+                $this->Konfigurasi_model->update($where, $data, 'konfigurasi');
                 $this->session->set_flashdata('notifKonfigurasi', '<div class="alert alert-success alert-dismissible" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;&nbsp; &nbsp;</span>
@@ -285,7 +301,11 @@ class Konfigurasi extends CI_Controller {
             'title' => 'Konfigurasi Icon Website ',
             'konfigurasi' => $konfigurasi,
         ];
-        $data['karyawan'] = $this->db->get_where('tbl_karyawan', [
+        $data['pesan'] = $this->beranda_model->hitungPesan();
+        $data['tbl_pesan'] = $this->beranda_model->tampilPesan();
+        $data['hitung'] = $this->beranda_model->hitung();
+        $data['transaksi3'] = $this->beranda_model->tampilTransaksi();
+        $data['karyawan'] = $this->db->get_where('karyawan', [
             'nama_karyawan' => $this->session->userdata('nama_karyawan')
         ])->row_array();
         $this->load->view('admin/layout/head', $data);

@@ -1,20 +1,21 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.7.1
--- http://www.phpmyadmin.net
+-- version 5.0.2
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 16, 2020 at 10:35 AM
--- Server version: 5.6.20
--- PHP Version: 5.5.15
+-- Generation Time: Apr 25, 2020 at 05:14 AM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.2.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `dbharmony`
@@ -26,7 +27,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `jenis`
 --
 
-CREATE TABLE IF NOT EXISTS `jenis` (
+CREATE TABLE `jenis` (
   `id_jenis` int(11) NOT NULL,
   `nama` tinytext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -47,7 +48,7 @@ INSERT INTO `jenis` (`id_jenis`, `nama`) VALUES
 -- Table structure for table `kabupaten`
 --
 
-CREATE TABLE IF NOT EXISTS `kabupaten` (
+CREATE TABLE `kabupaten` (
   `id_kab` char(4) NOT NULL,
   `id_prov` char(2) NOT NULL,
   `nama` tinytext NOT NULL,
@@ -580,7 +581,7 @@ INSERT INTO `kabupaten` (`id_kab`, `id_prov`, `nama`, `id_jenis`) VALUES
 -- Table structure for table `kecamatan`
 --
 
-CREATE TABLE IF NOT EXISTS `kecamatan` (
+CREATE TABLE `kecamatan` (
   `id_kec` char(6) NOT NULL,
   `id_kab` char(4) NOT NULL,
   `nama` tinytext NOT NULL
@@ -936,9 +937,9 @@ INSERT INTO `kecamatan` (`id_kec`, `id_kab`, `nama`) VALUES
 ('120420', '1204', 'Hiliserangkai'),
 ('120421', '1204', 'Botomuzoi'),
 ('120427', '1204', 'Ulugawo'),
-('120428', '1204', 'Ma''u'),
+('120428', '1204', 'Ma\'u'),
 ('120429', '1204', 'Somolo-molo'),
-('120435', '1204', 'Sogae''adu'),
+('120435', '1204', 'Sogae\'adu'),
 ('120501', '1205', 'Bahorok'),
 ('120502', '1205', 'Salapian'),
 ('120503', '1205', 'Kuala'),
@@ -1127,7 +1128,7 @@ INSERT INTO `kecamatan` (`id_kec`, `id_kab`, `nama`) VALUES
 ('121405', '1214', 'Pulau-Pulau Batu'),
 ('121406', '1214', 'Teluk Dalam'),
 ('121407', '1214', 'Amandraya'),
-('121408', '1214', 'Lalowa''u'),
+('121408', '1214', 'Lalowa\'u'),
 ('121409', '1214', 'Susua'),
 ('121410', '1214', 'Maniamolo'),
 ('121411', '1214', 'Hilimegai'),
@@ -1140,11 +1141,11 @@ INSERT INTO `kecamatan` (`id_kec`, `id_kab`, `nama`) VALUES
 ('121418', '1214', 'Fanayama'),
 ('121419', '1214', 'Ulunoyo'),
 ('121420', '1214', 'Huruna'),
-('121421', '1214', 'O''o''u'),
+('121421', '1214', 'O\'o\'u'),
 ('121422', '1214', 'Onohazumba'),
-('121423', '1214', 'Hilisalawa''ahe'),
+('121423', '1214', 'Hilisalawa\'ahe'),
 ('121424', '1214', 'Ulususua'),
-('121425', '1214', 'Sidua''ori'),
+('121425', '1214', 'Sidua\'ori'),
 ('121426', '1214', 'Somambawa'),
 ('121427', '1214', 'Boronadu'),
 ('121428', '1214', 'Simuk'),
@@ -1250,11 +1251,11 @@ INSERT INTO `kecamatan` (`id_kec`, `id_kab`, `nama`) VALUES
 ('122501', '1225', 'Lahomi'),
 ('122502', '1225', 'Sirombu'),
 ('122503', '1225', 'Mandrehe Barat'),
-('122504', '1225', 'Moro''o'),
+('122504', '1225', 'Moro\'o'),
 ('122505', '1225', 'Mandrehe'),
 ('122506', '1225', 'Mandrehe Utara'),
 ('122507', '1225', 'Lolofitu Moi'),
-('122508', '1225', 'Ulu Moro''o'),
+('122508', '1225', 'Ulu Moro\'o'),
 ('127101', '1271', 'Medan Kota'),
 ('127102', '1271', 'Medan Sunggal'),
 ('127103', '1271', 'Medan Helvetia'),
@@ -1314,7 +1315,7 @@ INSERT INTO `kecamatan` (`id_kec`, `id_kab`, `nama`) VALUES
 ('127802', '1278', 'Gunungsitoli Selatan'),
 ('127803', '1278', 'Gunungsitoli Utara'),
 ('127804', '1278', 'Gunungsitoli Idanoi'),
-('127805', '1278', 'Gunungsitoli Alo''oa'),
+('127805', '1278', 'Gunungsitoli Alo\'oa'),
 ('127806', '1278', 'Gunungsitoli Barat'),
 ('130101', '1301', 'Pancung Soal'),
 ('130102', '1301', 'Ranah Pesisir'),
@@ -4384,7 +4385,7 @@ INSERT INTO `kecamatan` (`id_kec`, `id_kab`, `nama`) VALUES
 ('352803', '3528', 'Galis'),
 ('352804', '3528', 'Pamekasan'),
 ('352805', '3528', 'Proppo'),
-('352806', '3528', 'Palenga"an'),
+('352806', '3528', 'Palenga\"an'),
 ('352807', '3528', 'Pegantenan'),
 ('352808', '3528', 'Larangan'),
 ('352809', '3528', 'Pakong'),
@@ -4413,7 +4414,7 @@ INSERT INTO `kecamatan` (`id_kec`, `id_kab`, `nama`) VALUES
 ('352919', '3529', 'Gapura'),
 ('352920', '3529', 'Gayam'),
 ('352921', '3529', 'Nonggunong'),
-('352922', '3529', 'Ra"as'),
+('352922', '3529', 'Ra\"as'),
 ('352923', '3529', 'Masalembu'),
 ('352924', '3529', 'Arjasa'),
 ('352925', '3529', 'Sapeken'),
@@ -4758,7 +4759,7 @@ INSERT INTO `kecamatan` (`id_kec`, `id_kab`, `nama`) VALUES
 ('520429', '5204', 'Lantung'),
 ('520501', '5205', 'Dompu'),
 ('520502', '5205', 'Kempo'),
-('520503', '5205', 'Hu''u'),
+('520503', '5205', 'Hu\'u'),
 ('520504', '5205', 'Kilo'),
 ('520505', '5205', 'Woja'),
 ('520506', '5205', 'Pekat'),
@@ -4839,7 +4840,7 @@ INSERT INTO `kecamatan` (`id_kec`, `id_kab`, `nama`) VALUES
 ('530207', '5302', 'Amanuban Barat'),
 ('530208', '5302', 'Amanatun Selatan'),
 ('530209', '5302', 'Amanatun Utara'),
-('530210', '5302', 'KI''E'),
+('530210', '5302', 'KI\'E'),
 ('530211', '5302', 'Kuanfatu'),
 ('530212', '5302', 'Fatumnasi'),
 ('530213', '5302', 'Polen'),
@@ -5792,7 +5793,7 @@ INSERT INTO `kecamatan` (`id_kec`, `id_kab`, `nama`) VALUES
 ('710407', '7104', 'Melonguane'),
 ('710408', '7104', 'Gemeh'),
 ('710409', '7104', 'Damau'),
-('710410', '7104', 'Tampan'' Amma'),
+('710410', '7104', 'Tampan\' Amma'),
 ('710411', '7104', 'Salibabu'),
 ('710412', '7104', 'Kalongan'),
 ('710413', '7104', 'Miangas'),
@@ -6332,13 +6333,13 @@ INSERT INTO `kecamatan` (`id_kec`, `id_kab`, `nama`) VALUES
 ('732603', '7326', 'Nanggala'),
 ('732604', '7326', 'Rindingallo'),
 ('732605', '7326', 'Buntao'),
-('732606', '7326', 'Sa''dan'),
+('732606', '7326', 'Sa\'dan'),
 ('732607', '7326', 'Sanggalangi'),
 ('732608', '7326', 'Sopai'),
 ('732609', '7326', 'Tikala'),
 ('732610', '7326', 'Balusu'),
 ('732611', '7326', 'Tallunglipu'),
-('732612', '7326', 'Dende'' Piongan Napo'),
+('732612', '7326', 'Dende\' Piongan Napo'),
 ('732613', '7326', 'Buntu Pepasan'),
 ('732614', '7326', 'Baruppu'),
 ('732615', '7326', 'Kesu'),
@@ -7696,10 +7697,10 @@ INSERT INTO `kecamatan` (`id_kec`, `id_kab`, `nama`) VALUES
 -- Table structure for table `kelurahan`
 --
 
-CREATE TABLE IF NOT EXISTS `kelurahan` (
+CREATE TABLE `kelurahan` (
   `id_kel` char(10) NOT NULL,
   `id_kec` char(6) DEFAULT NULL,
-  `nama` tinytext,
+  `nama` tinytext DEFAULT NULL,
   `id_jenis` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -7834,7 +7835,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('1101072012', '110107', 'Blang Geulinggang', 4),
 ('1101072013', '110107', 'Mutiara', 4),
 ('1101072014', '110107', 'Ujung Padang', 4),
-('1101072015', '110107', 'Sawang Ba''u', 4),
+('1101072015', '110107', 'Sawang Ba\'u', 4),
 ('1101082001', '110108', 'Lhok Keutapang', 4),
 ('1101082002', '110108', 'Hilir', 4),
 ('1101082003', '110108', 'Padang', 4),
@@ -8443,7 +8444,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('1103032006', '110303', 'Kuta Blang', 4),
 ('1103032007', '110303', 'Gampong Tanjong', 4),
 ('1103032008', '110303', 'Blang Geulumpang', 4),
-('1103032009', '110303', 'Meunasah Pu''uk', 4),
+('1103032009', '110303', 'Meunasah Pu\'uk', 4),
 ('1103032010', '110303', 'Bantayan Timu', 4),
 ('1103032011', '110303', 'Keutapang Mameh', 4),
 ('1103032012', '110303', 'Seuneubok Rambong', 4),
@@ -8719,7 +8720,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('1103142010', '110314', 'Paya Gaboh', 4),
 ('1103142011', '110314', 'Padang Kasah', 4),
 ('1103142012', '110314', 'Buket Teukuh', 4),
-('1103142013', '110314', 'Buket Pu''uk', 4),
+('1103142013', '110314', 'Buket Pu\'uk', 4),
 ('1103142014', '110314', 'Blang Minjei', 4),
 ('1103142015', '110314', 'Alue Kumbang A', 4),
 ('1103142016', '110314', 'Alue Kumbang M', 4),
@@ -10488,7 +10489,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('1107152050', '110715', 'Kabat', 4),
 ('1107162001', '110716', 'Tijue', 4),
 ('1107162002', '110716', 'Lampeudue Tunong', 4),
-('1107162003', '110716', 'Pu"uk', 4),
+('1107162003', '110716', 'Pu\"uk', 4),
 ('1107162004', '110716', 'Lampeudue Baroh', 4),
 ('1107162005', '110716', 'Paya', 4),
 ('1107162006', '110716', 'Mesjid Reuntoh', 4),
@@ -14910,16 +14911,16 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('1204052001', '120405', 'Ononamolo I Bot', 4),
 ('1204052021', '120405', 'Dima', 4),
 ('1204052022', '120405', 'Sinarikhi', 4),
-('1204052023', '120405', 'Ombolalasalo''o', 4),
+('1204052023', '120405', 'Ombolalasalo\'o', 4),
 ('1204052024', '120405', 'Sisobalauru', 4),
 ('1204052025', '120405', 'Tuhegafoa II', 4),
 ('1204052027', '120405', 'Fadoro Lauru', 4),
-('1204052028', '120405', 'Lasara Tanose''o', 4),
+('1204052028', '120405', 'Lasara Tanose\'o', 4),
 ('1204052030', '120405', 'Hiliduho', 4),
 ('1204052031', '120405', 'Hiligodu Tanoseo', 4),
 ('1204052032', '120405', 'Sisobahili I Tanoseo', 4),
 ('1204052033', '120405', 'Onozitolidulu', 4),
-('1204052034', '120405', 'Mazingo Tanose''o', 4),
+('1204052034', '120405', 'Mazingo Tanose\'o', 4),
 ('1204052040', '120405', 'Onowaembo Hiligara', 4),
 ('1204052041', '120405', 'Silimabanua', 4),
 ('1204052042', '120405', 'Ombolata Sisarahili', 4),
@@ -14929,7 +14930,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('1204062017', '120406', 'Somi', 4),
 ('1204062018', '120406', 'Sirete', 4),
 ('1204062019', '120406', 'Heliweto Gido', 4),
-('1204062020', '120406', 'Loloana''a Gido', 4),
+('1204062020', '120406', 'Loloana\'a Gido', 4),
 ('1204062022', '120406', 'Sisobahili', 4),
 ('1204062023', '120406', 'Lahemo', 4),
 ('1204062024', '120406', 'Ladea', 4),
@@ -14939,13 +14940,13 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('1204062030', '120406', 'Lazara Idanoi', 4),
 ('1204062050', '120406', 'Lasela', 4),
 ('1204062051', '120406', 'Ladea Orahua', 4),
-('1204062052', '120406', 'Tulumbaho Salo''o', 4),
-('1204062053', '120406', 'Nifolo''o Lauru', 4),
+('1204062052', '120406', 'Tulumbaho Salo\'o', 4),
+('1204062053', '120406', 'Nifolo\'o Lauru', 4),
 ('1204062054', '120406', 'Hilizoi', 4),
-('1204062055', '120406', 'Somi Botogo''o', 4),
+('1204062055', '120406', 'Somi Botogo\'o', 4),
 ('1204062056', '120406', 'Olindrawa Sisarahili', 4),
 ('1204102005', '120410', 'Hilimoasio', 4),
-('1204102006', '120410', 'Tetegeona''ai', 4),
+('1204102006', '120410', 'Tetegeona\'ai', 4),
 ('1204102007', '120410', 'Laowo Hilimbaruzo', 4),
 ('1204102008', '120410', 'Hililawae', 4),
 ('1204102009', '120410', 'Tuhewaebu', 4),
@@ -14953,23 +14954,23 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('1204102015', '120410', 'Bozihona', 4),
 ('1204102016', '120410', 'Oladano', 4),
 ('1204102017', '120410', 'Ahedano', 4),
-('1204102018', '120410', 'Hilina''a Tafuo', 4),
+('1204102018', '120410', 'Hilina\'a Tafuo', 4),
 ('1204102019', '120410', 'Hiliono Zega', 4),
 ('1204102020', '120410', 'Mondrali', 4),
 ('1204102022', '120410', 'Tetehosi', 4),
-('1204102023', '120410', 'Saiwahili Hili''adulo', 4),
-('1204102024', '120410', 'Maliwa''a', 4),
+('1204102023', '120410', 'Saiwahili Hili\'adulo', 4),
+('1204102024', '120410', 'Maliwa\'a', 4),
 ('1204102025', '120410', 'Biouti', 4),
 ('1204102026', '120410', 'Awoni Lauso', 4),
-('1204102027', '120410', 'Bobozioli Loloana''a', 4),
+('1204102027', '120410', 'Bobozioli Loloana\'a', 4),
 ('1204102028', '120410', 'Sandruta', 4),
 ('1204102029', '120410', 'Laira', 4),
 ('1204102030', '120410', 'Otalua', 4),
 ('1204102031', '120410', 'Baruzo', 4),
 ('1204102032', '120410', 'Orahili Zuzundrao', 4),
-('1204102033', '120410', 'Tiga Serangkai Maliwa''a', 4),
-('1204102034', '120410', 'Hiligogowaya Maliwa''a', 4),
-('1204102035', '120410', 'Hili''adulo', 4),
+('1204102033', '120410', 'Tiga Serangkai Maliwa\'a', 4),
+('1204102034', '120410', 'Hiligogowaya Maliwa\'a', 4),
+('1204102035', '120410', 'Hili\'adulo', 4),
 ('1204102036', '120410', 'Hilimoasio Dua', 4),
 ('1204102037', '120410', 'Biouti Timur', 4),
 ('1204112002', '120411', 'Sisarahili Bawolato', 4),
@@ -14990,13 +14991,13 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('1204112017', '120411', 'Dahana', 4),
 ('1204112018', '120411', 'Orahua', 4),
 ('1204112019', '120411', 'Banua Sibohou Silima Ewali', 4),
-('1204112020', '120411', 'Si''ofaewali Selatan', 4),
+('1204112020', '120411', 'Si\'ofaewali Selatan', 4),
 ('1204112021', '120411', 'Lagasimahe', 4),
 ('1204112022', '120411', 'Hilihao Cugala', 4),
 ('1204112023', '120411', 'Orahua Faondrato', 4),
 ('1204112024', '120411', 'Hou', 4),
 ('1204112025', '120411', 'Sindrondro', 4),
-('1204112026', '120411', 'Balale Toba''a', 4),
+('1204112026', '120411', 'Balale Toba\'a', 4),
 ('1204202001', '120420', 'Fadoro Hunogoa', 4),
 ('1204202002', '120420', 'Lolofaoso Lalai', 4),
 ('1204202003', '120420', 'Fulolo Lalai', 4),
@@ -15022,7 +15023,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('1204212008', '120421', 'Balohili Botomuzoi', 4),
 ('1204212009', '120421', 'Hilihambawa Botomuzoi', 4),
 ('1204212010', '120421', 'Fulolo Botomuzoi', 4),
-('1204212011', '120421', 'Loloana''a', 4),
+('1204212011', '120421', 'Loloana\'a', 4),
 ('1204212012', '120421', 'Ononamolo Talafu', 4),
 ('1204212013', '120421', 'Sisobahili Dola', 4),
 ('1204212014', '120421', 'Banua Sibohou Botomuzoi', 4),
@@ -15040,23 +15041,23 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('1204272008', '120427', 'Onodalinga', 4),
 ('1204272009', '120427', 'Holi', 4),
 ('1204272010', '120427', 'Sisobahili Ulu Gawo', 4),
-('1204272011', '120427', 'Sifaro''asi Ulu Gawo', 4),
+('1204272011', '120427', 'Sifaro\'asi Ulu Gawo', 4),
 ('1204272012', '120427', 'Mohili', 4),
 ('1204272013', '120427', 'Hiligafoa', 4),
-('1204272014', '120427', 'Sisarahili Soroma''asi', 4),
+('1204272014', '120427', 'Sisarahili Soroma\'asi', 4),
 ('1204282001', '120428', 'Balodano', 4),
 ('1204282002', '120428', 'Lewu Oguru II', 4),
-('1204282003', '120428', 'Sihare''o III', 4),
-('1204282004', '120428', 'Sisarahilima''u', 4),
+('1204282003', '120428', 'Sihare\'o III', 4),
+('1204282004', '120428', 'Sisarahilima\'u', 4),
 ('1204282005', '120428', 'Lasara Siwalu Banua', 4),
 ('1204282006', '120428', 'Tuhemberua', 4),
 ('1204282007', '120428', 'Atualuo', 4),
 ('1204282008', '120428', 'Lewa Lewa', 4),
 ('1204282009', '120428', 'Dekha', 4),
-('1204282010', '120428', 'Sihare''o III Bawosalo''o Berua', 4),
-('1204282011', '120428', 'Sihare''o III Hilibadalu', 4),
+('1204282010', '120428', 'Sihare\'o III Bawosalo\'o Berua', 4),
+('1204282011', '120428', 'Sihare\'o III Hilibadalu', 4),
 ('1204292001', '120429', 'Sisobawino I', 4),
-('1204292002', '120429', 'I''odano', 4),
+('1204292002', '120429', 'I\'odano', 4),
 ('1204292003', '120429', 'Huno', 4),
 ('1204292004', '120429', 'Sisaratandrawa', 4),
 ('1204292005', '120429', 'Somolo Molo', 4),
@@ -15065,18 +15066,18 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('1204292008', '120429', 'Lewuombanua', 4),
 ('1204292009', '120429', 'Hiligodu Somolo-Molo', 4),
 ('1204292010', '120429', 'Hiliborodano', 4),
-('1204292011', '120429', 'So''ewali', 4),
+('1204292011', '120429', 'So\'ewali', 4),
 ('1204352001', '120435', 'Tuhembuasi', 4),
 ('1204352002', '120435', 'Hilibadalu', 4),
-('1204352003', '120435', 'La''uri', 4),
+('1204352003', '120435', 'La\'uri', 4),
 ('1204352004', '120435', 'Hilimbana', 4),
 ('1204352005', '120435', 'Saitagaramba', 4),
-('1204352006', '120435', 'Sogae''adu', 4),
+('1204352006', '120435', 'Sogae\'adu', 4),
 ('1204352007', '120435', 'Baruzo', 4),
 ('1204352008', '120435', 'Tulumbaho', 4),
-('1204352009', '120435', 'Sisarahili Sogae''adu', 4),
-('1204352010', '120435', 'We''a-we''a', 4),
-('1204352011', '120435', 'Sihare''o Sogae''adu', 4),
+('1204352009', '120435', 'Sisarahili Sogae\'adu', 4),
+('1204352010', '120435', 'We\'a-we\'a', 4),
+('1204352011', '120435', 'Sihare\'o Sogae\'adu', 4),
 ('1205011001', '120501', 'Pekan Bahorok', 3),
 ('1205012002', '120501', 'Lau Damak', 4),
 ('1205012003', '120501', 'Timbang Lawan', 4),
@@ -17527,14 +17528,14 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('1214012017', '121401', 'Tesikhori', 4),
 ('1214012021', '121401', 'Tumari', 4),
 ('1214012023', '121401', 'Ewo', 4),
-('1214012024', '121401', 'Ko''olotano', 4),
+('1214012024', '121401', 'Ko\'olotano', 4),
 ('1214012026', '121401', 'Botohili Ndruria', 4),
 ('1214012027', '121401', 'Caritas Sogawunasi', 4),
 ('1214012028', '121401', 'Orudua Lawa-Lawa Lou', 4),
 ('1214012029', '121401', 'Hilifaondrato', 4),
 ('1214022005', '121402', 'Doli Doli Idano Tae', 4),
 ('1214022006', '121402', 'Fanedanu', 4),
-('1214022007', '121402', 'Hiliana''a Gomo', 4),
+('1214022007', '121402', 'Hiliana\'a Gomo', 4),
 ('1214022008', '121402', 'Hilimbowo Idano Tae', 4),
 ('1214022015', '121402', 'Lawa-Lawa Luo Gomo', 4),
 ('1214022016', '121402', 'Lahusa Idano Tae', 4),
@@ -17544,7 +17545,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('1214022024', '121402', 'Sifaoroasi Gomo', 4),
 ('1214022026', '121402', 'Sirahia', 4),
 ('1214022031', '121402', 'Umbu Idano Tae', 4),
-('1214022035', '121402', 'Tanoniko''o', 4),
+('1214022035', '121402', 'Tanoniko\'o', 4),
 ('1214022036', '121402', 'Dao-dao Zanuwo Idano Tae', 4),
 ('1214022037', '121402', 'Orahua', 4),
 ('1214022038', '121402', 'Hiliserangkai', 4),
@@ -17555,10 +17556,10 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('1214022043', '121402', 'Umbu Orahua', 4),
 ('1214022044', '121402', 'Sisiwa Ewali', 4),
 ('1214022045', '121402', 'Sisarahili Ewo', 4),
-('1214022046', '121402', 'Hilialo''oa', 4),
+('1214022046', '121402', 'Hilialo\'oa', 4),
 ('1214022047', '121402', 'Damai', 4),
 ('1214022048', '121402', 'Awoni', 4),
-('1214022049', '121402', 'Hilisalo''o', 4),
+('1214022049', '121402', 'Hilisalo\'o', 4),
 ('1214022050', '121402', 'Balombaruzo Orahua', 4),
 ('1214022051', '121402', 'Harefa Orahua', 4),
 ('1214022052', '121402', 'Hiligabungan', 4),
@@ -17629,20 +17630,20 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('1214062006', '121406', 'Hiligeho', 4),
 ('1214062007', '121406', 'Hilitobara', 4),
 ('1214062009', '121406', 'Bawo Nifaoso', 4),
-('1214062010', '121406', 'Bawoza''ua', 4),
+('1214062010', '121406', 'Bawoza\'ua', 4),
 ('1214062011', '121406', 'Hiliganowo', 4),
 ('1214062021', '121406', 'Hilifalago', 4),
 ('1214062022', '121406', 'Hilifarono', 4),
 ('1214062023', '121406', 'Bawo Dobara', 4),
 ('1214062024', '121406', 'Bawo Lowalani', 4),
-('1214062025', '121406', 'Hilisa''otoniha', 4),
+('1214062025', '121406', 'Hilisa\'otoniha', 4),
 ('1214062026', '121406', 'Hililsondrekha', 4),
 ('1214062027', '121406', 'Hilimondregeraya', 4),
 ('1214062028', '121406', 'Hilinamozaua', 4),
 ('1214062040', '121406', 'Hiliamuri', 4),
 ('1214062041', '121406', 'Hilionaha', 4),
-('1214062042', '121406', 'Hiliana''a', 4),
-('1214062043', '121406', 'Hiliganowo Salo''o', 4),
+('1214062042', '121406', 'Hiliana\'a', 4),
+('1214062043', '121406', 'Hiliganowo Salo\'o', 4),
 ('1214062044', '121406', 'Ganowo Saua', 4),
 ('1214062045', '121406', 'Nanowa', 4),
 ('1214062046', '121406', 'Hililaza', 4),
@@ -17651,10 +17652,10 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('1214062049', '121406', 'Hilinamozaua Raya', 4),
 ('1214062050', '121406', 'Hilifalago Raya', 4),
 ('1214062051', '121406', 'Hilisanekhehosi', 4),
-('1214072004', '121407', 'Sifaoro''asi', 4),
+('1214072004', '121407', 'Sifaoro\'asi', 4),
 ('1214072005', '121407', 'Hilihoro', 4),
 ('1214072006', '121407', 'Hilimbulawa', 4),
-('1214072008', '121407', 'Tu'' Indrao', 4),
+('1214072008', '121407', 'Tu\' Indrao', 4),
 ('1214072009', '121407', 'Hilimbowo', 4),
 ('1214072011', '121407', 'Sisarahili', 4),
 ('1214072012', '121407', 'Lolozasai', 4),
@@ -17663,13 +17664,13 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('1214072015', '121407', 'Orahili Eho', 4),
 ('1214072016', '121407', 'Sisobahili', 4),
 ('1214072023', '121407', 'Loloabolo', 4),
-('1214072024', '121407', 'Hilisalo''o', 4),
+('1214072024', '121407', 'Hilisalo\'o', 4),
 ('1214072026', '121407', 'Sirofi', 4),
 ('1214072027', '121407', 'Hilindraso', 4),
 ('1214072028', '121407', 'Hilimaera', 4),
 ('1214072029', '121407', 'Boholu', 4),
 ('1214072030', '121407', 'Amandraya', 4),
-('1214072031', '121407', 'Sinar Ino''o', 4),
+('1214072031', '121407', 'Sinar Ino\'o', 4),
 ('1214072032', '121407', 'Tuindrao Satu', 4),
 ('1214072033', '121407', 'Tuhemberua Amandraya', 4),
 ('1214082001', '121408', 'Amuri', 4),
@@ -17677,7 +17678,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('1214082009', '121408', 'Hilifadolo', 4),
 ('1214082014', '121408', 'Lolofaoso', 4),
 ('1214082015', '121408', 'Lolomoyo', 4),
-('1214082016', '121408', 'Lolowa''u', 4),
+('1214082016', '121408', 'Lolowa\'u', 4),
 ('1214082017', '121408', 'Lolohowa', 4),
 ('1214082022', '121408', 'Sisarahili Ekholo', 4),
 ('1214082030', '121408', 'Tuhegafoa', 4),
@@ -17688,7 +17689,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('1214082048', '121408', 'Nituwu Boho', 4),
 ('1214092001', '121409', 'Sifalago Susua', 4),
 ('1214092002', '121409', 'Orahili Susua', 4),
-('1214092003', '121409', 'Hiliana''a Susua', 4),
+('1214092003', '121409', 'Hiliana\'a Susua', 4),
 ('1214092004', '121409', 'Hiliorahua', 4),
 ('1214092005', '121409', 'Hilimboe', 4),
 ('1214092006', '121409', 'Hilimboho', 4),
@@ -17703,7 +17704,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('1214092016', '121409', 'Orahua Uluzoi', 4),
 ('1214092017', '121409', 'Hilisibohou', 4),
 ('1214092018', '121409', 'Hiliadulosoi', 4),
-('1214092019', '121409', 'Orahili Bo''e', 4),
+('1214092019', '121409', 'Orahili Bo\'e', 4),
 ('1214102001', '121410', 'Hilisimaetano', 4),
 ('1214102002', '121410', 'Bawogosali', 4),
 ('1214102003', '121410', 'Hilifalawu', 4),
@@ -17715,14 +17716,14 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('1214102009', '121410', 'Ndraso Hilisimaetano', 4),
 ('1214102010', '121410', 'Faomasi Hilisimaetano', 4),
 ('1214102011', '121410', 'Eho Hilisimaetano', 4),
-('1214102012', '121410', 'Soto''o Hilisimaetano', 4),
+('1214102012', '121410', 'Soto\'o Hilisimaetano', 4),
 ('1214102013', '121410', 'Hiliaurifa Hilisimaetano', 4),
 ('1214102014', '121410', 'Bawomaenamolo', 4),
 ('1214102015', '121410', 'Bawohosi Maniamolo', 4),
 ('1214102016', '121410', 'Bawosaodano', 4),
 ('1214112001', '121411', 'Togizita', 4),
 ('1214112002', '121411', 'Soledua', 4),
-('1214112003', '121411', 'Bawasalo''o Dao-dao', 4),
+('1214112003', '121411', 'Bawasalo\'o Dao-dao', 4),
 ('1214112004', '121411', 'Tuho Owo', 4),
 ('1214112005', '121411', 'Togozita Satu', 4),
 ('1214112007', '121411', 'Hilitoese', 4),
@@ -17744,13 +17745,13 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('1214122012', '121412', 'Hilindraso Raya', 4),
 ('1214122013', '121412', 'Hilisataro Nandisa', 4),
 ('1214122014', '121412', 'Hilisataro Eho Sofayo', 4),
-('1214132001', '121413', 'Hilizalo''otano', 4),
+('1214132001', '121413', 'Hilizalo\'otano', 4),
 ('1214132002', '121413', 'Hilinawalo Mazino', 4),
 ('1214132003', '121413', 'Lawindra', 4),
 ('1214132004', '121413', 'Bawolahusa', 4),
 ('1214132005', '121413', 'Hilizoroilawa', 4),
-('1214132006', '121413', 'Hilizalo''otano Laowo', 4),
-('1214132007', '121413', 'Hilizalo''otano Larono', 4),
+('1214132006', '121413', 'Hilizalo\'otano Laowo', 4),
+('1214132007', '121413', 'Hilizalo\'otano Larono', 4),
 ('1214132008', '121413', 'Hililaza Hilinawalo Mazino', 4),
 ('1214132009', '121413', 'Hilifondege Hilizoroilawa', 4),
 ('1214132010', '121413', 'Lolomboli', 4),
@@ -17797,7 +17798,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('1214162008', '121416', 'Labara', 4),
 ('1214162009', '121416', 'Bais Baru', 4),
 ('1214162010', '121416', 'Labuan Rima Baru', 4),
-('1214172001', '121417', 'Tetegawa''ai', 4),
+('1214172001', '121417', 'Tetegawa\'ai', 4),
 ('1214172002', '121417', 'Hilimbaruzo', 4),
 ('1214172003', '121417', 'Luahandroito', 4),
 ('1214172005', '121417', 'Orahuahili', 4),
@@ -17805,7 +17806,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('1214172007', '121417', 'Guigui', 4),
 ('1214172009', '121417', 'Hilimaufa', 4),
 ('1214172010', '121417', 'Siofabanua', 4),
-('1214172011', '121417', 'Tetegawa''ai Ehomo', 4),
+('1214172011', '121417', 'Tetegawa\'ai Ehomo', 4),
 ('1214172013', '121417', 'Tafulu', 4),
 ('1214182001', '121418', 'Bawomataluo', 4),
 ('1214182002', '121418', 'Orahili Fau', 4),
@@ -17820,7 +17821,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('1214182011', '121418', 'Hilizihono', 4),
 ('1214182012', '121418', 'Hiliofonaluo', 4),
 ('1214182013', '121418', 'Orahili Faomasi', 4),
-('1214182014', '121418', 'Botohilisalo''o', 4),
+('1214182014', '121418', 'Botohilisalo\'o', 4),
 ('1214182015', '121418', 'Bawofanayama', 4),
 ('1214182016', '121418', 'Sondregeasi', 4),
 ('1214182017', '121418', 'Hilikara Maha', 4),
@@ -17840,7 +17841,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('1214192006', '121419', 'Borowosi', 4),
 ('1214192007', '121419', 'Hilimaera', 4),
 ('1214192008', '121419', 'Suka Maju', 4),
-('1214192009', '121419', 'Loloana''a', 4),
+('1214192009', '121419', 'Loloana\'a', 4),
 ('1214192010', '121419', 'Hilifakhe', 4),
 ('1214192011', '121419', 'Bawo Lolomatua', 4),
 ('1214192012', '121419', 'Ambukha Satu', 4),
@@ -17849,7 +17850,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('1214202002', '121420', 'Bawahosi Huruna', 4),
 ('1214202003', '121420', 'Hilizoliga', 4),
 ('1214202004', '121420', 'Olayama', 4),
-('1214202005', '121420', 'Sifaoro''asi', 4),
+('1214202005', '121420', 'Sifaoro\'asi', 4),
 ('1214202006', '121420', 'Sifalago', 4),
 ('1214202007', '121420', 'Lalimanawa', 4),
 ('1214202008', '121420', 'Tundrombaho', 4),
@@ -17865,17 +17866,17 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('1214212001', '121421', 'Hilinamozihono', 4),
 ('1214212002', '121421', 'Hilimbowo', 4),
 ('1214212003', '121421', 'Simandraolo', 4),
-('1214212004', '121421', 'Bawosalo''o Bawoluo', 4),
+('1214212004', '121421', 'Bawosalo\'o Bawoluo', 4),
 ('1214212005', '121421', 'Hilimbuasi', 4),
-('1214212006', '121421', 'Simandraolo O''ou', 4),
+('1214212006', '121421', 'Simandraolo O\'ou', 4),
 ('1214212007', '121421', 'Lolomaya', 4),
 ('1214212008', '121421', 'Suka Maju', 4),
 ('1214212009', '121421', 'Hiliorudua', 4),
 ('1214212010', '121421', 'Hilinamozihono Moale', 4),
-('1214212011', '121421', 'Balohili O''o''u', 4),
-('1214222001', '121422', 'Fadoro''ewo', 4),
-('1214222002', '121422', 'Soroma''asi', 4),
-('1214222003', '121422', 'La''uso', 4),
+('1214212011', '121421', 'Balohili O\'o\'u', 4),
+('1214222001', '121422', 'Fadoro\'ewo', 4),
+('1214222002', '121422', 'Soroma\'asi', 4),
+('1214222003', '121422', 'La\'uso', 4),
 ('1214222004', '121422', 'Sisarahili Oyo', 4),
 ('1214222005', '121422', 'Sisobahili Huruna', 4),
 ('1214222006', '121422', 'Onohazumba', 4),
@@ -17885,7 +17886,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('1214222010', '121422', 'Helefanikha', 4),
 ('1214232001', '121423', 'Maluo', 4),
 ('1214232002', '121423', 'Hilidulo', 4),
-('1214232003', '121423', 'Umbu''asi', 4),
+('1214232003', '121423', 'Umbu\'asi', 4),
 ('1214232004', '121423', 'Sisobahili Siwalawa', 4),
 ('1214232005', '121423', 'Manawadano', 4),
 ('1214232006', '121423', 'Talio', 4),
@@ -17911,11 +17912,11 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('1214252003', '121425', 'Hililaora', 4),
 ('1214252004', '121425', 'Uluidanoduo', 4),
 ('1214252005', '121425', 'Umbu Sohahua', 4),
-('1214252006', '121425', 'Hilisao''oto', 4),
+('1214252006', '121425', 'Hilisao\'oto', 4),
 ('1214252007', '121425', 'Taluzusua', 4),
 ('1214252008', '121425', 'Hilizanuwo', 4),
 ('1214252009', '121425', 'Hoya', 4),
-('1214252010', '121425', 'Na''ai', 4),
+('1214252010', '121425', 'Na\'ai', 4),
 ('1214252011', '121425', 'Olanori', 4),
 ('1214262001', '121426', 'Sifitubanua', 4),
 ('1214262002', '121426', 'Siwalubanua', 4),
@@ -19564,7 +19565,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('1224012011', '122401', 'Dahadando', 4),
 ('1224012012', '122401', 'Lolomboli', 4),
 ('1224012013', '122401', 'Hiligeo Afia', 4),
-('1224022001', '122402', 'Seriwa''u', 4),
+('1224022001', '122402', 'Seriwa\'u', 4),
 ('1224022002', '122402', 'Ombolata Sawo', 4),
 ('1224022003', '122402', 'Sanawuyu', 4),
 ('1224022004', '122402', 'Onozitoli Sawo', 4),
@@ -19576,8 +19577,8 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('1224022010', '122402', 'Teluk Bengkuang', 4),
 ('1224032001', '122403', 'Botolakha', 4),
 ('1224032002', '122403', 'Siofa Banua', 4),
-('1224032003', '122403', 'La''aya', 4),
-('1224032004', '122403', 'Alo''oa', 4),
+('1224032003', '122403', 'La\'aya', 4),
+('1224032004', '122403', 'Alo\'oa', 4),
 ('1224032005', '122403', 'Ladara', 4),
 ('1224032006', '122403', 'Banua Gea', 4),
 ('1224032007', '122403', 'Silima Banua', 4),
@@ -19585,8 +19586,8 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('1224042001', '122404', 'Tetehosi Maziaya', 4),
 ('1224042002', '122404', 'Umbubalodano', 4),
 ('1224042003', '122404', 'Hilimbosi', 4),
-('1224042004', '122404', 'Hilisalo''o', 4),
-('1224042005', '122404', 'Fulolo Salo''o', 4),
+('1224042004', '122404', 'Hilisalo\'o', 4),
+('1224042005', '122404', 'Fulolo Salo\'o', 4),
 ('1224042006', '122404', 'Botombawo', 4),
 ('1224052001', '122405', 'Berua', 4),
 ('1224052002', '122405', 'Esiwa', 4),
@@ -19604,7 +19605,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('1224062003', '122406', 'Hilimbowo Kare', 4),
 ('1224062004', '122406', 'Laehuwa', 4),
 ('1224062005', '122406', 'Mazingo', 4),
-('1224062006', '122406', 'Hilina''a', 4),
+('1224062006', '122406', 'Hilina\'a', 4),
 ('1224072001', '122407', 'Bitaya', 4),
 ('1224072002', '122407', 'Lahemboho', 4),
 ('1224072003', '122407', 'Anaoma', 4),
@@ -19617,15 +19618,15 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('1224072010', '122407', 'Banua Sibohou II', 4),
 ('1224072011', '122407', 'Dahana Alasa', 4),
 ('1224072012', '122407', 'Ononamolo Alasa', 4),
-('1224072013', '122407', 'Loloana''a', 4),
+('1224072013', '122407', 'Loloana\'a', 4),
 ('1224072014', '122407', 'Siwabanua', 4),
-('1224082001', '122408', 'Te''olo', 4),
+('1224082001', '122408', 'Te\'olo', 4),
 ('1224082002', '122408', 'Siwawo', 4),
 ('1224082003', '122408', 'Fabaliwa Oyo', 4),
 ('1224082004', '122408', 'Ononazara', 4),
 ('1224082005', '122408', 'Humene Siheneasi', 4),
 ('1224082006', '122408', 'Gunung Tua', 4),
-('1224082007', '122408', 'Botona''ai', 4),
+('1224082007', '122408', 'Botona\'ai', 4),
 ('1224082008', '122408', 'Harefa', 4),
 ('1224092001', '122409', 'Afulu', 4),
 ('1224092002', '122409', 'Lauru Fadoro', 4),
@@ -19634,15 +19635,15 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('1224092005', '122409', 'Harewakhe', 4),
 ('1224092006', '122409', 'Sisobahili', 4),
 ('1224092007', '122409', 'Lauru Lahewa', 4),
-('1224092008', '122409', 'Sifaoro''asi', 4),
-('1224092009', '122409', 'Faekhuna''a', 4),
+('1224092008', '122409', 'Sifaoro\'asi', 4),
+('1224092009', '122409', 'Faekhuna\'a', 4),
 ('1224101001', '122410', 'Pasar Lahewa', 3),
 ('1224102002', '122410', 'Iraono Lase', 4),
 ('1224102003', '122410', 'Holi', 4),
-('1224102004', '122410', 'Sifaoro''asi', 4),
+('1224102004', '122410', 'Sifaoro\'asi', 4),
 ('1224102005', '122410', 'Hilizukhu', 4),
 ('1224102006', '122410', 'Onozalukhu', 4),
-('1224102007', '122410', 'Hilina''a', 4),
+('1224102007', '122410', 'Hilina\'a', 4),
 ('1224102008', '122410', 'Hiligodu Hoya', 4),
 ('1224102009', '122410', 'Sitolubanua', 4),
 ('1224102010', '122410', 'Hilihati', 4),
@@ -19654,7 +19655,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('1224102016', '122410', 'Afia', 4),
 ('1224102017', '122410', 'Moawo', 4),
 ('1224102018', '122410', 'Lasara', 4),
-('1224102019', '122410', 'Sihene''asi', 4),
+('1224102019', '122410', 'Sihene\'asi', 4),
 ('1224102020', '122410', 'Fadoro Hilimbowo', 4),
 ('1224102021', '122410', 'Fadoro Hilihambawa', 4),
 ('1224112001', '122411', 'Laowowaga', 4),
@@ -19674,8 +19675,8 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('1225012008', '122501', 'Onolimbu', 4),
 ('1225012009', '122501', 'Haliadulo', 4),
 ('1225012010', '122501', 'Sisobambowo', 4),
-('1225012011', '122501', 'Lolowa"u', 4),
-('1225022001', '122502', 'Bawazolo''o', 4),
+('1225012011', '122501', 'Lolowa\"u', 4),
+('1225022001', '122502', 'Bawazolo\'o', 4),
 ('1225022002', '122502', 'Imana', 4),
 ('1225022003', '122502', 'Tuwa-Tuwa', 4),
 ('1225022004', '122502', 'Kafo-Kafo', 4),
@@ -19685,9 +19686,9 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('1225022008', '122502', 'Hanofa', 4),
 ('1225022009', '122502', 'Lahawa', 4),
 ('1225022010', '122502', 'Hinako', 4),
-('1225022011', '122502', 'Sinene''eto', 4),
+('1225022011', '122502', 'Sinene\'eto', 4),
 ('1225022012', '122502', 'Balowondrate', 4),
-('1225022013', '122502', 'Hilimburuana''a', 4),
+('1225022013', '122502', 'Hilimburuana\'a', 4),
 ('1225022014', '122502', 'Lahusa', 4),
 ('1225022015', '122502', 'Ombolata', 4),
 ('1225022016', '122502', 'Telehose', 4),
@@ -19696,7 +19697,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('1225022019', '122502', 'Fadoro', 4),
 ('1225022020', '122502', 'Tugala Gawu', 4),
 ('1225022021', '122502', 'Sirombu', 4),
-('1225022022', '122502', 'Togi''deu', 4),
+('1225022022', '122502', 'Togi\'deu', 4),
 ('1225022023', '122502', 'Tuga Gawu', 4),
 ('1225022024', '122502', 'Orahili', 4),
 ('1225022025', '122502', 'Gunung Cahaya', 4),
@@ -19714,27 +19715,27 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('1225032012', '122503', 'Onolimbu You', 4),
 ('1225032013', '122503', 'Lasara Faga', 4),
 ('1225032014', '122503', 'Orahili Badalu', 4),
-('1225042001', '122504', 'Hiliwalo''o II', 4),
+('1225042001', '122504', 'Hiliwalo\'o II', 4),
 ('1225042002', '122504', 'Gunung Baru', 4),
 ('1225042003', '122504', 'Hilisoromi', 4),
 ('1225042004', '122504', 'Sidua Hili', 4),
 ('1225042005', '122504', 'Sitolu Banua Fadoro', 4),
 ('1225042006', '122504', 'Halifadolo', 4),
 ('1225042007', '122504', 'Lasara Bahili', 4),
-('1225042008', '122504', 'Hiliwa''ele', 4),
+('1225042008', '122504', 'Hiliwa\'ele', 4),
 ('1225042009', '122504', 'Sitolu Ewali', 4),
 ('1225042010', '122504', 'Onozalukhu You', 4),
-('1225052001', '122505', 'Simae''asi', 4),
+('1225052001', '122505', 'Simae\'asi', 4),
 ('1225052002', '122505', 'Lologolu', 4),
 ('1225052003', '122505', 'Tuwuuna', 4),
 ('1225052004', '122505', 'Tuhemberua', 4),
 ('1225052005', '122505', 'Lolozirugi', 4),
 ('1225052006', '122505', 'Lakhena', 4),
-('1225052007', '122505', 'Hiliwalo''o I', 4),
-('1225052008', '122505', 'Siana''a', 4),
+('1225052007', '122505', 'Hiliwalo\'o I', 4),
+('1225052008', '122505', 'Siana\'a', 4),
 ('1225052009', '122505', 'Fadoro', 4),
 ('1225052010', '122505', 'Iraono Gambo', 4),
-('1225052011', '122505', 'Tuho''owo', 4),
+('1225052011', '122505', 'Tuho\'owo', 4),
 ('1225052012', '122505', 'Fadoro Bahili', 4),
 ('1225052013', '122505', 'Tumori', 4),
 ('1225052014', '122505', 'Lasara Baene', 4),
@@ -19747,7 +19748,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('1225062001', '122506', 'Balodano', 4),
 ('1225062002', '122506', 'Hiambanua', 4),
 ('1225062003', '122506', 'Hilimato', 4),
-('1225062004', '122506', 'Sihare''o', 4),
+('1225062004', '122506', 'Sihare\'o', 4),
 ('1225062005', '122506', 'Lolomboli', 4),
 ('1225062006', '122506', 'Ononamolo I', 4),
 ('1225062007', '122506', 'Hilimbaruzo', 4),
@@ -19759,14 +19760,14 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('1225072001', '122507', 'Sisobawino II', 4),
 ('1225072002', '122507', 'Duria', 4),
 ('1225072003', '122507', 'Ambukha', 4),
-('1225072004', '122507', 'Hilimbowo Ma''u', 4),
+('1225072004', '122507', 'Hilimbowo Ma\'u', 4),
 ('1225072005', '122507', 'Hilimbuasi', 4),
 ('1225072006', '122507', 'Lolofitu', 4),
-('1225072007', '122507', 'Hili"uso', 4),
+('1225072007', '122507', 'Hili\"uso', 4),
 ('1225072008', '122507', 'Wango', 4),
 ('1225082001', '122508', 'Bukit Tinggi', 4),
 ('1225082002', '122508', 'Lawelu', 4),
-('1225082003', '122508', 'Salo''o', 4),
+('1225082003', '122508', 'Salo\'o', 4),
 ('1225082004', '122508', 'Hilisangawola', 4),
 ('1225082005', '122508', 'Hilibadalu', 4),
 ('1271011001', '127101', 'Pasar Baru', 3),
@@ -20181,15 +20182,15 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('1278012005', '127801', 'Fadoro Lasara', 4),
 ('1278012006', '127801', 'Hilihao', 4),
 ('1278012007', '127801', 'Hilimbaruzo', 4),
-('1278012008', '127801', 'Hilina''a', 4),
+('1278012008', '127801', 'Hilina\'a', 4),
 ('1278012009', '127801', 'Iraonogeba', 4),
 ('1278012010', '127801', 'Lasara Bahili', 4),
-('1278012011', '127801', 'Lolowonu Niko''otano', 4),
+('1278012011', '127801', 'Lolowonu Niko\'otano', 4),
 ('1278012012', '127801', 'Madula', 4),
 ('1278012013', '127801', 'Madolaoli', 4),
 ('1278012014', '127801', 'Mudik', 4),
 ('1278012015', '127801', 'Miga', 4),
-('1278012016', '127801', 'Mo''awo', 4),
+('1278012016', '127801', 'Mo\'awo', 4),
 ('1278012017', '127801', 'Ombolata Ulu', 4),
 ('1278012018', '127801', 'Onowaembo', 4),
 ('1278012019', '127801', 'Onozitoli Olora', 4),
@@ -20197,7 +20198,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('1278012021', '127801', 'Saewe', 4),
 ('1278012022', '127801', 'Sifalaete Tabaloho', 4),
 ('1278012023', '127801', 'Sifalaete Ulu', 4),
-('1278012024', '127801', 'Sihare''o II Tabaloho', 4),
+('1278012024', '127801', 'Sihare\'o II Tabaloho', 4),
 ('1278012025', '127801', 'Simandraolo', 4),
 ('1278012026', '127801', 'Sisarahiligamo', 4),
 ('1278012027', '127801', 'Sisarahili Sisambualahe', 4),
@@ -20211,20 +20212,20 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('1278022006', '127802', 'Mazingo Tabaloho', 4),
 ('1278022007', '127802', 'Onozitoli Tabaloho', 4),
 ('1278022008', '127802', 'Lololakha', 4),
-('1278022009', '127802', 'Sihare''o I Tabaloho', 4),
+('1278022009', '127802', 'Sihare\'o I Tabaloho', 4),
 ('1278022010', '127802', 'Ombolata Simenari', 4),
 ('1278022011', '127802', 'Hiligara', 4),
 ('1278022012', '127802', 'Luahalaraga', 4),
-('1278022013', '127802', 'Sisobahili II Tanose''o', 4),
+('1278022013', '127802', 'Sisobahili II Tanose\'o', 4),
 ('1278022014', '127802', 'Hiligodu Ombolata', 4),
 ('1278022015', '127802', 'Tetehosi Ombolata', 4),
 ('1278032001', '127803', 'Afia', 4),
-('1278032002', '127803', 'Lolo''ana''a Lolomoyo', 4),
+('1278032002', '127803', 'Lolo\'ana\'a Lolomoyo', 4),
 ('1278032003', '127803', 'Lasara Sowu', 4),
 ('1278032004', '127803', 'Telukbelukar', 4),
 ('1278032005', '127803', 'Tetehosi Afia', 4),
 ('1278032006', '127803', 'Hambawa', 4),
-('1278032007', '127803', 'Gawu-Gawu Bo''uso', 4),
+('1278032007', '127803', 'Gawu-Gawu Bo\'uso', 4),
 ('1278032008', '127803', 'Olora', 4),
 ('1278032009', '127803', 'Hilimbowo Olora', 4),
 ('1278032010', '127803', 'Hiligodu Ulu', 4),
@@ -20242,10 +20243,10 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('1278042012', '127804', 'Binaka', 4),
 ('1278042013', '127804', 'Idanotae', 4),
 ('1278042014', '127804', 'Tetehosi II', 4),
-('1278042015', '127804', 'Lolo''ana''a Idanoi', 4),
+('1278042015', '127804', 'Lolo\'ana\'a Idanoi', 4),
 ('1278042016', '127804', 'Siwalubanua I', 4),
 ('1278042017', '127804', 'Hilihambawa', 4),
-('1278042018', '127804', 'Awa''ai', 4),
+('1278042018', '127804', 'Awa\'ai', 4),
 ('1278042019', '127804', 'Lewuoguru Idanoi', 4),
 ('1278042020', '127804', 'Fadoro', 4),
 ('1278042021', '127804', 'Hiliweto Idanoi', 4),
@@ -20254,10 +20255,10 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('1278042024', '127804', 'Ombolata', 4),
 ('1278042025', '127804', 'Samasi', 4),
 ('1278042026', '127804', 'Tuhegeo II', 4),
-('1278052001', '127805', 'Nazalou Alo''oa', 4),
-('1278052002', '127805', 'Niko''otano Dao', 4),
+('1278052001', '127805', 'Nazalou Alo\'oa', 4),
+('1278052002', '127805', 'Niko\'otano Dao', 4),
 ('1278052003', '127805', 'Iraonolase', 4),
-('1278052004', '127805', 'Orahili Tanose''o', 4),
+('1278052004', '127805', 'Orahili Tanose\'o', 4),
 ('1278052005', '127805', 'Tarakhaini', 4),
 ('1278052006', '127805', 'Fadoro Hilimbowo', 4),
 ('1278052007', '127805', 'Fadoro You', 4),
@@ -20268,7 +20269,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('1278062003', '127806', 'Orahili Tumori', 4),
 ('1278062004', '127806', 'Gada', 4),
 ('1278062005', '127806', 'Lolomoyo Tuhemberua', 4),
-('1278062006', '127806', 'Sihare''o Siwahili', 4),
+('1278062006', '127806', 'Sihare\'o Siwahili', 4),
 ('1278062007', '127806', 'Hilinakhe', 4),
 ('1278062008', '127806', 'Onozikho', 4),
 ('1278062009', '127806', 'Ononamolo II Lot', 4),
@@ -21805,7 +21806,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('1402102007', '140210', 'Rawa Asri', 4),
 ('1402102008', '140210', 'Suka Jadi', 4),
 ('1402102009', '140210', 'Teluk Sungkai', 4),
-('1402102010', '140210', 'Pulau Jum''at', 4),
+('1402102010', '140210', 'Pulau Jum\'at', 4),
 ('1402112001', '140211', 'Morong', 4),
 ('1402112002', '140211', 'Pasir Bongkal', 4),
 ('1402112003', '140211', 'Pasir Selabau', 4),
@@ -24494,7 +24495,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('1508082006', '150808', 'Tebing Tinggi', 4),
 ('1508082007', '150808', 'Datar', 4),
 ('1508082008', '150808', 'Suka Jaya', 4),
-('1508082009', '150808', 'Pekan Jum''at', 4),
+('1508082009', '150808', 'Pekan Jum\'at', 4),
 ('1508092001', '150809', 'Koto Jayo', 4),
 ('1508092002', '150809', 'Danau', 4),
 ('1508092003', '150809', 'Muara Kuamang', 4),
@@ -27070,7 +27071,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('1609082012', '160908', 'Selabung Belimbing Jaya', 4),
 ('1609082013', '160908', 'Bunut', 4),
 ('1609082014', '160908', 'Air Baru', 4),
-('1609082015', '160908', 'Pere''an', 4),
+('1609082015', '160908', 'Pere\'an', 4),
 ('1609092001', '160909', 'Tanjung Durian', 4),
 ('1609092002', '160909', 'Sipin', 4),
 ('1609092003', '160909', 'Kota Way', 4),
@@ -28074,7 +28075,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('1701042020', '170104', 'Lubuk Sirih Ulu', 4),
 ('1701042021', '170104', 'Lubuk Sirih Ilir', 4),
 ('1701042023', '170104', 'Kota Padang', 4),
-('1701042024', '170104', 'Mela''o', 4),
+('1701042024', '170104', 'Mela\'o', 4),
 ('1701042025', '170104', 'Gunung Sakti', 4),
 ('1701042026', '170104', 'Jeranglah Rendah', 4),
 ('1701042027', '170104', 'Jeranglah Tinggi', 4),
@@ -28494,8 +28495,8 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('1703192007', '170319', 'Batu Raja Kol', 4),
 ('1703192008', '170319', 'Batu Layang', 4),
 ('1703192009', '170319', 'Batu Roto', 4),
-('1703192010', '170319', 'Air Ba''us I', 4),
-('1703192011', '170319', 'Air Ba''us II', 4),
+('1703192010', '170319', 'Air Ba\'us I', 4),
+('1703192011', '170319', 'Air Ba\'us II', 4),
 ('1703192012', '170319', 'Pematang Balam', 4),
 ('1703192013', '170319', 'Talang Rendah', 4),
 ('1703192014', '170319', 'Sumber Rejo', 4),
@@ -28650,7 +28651,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('1704072016', '170407', 'Tri Jaya', 4),
 ('1704072017', '170407', 'Air Batang', 4),
 ('1704072018', '170407', 'Sinar Banten', 4),
-('1704072019', '170407', 'Pasar Jum''at', 4),
+('1704072019', '170407', 'Pasar Jum\'at', 4),
 ('1704082001', '170408', 'Bunga Melur', 4),
 ('1704082002', '170408', 'Karang Dapo', 4),
 ('1704082003', '170408', 'Lubuk Gung', 4),
@@ -28857,7 +28858,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('1705072008', '170507', 'Dusun Tengah', 4),
 ('1705072009', '170507', 'Tanjung Kuaw', 4),
 ('1705072010', '170507', 'Napal Jungur', 4),
-('1705072011', '170507', 'Tumbu''an', 4),
+('1705072011', '170507', 'Tumbu\'an', 4),
 ('1705072012', '170507', 'Rena Panjang', 4),
 ('1705072013', '170507', 'Sakaian', 4),
 ('1705072014', '170507', 'Lubuk Terentang', 4),
@@ -29341,7 +29342,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('1709022010', '170902', 'Lagan', 4),
 ('1709022011', '170902', 'Taba Lagan', 4),
 ('1709022013', '170902', 'Bukit', 4),
-('1709022014', '170902', 'Jum''at', 4),
+('1709022014', '170902', 'Jum\'at', 4),
 ('1709022015', '170902', 'Padang Ulak Tanjung', 4),
 ('1709022016', '170902', 'Pagar Jati', 4),
 ('1709022017', '170902', 'Air Putih', 4),
@@ -31951,7 +31952,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('1813052003', '181305', 'Way Sindi', 4),
 ('1813052004', '181305', 'Penengahan', 4),
 ('1813052005', '181305', 'Menyancang', 4),
-('1813052006', '181305', 'La''ay', 4),
+('1813052006', '181305', 'La\'ay', 4),
 ('1813052007', '181305', 'Penggawa V Ulu', 4),
 ('1813052008', '181305', 'Penggawa V Tengah', 4),
 ('1813052009', '181305', 'Way Sindi Utara', 4),
@@ -51138,7 +51139,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('3513022006', '351302', 'Tukul', 4),
 ('3513022007', '351302', 'Sumberanom', 4),
 ('3513022008', '351302', 'Cepoko', 4),
-('3513022009', '351302', 'Remba''an', 4),
+('3513022009', '351302', 'Remba\'an', 4),
 ('3513032001', '351303', 'Wonoasri', 4),
 ('3513032002', '351303', 'Jatisari', 4),
 ('3513032003', '351303', 'Kedawung', 4),
@@ -51330,11 +51331,11 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('3513152014', '351315', 'Widoro', 4),
 ('3513152015', '351315', 'Gebangan', 4),
 ('3513152016', '351315', 'Duwuhan', 4),
-('3513152017', '351315', 'Soka"an', 4),
+('3513152017', '351315', 'Soka\"an', 4),
 ('3513162001', '351316', 'Selogudig Kulon', 4),
-('3513162002', '351316', 'Selogudig Wetan', 4),
-('3513162003', '351316', 'Ketompen', 4);
+('3513162002', '351316', 'Selogudig Wetan', 4);
 INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
+('3513162003', '351316', 'Ketompen', 4),
 ('3513162004', '351316', 'Karangbong', 4),
 ('3513162005', '351316', 'Karangpranti', 4),
 ('3513162006', '351316', 'Gejugan', 4),
@@ -52582,10 +52583,10 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('3517082006', '351708', 'Jatirejo', 4),
 ('3517082007', '351708', 'Cukir', 4),
 ('3517082008', '351708', 'Kwaron', 4),
-('3517082009', '351708', 'Watugaluh', 4),
-('3517082010', '351708', 'Pundong', 4),
-('3517082011', '351708', 'Diwek', 4);
+('3517082009', '351708', 'Watugaluh', 4);
 INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
+('3517082010', '351708', 'Pundong', 4),
+('3517082011', '351708', 'Diwek', 4),
 ('3517082012', '351708', 'Bandung', 4),
 ('3517082013', '351708', 'Kedawong', 4),
 ('3517082014', '351708', 'Ngudirejo', 4),
@@ -53018,7 +53019,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('3518172004', '351817', 'Karangsemi', 4),
 ('3518172005', '351817', 'Senjayan', 4),
 ('3518172006', '351817', 'Kedungglugu', 4),
-('3518172007', '351817', 'Ja"an', 4),
+('3518172007', '351817', 'Ja\"an', 4),
 ('3518172008', '351817', 'Sumberagung', 4),
 ('3518172009', '351817', 'Ketawang', 4),
 ('3518172010', '351817', 'Ngunjung', 4),
@@ -53859,9 +53860,9 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('3522092020', '352209', 'Jipo', 4),
 ('3522092021', '352209', 'Ngranggonanya', 4),
 ('3522092022', '352209', 'Mudung', 4),
-('3522092023', '352209', 'Karanggang', 4),
-('3522092024', '352209', 'Sugih Waras', 4);
+('3522092023', '352209', 'Karanggang', 4);
 INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
+('3522092024', '352209', 'Sugih Waras', 4),
 ('3522092025', '352209', 'Sumbergede', 4),
 ('3522102001', '352210', 'Drajat', 4),
 ('3522102002', '352210', 'Banjaranyar', 4),
@@ -54954,7 +54955,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('3524272009', '352427', 'Sarirejo', 4),
 ('3525012001', '352501', 'Sawo', 4),
 ('3525012002', '352501', 'Karang Cangkring', 4),
-('3525012003', '352501', 'Kedong Kedo"an', 4),
+('3525012003', '352501', 'Kedong Kedo\"an', 4),
 ('3525012004', '352501', 'Bulangan', 4),
 ('3525012005', '352501', 'Wonokerto', 4),
 ('3525012006', '352501', 'Bangeran', 4),
@@ -54969,7 +54970,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('3525012015', '352501', 'Jrebeng', 4),
 ('3525012016', '352501', 'Mojopetung', 4),
 ('3525012017', '352501', 'Sekargadung', 4),
-('3525012018', '352501', 'Ima"an', 4),
+('3525012018', '352501', 'Ima\"an', 4),
 ('3525012019', '352501', 'Babak Bawo', 4),
 ('3525012020', '352501', 'Babaksari', 4),
 ('3525012021', '352501', 'Sambo Gunung', 4),
@@ -55080,7 +55081,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('3525062015', '352506', 'Sumengko', 4),
 ('3525062016', '352506', 'Pasinan Lemah Pt.', 4),
 ('3525072001', '352507', 'Pangkahkulon', 4),
-('3525072002', '352507', 'Canga"an', 4),
+('3525072002', '352507', 'Canga\"an', 4),
 ('3525072003', '352507', 'Ngimboh', 4),
 ('3525072004', '352507', 'Sekapuk', 4),
 ('3525072005', '352507', 'Gosari', 4),
@@ -55121,9 +55122,9 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('3525092012', '352509', 'Srowo', 4),
 ('3525092013', '352509', 'Kauman', 4),
 ('3525092014', '352509', 'Bunderan', 4),
-('3525092015', '352509', 'Asempapak', 4),
-('3525092016', '352509', 'Mriyunan', 4);
+('3525092015', '352509', 'Asempapak', 4);
 INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
+('3525092016', '352509', 'Mriyunan', 4),
 ('3525092017', '352509', 'Mojoasem', 4),
 ('3525092018', '352509', 'Sedagaran', 4),
 ('3525092019', '352509', 'Ngawen', 4),
@@ -55212,7 +55213,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('3525132011', '352513', 'Hendro Sari', 4),
 ('3525132012', '352513', 'Pelem Watu', 4),
 ('3525132013', '352513', 'Menganti', 4),
-('3525132014', '352513', 'Hula"an', 4),
+('3525132014', '352513', 'Hula\"an', 4),
 ('3525132015', '352513', 'Kepatihan', 4),
 ('3525132016', '352513', 'Gempol Kurung', 4),
 ('3525132017', '352513', 'Drancang', 4),
@@ -55392,7 +55393,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('3526072004', '352607', 'Tobaddung', 4),
 ('3526072005', '352607', 'Tolbuk', 4),
 ('3526072006', '352607', 'Moarah', 4),
-('3526072007', '352607', 'Ra"as', 4),
+('3526072007', '352607', 'Ra\"as', 4),
 ('3526072008', '352607', 'Polongan', 4),
 ('3526072009', '352607', 'Karang Asem', 4),
 ('3526072010', '352607', 'Trogan', 4),
@@ -55407,7 +55408,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('3526072019', '352607', 'Tenggun Dajah', 4),
 ('3526072020', '352607', 'Larangan Sorjan', 4),
 ('3526072021', '352607', 'Larangan Glintong', 4),
-('3526072022', '352607', 'Ko"ol', 4),
+('3526072022', '352607', 'Ko\"ol', 4),
 ('3526082001', '352608', 'Sepulu', 4),
 ('3526082002', '352608', 'Maneron', 4),
 ('3526082003', '352608', 'Gangseyan', 4),
@@ -55443,11 +55444,11 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('3526102004', '352610', 'Tramok', 4),
 ('3526102005', '352610', 'Katol Timur', 4),
 ('3526102006', '352610', 'Lembung Gunong', 4),
-('3526102007', '352610', 'Ampara"an', 4),
+('3526102007', '352610', 'Ampara\"an', 4),
 ('3526102008', '352610', 'Kokop', 4),
 ('3526102009', '352610', 'Tlokoh', 4),
 ('3526102010', '352610', 'Durjan', 4),
-('3526102011', '352610', 'Mano"an', 4),
+('3526102011', '352610', 'Mano\"an', 4),
 ('3526102012', '352610', 'Mandung', 4),
 ('3526102013', '352610', 'Bandang Laok', 4),
 ('3526112001', '352611', 'Pesanggrahan', 4),
@@ -55473,7 +55474,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('3526122005', '352612', 'Sukolilo Timur', 4),
 ('3526122006', '352612', 'Sukolilo Barat', 4),
 ('3526122007', '352612', 'Bringen', 4),
-('3526122008', '352612', 'Ba"engas', 4),
+('3526122008', '352612', 'Ba\"engas', 4),
 ('3526122009', '352612', 'Bunajih', 4),
 ('3526122010', '352612', 'Sendang Laok', 4),
 ('3526122011', '352612', 'Sendang Dajah', 4),
@@ -55518,7 +55519,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('3526142014', '352614', 'Jaddung', 4),
 ('3526142015', '352614', 'Pacangan', 4),
 ('3526142016', '352614', 'Bancang', 4),
-('3526142017', '352614', 'Ja"ah', 4),
+('3526142017', '352614', 'Ja\"ah', 4),
 ('3526142018', '352614', 'Masaran', 4),
 ('3526152001', '352615', 'Blega', 4),
 ('3526152002', '352615', 'Rosep', 4),
@@ -55537,7 +55538,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('3526152015', '352615', 'Panjalinan', 4),
 ('3526152016', '352615', 'Pangeran Gadungan', 4),
 ('3526152017', '352615', 'Kampao', 4),
-('3526152018', '352615', 'Ko''olan', 4),
+('3526152018', '352615', 'Ko\'olan', 4),
 ('3526152019', '352615', 'Gigir', 4),
 ('3526162001', '352616', 'Patereman', 4),
 ('3526162002', '352616', 'Paeng', 4),
@@ -55554,8 +55555,8 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('3526162013', '352616', 'Glisgis', 4),
 ('3526162014', '352616', 'Brakas Dajah', 4),
 ('3526162015', '352616', 'Modung', 4),
-('3526162016', '352616', 'Suwa"an', 4),
-('3526162017', '352616', 'Mangga"an', 4),
+('3526162016', '352616', 'Suwa\"an', 4),
+('3526162017', '352616', 'Mangga\"an', 4),
 ('3526172001', '352617', 'Bandung', 4),
 ('3526172002', '352617', 'Konang', 4),
 ('3526172003', '352617', 'Genteng', 4),
@@ -55578,8 +55579,8 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('3526182007', '352618', 'Galis', 4),
 ('3526182008', '352618', 'Pekadan', 4),
 ('3526182009', '352618', 'Bangpendah', 4),
-('3526182010', '352618', 'Paka''an Dajah', 4),
-('3526182011', '352618', 'Paka''an Laok', 4),
+('3526182010', '352618', 'Paka\'an Dajah', 4),
+('3526182011', '352618', 'Paka\'an Laok', 4),
 ('3526182012', '352618', 'Kranggan Timur', 4),
 ('3526182013', '352618', 'Separah', 4),
 ('3526182014', '352618', 'Banjar', 4),
@@ -55634,7 +55635,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('3527032018', '352703', 'Baruh', 4),
 ('3527042001', '352704', 'Taddan', 4),
 ('3527042002', '352704', 'Banjar Talela', 4),
-('3527042003', '352704', 'Tamba"an', 4),
+('3527042003', '352704', 'Tamba\"an', 4),
 ('3527042004', '352704', 'Prajjan', 4),
 ('3527042005', '352704', 'Dharma Camplong', 4),
 ('3527042006', '352704', 'Batukarang', 4),
@@ -55644,8 +55645,8 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('3527042010', '352704', 'Banjartabulu', 4),
 ('3527042011', '352704', 'Anggersek', 4),
 ('3527042012', '352704', 'Madupat', 4),
-('3527042013', '352704', 'Pamola"an', 4),
-('3527042014', '352704', 'Plampa"an', 4),
+('3527042013', '352704', 'Pamola\"an', 4),
+('3527042014', '352704', 'Plampa\"an', 4),
 ('3527052001', '352705', 'Kebun Sareh', 4),
 ('3527052002', '352705', 'Karangnangger', 4),
 ('3527052003', '352705', 'Rapa Laok', 4),
@@ -55727,7 +55728,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('3527092017', '352709', 'Masaran', 4),
 ('3527092018', '352709', 'Banyuates', 4),
 ('3527092019', '352709', 'Jatra Timur', 4),
-('3527092020', '352709', 'Tapa"an', 4),
+('3527092020', '352709', 'Tapa\"an', 4),
 ('3527102008', '352710', 'Lepelle', 4),
 ('3527102009', '352710', 'Bapelle', 4),
 ('3527102010', '352710', 'Sawah Tengah', 4),
@@ -55792,7 +55793,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('3528012014', '352801', 'Bukek', 4),
 ('3528012015', '352801', 'Gugul', 4),
 ('3528012016', '352801', 'Larangan Slampar', 4),
-('3528012017', '352801', 'Taro"an', 4),
+('3528012017', '352801', 'Taro\"an', 4),
 ('3528021018', '352802', 'Barurambat Timur', 3),
 ('3528021019', '352802', 'Lawangan Daya', 3),
 ('3528022001', '352802', 'Tanjung', 4),
@@ -55802,7 +55803,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('3528022005', '352802', 'Jarin', 4),
 ('3528022006', '352802', 'Baddurih', 4),
 ('3528022007', '352802', 'Buddih', 4),
-('3528022008', '352802', 'Sopa"ah', 4),
+('3528022008', '352802', 'Sopa\"ah', 4),
 ('3528022009', '352802', 'Prekbun', 4),
 ('3528022010', '352802', 'Durbuk', 4),
 ('3528022011', '352802', 'Pademawu Barat', 4),
@@ -55847,7 +55848,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('3528052002', '352805', 'Toket', 4),
 ('3528052003', '352805', 'Candi Burung', 4),
 ('3528052004', '352805', 'Batokalangan', 4),
-('3528052005', '352805', 'Gro"om', 4),
+('3528052005', '352805', 'Gro\"om', 4),
 ('3528052006', '352805', 'Srambah', 4),
 ('3528052007', '352805', 'Pangtonggal', 4),
 ('3528052008', '352805', 'Samiran', 4),
@@ -55856,7 +55857,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('3528052011', '352805', 'Samatan', 4),
 ('3528052012', '352805', 'Lenteng', 4),
 ('3528052013', '352805', 'Tlangoh', 4),
-('3528052014', '352805', 'Billa"an', 4),
+('3528052014', '352805', 'Billa\"an', 4),
 ('3528052015', '352805', 'Rangperang Laok', 4),
 ('3528052016', '352805', 'Rangperang Daja', 4),
 ('3528052017', '352805', 'Banyubulu', 4),
@@ -55875,13 +55876,13 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('3528062003', '352806', 'Angsanah', 4),
 ('3528062004', '352806', 'Akkor', 4),
 ('3528062005', '352806', 'Larangan Badung', 4),
-('3528062006', '352806', 'Pana"an', 4),
-('3528062007', '352806', 'Poto"an Laok', 4),
-('3528062008', '352806', 'Poto"an Dajah', 4),
+('3528062006', '352806', 'Pana\"an', 4),
+('3528062007', '352806', 'Poto\"an Laok', 4),
+('3528062008', '352806', 'Poto\"an Dajah', 4),
 ('3528062009', '352806', 'Kacok', 4),
 ('3528062010', '352806', 'Rombuh', 4),
-('3528062011', '352806', 'Palenga"an Laok', 4),
-('3528062012', '352806', 'Palenga"an Dajah', 4),
+('3528062011', '352806', 'Palenga\"an Laok', 4),
+('3528062012', '352806', 'Palenga\"an Dajah', 4),
 ('3528072001', '352807', 'Plak Pak', 4),
 ('3528072002', '352807', 'Palesanggar', 4),
 ('3528072003', '352807', 'Pegantenan', 4),
@@ -55985,18 +55986,18 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('3529022002', '352902', 'Karanganyar', 4),
 ('3529022003', '352902', 'Marengan Lao', 4),
 ('3529022004', '352902', 'Kartasada', 4),
-('3529022005', '352902', 'Kalimo"ok', 4),
+('3529022005', '352902', 'Kalimo\"ok', 4),
 ('3529022006', '352902', 'Kalianget Barat', 4),
 ('3529022007', '352902', 'Kalianget Timur', 4),
 ('3529032001', '352903', 'Kasengan', 4),
 ('3529032002', '352903', 'Lalangon', 4),
 ('3529032003', '352903', 'Tenunan', 4),
-('3529032004', '352903', 'Lanju"', 4),
+('3529032004', '352903', 'Lanju\"', 4),
 ('3529032005', '352903', 'Gading', 4),
 ('3529032006', '352903', 'Giring', 4),
 ('3529032007', '352903', 'Gunung Kembar', 4),
-('3529032008', '352903', 'Jaba"an', 4),
-('3529032009', '352903', 'Manding Lao"', 4),
+('3529032008', '352903', 'Jaba\"an', 4),
+('3529032009', '352903', 'Manding Lao\"', 4),
 ('3529032010', '352903', 'Manding Timur', 4),
 ('3529032011', '352903', 'Manding Daya', 4),
 ('3529042001', '352904', 'Talango', 4),
@@ -56006,7 +56007,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('3529042005', '352904', 'Kombang', 4),
 ('3529042006', '352904', 'Poteran', 4),
 ('3529042007', '352904', 'Marengan Palasa', 4),
-('3529042008', '352904', 'Jaba"an', 4),
+('3529042008', '352904', 'Jaba\"an', 4),
 ('3529052001', '352905', 'Guluk Majung', 4),
 ('3529052002', '352905', 'Kapedi', 4),
 ('3529052003', '352905', 'Pakandangan Barat', 4),
@@ -56073,7 +56074,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('3529092002', '352909', 'Pajuddan Dundang', 4),
 ('3529092003', '352909', 'Pordapor', 4),
 ('3529092004', '352909', 'Guluk-guluk', 4),
-('3529092005', '352909', 'Ketawang Lao"', 4),
+('3529092005', '352909', 'Ketawang Lao\"', 4),
 ('3529092006', '352909', 'Pananggungan', 4),
 ('3529092007', '352909', 'Baragung', 4),
 ('3529092008', '352909', 'Tambuko', 4),
@@ -56098,13 +56099,13 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('3529112001', '352911', 'Kaduara Timur', 4),
 ('3529112002', '352911', 'Sendang', 4),
 ('3529112003', '352911', 'Rombasan', 4),
-('3529112004', '352911', 'Sentol Lao"', 4),
+('3529112004', '352911', 'Sentol Lao\"', 4),
 ('3529112005', '352911', 'Larangan Perreng', 4),
 ('3529112006', '352911', 'Sentol Daya', 4),
 ('3529112007', '352911', 'Pakamban Daya', 4),
-('3529112008', '352911', 'Pakamban Lao"', 4),
+('3529112008', '352911', 'Pakamban Lao\"', 4),
 ('3529112009', '352911', 'Jaddung', 4),
-('3529112010', '352911', 'Pragaan Lao"', 4),
+('3529112010', '352911', 'Pragaan Lao\"', 4),
 ('3529112011', '352911', 'Pragaan Daya', 4),
 ('3529112012', '352911', 'Prenduan', 4),
 ('3529112013', '352911', 'Aeng Panas', 4),
@@ -56121,9 +56122,9 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('3529122010', '352912', 'Campor Barat', 4),
 ('3529122011', '352912', 'Keles', 4),
 ('3529122012', '352912', 'Campor Timur', 4),
-('3529122013', '352912', 'Bellu" Ares', 4),
-('3529122014', '352912', 'Bellu" Kene"', 4),
-('3529122015', '352912', 'Bellu" Raja', 4),
+('3529122013', '352912', 'Bellu\" Ares', 4),
+('3529122014', '352912', 'Bellu\" Kene\"', 4),
+('3529122015', '352912', 'Bellu\" Raja', 4),
 ('3529132001', '352913', 'Montorna', 4),
 ('3529132002', '352913', 'Prancak', 4),
 ('3529132003', '352913', 'Campaka', 4),
@@ -56135,7 +56136,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('3529132009', '352913', 'Padangdangan', 4),
 ('3529132010', '352913', 'Panaongan', 4),
 ('3529142001', '352914', 'Slopeng', 4),
-('3529142002', '352914', 'Sema"an', 4),
+('3529142002', '352914', 'Sema\"an', 4),
 ('3529142003', '352914', 'Batubella Barat', 4),
 ('3529142004', '352914', 'Batubella Timur', 4),
 ('3529142005', '352914', 'Kecer', 4),
@@ -56147,8 +56148,8 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('3529142011', '352914', 'Nyapar', 4),
 ('3529142012', '352914', 'Dasuk Barat', 4),
 ('3529142013', '352914', 'Dasuk Timur', 4),
-('3529142014', '352914', 'Dasuk Lao"', 4),
-('3529142015', '352914', 'Ellak Lao"', 4),
+('3529142014', '352914', 'Dasuk Lao\"', 4),
+('3529142015', '352914', 'Ellak Lao\"', 4),
 ('3529152001', '352915', 'Mandala', 4),
 ('3529152002', '352915', 'Pakondang', 4),
 ('3529152003', '352915', 'Matanair', 4),
@@ -56178,17 +56179,17 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('3529162016', '352916', 'Lombang', 4),
 ('3529172001', '352917', 'Aeng Merah', 4),
 ('3529172002', '352917', 'Tengedan', 4),
-('3529172003', '352917', 'Juruwan Lao"', 4),
+('3529172003', '352917', 'Juruwan Lao\"', 4),
 ('3529172004', '352917', 'Juruwan Daja', 4),
 ('3529172005', '352917', 'Badur', 4),
 ('3529172006', '352917', 'Dang-gedang', 4),
-('3529172007', '352917', 'Batuputih Kene"', 4),
-('3529172008', '352917', 'Batuputih Lao"', 4),
+('3529172007', '352917', 'Batuputih Kene\"', 4),
+('3529172008', '352917', 'Batuputih Lao\"', 4),
 ('3529172009', '352917', 'Batuputih Daya', 4),
 ('3529172010', '352917', 'Bantelan', 4),
 ('3529172011', '352917', 'Larangan Barma', 4),
 ('3529172012', '352917', 'Kerta', 4),
-('3529172013', '352917', 'Bulla"an', 4),
+('3529172013', '352917', 'Bulla\"an', 4),
 ('3529172014', '352917', 'Sergang', 4),
 ('3529182001', '352918', 'Candi', 4),
 ('3529182002', '352918', 'Jadung', 4),
@@ -56201,10 +56202,10 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('3529182009', '352918', 'Bunpenang', 4),
 ('3529182010', '352918', 'Bungin-bungin', 4),
 ('3529182011', '352918', 'Lapa Taman', 4),
-('3529182012', '352918', 'Lapa Lao"', 4),
+('3529182012', '352918', 'Lapa Lao\"', 4),
 ('3529182013', '352918', 'Lapa Daja', 4),
 ('3529182014', '352918', 'Bancamara', 4),
-('3529182015', '352918', 'Banra"as', 4),
+('3529182015', '352918', 'Banra\"as', 4),
 ('3529192001', '352919', 'Grujukan', 4),
 ('3529192002', '352919', 'Longos', 4),
 ('3529192003', '352919', 'Andulang', 4),
@@ -56214,7 +56215,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('3529192007', '352919', 'Gapura Tengah', 4),
 ('3529192008', '352919', 'Gapura Barat', 4),
 ('3529192009', '352919', 'Panangan', 4),
-('3529192010', '352919', 'Palo"lo"an', 4),
+('3529192010', '352919', 'Palo\"lo\"an', 4),
 ('3529192011', '352919', 'Banjar Timur', 4),
 ('3529192012', '352919', 'Banjar Barat', 4),
 ('3529192013', '352919', 'Batu Dinding', 4),
@@ -56239,7 +56240,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('3529212005', '352921', 'Sokarami Paseser', 4),
 ('3529212006', '352921', 'Talaga', 4),
 ('3529212007', '352921', 'Rosong', 4),
-('3529212008', '352921', 'Sono"', 4),
+('3529212008', '352921', 'Sono\"', 4),
 ('3529222001', '352922', 'Ketupat', 4),
 ('3529222002', '352922', 'Jungkat', 4),
 ('3529222003', '352922', 'Kropak', 4),
@@ -56262,7 +56263,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('3529242013', '352924', 'Angkatan', 4),
 ('3529242014', '352924', 'Kalisangka', 4),
 ('3529242015', '352924', 'Bilis-bilis', 4),
-('3529242016', '352924', 'Lao" Jangjang', 4),
+('3529242016', '352924', 'Lao\" Jangjang', 4),
 ('3529242017', '352924', 'Sumber Nangka', 4),
 ('3529242018', '352924', 'Duko', 4),
 ('3529242019', '352924', 'Kalikatak', 4),
@@ -56277,7 +56278,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('3529252003', '352925', 'Sakala', 4),
 ('3529252004', '352925', 'Pagerrungan Besar', 4),
 ('3529252005', '352925', 'Pagerrungan Kecil', 4),
-('3529252006', '352925', 'Sase"el', 4),
+('3529252006', '352925', 'Sase\"el', 4),
 ('3529252007', '352925', 'Sepeken', 4),
 ('3529252008', '352925', 'Saunten', 4),
 ('3529252009', '352925', 'Paleyat', 4),
@@ -56364,10 +56365,10 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('3572031003', '357203', 'Klampok', 3),
 ('3572031004', '357203', 'Sananwetan', 3),
 ('3572031005', '357203', 'Rembang', 3),
-('3572031006', '357203', 'Karang Tengah', 3),
-('3572031007', '357203', 'Bendogerit', 3),
-('3573011001', '357301', 'Balearjosari', 3);
+('3572031006', '357203', 'Karang Tengah', 3);
 INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
+('3572031007', '357203', 'Bendogerit', 3),
+('3573011001', '357301', 'Balearjosari', 3),
 ('3573011002', '357301', 'Arjosari', 3),
 ('3573011003', '357301', 'Polowijen', 3),
 ('3573011004', '357301', 'Purwodadi', 3),
@@ -56470,12 +56471,12 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('3575021011', '357502', 'Sekargadung', 3),
 ('3575031001', '357503', 'Blandongan', 3),
 ('3575031002', '357503', 'Kepel', 3),
-('3575031003', '357503', 'Tapa''an', 3),
+('3575031003', '357503', 'Tapa\'an', 3),
 ('3575031005', '357503', 'Bakalan', 3),
 ('3575031006', '357503', 'Krampyangan', 3),
 ('3575031009', '357503', 'Bugul Kidul', 3),
 ('3575041001', '357504', 'Karanganyar', 3),
-('3575041002', '357504', 'Tamba''an', 3),
+('3575041002', '357504', 'Tamba\'an', 3),
 ('3575041003', '357504', 'Trajeng', 3),
 ('3575041004', '357504', 'Bangilan', 3),
 ('3575041005', '357504', 'Kebonsari', 3),
@@ -57601,10 +57602,10 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('3603221004', '360322', 'Medang', 3),
 ('3603222002', '360322', 'Cicalengka', 4),
 ('3603222003', '360322', 'Pagedangan', 4),
-('3603222005', '360322', 'Cijantra', 4),
-('3603222006', '360322', 'Lengkong Kulon', 4),
-('3603222007', '360322', 'Situ Gadung', 4);
+('3603222005', '360322', 'Cijantra', 4);
 INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
+('3603222006', '360322', 'Lengkong Kulon', 4),
+('3603222007', '360322', 'Situ Gadung', 4),
 ('3603222008', '360322', 'Jatake', 4),
 ('3603222009', '360322', 'Cihuni', 4),
 ('3603222010', '360322', 'Kadu Sirung', 4),
@@ -58856,10 +58857,10 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('5108042017', '510804', 'Kaliasem', 4),
 ('5108051009', '510805', 'Sukasada', 3),
 ('5108052001', '510805', 'Pancasari', 4),
-('5108052002', '510805', 'Wanagiri', 4),
-('5108052003', '510805', 'Ambengan', 4),
-('5108052004', '510805', 'Gitgit', 4);
+('5108052002', '510805', 'Wanagiri', 4);
 INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
+('5108052003', '510805', 'Ambengan', 4),
+('5108052004', '510805', 'Gitgit', 4),
 ('5108052005', '510805', 'Pegayaman', 4),
 ('5108052006', '510805', 'Silangjana', 4),
 ('5108052007', '510805', 'Pegadungan', 4),
@@ -59665,7 +59666,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('5205011004', '520501', 'Karijawa', 3),
 ('5205011005', '520501', 'Dora Tangga', 3),
 ('5205011006', '520501', 'Kandai I', 3),
-('5205012007', '520501', 'O''o', 4),
+('5205012007', '520501', 'O\'o', 4),
 ('5205012008', '520501', 'Katua', 4),
 ('5205012009', '520501', 'Karamabura', 4),
 ('5205012010', '520501', 'Mbawi', 4),
@@ -59675,7 +59676,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('5205012014', '520501', 'Manggeasi', 4),
 ('5205012015', '520501', 'Sori Sakolo', 4),
 ('5205022001', '520502', 'Kempo', 4),
-('5205022002', '520502', 'Ta''a', 4),
+('5205022002', '520502', 'Ta\'a', 4),
 ('5205022003', '520502', 'Soro', 4),
 ('5205022004', '520502', 'Konte', 4),
 ('5205022005', '520502', 'Tolo Kalo', 4),
@@ -59684,7 +59685,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('5205022008', '520502', 'Soro Barat', 4),
 ('5205032001', '520503', 'Rasa Bou', 4),
 ('5205032002', '520503', 'Daha', 4),
-('5205032003', '520503', 'Hu''u', 4),
+('5205032003', '520503', 'Hu\'u', 4),
 ('5205032004', '520503', 'Adu', 4),
 ('5205032005', '520503', 'Cempi Jaya', 4),
 ('5205032006', '520503', 'Merada', 4),
@@ -59808,8 +59809,8 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('5206062005', '520606', 'Naru', 4),
 ('5206062006', '520606', 'Rasabou', 4),
 ('5206062007', '520606', 'Sangia', 4),
-('5206062008', '520606', 'Na''e', 4),
-('5206062009', '520606', 'Rai O''i', 4),
+('5206062008', '520606', 'Na\'e', 4),
+('5206062009', '520606', 'Rai O\'i', 4),
 ('5206062010', '520606', 'Parangina', 4),
 ('5206062011', '520606', 'Kowo', 4),
 ('5206062012', '520606', 'Buncu', 4),
@@ -59835,13 +59836,13 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('5206072014', '520607', 'Mandala', 4),
 ('5206082005', '520608', 'Dori Dungga', 4),
 ('5206082006', '520608', 'Kala', 4),
-('5206082007', '520608', 'O''o', 4),
+('5206082007', '520608', 'O\'o', 4),
 ('5206082008', '520608', 'Mbawa', 4),
 ('5206082009', '520608', 'Palama', 4),
 ('5206082010', '520608', 'Rora', 4),
 ('5206082012', '520608', 'Mpili', 4),
 ('5206082013', '520608', 'Bumi Pajo', 4),
-('5206082014', '520608', 'Ndano Na''e', 4),
+('5206082014', '520608', 'Ndano Na\'e', 4),
 ('5206092001', '520609', 'Piong', 4),
 ('5206092002', '520609', 'Boro', 4),
 ('5206092003', '520609', 'Kore', 4),
@@ -59859,7 +59860,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('5206112003', '520611', 'Rupe', 4),
 ('5206112004', '520611', 'Kalodu', 4),
 ('5206112005', '520611', 'Kawuwu', 4),
-('5206112006', '520611', 'Doro O"o', 4),
+('5206112006', '520611', 'Doro O\"o', 4),
 ('5206112007', '520611', 'Laju', 4),
 ('5206112008', '520611', 'Kangga', 4),
 ('5206112009', '520611', 'Karampi', 4),
@@ -59917,7 +59918,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('5206172002', '520617', 'Kuta', 4),
 ('5206172003', '520617', 'Sambori', 4),
 ('5206172004', '520617', 'Teta', 4),
-('5206172005', '520617', 'Ka''owa', 4),
+('5206172005', '520617', 'Ka\'owa', 4),
 ('5206172006', '520617', 'Londu', 4),
 ('5206182001', '520618', 'Panda', 4),
 ('5206182002', '520618', 'Belo', 4),
@@ -60089,7 +60090,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('5272021009', '527202', 'Dodu', 3),
 ('5272021011', '527202', 'Nungga', 3),
 ('5272021018', '527202', 'Kodo', 3),
-('5272021019', '527202', 'Oi Fo''o', 3),
+('5272021019', '527202', 'Oi Fo\'o', 3),
 ('5272021020', '527202', 'Lelamase', 3),
 ('5272031001', '527203', 'Melayu', 3),
 ('5272031002', '527203', 'Jatiwangi', 3),
@@ -60116,10 +60117,10 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('5272051008', '527205', 'Panggi', 3),
 ('5272051009', '527205', 'Manggemaci', 3),
 ('5272051010', '527205', 'Matakando', 3),
-('5301042003', '530104', 'Bokonusan', 4),
-('5301042004', '530104', 'Otan', 4),
-('5301042005', '530104', 'Uitao', 4);
+('5301042003', '530104', 'Bokonusan', 4);
 INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
+('5301042004', '530104', 'Otan', 4),
+('5301042005', '530104', 'Uitao', 4),
 ('5301042006', '530104', 'Uiasa', 4),
 ('5301042008', '530104', 'Hansisi', 4),
 ('5301042009', '530104', 'Huilelot', 4),
@@ -60197,9 +60198,9 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('5301122001', '530112', 'Fatusuki', 4),
 ('5301122002', '530112', 'Oelbanu', 4),
 ('5301122004', '530112', 'Fatumetan', 4),
-('5301122005', '530112', 'Oh''aem', 4),
+('5301122005', '530112', 'Oh\'aem', 4),
 ('5301122008', '530112', 'Leloboko', 4),
-('5301122011', '530112', 'Oh''aem Dua', 4),
+('5301122011', '530112', 'Oh\'aem Dua', 4),
 ('5301131002', '530113', 'Naikliu', 3),
 ('5301132001', '530113', 'Afoan', 4),
 ('5301132003', '530113', 'Fatunaus', 4),
@@ -60313,7 +60314,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('5302022010', '530202', 'Bisene', 4),
 ('5302022012', '530202', 'Noinbila', 4),
 ('5302022013', '530202', 'Bikekneno', 4),
-('5302032001', '530203', 'O''besi', 4),
+('5302032001', '530203', 'O\'besi', 4),
 ('5302032002', '530203', 'Eonbesi', 4),
 ('5302032003', '530203', 'Bosen', 4),
 ('5302032004', '530203', 'Sebot', 4),
@@ -60326,11 +60327,11 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('5302032013', '530203', 'Lelobatan', 4),
 ('5302032014', '530203', 'Halmei', 4),
 ('5302032015', '530203', 'Fatukoto', 4),
-('5302032016', '530203', 'Kokfe''u', 4),
-('5302032017', '530203', 'To''fen', 4),
+('5302032016', '530203', 'Kokfe\'u', 4),
+('5302032017', '530203', 'To\'fen', 4),
 ('5302032018', '530203', 'Taiftob', 4),
 ('5302032019', '530203', 'Iusmolo', 4),
-('5302032020', '530203', 'To''manat', 4),
+('5302032020', '530203', 'To\'manat', 4),
 ('5302042001', '530204', 'Billa', 4),
 ('5302042002', '530204', 'Oelet', 4),
 ('5302042004', '530204', 'Pisan', 4),
@@ -60338,13 +60339,13 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('5302042007', '530204', 'Nifukiu', 4),
 ('5302042008', '530204', 'Mnelaanen', 4),
 ('5302042009', '530204', 'Teluk', 4),
-('5302042012', '530204', 'Oe''Ekam', 4),
+('5302042012', '530204', 'Oe\'Ekam', 4),
 ('5302042016', '530204', 'Sini', 4),
 ('5302042017', '530204', 'Tliu', 4),
 ('5302051010', '530205', 'Niki-Niki', 3),
 ('5302052001', '530205', 'Taebesa', 4),
 ('5302052002', '530205', 'Nakfunu', 4),
-('5302052003', '530205', 'Oe''ekam', 4),
+('5302052003', '530205', 'Oe\'ekam', 4),
 ('5302052004', '530205', 'Baki', 4),
 ('5302052005', '530205', 'Tumu', 4),
 ('5302052006', '530205', 'Noebesa', 4),
@@ -60371,14 +60372,14 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('5302072013', '530207', 'Haumeni Baki', 4),
 ('5302072015', '530207', 'Nifukani', 4),
 ('5302082001', '530208', 'Oinlasi', 4),
-('5302082002', '530208', 'Nunle"u', 4),
+('5302082002', '530208', 'Nunle\"u', 4),
 ('5302082003', '530208', 'Kokoi', 4),
 ('5302082004', '530208', 'Fenun', 4),
-('5302082005', '530208', 'Kuale"u', 4),
+('5302082005', '530208', 'Kuale\"u', 4),
 ('5302082006', '530208', 'Lanu', 4),
 ('5302082007', '530208', 'Sunu', 4),
 ('5302082008', '530208', 'Anin', 4),
-('5302082009', '530208', 'To''i', 4),
+('5302082009', '530208', 'To\'i', 4),
 ('5302082010', '530208', 'Nifuleo', 4),
 ('5302082011', '530208', 'Fatulunu', 4),
 ('5302082012', '530208', 'Fae', 4),
@@ -60404,7 +60405,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('5302102010', '530210', 'Nekmese', 4),
 ('5302102011', '530210', 'Eno Napi', 4),
 ('5302102012', '530210', 'Fatukusi', 4),
-('5302102013', '530210', 'Naile''u', 4),
+('5302102013', '530210', 'Naile\'u', 4),
 ('5302112001', '530211', 'Olais', 4),
 ('5302112002', '530211', 'Lasi', 4),
 ('5302112003', '530211', 'Kakan', 4),
@@ -60479,20 +60480,20 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('5302192004', '530219', 'Oetuke', 4),
 ('5302192005', '530219', 'Babuin', 4),
 ('5302192006', '530219', 'Oeleu', 4),
-('5302192007', '530219', 'Se''i', 4),
+('5302192007', '530219', 'Se\'i', 4),
 ('5302192008', '530219', 'Nununamat', 4),
 ('5302192009', '530219', 'Pana', 4),
 ('5302192010', '530219', 'Haunobenak', 4),
 ('5302192011', '530219', 'Ofu', 4),
 ('5302192012', '530219', 'Spaha', 4),
-('5302202001', '530220', 'Kot''olin', 4),
+('5302202001', '530220', 'Kot\'olin', 4),
 ('5302202002', '530220', 'Nunbena', 4),
 ('5302202003', '530220', 'Fatuat', 4),
 ('5302202004', '530220', 'Hoibeti', 4),
 ('5302202005', '530220', 'Nualunat', 4),
 ('5302202006', '530220', 'Binenok', 4),
 ('5302202007', '530220', 'Ponite', 4),
-('5302202008', '530220', 'O''obibi', 4),
+('5302202008', '530220', 'O\'obibi', 4),
 ('5302212001', '530221', 'Kualin', 4),
 ('5302212002', '530221', 'Oni', 4),
 ('5302212003', '530221', 'Nunusunu', 4),
@@ -60525,7 +60526,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('5302262001', '530226', 'Naip', 4),
 ('5302262002', '530226', 'Fatutnana', 4),
 ('5302262003', '530226', 'Oepliki', 4),
-('5302262004', '530226', 'Oe''ekam', 4),
+('5302262004', '530226', 'Oe\'ekam', 4),
 ('5302262005', '530226', 'Teas', 4),
 ('5302262006', '530226', 'Oebaki', 4),
 ('5302262007', '530226', 'Eno Nabuasa', 4),
@@ -60534,7 +60535,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('5302272003', '530227', 'Supul', 4),
 ('5302272004', '530227', 'Lakat', 4),
 ('5302272005', '530227', 'Enoneontes', 4),
-('5302272006', '530227', 'O''of', 4),
+('5302272006', '530227', 'O\'of', 4),
 ('5302272007', '530227', 'Tubmonas', 4),
 ('5302272008', '530227', 'Oe Oe', 4),
 ('5302282001', '530228', 'Sillu', 4),
@@ -60543,7 +60544,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('5302282004', '530228', 'Oeleon', 4),
 ('5302282005', '530228', 'Tunis', 4),
 ('5302282006', '530228', 'Bileon', 4),
-('5302282007', '530228', 'Besle''u', 4),
+('5302282007', '530228', 'Besle\'u', 4),
 ('5302292001', '530229', 'Fatukopa', 4),
 ('5302292002', '530229', 'Besnam', 4),
 ('5302292003', '530229', 'Taebone', 4),
@@ -60554,7 +60555,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('5302302001', '530230', 'Oelbubuk', 4),
 ('5302302002', '530230', 'Nekemunifeto', 4),
 ('5302302003', '530230', 'Binaus', 4),
-('5302302004', '530230', 'Oel''Ekam', 4),
+('5302302004', '530230', 'Oel\'Ekam', 4),
 ('5302302005', '530230', 'Kualeu', 4),
 ('5302302006', '530230', 'Pika', 4),
 ('5302312001', '530231', 'Tobu', 4),
@@ -60594,7 +60595,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('5303022019', '530302', 'Fatutasu', 4),
 ('5303022020', '530302', 'Manusasi', 4),
 ('5303022025', '530302', 'Saenam', 4),
-('5303022028', '530302', 'Sa''tab', 4),
+('5303022028', '530302', 'Sa\'tab', 4),
 ('5303031003', '530303', 'Up Faon', 3),
 ('5303031011', '530303', 'Supun', 3),
 ('5303032001', '530303', 'Pantae', 4),
@@ -60657,7 +60658,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('5303082017', '530308', 'Oenbit', 4),
 ('5303082022', '530308', 'Susulaku B', 4),
 ('5303082025', '530308', 'Keun', 4),
-('5303082026', '530308', 'Fatu''Ana', 4),
+('5303082026', '530308', 'Fatu\'Ana', 4),
 ('5303082027', '530308', 'Botof', 4),
 ('5303082028', '530308', 'Nansean Timur', 4),
 ('5303091010', '530309', 'Humusu C', 3),
@@ -60751,7 +60752,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('5303222001', '530322', 'Teba', 4),
 ('5303222002', '530322', 'Oerinbesi', 4),
 ('5303222003', '530322', 'Oekopa', 4),
-('5303222004', '530322', 'T''Eba Timur', 4),
+('5303222004', '530322', 'T\'Eba Timur', 4),
 ('5303232001', '530323', 'Tunbes', 4),
 ('5303232002', '530323', 'Luniup', 4),
 ('5303232003', '530323', 'Matabesi', 4),
@@ -60778,7 +60779,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('5304022003', '530402', 'Sadi', 4),
 ('5304022004', '530402', 'Umaklaran', 4),
 ('5304022005', '530402', 'Manleten', 4),
-('5304022006', '530402', 'Fatuba''a', 4),
+('5304022006', '530402', 'Fatuba\'a', 4),
 ('5304022007', '530402', 'Dafala', 4),
 ('5304022008', '530402', 'Takirin', 4),
 ('5304022009', '530402', 'Bauho', 4),
@@ -60874,8 +60875,8 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('5305022014', '530502', 'Alila Selatan', 4),
 ('5305022019', '530502', 'Pulau Buaya', 4),
 ('5305022020', '530502', 'Hulnani', 4),
-('5305022022', '530502', 'O''a Mate', 4),
-('5305022023', '530502', 'Ala"ang', 4),
+('5305022022', '530502', 'O\'a Mate', 4),
+('5305022023', '530502', 'Ala\"ang', 4),
 ('5305022024', '530502', 'Lefokisu', 4),
 ('5305022025', '530502', 'Bampalola', 4),
 ('5305022026', '530502', 'Lewalu', 4),
@@ -61408,10 +61409,10 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('5307182003', '530718', 'Baomekot', 4),
 ('5307182004', '530718', 'Kajowair', 4),
 ('5307182005', '530718', 'Hewokloang', 4),
-('5307182006', '530718', 'Heopuat', 4),
-('5307182007', '530718', 'Munerana', 4),
-('5307192001', '530719', 'Teka Iku', 4);
+('5307182006', '530718', 'Heopuat', 4);
 INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
+('5307182007', '530718', 'Munerana', 4),
+('5307192001', '530719', 'Teka Iku', 4),
 ('5307192002', '530719', 'Mekendetung', 4),
 ('5307192003', '530719', 'Kokowahor', 4),
 ('5307192004', '530719', 'Balatatatin', 4),
@@ -61578,8 +61579,8 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('5308082020', '530808', 'Likanaka', 4),
 ('5308082021', '530808', 'Nakambara', 4),
 ('5308082022', '530808', 'Niramesi', 4),
-('5308082023', '530808', 'Tana Lo''o', 4),
-('5308082024', '530808', 'Lise Pu''u', 4),
+('5308082023', '530808', 'Tana Lo\'o', 4),
+('5308082024', '530808', 'Lise Pu\'u', 4),
 ('5308091001', '530809', 'Wolojita', 3),
 ('5308092002', '530809', 'Tenda', 4),
 ('5308092003', '530809', 'Wiwipemo', 4),
@@ -61657,7 +61658,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('5308152011', '530815', 'Unggu', 4),
 ('5308152012', '530815', 'Nggesabiri', 4),
 ('5308152013', '530815', 'Watunggere Marilonga', 4),
-('5308152014', '530815', 'Jeo Du''a', 4),
+('5308152014', '530815', 'Jeo Du\'a', 4),
 ('5308162001', '530816', 'Kurulimbu', 4),
 ('5308162002', '530816', 'Sokoria', 4),
 ('5308162003', '530816', 'Demulaka', 4),
@@ -61707,7 +61708,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('5308212010', '530821', 'Tiwusora', 4),
 ('5308212011', '530821', 'Lisekuru', 4),
 ('5308212012', '530821', 'Rutujeja', 4),
-('5308212013', '530821', 'Mukureku Sa''ate', 4),
+('5308212013', '530821', 'Mukureku Sa\'ate', 4),
 ('5308212014', '530821', 'Kurusare', 4),
 ('5309011002', '530901', 'Aimere', 3),
 ('5309011003', '530901', 'Foa', 3),
@@ -62378,7 +62379,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('5313072017', '531307', 'Tobotani', 4),
 ('5313072018', '531307', 'Tubung Walang', 4),
 ('5313072019', '531307', 'Rumang', 4),
-('5313072020', '531307', 'Atu Wa''lupang', 4),
+('5313072020', '531307', 'Atu Wa\'lupang', 4),
 ('5313082001', '531308', 'Alap Atadei', 4),
 ('5313082002', '531308', 'Atakera', 4),
 ('5313082003', '531308', 'Leworaja', 4),
@@ -62472,7 +62473,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('5314072001', '531407', 'Sedeoen', 4),
 ('5314072002', '531407', 'Nemberala', 4),
 ('5314072003', '531407', 'Oenggaut', 4),
-('5314072004', '531407', 'Bo"a', 4),
+('5314072004', '531407', 'Bo\"a', 4),
 ('5314072005', '531407', 'Oenitas', 4),
 ('5314072006', '531407', 'Oelolok', 4),
 ('5314072007', '531407', 'Mbueain', 4),
@@ -62518,7 +62519,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('5315012024', '531501', 'Pong Kolong', 4),
 ('5315012025', '531501', 'Sarae Naru', 4),
 ('5315012026', '531501', 'Nanga Kantor Barat', 4),
-('5315021022', '531502', 'Golo Ru''u', 3),
+('5315021022', '531502', 'Golo Ru\'u', 3),
 ('5315021023', '531502', 'Nantal', 3),
 ('5315022001', '531502', 'Kolang', 4),
 ('5315022002', '531502', 'Coal', 4),
@@ -62629,7 +62630,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('5315082011', '531508', 'Golo Bore', 4),
 ('5315082012', '531508', 'Pateng Lesuh', 4),
 ('5315082013', '531508', 'Tehong', 4),
-('5315082014', '531508', 'Golo Ru''a', 4),
+('5315082014', '531508', 'Golo Ru\'a', 4),
 ('5315082015', '531508', 'Golo Keli', 4),
 ('5315092001', '531509', 'Repi', 4),
 ('5315092002', '531509', 'Watu Waja', 4),
@@ -62675,10 +62676,10 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('5316012012', '531601', 'Marapokot', 4),
 ('5316012013', '531601', 'Tonggurambang', 4),
 ('5316012014', '531601', 'Waekokak', 4),
-('5316012015', '531601', 'Ngegedhawe', 4),
-('5316012016', '531601', 'Tadakisa', 4),
-('5316012017', '531601', 'Nggolombay', 4);
+('5316012015', '531601', 'Ngegedhawe', 4);
 INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
+('5316012016', '531601', 'Tadakisa', 4),
+('5316012017', '531601', 'Nggolombay', 4),
 ('5316012018', '531601', 'Nangadhero', 4),
 ('5316021001', '531602', 'Nangaroro', 3),
 ('5316022002', '531602', 'Podenura', 4),
@@ -63505,13 +63506,13 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('6101082006', '610108', 'Kalimantan', 4),
 ('6101082007', '610108', 'Temajuk', 4),
 ('6101082008', '610108', 'Mentibar', 4),
-('6101092001', '610109', 'Kaliau''', 4),
+('6101092001', '610109', 'Kaliau\'', 4),
 ('6101092002', '610109', 'Sebunga', 4),
 ('6101092003', '610109', 'Santaban', 4),
 ('6101092004', '610109', 'Senatab', 4),
 ('6101092005', '610109', 'Sungai Bening', 4),
 ('6101102001', '610110', 'Balai Gemuruh', 4),
-('6101102002', '610110', 'Sungai Sapa''', 4),
+('6101102002', '610110', 'Sungai Sapa\'', 4),
 ('6101102003', '610110', 'Madak', 4),
 ('6101102004', '610110', 'Sabung', 4),
 ('6101102005', '610110', 'Tebuah Elok', 4),
@@ -63912,9 +63913,9 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('6104082012', '610408', 'Paoh Concong', 4),
 ('6104082013', '610408', 'Legong', 4),
 ('6104082014', '610408', 'Kenanga', 4),
-('6104082015', '610408', 'Balai Pinang Hulu', 4),
-('6104082016', '610408', 'Sekucing Kualan', 4);
+('6104082015', '610408', 'Balai Pinang Hulu', 4);
 INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
+('6104082016', '610408', 'Sekucing Kualan', 4),
 ('6104082017', '610408', 'Labai Hilir', 4),
 ('6104112001', '610411', 'Nanga Tayap', 4),
 ('6104112002', '610411', 'Pangkalan Telok', 4),
@@ -64478,7 +64479,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('6106102005', '610610', 'Kenepai Komplek', 4),
 ('6106102006', '610610', 'Semitau Hilir', 4),
 ('6106102007', '610610', 'Nanga Kenepai', 4),
-('6106102008', '610610', 'Tua'' Abang', 4),
+('6106102008', '610610', 'Tua\' Abang', 4),
 ('6106102009', '610610', 'Nanga Lemedak', 4),
 ('6106102010', '610610', 'Marsedan Raya', 4),
 ('6106102011', '610610', 'Padung Kumang', 4),
@@ -64507,7 +64508,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('6106122007', '610612', 'Melemba', 4),
 ('6106122008', '610612', 'Lanjak Deras', 4),
 ('6106122009', '610612', 'Sungai Senunuk', 4),
-('6106122010', '610612', 'Labian Ira''ang', 4),
+('6106122010', '610612', 'Labian Ira\'ang', 4),
 ('6106132001', '610613', 'Keling Panggau', 4),
 ('6106132002', '610613', 'Nanga Kantuk', 4),
 ('6106132003', '610613', 'Tintin Peninjau', 4),
@@ -64565,7 +64566,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('6106172021', '610617', 'Bungan Jaya', 4),
 ('6106172022', '610617', 'Tanjunglokang', 4),
 ('6106172023', '610617', 'Kereho', 4),
-('6106172024', '610617', 'Ingko'' Tambe', 4),
+('6106172024', '610617', 'Ingko\' Tambe', 4),
 ('6106182001', '610618', 'Nanga Sebintang', 4),
 ('6106182002', '610618', 'Nanga Lebangan', 4),
 ('6106182003', '610618', 'Nanga Kalis', 4),
@@ -64578,7 +64579,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('6106182010', '610618', 'Kalis Raya', 4),
 ('6106182011', '610618', 'Tekudak', 4),
 ('6106182012', '610618', 'Semerantau', 4),
-('6106182013', '610618', 'Tapang Da''an', 4),
+('6106182013', '610618', 'Tapang Da\'an', 4),
 ('6106182014', '610618', 'Segiam', 4),
 ('6106182016', '610618', 'Ribang Kadeng', 4),
 ('6106182017', '610618', 'Rantau Bumbun', 4),
@@ -64641,7 +64642,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('6107012006', '610701', 'Sungai Pangkalan I', 4),
 ('6107012007', '610701', 'Sungai Pangkalan II', 4),
 ('6107022001', '610702', 'Samalantan', 4),
-('6107022002', '610702', 'Saba"u', 4),
+('6107022002', '610702', 'Saba\"u', 4),
 ('6107022003', '610702', 'Tumiang', 4),
 ('6107022004', '610702', 'Babane', 4),
 ('6107022005', '610702', 'Pasti Jaya', 4),
@@ -64766,7 +64767,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('6108012005', '610801', 'Amboyo Utara', 4),
 ('6108012006', '610801', 'Sungai Keli', 4),
 ('6108012007', '610801', 'Rasan', 4),
-('6108012008', '610801', 'Mu''un', 4),
+('6108012008', '610801', 'Mu\'un', 4),
 ('6108012009', '610801', 'Ambarang', 4),
 ('6108012010', '610801', 'Engkadu', 4),
 ('6108012011', '610801', 'Amang', 4),
@@ -64782,7 +64783,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('6108022002', '610802', 'Sailo', 4),
 ('6108022003', '610802', 'Mentonyek', 4),
 ('6108022004', '610802', 'Sampuro', 4),
-('6108022005', '610802', 'Sala''as', 4),
+('6108022005', '610802', 'Sala\'as', 4),
 ('6108022006', '610802', 'Sabaka', 4),
 ('6108022007', '610802', 'Tunang', 4),
 ('6108022009', '610802', 'Sungai Laki', 4),
@@ -64799,7 +64800,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('6108032002', '610803', 'Lamoanak', 4),
 ('6108032003', '610803', 'Bengkawe', 4),
 ('6108032004', '610803', 'Tempoak', 4),
-('6108032005', '610803', 'Re''es', 4),
+('6108032005', '610803', 'Re\'es', 4),
 ('6108032006', '610803', 'Raba', 4),
 ('6108032007', '610803', 'Nangka', 4),
 ('6108032008', '610803', 'Menjalin', 4),
@@ -64850,7 +64851,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('6108062015', '610806', 'Bagak', 4),
 ('6108062016', '610806', 'Tolok', 4),
 ('6108062017', '610806', 'Sungai Lubang', 4),
-('6108062018', '610806', 'Ta''as', 4),
+('6108062018', '610806', 'Ta\'as', 4),
 ('6108062019', '610806', 'Ongkol Padang', 4),
 ('6108072001', '610807', 'Pahauman', 4),
 ('6108072002', '610807', 'Paloan', 4),
@@ -64890,7 +64891,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('6108102005', '610810', 'Sungai Segak', 4),
 ('6108112001', '610811', 'Temahar', 4),
 ('6108112002', '610811', 'Kersik Belantian', 4),
-('6108112003', '610811', 'Nyi''in', 4),
+('6108112003', '610811', 'Nyi\'in', 4),
 ('6108112004', '610811', 'Papung', 4),
 ('6108112005', '610811', 'Sekais', 4),
 ('6108112006', '610811', 'Mandor Kiru', 4),
@@ -65121,9 +65122,9 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('6110072015', '611007', 'Sepakat', 4),
 ('6110072016', '611007', 'Muara Tanjung', 4),
 ('6110072017', '611007', 'Landau Kabu', 4),
-('6110072018', '611007', 'Tanjung Mahung', 4),
-('6110082001', '611008', 'Tekelak', 4);
+('6110072018', '611007', 'Tanjung Mahung', 4);
 INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
+('6110082001', '611008', 'Tekelak', 4),
 ('6110082002', '611008', 'Manding', 4),
 ('6110082003', '611008', 'Nanga Belimbing', 4),
 ('6110082004', '611008', 'Tengkajau', 4),
@@ -65861,7 +65862,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('6203152001', '620315', 'Masaha', 4),
 ('6203152002', '620315', 'Sei Pinang', 4),
 ('6203152003', '620315', 'Lawang Tamang', 4),
-('6203152004', '620315', 'Karetau Manta''a', 4),
+('6203152004', '620315', 'Karetau Manta\'a', 4),
 ('6203152005', '620315', 'Tumbang Bukoi', 4),
 ('6203152006', '620315', 'Tumbang Tihis', 4),
 ('6203152007', '620315', 'Tumbang Manyarung', 4),
@@ -66310,9 +66311,9 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('6207052030', '620705', 'Sapundu Hantu', 4),
 ('6207052031', '620705', 'Tumbang Kubang', 4),
 ('6207052032', '620705', 'Tumbang Laku', 4),
-('6207052033', '620705', 'Tanjungpaku', 4),
-('6207052034', '620705', 'Buntut Sapau', 4);
+('6207052033', '620705', 'Tanjungpaku', 4);
 INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
+('6207052034', '620705', 'Buntut Sapau', 4),
 ('6207052035', '620705', 'Tumbang Taberau', 4),
 ('6207052036', '620705', 'Riam Batang', 4),
 ('6207052037', '620705', 'Tumbang Sepan', 4),
@@ -66829,7 +66830,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('6213012003', '621301', 'Pulau Patai', 4),
 ('6213012004', '621301', 'Sarapat', 4),
 ('6213012005', '621301', 'Magantis', 4),
-('6213012006', '621301', 'Ja''ar', 4),
+('6213012006', '621301', 'Ja\'ar', 4),
 ('6213012007', '621301', 'Matabu', 4),
 ('6213012008', '621301', 'Dorong', 4),
 ('6213012009', '621301', 'Didi', 4),
@@ -67468,7 +67469,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('6303092003', '630309', 'Lobang Baru', 4),
 ('6303092004', '630309', 'Pengaron', 4),
 ('6303092005', '630309', 'Benteng', 4),
-('6303092006', '630309', 'Ati''im', 4),
+('6303092006', '630309', 'Ati\'im', 4),
 ('6303092007', '630309', 'Alimukim', 4),
 ('6303092008', '630309', 'Penyiuran', 4),
 ('6303092009', '630309', 'Antaraku', 4),
@@ -67487,7 +67488,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('6303102013', '630310', 'Sumber Harapan', 4),
 ('6303102015', '630310', 'Hakim Makmur', 4),
 ('6303112001', '630311', 'Tiwingan', 4),
-('6303112002', '630311', 'Kala''an', 4),
+('6303112002', '630311', 'Kala\'an', 4),
 ('6303112003', '630311', 'Benua Riam', 4),
 ('6303112004', '630311', 'Bunglai', 4),
 ('6303112005', '630311', 'Apuai', 4),
@@ -67497,7 +67498,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('6303112009', '630311', 'Tiwingan Baru', 4),
 ('6303112010', '630311', 'Belangian', 4),
 ('6303112011', '630311', 'Aranio', 4),
-('6303112012', '630311', 'Pa''au', 4),
+('6303112012', '630311', 'Pa\'au', 4),
 ('6303122001', '630312', 'Baru', 4),
 ('6303122002', '630312', 'Bawahan Pasar', 4),
 ('6303122003', '630312', 'Bawahan Seberang', 4),
@@ -67511,9 +67512,9 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('6303122011', '630312', 'Lok Tamu', 4),
 ('6303122012', '630312', 'Sungai Jati', 4),
 ('6303122013', '630312', 'Mangkalawat', 4),
-('6303122014', '630312', 'Gunung Ulin', 4),
-('6303122015', '630312', 'Tanah Abang', 4);
+('6303122014', '630312', 'Gunung Ulin', 4);
 INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
+('6303122015', '630312', 'Tanah Abang', 4),
 ('6303132001', '630313', 'Pindahan Baru', 4),
 ('6303132002', '630313', 'Handil Purai', 4),
 ('6303132003', '630313', 'Kampung Baru', 4),
@@ -68109,14 +68110,14 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('6307032005', '630703', 'Tabudarat Hulu', 4),
 ('6307032006', '630703', 'Pantai Hambawang Timur', 4),
 ('6307032007', '630703', 'Banua Kepayang', 4),
-('6307032008', '630703', 'Ta''al', 4),
+('6307032008', '630703', 'Ta\'al', 4),
 ('6307032009', '630703', 'Durian Gantang', 4),
 ('6307032010', '630703', 'Guha', 4),
 ('6307032011', '630703', 'Bangkal', 4),
 ('6307032012', '630703', 'Panggang Marak', 4),
 ('6307032013', '630703', 'Jamil', 4),
 ('6307032014', '630703', 'Taras Padang', 4),
-('6307032015', '630703', 'Murung Ta''al', 4),
+('6307032015', '630703', 'Murung Ta\'al', 4),
 ('6307032016', '630703', 'Sungai Rangas', 4),
 ('6307032017', '630703', 'Batang Bahalang', 4),
 ('6307032018', '630703', 'Sungai Jaranih', 4),
@@ -68491,7 +68492,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('6309032005', '630903', 'Barimbun', 4),
 ('6309032006', '630903', 'Mangkusip', 4),
 ('6309032007', '630903', 'Pamarangan Kanan', 4),
-('6309032008', '630903', 'Pulau Ku"u', 4),
+('6309032008', '630903', 'Pulau Ku\"u', 4),
 ('6309032009', '630903', 'Tanta', 4),
 ('6309032010', '630903', 'Padang Panjang', 4),
 ('6309032011', '630903', 'Puain Kanan', 4),
@@ -68528,7 +68529,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('6309052021', '630905', 'Catur Karya', 4),
 ('6309061001', '630906', 'Belimbing Raya', 3),
 ('6309061002', '630906', 'Belimbing', 3),
-('6309061006', '630906', 'Mabu''un', 3),
+('6309061006', '630906', 'Mabu\'un', 3),
 ('6309061009', '630906', 'Pembataan', 3),
 ('6309062003', '630906', 'Sulingan', 4),
 ('6309062004', '630906', 'Maburai', 4),
@@ -68542,7 +68543,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('6309072004', '630907', 'Uwie', 4),
 ('6309072005', '630907', 'Muara Uya', 4),
 ('6309072006', '630907', 'Lumbang', 4),
-('6309072007', '630907', 'Santu"un', 4),
+('6309072007', '630907', 'Santu\"un', 4),
 ('6309072008', '630907', 'Simpung Layung', 4),
 ('6309072009', '630907', 'Binjai', 4),
 ('6309072010', '630907', 'Pelapi', 4),
@@ -68674,7 +68675,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('6310052007', '631005', 'Teluk Kepayang', 4),
 ('6310052008', '631005', 'Tapus', 4),
 ('6310052009', '631005', 'Mangkalapi', 4),
-('6310052010', '631005', 'Hati"if', 4),
+('6310052010', '631005', 'Hati\"if', 4),
 ('6310052011', '631005', 'Timbarau Panjang', 4),
 ('6310052012', '631005', 'Sungai Rukam', 4),
 ('6310052013', '631005', 'Darasan Binjai', 4),
@@ -68704,9 +68705,9 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('6310072004', '631007', 'Selaselilau', 4),
 ('6310072005', '631007', 'Pematang Ulin', 4),
 ('6310072006', '631007', 'Batu Licin Irigasi', 4),
-('6310072007', '631007', 'Manunggal', 4),
-('6310072009', '631007', 'Sumber Wangi', 4);
+('6310072007', '631007', 'Manunggal', 4);
 INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
+('6310072009', '631007', 'Sumber Wangi', 4),
 ('6310072010', '631007', 'Madu Retno', 4),
 ('6310072011', '631007', 'Maju Sejahtera', 4),
 ('6310072012', '631007', 'Karang Rejo', 4),
@@ -68887,7 +68888,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('6311082001', '631108', 'Dayak Pitap', 4),
 ('6311082002', '631108', 'Tebing Tinggi', 4),
 ('6311082003', '631108', 'Sungsum', 4),
-('6311082004', '631108', 'Ju''uh', 4),
+('6311082004', '631108', 'Ju\'uh', 4),
 ('6311082005', '631108', 'Mayanau', 4),
 ('6311082006', '631108', 'Simpang Bumbuan', 4),
 ('6311082007', '631108', 'Auh', 4),
@@ -69590,7 +69591,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('6407162003', '640716', 'Jontai', 4),
 ('6407162004', '640716', 'Sembuan', 4),
 ('6407162005', '640716', 'Intu Lingau', 4),
-('6407162006', '640716', 'Mu''ut', 4),
+('6407162006', '640716', 'Mu\'ut', 4),
 ('6407162007', '640716', 'Terajuk', 4),
 ('6407162008', '640716', 'Lakan Bilem', 4),
 ('6407162009', '640716', 'Sentalar', 4),
@@ -69768,7 +69769,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('6408162001', '640816', 'Karangan Dalam', 4),
 ('6408162002', '640816', 'Batu Lepoq', 4),
 ('6408162003', '640816', 'Pengadan', 4),
-('6408162004', '640816', 'Ba''ay', 4),
+('6408162004', '640816', 'Ba\'ay', 4),
 ('6408162005', '640816', 'Mukti Lestari', 4),
 ('6408162006', '640816', 'Karangan Seberang', 4),
 ('6408162007', '640816', 'Karangan Hilir', 4),
@@ -69871,7 +69872,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('6411042003', '641104', 'Long Penaneh II', 4),
 ('6411042004', '641104', 'Tiong Ohang', 4),
 ('6411042005', '641104', 'Long Penaneh III', 4),
-('6411042006', '641104', 'Tiong Bu''u', 4),
+('6411042006', '641104', 'Tiong Bu\'u', 4),
 ('6411042007', '641104', 'Naha Buan', 4),
 ('6411042008', '641104', 'Naha Tifab', 4),
 ('6411042009', '641104', 'Naha Silat', 4),
@@ -69913,9 +69914,9 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('6471041006', '647104', 'Sumber Rejo', 3),
 ('6471051002', '647105', 'Sepinggan', 3),
 ('6471051006', '647105', 'Gunungbahagia', 3),
-('6471051008', '647105', 'Sepinggan Baru', 3),
-('6471051009', '647105', 'Sepinggan Raya', 3);
+('6471051008', '647105', 'Sepinggan Baru', 3);
 INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
+('6471051009', '647105', 'Sepinggan Raya', 3),
 ('6471051010', '647105', 'Sungainangka', 3),
 ('6471051011', '647105', 'Damai Baru', 3),
 ('6471051012', '647105', 'Damai Bahagia', 3),
@@ -70227,79 +70228,79 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('6503042018', '650304', 'Pulu Bulawan', 4),
 ('6503042019', '650304', 'Tanjung Hulu', 4),
 ('6503042020', '650304', 'Patal II', 4),
-('6503042021', '650304', 'Pa''loo', 4),
+('6503042021', '650304', 'Pa\'loo', 4),
 ('6503042022', '650304', 'Sangkub', 4),
 ('6503042023', '650304', 'Tubus', 4),
 ('6503042024', '650304', 'Likos', 4),
 ('6503042025', '650304', 'Bulan-Bulan', 4),
 ('6503042026', '650304', 'Kalampising', 4),
-('6503042027', '650304', 'Pa''lemumut', 4),
+('6503042027', '650304', 'Pa\'lemumut', 4),
 ('6503042028', '650304', 'Mansalong', 4),
-('6503052001', '650305', 'Pa'' Mulak', 4),
-('6503052002', '650305', 'Pa'' Padi', 4),
+('6503052001', '650305', 'Pa\' Mulak', 4),
+('6503052002', '650305', 'Pa\' Padi', 4),
 ('6503052003', '650305', 'Cinglat', 4),
 ('6503052004', '650305', 'Long Puak', 4),
 ('6503052005', '650305', 'Long Mangan', 4),
 ('6503052006', '650305', 'Buduk Kubul', 4),
 ('6503052007', '650305', 'Long Kabid', 4),
-('6503052008', '650305', 'Pa'' Inan', 4),
+('6503052008', '650305', 'Pa\' Inan', 4),
 ('6503052009', '650305', 'Lembudud', 4),
 ('6503052010', '650305', 'Long Tugul', 4),
-('6503052011', '650305', 'Pa'' Butal', 4),
-('6503052012', '650305', 'Pa'' Delung', 4),
-('6503052013', '650305', 'Pa'' Urud', 4),
-('6503052014', '650305', 'Pa'' Kemut', 4),
-('6503052015', '650305', 'Pa'' Kidang', 4),
+('6503052011', '650305', 'Pa\' Butal', 4),
+('6503052012', '650305', 'Pa\' Delung', 4),
+('6503052013', '650305', 'Pa\' Urud', 4),
+('6503052014', '650305', 'Pa\' Kemut', 4),
+('6503052015', '650305', 'Pa\' Kidang', 4),
 ('6503052016', '650305', 'Lembada', 4),
-('6503052017', '650305', 'Pa'' Payak', 4),
-('6503052018', '650305', 'Pa'' Pirit', 4),
+('6503052017', '650305', 'Pa\' Payak', 4),
+('6503052018', '650305', 'Pa\' Pirit', 4),
 ('6503052019', '650305', 'Liang Aliq', 4),
 ('6503052020', '650305', 'Sembudud', 4),
 ('6503052021', '650305', 'Liang Turan', 4),
 ('6503052022', '650305', 'Liang Butan', 4),
 ('6503052023', '650305', 'Liang Bua', 4),
 ('6503052024', '650305', 'Lepatar', 4),
-('6503052025', '650305', 'Pa'' Mering', 4),
-('6503052026', '650305', 'Pa'' Pani', 4),
-('6503052027', '650305', 'Pa'' Lutut', 4),
-('6503052028', '650305', 'Ma'' Libu', 4),
-('6503052029', '650305', 'Pa'' Rupai', 4),
+('6503052025', '650305', 'Pa\' Mering', 4),
+('6503052026', '650305', 'Pa\' Pani', 4),
+('6503052027', '650305', 'Pa\' Lutut', 4),
+('6503052028', '650305', 'Ma\' Libu', 4),
+('6503052029', '650305', 'Pa\' Rupai', 4),
 ('6503052030', '650305', 'Ba Sikor', 4),
-('6503052031', '650305', 'Pa'' Nado', 4),
+('6503052031', '650305', 'Pa\' Nado', 4),
 ('6503052032', '650305', 'Buduk Kinangan', 4),
 ('6503052033', '650305', 'Liang Tuer', 4),
 ('6503052034', '650305', 'Buduk Tumu', 4),
 ('6503052035', '650305', 'Long Berayang', 4),
-('6503052036', '650305', 'Pa'' Api', 4),
-('6503052037', '650305', 'Pa'' Sire', 4),
-('6503052038', '650305', 'Wa'' Yanud', 4),
+('6503052036', '650305', 'Pa\' Api', 4),
+('6503052037', '650305', 'Pa\' Sire', 4),
+('6503052038', '650305', 'Wa\' Yanud', 4),
 ('6503052039', '650305', 'Long Nawan', 4),
 ('6503052040', '650305', 'Long Katung', 4),
 ('6503052041', '650305', 'Long Bawan', 4),
 ('6503052042', '650305', 'Kampung Baru', 4),
-('6503052043', '650305', 'Pa'' Betung', 4),
+('6503052043', '650305', 'Pa\' Betung', 4),
 ('6503052044', '650305', 'Long Matung', 4),
 ('6503052045', '650305', 'Long Rupan', 4),
 ('6503052046', '650305', 'Liang Biadung', 4),
-('6503052047', '650305', 'Wa'' Laya', 4),
-('6503052048', '650305', 'Pa'' Matung', 4),
-('6503052049', '650305', 'Pa'' Terutun', 4),
-('6503052050', '650305', 'Pa'' Rangeb', 4),
-('6503052051', '650305', 'Pa'' Kebuan', 4),
-('6503052052', '650305', 'Pa'' Pawan', 4),
+('6503052047', '650305', 'Wa\' Laya', 4),
+('6503052048', '650305', 'Pa\' Matung', 4),
+('6503052049', '650305', 'Pa\' Terutun', 4),
+('6503052050', '650305', 'Pa\' Rangeb', 4),
+('6503052051', '650305', 'Pa\' Kebuan', 4),
+('6503052052', '650305', 'Pa\' Pawan', 4),
 ('6503052053', '650305', 'Long Umung', 4),
 ('6503052054', '650305', 'Long Tenem', 4),
-('6503052055', '650305', 'Pa'' Umung', 4),
-('6503052056', '650305', 'Pa'' Raye', 4),
-('6503052057', '650305', 'Pa'' Melade', 4),
+('6503052055', '650305', 'Pa\' Umung', 4),
+('6503052056', '650305', 'Pa\' Raye', 4),
+('6503052057', '650305', 'Pa\' Melade', 4),
 ('6503052058', '650305', 'Bungayan', 4),
-('6503052059', '650305', 'Pa'' Lidung', 4),
-('6503052060', '650305', 'Wa'' Yagung', 4),
-('6503052061', '650305', 'Pa'' Pala', 4),
+('6503052059', '650305', 'Pa\' Lidung', 4),
+('6503052060', '650305', 'Wa\' Yagung', 4),
+('6503052061', '650305', 'Pa\' Pala', 4),
 ('6503052062', '650305', 'Sinar Baru', 4),
 ('6503052063', '650305', 'Long Nuat', 4),
 ('6503052064', '650305', 'Long Sepayang', 4),
-('6503052065', '650305', 'Pa'' Putuk', 4),
+('6503052065', '650305', 'Pa\' Putuk', 4),
 ('6503062001', '650306', 'Pembeliangan', 4),
 ('6503062002', '650306', 'Apas', 4),
 ('6503062003', '650306', 'Kunyit', 4),
@@ -70312,15 +70313,15 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('6503062010', '650306', 'Harapan', 4),
 ('6503072001', '650307', 'Long Pasia', 4),
 ('6503072002', '650307', 'Liang Lunuk', 4),
-('6503072003', '650307', 'Pa'' Ibang', 4),
-('6503072004', '650307', 'Pa'' Amai', 4),
-('6503072005', '650307', 'Pa'' Kaber', 4),
-('6503072006', '650307', 'Pa'' Tera', 4),
-('6503072007', '650307', 'Pa'' Sing', 4),
+('6503072003', '650307', 'Pa\' Ibang', 4),
+('6503072004', '650307', 'Pa\' Amai', 4),
+('6503072005', '650307', 'Pa\' Kaber', 4),
+('6503072006', '650307', 'Pa\' Tera', 4),
+('6503072007', '650307', 'Pa\' Sing', 4),
 ('6503072008', '650307', 'Long Padi', 4),
-('6503072009', '650307', 'Pa'' Dalan', 4),
+('6503072009', '650307', 'Pa\' Dalan', 4),
 ('6503072010', '650307', 'Long Birar', 4),
-('6503072011', '650307', 'Pa'' Upan', 4),
+('6503072011', '650307', 'Pa\' Upan', 4),
 ('6503072012', '650307', 'Tang Paye', 4),
 ('6503072013', '650307', 'Long Klupan', 4),
 ('6503072014', '650307', 'Long Rungan', 4),
@@ -70328,11 +70329,11 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('6503072016', '650307', 'Long Budung', 4),
 ('6503072017', '650307', 'Long Rian', 4),
 ('6503072018', '650307', 'Long Pupung', 4),
-('6503072019', '650307', 'Ba'' Liku', 4),
-('6503072020', '650307', 'Pa'' Urang', 4),
-('6503072021', '650307', 'Pa'' Yalau', 4),
+('6503072019', '650307', 'Ba\' Liku', 4),
+('6503072020', '650307', 'Pa\' Urang', 4),
+('6503072021', '650307', 'Pa\' Yalau', 4),
 ('6503072022', '650307', 'Binuang', 4),
-('6503072023', '650307', 'Pa'' Milau', 4),
+('6503072023', '650307', 'Pa\' Milau', 4),
 ('6503072024', '650307', 'Tang Badui', 4),
 ('6503082001', '650308', 'Liang Bunyu', 4),
 ('6503082002', '650308', 'Binalawan', 4),
@@ -70646,7 +70647,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7101322002', '710132', 'Bilalang IV', 4),
 ('7101322003', '710132', 'Tudu Aog', 4),
 ('7101322004', '710132', 'Tudu Aog Baru', 4),
-('7101322005', '710132', 'Kolinganga''an', 4),
+('7101322005', '710132', 'Kolinganga\'an', 4),
 ('7101322006', '710132', 'Bilalang III Utara', 4),
 ('7101322007', '710132', 'Bilalang Baru', 4),
 ('7101322008', '710132', 'Apado', 4),
@@ -71145,9 +71146,9 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7104032022', '710403', 'Alo Utara', 4),
 ('7104042006', '710404', 'E s s a n g', 4),
 ('7104042007', '710404', 'Lalue', 4),
-('7104042008', '710404', 'Bulude', 4),
-('7104042016', '710404', 'Maririk', 4);
+('7104042008', '710404', 'Bulude', 4);
 INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
+('7104042016', '710404', 'Maririk', 4),
 ('7104042018', '710404', 'Essang Selatan', 4),
 ('7104042019', '710404', 'Bulude Selatan', 4),
 ('7104042020', '710404', 'Lalue Tengah', 4),
@@ -71739,7 +71740,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7108022010', '710802', 'Bintauna Pantai', 4),
 ('7108022011', '710802', 'Minanga', 4),
 ('7108022012', '710802', 'Kopi', 4),
-('7108022013', '710802', 'Voa''a', 4),
+('7108022013', '710802', 'Voa\'a', 4),
 ('7108022014', '710802', 'Bunong', 4),
 ('7108022015', '710802', 'Padang Barat', 4),
 ('7108022016', '710802', 'Vahuta', 4),
@@ -72381,9 +72382,9 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7201062010', '720106', 'Talima B', 4),
 ('7201062013', '720106', 'Dolom', 4),
 ('7201062014', '720106', 'Kiloma', 4),
-('7201062015', '720106', 'Ra''u', 4),
-('7201062016', '720106', 'Tanotu', 4);
+('7201062015', '720106', 'Ra\'u', 4);
 INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
+('7201062016', '720106', 'Tanotu', 4),
 ('7201062017', '720106', 'Padang', 4),
 ('7201062018', '720106', 'Mamping', 4),
 ('7201062021', '720106', 'Luok', 4),
@@ -72675,7 +72676,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7202032013', '720203', 'Sintuwulemba', 4),
 ('7202032014', '720203', 'Labuan', 4),
 ('7202032015', '720203', 'Labuadago', 4),
-('7202032017', '720203', 'Rato''ombu', 4),
+('7202032017', '720203', 'Rato\'ombu', 4),
 ('7202041001', '720204', 'Tentena', 3),
 ('7202041006', '720204', 'Pamona', 3),
 ('7202041008', '720204', 'Sangele', 3),
@@ -72934,7 +72935,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7203192010', '720319', 'Wani Lumbumpetigo', 4),
 ('7203212001', '720321', 'Palintuma', 4),
 ('7203212002', '720321', 'Gimpubia', 4),
-('7203212003', '720321', 'Dangara''a', 4),
+('7203212003', '720321', 'Dangara\'a', 4),
 ('7203212004', '720321', 'Bambakanini', 4),
 ('7203212005', '720321', 'Bambakaenu', 4),
 ('7203212006', '720321', 'Tomodo', 4),
@@ -72945,7 +72946,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7203242002', '720324', 'Kaliburu', 4),
 ('7203242003', '720324', 'Batusuya', 4),
 ('7203242004', '720324', 'Saloya', 4),
-('7203242005', '720324', 'Batusuya Go''o', 4),
+('7203242005', '720324', 'Batusuya Go\'o', 4),
 ('7203242006', '720324', 'Kaliburu Kata', 4),
 ('7203252001', '720325', 'Sikara Tobata', 4),
 ('7203252002', '720325', 'Alindau', 4),
@@ -73233,7 +73234,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7206062019', '720606', 'Lamontoli', 4),
 ('7206062041', '720606', 'Bungintende', 4),
 ('7206062043', '720606', 'Panimbawang', 4),
-('7206062044', '720606', 'Po''o', 4),
+('7206062044', '720606', 'Po\'o', 4),
 ('7206062045', '720606', 'Boelimau', 4),
 ('7206062046', '720606', 'Poaro', 4),
 ('7206062047', '720606', 'Umbele Lama', 4),
@@ -73242,7 +73243,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7206072001', '720607', 'Terebino', 4),
 ('7206072002', '720607', 'Torukuno', 4),
 ('7206072003', '720607', 'Ngapaea', 4),
-('7206072004', '720607', 'Padala"a', 4),
+('7206072004', '720607', 'Padala\"a', 4),
 ('7206072005', '720607', 'Morompaitonga', 4),
 ('7206072006', '720607', 'Kofalagadi', 4),
 ('7206072008', '720607', 'Padei Laut', 4),
@@ -73315,7 +73316,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7206152007', '720615', 'Buleleng', 4),
 ('7206152008', '720615', 'Laroenai', 4),
 ('7206152009', '720615', 'Sambalagi', 4),
-('7206152010', '720615', 'Were''a', 4),
+('7206152010', '720615', 'Were\'a', 4),
 ('7206182001', '720618', 'Oneputeh Jaya', 4),
 ('7206182002', '720618', 'Bahomotefe', 4),
 ('7206182003', '720618', 'Bahomoahi', 4),
@@ -73547,7 +73548,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7208052026', '720805', 'Supilopong', 4),
 ('7208052027', '720805', 'Ambesia Barat', 4),
 ('7208052028', '720805', 'Sipontan', 4),
-('7208052029', '720805', 'Ta''aniuge', 4),
+('7208052029', '720805', 'Ta\'aniuge', 4),
 ('7208052030', '720805', 'Ogotumubu Barat', 4),
 ('7208062009', '720806', 'Sausu Peore', 4),
 ('7208062010', '720806', 'Maleali', 4),
@@ -73654,9 +73655,9 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7208132006', '720813', 'Tomoli Selatan', 4),
 ('7208132007', '720813', 'Sibalago', 4),
 ('7208132008', '720813', 'Toribulu Selatan', 4),
-('7208132009', '720813', 'Tomoli Utara', 4),
-('7208142001', '720814', 'Karya Agung', 4);
+('7208132009', '720813', 'Tomoli Utara', 4);
 INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
+('7208142001', '720814', 'Karya Agung', 4),
 ('7208142002', '720814', 'Nunurantai', 4),
 ('7208142003', '720814', 'Palapi', 4),
 ('7208142004', '720814', 'Taopa', 4),
@@ -73676,7 +73677,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7208152007', '720815', 'Lebagu', 4),
 ('7208152008', '720815', 'Tumpapa Indah', 4),
 ('7208152009', '720815', 'Catur Karya', 4),
-('7208162001', '720816', 'Parigimpu''u', 4),
+('7208162001', '720816', 'Parigimpu\'u', 4),
 ('7208162002', '720816', 'Baliara', 4),
 ('7208162003', '720816', 'Kayuboko', 4),
 ('7208162004', '720816', 'Jono Kalora', 4),
@@ -73782,7 +73783,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7209022013', '720902', 'Baulu', 4),
 ('7209022014', '720902', 'Motobiai', 4),
 ('7209022015', '720902', 'Sampobae', 4),
-('7209022016', '720902', 'Titiri''i', 4),
+('7209022016', '720902', 'Titiri\'i', 4),
 ('7209032006', '720903', 'Tiga Pulau', 4),
 ('7209032007', '720903', 'Popolii', 4),
 ('7209032008', '720903', 'Dolong B', 4),
@@ -73972,7 +73973,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7210062005', '721006', 'Lawua', 4),
 ('7210062006', '721006', 'Watukilo', 4),
 ('7210062007', '721006', 'Salutome', 4),
-('7210062008', '721006', 'O''o Parese', 4),
+('7210062008', '721006', 'O\'o Parese', 4),
 ('7210062009', '721006', 'Pilimakujawa', 4),
 ('7210062010', '721006', 'Moa', 4),
 ('7210062011', '721006', 'Wangka', 4),
@@ -74175,12 +74176,12 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7212022011', '721202', 'Towara Pantai', 4),
 ('7212022012', '721202', 'Peboa', 4),
 ('7212032001', '721203', 'Dolupo Karya', 4),
-('7212032002', '721203', 'Po''ona', 4),
+('7212032002', '721203', 'Po\'ona', 4),
 ('7212032003', '721203', 'Petumbea', 4),
 ('7212032004', '721203', 'Ronta', 4),
 ('7212032005', '721203', 'Pontangoa', 4),
 ('7212032006', '721203', 'Jamor Jaya', 4),
-('7212032007', '721203', 'Pa''awaru', 4),
+('7212032007', '721203', 'Pa\'awaru', 4),
 ('7212032008', '721203', 'Lembobelala', 4),
 ('7212032009', '721203', 'Bintangor Mukti', 4),
 ('7212032010', '721203', 'Mandula', 4),
@@ -74216,7 +74217,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7212062002', '721206', 'Peleru', 4),
 ('7212062003', '721206', 'Tamonjengi', 4),
 ('7212062004', '721206', 'Mayumba', 4),
-('7212062005', '721206', 'Tiwa''a', 4),
+('7212062005', '721206', 'Tiwa\'a', 4),
 ('7212062006', '721206', 'Lembontonara', 4),
 ('7212062007', '721206', 'Tabarano', 4),
 ('7212062008', '721206', 'Wawondula', 4),
@@ -74266,7 +74267,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7212092011', '721209', 'Winangobino', 4),
 ('7212092012', '721209', 'Tambale', 4),
 ('7212092013', '721209', 'Sea', 4),
-('7212092014', '721209', 'Menyo''e', 4),
+('7212092014', '721209', 'Menyo\'e', 4),
 ('7271011004', '727101', 'Besusu Barat', 3),
 ('7271011006', '727101', 'Besusu Tengah', 3),
 ('7271011007', '727101', 'Besusu Timur', 3),
@@ -74688,7 +74689,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7304082008', '730408', 'Kayuloe Timur', 4),
 ('7304082009', '730408', 'Jombe', 4),
 ('7304082010', '730408', 'Tanjonga', 4),
-('7304082011', '730408', 'Pa''rasangan Beru', 4),
+('7304082011', '730408', 'Pa\'rasangan Beru', 4),
 ('7304092001', '730409', 'Bulo Bulo', 4),
 ('7304092002', '730409', 'Arungkeke', 4),
 ('7304092003', '730409', 'Palajau', 4),
@@ -74721,7 +74722,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7305012007', '730501', 'Mattirobaji', 4),
 ('7305012008', '730501', 'Maccinibaji', 4),
 ('7305012009', '730501', 'Soreang', 4),
-('7305012010', '730501', 'Pa''batangang', 4),
+('7305012010', '730501', 'Pa\'batangang', 4),
 ('7305012011', '730501', 'Balangdatu', 4),
 ('7305012012', '730501', 'Tompotana', 4),
 ('7305012013', '730501', 'Rewataya', 4),
@@ -74737,7 +74738,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7305022010', '730502', 'Pattopakang', 4),
 ('7305022011', '730502', 'Punaga', 4),
 ('7305022012', '730502', 'Cikoang', 4),
-('7305031001', '730503', 'Pa''bundukang', 3),
+('7305031001', '730503', 'Pa\'bundukang', 3),
 ('7305031002', '730503', 'Pattene', 3),
 ('7305031003', '730503', 'Bontokadatto', 3),
 ('7305031004', '730503', 'Canrego', 3),
@@ -74746,7 +74747,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7305032006', '730503', 'Moncongkomba', 4),
 ('7305032007', '730503', 'Cakura', 4),
 ('7305032008', '730503', 'Lantang', 4),
-('7305032009', '730503', 'Su''rulangi', 4),
+('7305032009', '730503', 'Su\'rulangi', 4),
 ('7305041001', '730504', 'Panrannuangku', 3),
 ('7305041002', '730504', 'Manongkoki', 3),
 ('7305041003', '730504', 'Malewang', 3),
@@ -74755,16 +74756,16 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7305041006', '730504', 'Parang Luara', 3),
 ('7305042007', '730504', 'Lassang', 4),
 ('7305042008', '730504', 'Kampung Beru', 4),
-('7305042009', '730504', 'Pa''rappunganta', 4),
+('7305042009', '730504', 'Pa\'rappunganta', 4),
 ('7305042010', '730504', 'Towata', 4),
 ('7305042011', '730504', 'Barugaya', 4),
-('7305042012', '730504', 'Ko''mara', 4),
+('7305042012', '730504', 'Ko\'mara', 4),
 ('7305042013', '730504', 'Timbuseng', 4),
 ('7305042014', '730504', 'Massamaturu', 4),
 ('7305042015', '730504', 'Parang Baddo', 4),
 ('7305042016', '730504', 'Lassang Barat', 4),
 ('7305042017', '730504', 'Balangtanaya', 4),
-('7305042018', '730504', 'Kale Ko''mara', 4),
+('7305042018', '730504', 'Kale Ko\'mara', 4),
 ('7305052006', '730505', 'Bonto Kanang', 4),
 ('7305052007', '730505', 'Bontomarannu', 4),
 ('7305052008', '730505', 'Mangindara', 4),
@@ -74809,8 +74810,8 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7305092005', '730509', 'Bontomangape', 4),
 ('7305092006', '730509', 'Parangmata', 4),
 ('7305092007', '730509', 'Parambambe', 4),
-('7305092008', '730509', 'Pa''rasangang Beru', 4),
-('7305092009', '730509', 'Pa''lalakkang', 4),
+('7305092008', '730509', 'Pa\'rasangang Beru', 4),
+('7305092009', '730509', 'Pa\'lalakkang', 4),
 ('7305092010', '730509', 'Pattinoang', 4),
 ('7305092011', '730509', 'Kalenna Bontongape', 4),
 ('7305092012', '730509', 'Kalukuang', 4),
@@ -74906,11 +74907,11 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7306081013', '730608', 'Bontoramba', 3),
 ('7306081014', '730608', 'Mawang', 3),
 ('7306091001', '730609', 'Sapaya', 3),
-('7306091010', '730609', 'Je''nebatu', 3),
+('7306091010', '730609', 'Je\'nebatu', 3),
 ('7306092002', '730609', 'Bontomanai', 4),
-('7306092003', '730609', 'Buakkang', 4),
-('7306092004', '730609', 'Bissoloro', 4);
+('7306092003', '730609', 'Buakkang', 4);
 INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
+('7306092004', '730609', 'Bissoloro', 4),
 ('7306092011', '730609', 'Rannaloe', 4),
 ('7306092012', '730609', 'Mangempang', 4),
 ('7306101001', '730610', 'Tamaona', 3),
@@ -74945,9 +74946,9 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7306132003', '730613', 'Sunggumanai', 4),
 ('7306132004', '730613', 'Paccellekang', 4),
 ('7306132005', '730613', 'Pattallasang', 4),
-('7306132006', '730613', 'Je''nemadinging', 4),
+('7306132006', '730613', 'Je\'nemadinging', 4),
 ('7306132007', '730613', 'Panaikang', 4),
-('7306132008', '730613', 'Borongpa''la''la', 4),
+('7306132008', '730613', 'Borongpa\'la\'la', 4),
 ('7306142001', '730614', 'Manuju', 4),
 ('7306142002', '730614', 'Pattallikang', 4),
 ('7306142003', '730614', 'Tamalatea', 4),
@@ -76165,9 +76166,9 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7315111003', '731511', 'Temmassarangnge', 3),
 ('7315111004', '731511', 'Mamminasae', 3),
 ('7315111005', '731511', 'Laleng Bata', 3),
-('7315111006', '731511', 'Benteng Sawito', 3),
-('7315121003', '731512', 'Kassa', 3);
+('7315111006', '731511', 'Benteng Sawito', 3);
 INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
+('7315121003', '731512', 'Kassa', 3),
 ('7315122001', '731512', 'Batu Lappa', 4),
 ('7315122004', '731512', 'Tapporang', 4),
 ('7315122005', '731512', 'Kaseralau', 4),
@@ -76291,7 +76292,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7316102007', '731610', 'Langda', 4),
 ('7316102008', '731610', 'Potok Ulin', 4),
 ('7316112001', '731611', 'Masalle', 4),
-('7316112003', '731611', 'Batu Ke''de', 4),
+('7316112003', '731611', 'Batu Ke\'de', 4),
 ('7316112004', '731611', 'Mundan', 4),
 ('7316112006', '731611', 'Buntu Sarong', 4),
 ('7316112008', '731611', 'Rampunan', 4),
@@ -76312,7 +76313,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7317012017', '731701', 'Buntu Batu', 4),
 ('7317012019', '731701', 'Ledan', 4),
 ('7317012020', '731701', 'Lissaga', 4),
-('7317012022', '731701', 'To''long', 4),
+('7317012022', '731701', 'To\'long', 4),
 ('7317021003', '731702', 'Larompong', 3),
 ('7317022001', '731702', 'Rante Belu', 4),
 ('7317022002', '731702', 'Komba', 4),
@@ -76359,7 +76360,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7317052006', '731705', 'Padang Kamburi', 4),
 ('7317052007', '731705', 'Malenggang', 4),
 ('7317052008', '731705', 'Balutan', 4),
-('7317052009', '731705', 'Padang Ma''bud', 4),
+('7317052009', '731705', 'Padang Ma\'bud', 4),
 ('7317052010', '731705', 'Saluinduk', 4),
 ('7317061006', '731706', 'Bulo', 3),
 ('7317062001', '731706', 'Tombang', 4),
@@ -76400,15 +76401,15 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7317092010', '731709', 'Setia Rejo', 4),
 ('7317092011', '731709', 'Pongsamelung', 4),
 ('7317092014', '731709', 'Padang Kalua', 4),
-('7317092020', '731709', 'To''pongo', 4),
-('7317092022', '731709', 'Se''pong', 4),
+('7317092020', '731709', 'To\'pongo', 4),
+('7317092022', '731709', 'Se\'pong', 4),
 ('7317092024', '731709', 'Awo Gading', 4),
 ('7317092026', '731709', 'Wiwitan Timur', 4),
 ('7317101001', '731710', 'Bone Pute', 3),
 ('7317102002', '731710', 'Temboe', 4),
 ('7317102003', '731710', 'Sampano', 4),
 ('7317102004', '731710', 'Babang', 4),
-('7317102005', '731710', 'La''loa', 4),
+('7317102005', '731710', 'La\'loa', 4),
 ('7317102006', '731710', 'Batu Lappa', 4),
 ('7317102007', '731710', 'Malewong', 4),
 ('7317102008', '731710', 'Salusana', 4),
@@ -76433,9 +76434,9 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7317122007', '731712', 'Pangi', 4),
 ('7317122008', '731712', 'Pajang', 4),
 ('7317122009', '731712', 'Buntu Sarek', 4),
-('7317122010', '731712', 'To''barru', 4),
+('7317122010', '731712', 'To\'barru', 4),
 ('7317122011', '731712', 'Tibussan', 4),
-('7317122012', '731712', 'To''lajuk', 4),
+('7317122012', '731712', 'To\'lajuk', 4),
 ('7317131001', '731713', 'Cilallang', 3),
 ('7317132002', '731713', 'Kamanre', 4),
 ('7317132003', '731713', 'Tabbaja', 4),
@@ -76482,7 +76483,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7317182003', '731718', 'Pompengan pantai', 4),
 ('7317182004', '731718', 'Seriti', 4),
 ('7317182005', '731718', 'Salupao', 4),
-('7317182006', '731718', 'To''lemo', 4),
+('7317182006', '731718', 'To\'lemo', 4),
 ('7317182007', '731718', 'Pelalan', 4),
 ('7317182008', '731718', 'Pompengan Tengah', 4),
 ('7317182009', '731718', 'Pompengan Timur', 4),
@@ -76504,15 +76505,15 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7317202008', '731720', 'Bonelemo Utara', 4),
 ('7317202009', '731720', 'Bonelemo Barat', 4),
 ('7317211005', '731721', 'Pattedong', 3),
-('7317212001', '731721', 'Je''ne Maeja', 4),
+('7317212001', '731721', 'Je\'ne Maeja', 4),
 ('7317212002', '731721', 'Bakti', 4),
 ('7317212003', '731721', 'Buntu Karya', 4),
 ('7317212004', '731721', 'Olang', 4),
 ('7317212006', '731721', 'Bassiang', 4),
 ('7317212007', '731721', 'Paccerakkang', 4),
 ('7317212008', '731721', 'Lampuara', 4),
-('7317212009', '731721', 'To''balo', 4),
-('7317212010', '731721', 'To''bia', 4),
+('7317212009', '731721', 'To\'balo', 4),
+('7317212010', '731721', 'To\'bia', 4),
 ('7317212011', '731721', 'Bassiang Timur', 4),
 ('7317212012', '731721', 'Pattedong Selatan', 4),
 ('7317212013', '731721', 'Tarramatekkeng', 4),
@@ -76527,22 +76528,22 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7317222009', '731722', 'Dampan', 4),
 ('7317222010', '731722', 'Maindo', 4),
 ('7317222011', '731722', 'Tasangtongkonan', 4),
-('7317222012', '731722', 'Ta''ba', 4),
+('7317222012', '731722', 'Ta\'ba', 4),
 ('7318011009', '731801', 'Pattan Ulusalu', 3),
 ('7318012010', '731801', 'Salutandung', 4),
 ('7318012011', '731801', 'Rea Tulak Langi', 4),
 ('7318012012', '731801', 'Ratte Talonge', 4),
-('7318012013', '731801', 'Sa''tandung', 4),
-('7318012014', '731801', 'Ra''bung', 4),
+('7318012013', '731801', 'Sa\'tandung', 4),
+('7318012014', '731801', 'Ra\'bung', 4),
 ('7318012015', '731801', 'Salu', 4),
 ('7318012016', '731801', 'Salu Boronan', 4),
 ('7318012017', '731801', 'Batu Tiakka', 4),
 ('7318021006', '731802', 'Bittuang', 3),
-('7318022002', '731802', 'Se''seng', 4),
-('7318022004', '731802', 'Pali''', 4),
+('7318022002', '731802', 'Se\'seng', 4),
+('7318022004', '731802', 'Pali\'', 4),
 ('7318022007', '731802', 'Tiroan', 4),
 ('7318022008', '731802', 'Balla', 4),
-('7318022009', '731802', 'Le''tek', 4),
+('7318022009', '731802', 'Le\'tek', 4),
 ('7318022010', '731802', 'Kole Palian', 4),
 ('7318022011', '731802', 'Patongloan', 4),
 ('7318022012', '731802', 'Sasak', 4),
@@ -76550,12 +76551,12 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7318022014', '731802', 'Sandana', 4),
 ('7318022015', '731802', 'Rembo-rembo', 4),
 ('7318022016', '731802', 'Burasia', 4),
-('7318022017', '731802', 'Kandua''', 4),
+('7318022017', '731802', 'Kandua\'', 4),
 ('7318022018', '731802', 'Butu Limbong', 4),
 ('7318031007', '731803', 'Ratte Buttu', 3),
 ('7318032001', '731803', 'Bau', 4),
 ('7318032002', '731803', 'Buakayu', 4),
-('7318032004', '731803', 'Mappa''', 4),
+('7318032004', '731803', 'Mappa\'', 4),
 ('7318032006', '731803', 'Poton', 4),
 ('7318032008', '731803', 'Bau Selatan', 4),
 ('7318051003', '731805', 'Bombongan', 3),
@@ -76585,7 +76586,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7318112007', '731811', 'Madandan', 4),
 ('7318112011', '731811', 'Taparan Utara', 4),
 ('7318112014', '731811', 'Tonglo', 4),
-('7318121002', '731812', 'Rante Kalua''', 3),
+('7318121002', '731812', 'Rante Kalua\'', 3),
 ('7318121016', '731812', 'Tampo', 3),
 ('7318121023', '731812', 'Lemo', 3),
 ('7318121024', '731812', 'Tengan', 3),
@@ -76601,11 +76602,11 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7318122021', '731812', 'Uluway Barat', 4),
 ('7318122022', '731812', 'Marinding', 4),
 ('7318122025', '731812', 'Palipu', 4),
-('7318122026', '731812', 'Ke''pe Tinoring', 4),
+('7318122026', '731812', 'Ke\'pe Tinoring', 4),
 ('7318122027', '731812', 'Buntu Datu', 4),
 ('7318131009', '731813', 'Tongko Sarapung', 3),
 ('7318131010', '731813', 'Buntu Masakke', 3),
-('7318132004', '731813', 'Bulian Masa''bu', 4),
+('7318132004', '731813', 'Bulian Masa\'bu', 4),
 ('7318132006', '731813', 'Kaero', 4),
 ('7318132008', '731813', 'Turunan', 4),
 ('7318191002', '731819', 'Benteng Ambeso', 3),
@@ -76629,9 +76630,9 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7318202006', '731820', 'Sarapeang', 4),
 ('7318202007', '731820', 'Buri', 4),
 ('7318202008', '731820', 'Maroson', 4),
-('7318202009', '731820', 'Batusura''', 4),
-('7318202010', '731820', 'Bua '' Tarrung', 4),
-('7318202011', '731820', 'To''pao', 4),
+('7318202009', '731820', 'Batusura\'', 4),
+('7318202010', '731820', 'Bua \' Tarrung', 4),
+('7318202011', '731820', 'To\'pao', 4),
 ('7318202012', '731820', 'Kayosing', 4),
 ('7318271001', '731827', 'Tambunan', 3),
 ('7318271002', '731827', 'Sarira', 3),
@@ -76650,7 +76651,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7318291004', '731829', 'Pasang', 3),
 ('7318292005', '731829', 'Randan Batu', 4),
 ('7318292006', '731829', 'Pateke', 4),
-('7318292007', '731829', 'Pa''buaran', 4),
+('7318292007', '731829', 'Pa\'buaran', 4),
 ('7318292008', '731829', 'Bone Buntu Sisong', 4),
 ('7318312001', '731831', 'Ratte', 4),
 ('7318312002', '731831', 'Paliorong', 4),
@@ -76659,7 +76660,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7318312005', '731831', 'Belau', 4),
 ('7318312006', '731831', 'Belau Utara', 4),
 ('7318312007', '731831', 'Paku', 4),
-('7318312008', '731831', 'Sese''alu', 4),
+('7318312008', '731831', 'Sese\'alu', 4),
 ('7318331005', '731833', 'Rante Alang', 3),
 ('7318332001', '731833', 'Batualu', 4),
 ('7318332002', '731833', 'Tokesan', 4),
@@ -76993,7 +76994,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7326011003', '732601', 'Mentirotiku', 3),
 ('7326011004', '732601', 'Manggalo', 3),
 ('7326011005', '732601', 'Pasale', 3),
-('7326011006', '732601', 'Singki''', 3),
+('7326011006', '732601', 'Singki\'', 3),
 ('7326011007', '732601', 'Karassik', 3),
 ('7326011008', '732601', 'Penanian', 3),
 ('7326011009', '732601', 'Rante Pasele', 3),
@@ -77001,8 +77002,8 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7326012011', '732601', 'Saloso', 4),
 ('7326021001', '732602', 'Bori', 3),
 ('7326021002', '732602', 'Pangli', 3),
-('7326021004', '732602', 'Palawa''', 3),
-('7326021005', '732602', 'Deri''', 3),
+('7326021004', '732602', 'Palawa\'', 3),
+('7326021005', '732602', 'Deri\'', 3),
 ('7326021007', '732602', 'Bori Rante Letok', 3),
 ('7326021009', '732602', 'Pangli Selatan', 3),
 ('7326022003', '732602', 'Butu Lobo', 4),
@@ -77011,43 +77012,43 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7326031004', '732603', 'Nanggala Sanpiak Salu', 3),
 ('7326032001', '732603', 'Nanggala', 4),
 ('7326032002', '732603', 'Tandung Nanggala', 4),
-('7326032003', '732603', 'Lili''kira''', 4),
+('7326032003', '732603', 'Lili\'kira\'', 4),
 ('7326032005', '732603', 'Kare Limbong', 4),
 ('7326032006', '732603', 'Rante', 4),
 ('7326032007', '732603', 'Basokan', 4),
-('7326032008', '732603', 'Nana'' Nanggala', 4),
+('7326032008', '732603', 'Nana\' Nanggala', 4),
 ('7326032009', '732603', 'Kare Pananian', 4),
-('7326041002', '732604', 'Pangala''', 3),
-('7326041004', '732604', 'Pangala'' Utara', 3),
+('7326041002', '732604', 'Pangala\'', 3),
+('7326041004', '732604', 'Pangala\' Utara', 3),
 ('7326042001', '732604', 'Limbong Malting', 4),
 ('7326042003', '732604', 'Rindinggalo', 4),
-('7326042005', '732604', 'Mai''ting', 4),
-('7326042006', '732604', 'Lo'' ko Uru Tanete Batu', 4),
+('7326042005', '732604', 'Mai\'ting', 4),
+('7326042006', '732604', 'Lo\' ko Uru Tanete Batu', 4),
 ('7326042007', '732604', 'Appang Batu', 4),
 ('7326042008', '732604', 'Lempo Poton', 4),
 ('7326042009', '732604', 'Buntu Batu', 4),
-('7326051005', '732605', 'Tullang'' Sura', 3),
+('7326051005', '732605', 'Tullang\' Sura', 3),
 ('7326051006', '732605', 'Tongkonan Bassae', 3),
 ('7326052001', '732605', 'Sapan Kua-kua', 4),
-('7326052002', '732605', 'Rinding Kila''balabatu', 4),
-('7326052003', '732605', 'Misa''ba''bana', 4),
+('7326052002', '732605', 'Rinding Kila\'balabatu', 4),
+('7326052003', '732605', 'Misa\'ba\'bana', 4),
 ('7326052004', '732605', 'Isangkalua', 4),
-('7326061002', '732606', 'Sa''dan Malimbong', 3),
-('7326061004', '732606', 'Sa''dan Matalo', 3),
-('7326061005', '732606', 'Sa''dan Pebulian', 3),
-('7326062001', '732606', 'Sa''dan Ulusalu', 4),
-('7326062003', '732606', 'Sa''dan Balongpasange', 4),
-('7326062006', '732606', 'Sangkaropi''', 4),
-('7326062007', '732606', 'Sa''dan Tiro Alo', 4),
-('7326062008', '732606', 'Sa''dan Andulan', 4),
-('7326062009', '732606', 'Sa''dan Pesondongan', 4),
-('7326062010', '732606', 'Sa''dan Luku Lambe''na', 4),
+('7326061002', '732606', 'Sa\'dan Malimbong', 3),
+('7326061004', '732606', 'Sa\'dan Matalo', 3),
+('7326061005', '732606', 'Sa\'dan Pebulian', 3),
+('7326062001', '732606', 'Sa\'dan Ulusalu', 4),
+('7326062003', '732606', 'Sa\'dan Balongpasange', 4),
+('7326062006', '732606', 'Sangkaropi\'', 4),
+('7326062007', '732606', 'Sa\'dan Tiro Alo', 4),
+('7326062008', '732606', 'Sa\'dan Andulan', 4),
+('7326062009', '732606', 'Sa\'dan Pesondongan', 4),
+('7326062010', '732606', 'Sa\'dan Luku Lambe\'na', 4),
 ('7326071006', '732607', 'Paepalean', 3),
-('7326072001', '732607', 'La''bo', 4),
-('7326072002', '732607', 'Buntu Labo''', 4),
+('7326072001', '732607', 'La\'bo', 4),
+('7326072002', '732607', 'Buntu Labo\'', 4),
 ('7326072003', '732607', 'Tallung Penanian', 4),
-('7326072004', '732607', 'Pata''padang', 4),
-('7326072005', '732607', 'Tandung Labo''', 4),
+('7326072004', '732607', 'Pata\'padang', 4),
+('7326072005', '732607', 'Tandung Labo\'', 4),
 ('7326081002', '732608', 'Nonongan Utara', 3),
 ('7326082001', '732608', 'Salu', 4),
 ('7326082003', '732608', 'Salu Sopai', 4),
@@ -77061,7 +77062,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7326092003', '732609', 'Buntu Batu', 4),
 ('7326092004', '732609', 'Sereale', 4),
 ('7326092005', '732609', 'Embatau', 4),
-('7326092006', '732609', 'Benteng Kado To''ria', 4),
+('7326092006', '732609', 'Benteng Kado To\'ria', 4),
 ('7326092007', '732609', 'Pangden', 4),
 ('7326101002', '732610', 'Tagari', 3),
 ('7326101005', '732610', 'Balusu', 3),
@@ -77090,7 +77091,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7326132003', '732613', 'Serambu', 4),
 ('7326132004', '732613', 'Rante Uma', 4),
 ('7326132005', '732613', 'Talimbangan', 4),
-('7326132006', '732613', 'Pulu''-pulu', 4),
+('7326132006', '732613', 'Pulu\'-pulu', 4),
 ('7326132007', '732613', 'Paonganan', 4),
 ('7326132008', '732613', 'Parandangan', 4),
 ('7326132009', '732613', 'Roroan Bara-bara', 4),
@@ -77102,14 +77103,14 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7326142001', '732614', 'Baruupu Utara', 4),
 ('7326142003', '732614', 'Baruppu Benteng Batu', 4),
 ('7326142004', '732614', 'Barrupu Baropo', 4),
-('7326151003', '732615', 'Ba''tan', 3),
+('7326151003', '732615', 'Ba\'tan', 3),
 ('7326151004', '732615', 'Pantanakan Lolo', 3),
 ('7326152001', '732615', 'Tallulolo', 4),
 ('7326152002', '732615', 'Rinding Batu', 4),
 ('7326152005', '732615', 'Angin-angin', 4),
 ('7326152006', '732615', 'Sangubua', 4),
 ('7326152007', '732615', 'Tadongkon', 4),
-('7326162001', '732616', 'Tondon Langi''', 4),
+('7326162001', '732616', 'Tondon Langi\'', 4),
 ('7326162002', '732616', 'Tondon', 4),
 ('7326162003', '732616', 'Tondon Sibata', 4),
 ('7326162004', '732616', 'Tondon Matalo', 4),
@@ -77130,7 +77131,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7326192004', '732619', 'Tonga Riu', 4),
 ('7326192005', '732619', 'Lempo', 4),
 ('7326201003', '732620', 'Polo Padang', 3),
-('7326202001', '732620', 'Benteng Ka''do', 4),
+('7326202001', '732620', 'Benteng Ka\'do', 4),
 ('7326202002', '732620', 'Sikuku', 4),
 ('7326202004', '732620', 'Kantun Poya', 4),
 ('7326202005', '732620', 'Kapal Pitu', 4),
@@ -77154,7 +77155,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7371021004', '737102', 'Mamajang Dalam', 3),
 ('7371021005', '737102', 'Maricaya Selatan', 3),
 ('7371021006', '737102', 'Bonto Lebang', 3),
-('7371021007', '737102', 'Pa''batong', 3),
+('7371021007', '737102', 'Pa\'batong', 3),
 ('7371021008', '737102', 'Bonto Biraeng', 3),
 ('7371021009', '737102', 'Labuang Baji', 3),
 ('7371021010', '737102', 'Mandala', 3),
@@ -77212,7 +77213,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7371071005', '737107', 'Rappokalling', 3),
 ('7371071006', '737107', 'Lakkang', 3),
 ('7371071007', '737107', 'Tallo', 3),
-('7371071008', '737107', 'La''latang', 3),
+('7371071008', '737107', 'La\'latang', 3),
 ('7371071009', '737107', 'Wala-Walaya', 3),
 ('7371071010', '737107', 'Tammua', 3),
 ('7371071011', '737107', 'Buloa', 3),
@@ -77250,7 +77251,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7371101005', '737110', 'Bongaya', 3),
 ('7371101006', '737110', 'Balang Baru', 3),
 ('7371101007', '737110', 'Mannuruki', 3),
-('7371101008', '737110', 'Pa'' baeng Baeng', 3),
+('7371101008', '737110', 'Pa\' baeng Baeng', 3),
 ('7371101009', '737110', 'Parang Tambung', 3),
 ('7371101010', '737110', 'Tanjung Merdeka', 3),
 ('7371111001', '737111', 'Paccerakkang', 3),
@@ -77412,9 +77413,9 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7401102021', '740110', 'Ulu Rina', 4),
 ('7401121001', '740112', 'Puundoho', 3),
 ('7401122002', '740112', 'Longori', 4),
-('7401122003', '740112', 'Puubunga', 4),
-('7401122004', '740112', 'Puulemo', 4);
+('7401122003', '740112', 'Puubunga', 4);
 INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
+('7401122004', '740112', 'Puulemo', 4),
 ('7401122005', '740112', 'Puubenua', 4),
 ('7401122006', '740112', 'Baula', 4),
 ('7401122007', '740112', 'Pewutaa', 4),
@@ -78632,7 +78633,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7408011001', '740801', 'Lasusua', 3),
 ('7408012002', '740801', 'Pitulua', 4),
 ('7408012003', '740801', 'Rantelimbung', 4),
-('7408012006', '740801', 'To'' tallang', 4),
+('7408012006', '740801', 'To\' tallang', 4),
 ('7408012007', '740801', 'Tojabi', 4),
 ('7408012008', '740801', 'Ponggiha', 4),
 ('7408012009', '740801', 'Watuliwu', 4),
@@ -78679,9 +78680,9 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7408052009', '740805', 'Kalu-Kaluku', 4),
 ('7408052010', '740805', 'Jabal Nur', 4),
 ('7408052012', '740805', 'Jabal Kubis', 4),
-('7408052014', '740805', 'Sawanggaoha', 4),
-('7408052018', '740805', 'Ainani Tajriani', 4);
+('7408052014', '740805', 'Sawanggaoha', 4);
 INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
+('7408052018', '740805', 'Ainani Tajriani', 4),
 ('7408052019', '740805', 'Delang-Delang', 4),
 ('7408061003', '740806', 'Lapai', 3),
 ('7408062002', '740806', 'Ngapa', 4),
@@ -78723,7 +78724,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7408102004', '740810', 'Latali', 4),
 ('7408102005', '740810', 'Pasampang', 4),
 ('7408102006', '740810', 'Tarengga', 4),
-('7408102007', '740810', 'To''lemo', 4),
+('7408102007', '740810', 'To\'lemo', 4),
 ('7408102008', '740810', 'Salutotong', 4),
 ('7408102009', '740810', 'Powalaa', 4),
 ('7408102010', '740810', 'Kalahunde', 4),
@@ -78914,7 +78915,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7410011010', '741001', 'Lakonea', 3),
 ('7410011012', '741001', 'Lemo', 3),
 ('7410011014', '741001', 'Bonelipu', 3),
-('7410011016', '741001', 'Sara''ea', 3),
+('7410011016', '741001', 'Sara\'ea', 3),
 ('7410011017', '741001', 'Wandaka', 3),
 ('7410012001', '741001', 'Triwacuwacu', 4),
 ('7410012002', '741001', 'Waculaea', 4),
@@ -78955,7 +78956,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7410032009', '741003', 'Soloi Agung', 4),
 ('7410032013', '741003', 'Tatombuli', 4),
 ('7410032014', '741003', 'Rante Gola', 4),
-('7410032015', '741003', 'Ngapa''ea', 4),
+('7410032015', '741003', 'Ngapa\'ea', 4),
 ('7410032016', '741003', 'Koboruno', 4),
 ('7410032017', '741003', 'Damai Laborona', 4),
 ('7410042001', '741004', 'Kotawo', 4),
@@ -78982,7 +78983,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7410052008', '741005', 'Waodeburi', 4),
 ('7410052009', '741005', 'Ulu Nambo', 4),
 ('7410052010', '741005', 'Bira', 4),
-('7410052011', '741005', 'E''erinere', 4),
+('7410052011', '741005', 'E\'erinere', 4),
 ('7410052012', '741005', 'Labelete', 4),
 ('7410052013', '741005', 'Wamboule', 4),
 ('7410052014', '741005', 'Wowonga Jaya', 4),
@@ -79604,7 +79605,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7501052007', '750105', 'Bongo', 4),
 ('7501052008', '750105', 'Lopo', 4),
 ('7501052009', '750105', 'Lamu', 4),
-('7501052012', '750105', 'Olimoo''o', 4),
+('7501052012', '750105', 'Olimoo\'o', 4),
 ('7501052014', '750105', 'Buhudaa', 4),
 ('7501052015', '750105', 'Langgula', 4),
 ('7501092001', '750109', 'Sidomulyo', 4),
@@ -79719,7 +79720,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7501202004', '750120', 'Luluo', 4),
 ('7501202005', '750120', 'Huwongo', 4),
 ('7501202006', '750120', 'Labuto Timur', 4),
-('7501202007', '750120', 'Botubolu''o', 4),
+('7501202007', '750120', 'Botubolu\'o', 4),
 ('7501202008', '750120', 'Olimeyala', 4),
 ('7501212001', '750121', 'Bululi', 4),
 ('7501212002', '750121', 'Mohiyolo', 4),
@@ -79739,7 +79740,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7501232001', '750123', 'Totopo', 4),
 ('7501232002', '750123', 'Bilato', 4),
 ('7501232003', '750123', 'Ilomata', 4),
-('7501232004', '750123', 'Taula''a', 4),
+('7501232004', '750123', 'Taula\'a', 4),
 ('7501232005', '750123', 'Juriya', 4),
 ('7501232006', '750123', 'Pelehu', 4),
 ('7501232007', '750123', 'Bumela', 4),
@@ -79950,9 +79951,9 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7503112004', '750311', 'Tulabolo Timur', 4),
 ('7503112005', '750311', 'Tilangobula', 4),
 ('7503112007', '750311', 'Poduwoma', 4),
-('7503112008', '750311', 'Panggulo', 4),
-('7503112009', '750311', 'Tulabolo Barat', 4);
+('7503112008', '750311', 'Panggulo', 4);
 INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
+('7503112009', '750311', 'Tulabolo Barat', 4),
 ('7503112010', '750311', 'Pangi', 4),
 ('7503112011', '750311', 'Tinemba', 4),
 ('7503122001', '750312', 'Bulontala', 4),
@@ -80386,7 +80387,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7602042014', '760204', 'Kondo Bulo', 4),
 ('7602042015', '760204', 'Makkaliki', 4),
 ('7602042016', '760204', 'Batu Makkada', 4),
-('7602042017', '760204', 'Lasa''', 4),
+('7602042017', '760204', 'Lasa\'', 4),
 ('7602072001', '760207', 'Toabo', 4),
 ('7602072002', '760207', 'Papalang', 4),
 ('7602072003', '760207', 'Bonda', 4),
@@ -80424,7 +80425,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7602122005', '760212', 'Sumare', 4),
 ('7602122007', '760212', 'Botteng Utara', 4),
 ('7602122008', '760212', 'Tapandullu', 4),
-('7602122009', '760212', 'Pati''di', 4),
+('7602122009', '760212', 'Pati\'di', 4),
 ('7602132001', '760213', 'Dungkait', 4),
 ('7602132002', '760213', 'Lebani', 4),
 ('7602132003', '760213', 'Labuang Rano', 4),
@@ -80505,7 +80506,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7603052010', '760305', 'Salubakka', 4),
 ('7603052011', '760305', 'Pangandaran', 4),
 ('7603052012', '760305', 'Talopak', 4),
-('7603052013', '760305', 'Peu''', 4),
+('7603052013', '760305', 'Peu\'', 4),
 ('7603052014', '760305', 'Timoro', 4),
 ('7603052015', '760305', 'Lakahang Utama', 4),
 ('7603061001', '760306', 'Sumarorong', 3),
@@ -80728,7 +80729,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('7604092003', '760409', 'Rangoan', 4),
 ('7604092004', '760409', 'Tapua', 4),
 ('7604092005', '760409', 'Mambu Tapua', 4),
-('7604092006', '760409', 'Ba''ba Tapua', 4),
+('7604092006', '760409', 'Ba\'ba Tapua', 4),
 ('7604092007', '760409', 'Katimbang', 4),
 ('7604101004', '760410', 'Batupanga', 3),
 ('7604102001', '760410', 'Mambu', 4),
@@ -81218,10 +81219,10 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('8102132004', '810213', 'Rat', 4),
 ('8102132005', '810213', 'Abean', 4),
 ('8102132006', '810213', 'Mastur', 4),
-('8102132013', '810213', 'Ohoinol', 4),
-('8102132014', '810213', 'Semawi', 4),
-('8102132015', '810213', 'Iso', 4);
+('8102132013', '810213', 'Ohoinol', 4);
 INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
+('8102132014', '810213', 'Semawi', 4),
+('8102132015', '810213', 'Iso', 4),
 ('8102132016', '810213', 'Disuk', 4),
 ('8102132017', '810213', 'Wain Baru', 4),
 ('8102132018', '810213', 'Marfun', 4),
@@ -82509,10 +82510,10 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('8203142009', '820314', 'Kira', 4),
 ('8203152001', '820315', 'Limau', 4),
 ('8203152002', '820315', 'Lalonga', 4),
-('8203152003', '820315', 'Bobisingo', 4),
-('8203152004', '820315', 'Salimuli', 4),
-('8203152005', '820315', 'Tutumaloleo', 4);
+('8203152003', '820315', 'Bobisingo', 4);
 INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
+('8203152004', '820315', 'Salimuli', 4),
+('8203152005', '820315', 'Tutumaloleo', 4),
 ('8203152006', '820315', 'Saluta', 4),
 ('8203152007', '820315', 'Jere', 4),
 ('8203152008', '820315', 'Dodowo', 4),
@@ -83808,10 +83809,10 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('9102612003', '910261', 'Dewene', 4),
 ('9102612004', '910261', 'Totni', 4),
 ('9102612005', '910261', 'Tagulik', 4),
-('9102612006', '910261', 'Walak Selatan', 4),
-('9102612007', '910261', 'Kodlangga', 4),
-('9102612008', '910261', 'Air Garam', 4);
+('9102612006', '910261', 'Walak Selatan', 4);
 INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
+('9102612007', '910261', 'Kodlangga', 4),
+('9102612008', '910261', 'Air Garam', 4),
 ('9102622001', '910262', 'Irilinga', 4),
 ('9102622002', '910262', 'Onggobaga', 4),
 ('9102622003', '910262', 'Walakma', 4),
@@ -84981,7 +84982,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('9109101001', '910910', 'Tembagapura', 3),
 ('9109102002', '910910', 'Waa', 4),
 ('9109102003', '910910', 'Arwanop', 4),
-('9109102004', '910910', 'T"Singa', 4),
+('9109102004', '910910', 'T\"Singa', 4),
 ('9109102006', '910910', 'Jagamin', 4),
 ('9109102007', '910910', 'Banigogom', 4),
 ('9109102008', '910910', 'Opitawak', 4),
@@ -85110,10 +85111,10 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('9110092001', '911009', 'Wamariri', 4),
 ('9110092002', '911009', 'Aurimi', 4),
 ('9110092003', '911009', 'Tamaja', 4),
-('9110092004', '911009', 'Airoran', 4),
-('9110092005', '911009', 'Murara', 4),
-('9110092006', '911009', 'Sasawapece', 4);
+('9110092004', '911009', 'Airoran', 4);
 INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
+('9110092005', '911009', 'Murara', 4),
+('9110092006', '911009', 'Sasawapece', 4),
 ('9110092011', '911009', 'Maniwa', 4),
 ('9110092012', '911009', 'Surimania', 4),
 ('9110092013', '911009', 'Kwawitania', 4),
@@ -86434,10 +86435,10 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('9114342005', '911434', 'Weyage', 4),
 ('9114342006', '911434', 'Timer', 4),
 ('9114342007', '911434', 'Gulak', 4),
-('9114342008', '911434', 'Nowo', 4),
-('9114342009', '911434', 'Gunalo', 4),
-('9114342010', '911434', 'Korlo', 4);
+('9114342008', '911434', 'Nowo', 4);
 INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
+('9114342009', '911434', 'Gunalo', 4),
+('9114342010', '911434', 'Korlo', 4),
 ('9114342011', '911434', 'Towolome', 4),
 ('9114342012', '911434', 'Golena', 4),
 ('9114352001', '911435', 'Geka', 4),
@@ -87761,10 +87762,10 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('9123152001', '912315', 'Konikme', 4),
 ('9123152002', '912315', 'Giwan', 4),
 ('9123152003', '912315', 'Lugom', 4),
-('9123152004', '912315', 'Mabume', 4),
-('9123152005', '912315', 'Wandoak', 4),
-('9123152006', '912315', 'Bogun Kunik', 4);
+('9123152004', '912315', 'Mabume', 4);
 INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
+('9123152005', '912315', 'Wandoak', 4),
+('9123152006', '912315', 'Bogun Kunik', 4),
 ('9123152007', '912315', 'Urgelo', 4),
 ('9123152008', '912315', 'Omapaga', 4),
 ('9123152009', '912315', 'Gimili Alome', 4),
@@ -89071,10 +89072,10 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('9204092016', '920409', 'Korewatara', 4),
 ('9204092017', '920409', 'Tapas', 4),
 ('9204092018', '920409', 'Topdan', 4),
-('9204092020', '920409', 'Migrito', 4),
-('9204092021', '920409', 'Daimar', 4),
-('9204102001', '920410', 'Moswaren', 4);
+('9204092020', '920409', 'Migrito', 4);
 INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
+('9204092021', '920409', 'Daimar', 4),
+('9204102001', '920410', 'Moswaren', 4),
 ('9204102002', '920410', 'Johsiro', 4),
 ('9204102003', '920410', 'Hararo', 4),
 ('9204102004', '920410', 'Bumi Ajo', 4),
@@ -89990,8 +89991,8 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 ('9210222006', '921022', 'Sabun', 4),
 ('9210222007', '921022', 'Itigah', 4),
 ('9210222008', '921022', 'Sira Tee', 4),
-('9210222009', '921022', 'Wrait ''U''', 4),
-('9210222010', '921022', 'Way ''U''', 4),
+('9210222009', '921022', 'Wrait \'U\'', 4),
+('9210222010', '921022', 'Way \'U\'', 4),
 ('9210222011', '921022', 'Asnaif', 4),
 ('9210222012', '921022', 'Iroh Sohser', 4),
 ('9210222013', '921022', 'Framboh', 4),
@@ -90286,7 +90287,7 @@ INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`, `id_jenis`) VALUES
 -- Table structure for table `provinsi`
 --
 
-CREATE TABLE IF NOT EXISTS `provinsi` (
+CREATE TABLE `provinsi` (
   `id_prov` char(2) NOT NULL,
   `nama` tinytext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -90334,64 +90335,64 @@ INSERT INTO `provinsi` (`id_prov`, `nama`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_detail_transaksi`
+-- Table structure for table `detail_transaksi`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_detail_transaksi` (
-`id_detailtransaksi` int(11) NOT NULL,
+CREATE TABLE `detail_transaksi` (
+  `id_detailtransaksi` int(11) NOT NULL,
   `id_transaksi` int(11) DEFAULT NULL,
   `id_produk` int(11) DEFAULT NULL,
   `qty` int(11) NOT NULL,
   `harga` int(11) DEFAULT NULL,
   `total_harga` int(11) DEFAULT NULL,
-  `tanggal_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+  `tanggal_update` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_detail_transaksi`
+-- Dumping data for table `detail_transaksi`
 --
 
-INSERT INTO `tbl_detail_transaksi` (`id_detailtransaksi`, `id_transaksi`, `id_produk`, `qty`, `harga`, `total_harga`, `tanggal_update`) VALUES
-(1, 1, 11, 1, 18000000, 18000000, '2020-04-12 12:32:15'),
-(2, 1, 6, 1, 68000000, 68000000, '2020-04-12 12:32:15');
+INSERT INTO `detail_transaksi` (`id_detailtransaksi`, `id_transaksi`, `id_produk`, `qty`, `harga`, `total_harga`, `tanggal_update`) VALUES
+(1, 1, 14, 1, 23000000, 23000000, '2020-04-24 10:27:13'),
+(2, 1, 2, 1, 3000000, 3000000, '2020-04-24 10:27:13');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_gambar`
+-- Table structure for table `gambar`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_gambar` (
-`id_gambar` int(11) NOT NULL,
+CREATE TABLE `gambar` (
+  `id_gambar` int(11) NOT NULL,
   `id_produk` int(11) DEFAULT NULL,
   `judul_gambar` varchar(50) DEFAULT NULL,
   `gambar` varchar(100) DEFAULT NULL,
-  `tanggal_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+  `tanggal_update` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_gambar`
+-- Dumping data for table `gambar`
 --
 
-INSERT INTO `tbl_gambar` (`id_gambar`, `id_produk`, `judul_gambar`, `gambar`, `tanggal_update`) VALUES
+INSERT INTO `gambar` (`id_gambar`, `id_produk`, `judul_gambar`, `gambar`, `tanggal_update`) VALUES
 (3, 2, 'Mobile print 2', 'mobile-print2.jpg', '2020-04-14 12:14:09');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_jabatan`
+-- Table structure for table `jabatan`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_jabatan` (
-  `id_jabatan` int(11) NOT NULL DEFAULT '0',
+CREATE TABLE `jabatan` (
+  `id_jabatan` int(11) NOT NULL DEFAULT 0,
   `nama_jabatan` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_jabatan`
+-- Dumping data for table `jabatan`
 --
 
-INSERT INTO `tbl_jabatan` (`id_jabatan`, `nama_jabatan`) VALUES
+INSERT INTO `jabatan` (`id_jabatan`, `nama_jabatan`) VALUES
 (1, 'Manajer'),
 (2, 'Staff IT'),
 (3, 'Sekretaris'),
@@ -90400,39 +90401,38 @@ INSERT INTO `tbl_jabatan` (`id_jabatan`, `nama_jabatan`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_karyawan`
+-- Table structure for table `karyawan`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_karyawan` (
-`id_karyawan` int(11) NOT NULL,
+CREATE TABLE `karyawan` (
+  `id_karyawan` int(11) NOT NULL,
   `nama_karyawan` varchar(30) DEFAULT NULL,
   `email_karyawan` varchar(50) DEFAULT NULL,
   `foto` varchar(100) NOT NULL,
-  `password_karyawan` varchar(255) DEFAULT NULL,
+  `password_karyawan` varchar(280) DEFAULT NULL,
   `alamat_karyawan` varchar(100) DEFAULT NULL,
   `hp_karyawan` varchar(14) DEFAULT NULL,
   `id_jabatan` int(11) DEFAULT NULL,
   `id_status` int(11) DEFAULT NULL,
   `karyawan_register` datetime NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_karyawan`
+-- Dumping data for table `karyawan`
 --
 
-INSERT INTO `tbl_karyawan` (`id_karyawan`, `nama_karyawan`, `email_karyawan`, `foto`, `password_karyawan`, `alamat_karyawan`, `hp_karyawan`, `id_jabatan`, `id_status`, `karyawan_register`) VALUES
-(1, 'Aulia Rahman ', 'aul@gmail.com', 'ic_aul3.jpg', '$2y$10$oODd3f4sgPZnaSrmeA79CuJK30E.Pjx78vg/Lop5BPlYtQmwLkFgO', 'Bekasi Selatan', '081316452010', 99, 1, '2020-03-25 23:57:10'),
-(2, 'Shilki dini', 'silki@gmail.com', 'default.jpg', '$2y$10$oiPmlrXX1MX33/Pj4cDuPegpyqKzb262GlX.frdNM1l98xSdB2tre', 'Jakarta Selatan', '081316452010', 3, 1, '2020-03-25 22:20:23'),
-(5, 'Jono Doang', 'jono@gmail.com', 'default.jpg', '$2y$10$0DceiDO.egdhbZ7WHX9G/egAzb.Ty661OGO4kGh70HmXZfNqqtfqi', 'Jakarta Timur', '089958884985', 1, 1, '2020-04-14 11:55:41');
+INSERT INTO `karyawan` (`id_karyawan`, `nama_karyawan`, `email_karyawan`, `foto`, `password_karyawan`, `alamat_karyawan`, `hp_karyawan`, `id_jabatan`, `id_status`, `karyawan_register`) VALUES
+(1, 'Aulia Rahman', 'aul@gmail.com', 'ic_aul32.jpg', '$2y$10$S/XQoX3T6.02bI5g7kAEI.kvkUjtjciVEv2.2LT0gFIIwHa0rU27e', 'Bekasi selatan', '081316452010', 99, 1, '2020-04-17 22:04:00'),
+(2, 'Shilki Dini Abadiya', 'silki@gmail.com', 'default.jpg', '$2y$10$.ow.DIUegzjOsNI41ZpjKO0En5rzGF9G4FckYJfikTPMzj4aP69nS', 'Jakarta Timur', '08778757389', 3, 1, '2020-04-17 22:08:16');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_karyawan_log`
+-- Table structure for table `karyawan_log`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_karyawan_log` (
-`id` int(11) NOT NULL,
+CREATE TABLE `karyawan_log` (
+  `id` int(11) NOT NULL,
   `tgl` datetime DEFAULT NULL,
   `expired` datetime DEFAULT NULL,
   `token` varchar(40) DEFAULT NULL,
@@ -90440,27 +90440,27 @@ CREATE TABLE IF NOT EXISTS `tbl_karyawan_log` (
   `ip` varchar(20) DEFAULT NULL,
   `useragent` varchar(150) DEFAULT NULL,
   `stat` int(1) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_kategori`
+-- Table structure for table `kategori`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_kategori` (
-`id_kategori` int(11) NOT NULL,
+CREATE TABLE `kategori` (
+  `id_kategori` int(11) NOT NULL,
   `slug_kategori` varchar(50) DEFAULT NULL,
   `nama_kategori` varchar(50) DEFAULT NULL,
   `urutan` int(11) DEFAULT NULL,
-  `tanggal_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+  `tanggal_update` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_kategori`
+-- Dumping data for table `kategori`
 --
 
-INSERT INTO `tbl_kategori` (`id_kategori`, `slug_kategori`, `nama_kategori`, `urutan`, `tanggal_update`) VALUES
+INSERT INTO `kategori` (`id_kategori`, `slug_kategori`, `nama_kategori`, `urutan`, `tanggal_update`) VALUES
 (1, 'fotocopy', 'Fotocopy', 1, '2020-03-17 16:23:45'),
 (2, 'consumable-part', 'Consumable Part', 3, '2020-03-17 16:23:57'),
 (3, 'perangkat-optional', 'Perangkat Optional', 2, '2020-03-17 16:24:09');
@@ -90468,44 +90468,44 @@ INSERT INTO `tbl_kategori` (`id_kategori`, `slug_kategori`, `nama_kategori`, `ur
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_konfigurasi`
+-- Table structure for table `konfigurasi`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_konfigurasi` (
-`id_konfigurasi` int(11) NOT NULL,
+CREATE TABLE `konfigurasi` (
+  `id_konfigurasi` int(11) NOT NULL,
   `id_karyawan` int(11) DEFAULT NULL,
   `namaweb` varchar(20) DEFAULT NULL,
   `tagline` varchar(50) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
   `website` varchar(30) DEFAULT NULL,
-  `keywords` text,
-  `metatext` text,
+  `keywords` text DEFAULT NULL,
+  `metatext` text DEFAULT NULL,
   `telepon` varchar(25) DEFAULT NULL,
   `whatsapp` varchar(25) DEFAULT NULL,
   `alamat` varchar(100) DEFAULT NULL,
   `facebook` varchar(50) DEFAULT NULL,
   `instagram` varchar(50) DEFAULT NULL,
-  `deskripsi` text,
+  `deskripsi` text DEFAULT NULL,
   `logo` varchar(100) DEFAULT NULL,
   `icon` varchar(100) DEFAULT NULL,
-  `tanggal_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+  `tanggal_update` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_konfigurasi`
+-- Dumping data for table `konfigurasi`
 --
 
-INSERT INTO `tbl_konfigurasi` (`id_konfigurasi`, `id_karyawan`, `namaweb`, `tagline`, `email`, `website`, `keywords`, `metatext`, `telepon`, `whatsapp`, `alamat`, `facebook`, `instagram`, `deskripsi`, `logo`, `icon`, `tanggal_update`) VALUES
-(1, 1, 'Harmony Sistem', 'Jual, sewa mesin fotocopy Konica Minolta', ' info@harmonysistem.co.id', 'http://www.harmonysistem.co.id', 'Harmony Sistem', 'harmony sistem', 'Hotline: 021-82401323', 'Whatsapp: 0877-8605-2221', 'Jl. Dalang no 08 Rawa lumbu Kota Bekasi 17116', 'https://www.facebook.com/harmonysistem', 'https://www.instagram.com/harmonysistem', 'Profil Perusahaan Harmony sistem dimulai sebagai bisnis keluarga pada tahun 2002 ketika bisnis inti perusahaan pada waktu itu hanya menyewa dan menjual mesin fotokopi. &amp;nbsp;Perusahaan telah berkembang pesat sejak saat itu dan sekarang mempekerjakan lebih dari 60 orang dengan gudang dan ruang kantor di pusat-pusat ekonomi utama Jababeka &amp;ndash; Bekasi, dan cabang kami berlokasi di Bandung, dengan kantor pusat berlokasi di Rawalumbu-Bekasi. &amp;nbsp;Harmony sistem sekarang memiliki 3 bisnis utama: &amp;nbsp;&amp;middot; &amp;nbsp; &amp;nbsp;Impor, sistem Harmony adalah pemegang lisensi impor terdaftar untuk mesin fotokopi dan mesin cetak dan memiliki 2800 kuota per tahun. &amp;nbsp;Harmony sistem mampu menyediakan produk-produk berkualitas terbaik dengan harga terjangkau. &amp;nbsp;&amp;middot; &amp;nbsp; &amp;nbsp; &amp;nbsp;Sewa &amp;amp; penjualan, Harmony Sistem telah menyediakan ratusan mesin fotokopi berkualitas tinggi dengan harga terjangkau dan didukung oleh layanan dan dukungan tiada banding. &amp;nbsp;Sistem Harmony dapat memenuhi semua kebutuhan Anda dengan suku cadang berkualitas tinggi dan bahan habis pakai untuk mesin fotokopi. &amp;nbsp;&amp;middot; &amp;nbsp; &amp;nbsp; &amp;nbsp;Printing Pencetakan digital, melalui anak perusahaannya Harmony Digital Printing menyediakan berbagai layanan cetak untuk berbagai klien yang beroperasi di berbagai sektor industri. &amp;nbsp;Solusi Harmony telah membuktikan kemampuannya untuk menyediakan bahan cetakan berkualitas dalam waktu pengiriman yang diharapkan. &amp;nbsp; &amp;nbsp; Sistem harmoni telah dikenal oleh keandalan, itikad baik dan daya tahan, di antara kliennya. &amp;nbsp;Sistem Harmony telah membangun reputasi yang patut ditiru melalui dedikasinya terhadap kualitas dan kepuasan konsumen\r\n', 'jadiiiii.png', 'Icon_HS.png', '2020-04-09 12:07:13');
+INSERT INTO `konfigurasi` (`id_konfigurasi`, `id_karyawan`, `namaweb`, `tagline`, `email`, `website`, `keywords`, `metatext`, `telepon`, `whatsapp`, `alamat`, `facebook`, `instagram`, `deskripsi`, `logo`, `icon`, `tanggal_update`) VALUES
+(1, 1, 'Harmony Sistem', 'Jual, sewa mesin fotocopy Konica Minolta', ' info@harmonysistem.co.id', 'http://www.harmonysistem.co.id', 'Harmony Sistem', 'harmony sistem', 'Hotline: 021-82401323', 'Whatsapp: 0877-8605-2221', 'Jl. Dalang no 08 Rawa lumbu Kota Bekasi 17116', 'https://www.facebook.com/harmonysistem', 'https://www.instagram.com/harmonysistem', 'Profil Perusahaan Harmony sistem dimulai sebagai bisnis keluarga pada tahun 2002 ketika bisnis inti perusahaan pada waktu itu hanya menyewa dan menjual mesin fotokopi. &amp;nbsp;Perusahaan telah berkembang pesat sejak saat itu dan sekarang mempekerjakan lebih dari 60 orang dengan gudang dan ruang kantor di pusat-pusat ekonomi utama Jababeka &amp;ndash; Bekasi, dan cabang kami berlokasi di Bandung, dengan kantor pusat berlokasi di Rawalumbu-Bekasi. &amp;nbsp;Harmony sistem sekarang memiliki 3 bisnis utama: &amp;nbsp;&amp;middot; &amp;nbsp; &amp;nbsp;Impor, sistem Harmony adalah pemegang lisensi impor terdaftar untuk mesin fotokopi dan mesin cetak dan memiliki 2800 kuota per tahun. &amp;nbsp;Harmony sistem mampu menyediakan produk-produk berkualitas terbaik dengan harga terjangkau. &amp;nbsp;&amp;middot; &amp;nbsp; &amp;nbsp; &amp;nbsp;Sewa &amp;amp; penjualan, Harmony Sistem telah menyediakan ratusan mesin fotokopi berkualitas tinggi dengan harga terjangkau dan didukung oleh layanan dan dukungan tiada banding. &amp;nbsp;Sistem Harmony dapat memenuhi semua kebutuhan Anda dengan suku cadang berkualitas tinggi dan bahan habis pakai untuk mesin fotokopi. &amp;nbsp;&amp;middot; &amp;nbsp; &amp;nbsp; &amp;nbsp;Printing Pencetakan digital, melalui anak perusahaannya Harmony Digital Printing menyediakan berbagai layanan cetak untuk berbagai klien yang beroperasi di berbagai sektor industri. &amp;nbsp;Solusi Harmony telah membuktikan kemampuannya untuk menyediakan bahan cetakan berkualitas dalam waktu pengiriman yang diharapkan. &amp;nbsp; &amp;nbsp; Sistem harmoni telah dikenal oleh keandalan, itikad baik dan daya tahan, di antara kliennya. &amp;nbsp;Sistem Harmony telah membangun reputasi yang patut ditiru melalui dedikasinya terhadap kualitas dan kepuasan konsumen', 'jadiiiii.png', 'Icon_HS.png', '2020-04-21 15:17:49');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_pelanggan`
+-- Table structure for table `pelanggan`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_pelanggan` (
-`id_pelanggan` int(11) NOT NULL,
+CREATE TABLE `pelanggan` (
+  `id_pelanggan` int(11) NOT NULL,
   `id_status` int(11) DEFAULT NULL,
   `nama_pelanggan` varchar(30) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
@@ -90518,31 +90518,55 @@ CREATE TABLE IF NOT EXISTS `tbl_pelanggan` (
   `id_kel` char(10) NOT NULL,
   `kode_pos` int(11) NOT NULL,
   `pelanggan_daftar` datetime NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_pelanggan`
+-- Dumping data for table `pelanggan`
 --
 
-INSERT INTO `tbl_pelanggan` (`id_pelanggan`, `id_status`, `nama_pelanggan`, `email`, `password`, `telepon`, `alamat`, `id_prov`, `id_kab`, `id_kec`, `id_kel`, `kode_pos`, `pelanggan_daftar`) VALUES
-(1, 1, 'Shilki Dini Abadiya', 'abadiya767@gmail.com', '$2y$10$8Rv6HTH.PkG8FOjSLzoeGuD1r1qpCEXQs/5sxMB7CVP18lPyQPuji', '08779988787', 'Perum Bekasi Timur Regency Blok C2', '32', '3275', '327507', '3275071003', 18894, '2020-04-11 23:51:47'),
-(3, 1, 'Aulia Rahman', 'rahmanaulia336@gmail.com', '$2y$10$qEHiOoEOTjD/qyg0WIbGCuvyCoY2qAcyTR8ZlB0OzVuSoNqCaErLa', '081316452010', 'Jl Kemakmuran 4', '32', '3275', '327504', '3275041002', 17141, '2020-04-11 23:58:37');
+INSERT INTO `pelanggan` (`id_pelanggan`, `id_status`, `nama_pelanggan`, `email`, `password`, `telepon`, `alamat`, `id_prov`, `id_kab`, `id_kec`, `id_kel`, `kode_pos`, `pelanggan_daftar`) VALUES
+(1, 1, 'Aulia Rahman', 'rahmanaulia336@gmail.com', '$2y$10$Kfh8QPYHTVo0cLZyhZTE/eTjRJ8CSneGVMARSmyIdjbgSrG6SgaPq', '081316452010', 'Jl kemakmuran 4 Kp.200', '32', '3275', '327504', '3275041002', 17141, '2020-04-23 14:11:56'),
+(2, 1, 'Shilki Dini Abadiya', 'abadiya767@gmail.com', '$2y$10$5/Krcz7xvgoOxrrNPxlVmOcCYH2xZoFjKrqphEVgg4Z/2qsc6fD3a', '0899883742', 'Perum regency 2', '32', '3275', '327511', '3275111004', 1897353, '2020-04-23 14:21:20'),
+(3, 1, 'Aul aja', 'aulaja17@gmail.com', '$2y$10$LaCriiJ3Wt9JRMZ5YbyB3.93R5o1XTnxwnaVg3L/uinx1sEtyFZhO', '0877986353', 'Jl serma marjuki', '51', '5104', '510403', '5104032013', 156754, '2020-04-24 23:45:35');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_produk`
+-- Table structure for table `pesan`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_produk` (
-`id_produk` int(11) NOT NULL,
+CREATE TABLE `pesan` (
+  `id_pesan` int(11) NOT NULL,
+  `nama_pesan` varchar(20) NOT NULL,
+  `subject_pesan` varchar(30) NOT NULL,
+  `email_pesan` varchar(50) NOT NULL,
+  `pesan` text NOT NULL,
+  `id_status` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pesan`
+--
+
+INSERT INTO `pesan` (`id_pesan`, `nama_pesan`, `subject_pesan`, `email_pesan`, `pesan`, `id_status`) VALUES
+(1, 'Aulia Rahman', 'Registrasi gagal', 'rahmanaulia336@gmail.com', 'saya sudah mendaftarkan tpi token saya selalu gagal', 3),
+(2, 'Shilki dini abadiya', 'Susah belanja', 'abadiya767@gmail.com', 'saya gagal melakukan checkout tiba2 forceclose', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `produk`
+--
+
+CREATE TABLE `produk` (
+  `id_produk` int(11) NOT NULL,
   `id_karyawan` int(11) DEFAULT NULL,
   `id_kategori` int(11) DEFAULT NULL,
   `kode_produk` varchar(15) DEFAULT NULL,
   `nama_produk` varchar(50) DEFAULT NULL,
   `slug_produk` varchar(50) DEFAULT NULL,
-  `keterangan` text,
-  `keywords` text,
+  `keterangan` text DEFAULT NULL,
+  `keywords` text DEFAULT NULL,
   `harga` int(11) DEFAULT NULL,
   `stok` int(11) DEFAULT NULL,
   `gambar` varchar(100) DEFAULT NULL,
@@ -90550,26 +90574,29 @@ CREATE TABLE IF NOT EXISTS `tbl_produk` (
   `ukuran` varchar(10) NOT NULL,
   `status_produk` varchar(12) DEFAULT NULL,
   `tanggal_post` datetime DEFAULT NULL,
-  `tanggal_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
+  `tanggal_update` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_produk`
+-- Dumping data for table `produk`
 --
 
-INSERT INTO `tbl_produk` (`id_produk`, `id_karyawan`, `id_kategori`, `kode_produk`, `nama_produk`, `slug_produk`, `keterangan`, `keywords`, `harga`, `stok`, `gambar`, `berat`, `ukuran`, `status_produk`, `tanggal_post`, `tanggal_update`) VALUES
+INSERT INTO `produk` (`id_produk`, `id_karyawan`, `id_kategori`, `kode_produk`, `nama_produk`, `slug_produk`, `keterangan`, `keywords`, `harga`, `stok`, `gambar`, `berat`, `ukuran`, `status_produk`, `tanggal_post`, `tanggal_update`) VALUES
 (1, 1, 3, 'KM-AU-205H', 'Konica Minolta AU-205H Card Reader', 'konica-minolta-au-205h-card-reader_km-au-205h', 'Konica Minolta AU-205H Card Reader merupakan perangkat tambahan bagi mesin Konica Minolta yang berfungsi sebagai fitur keamanan, yang mana alat pembaca kartu magnetic ini mendukung berbagai teknologi kartu yang berbeda untuk otentikasi dengan operasi &amp;ldquo;ID and Print&amp;rdquo; yang aman sehingga dapat &amp;nbsp;menghemat waktu dan tenaga.AU-205H Card Reader Untuk Mesin Konica Minolta Type :	Konica Minolta Bizhub 227	Konica Minolta Bizhub 224E	Konica Minolta Bizhub 284E	Konica Minolta Bizhub 287	Konica Minolta Bizhub 364E	Konica Minolta Bizhub 4050	Konica Minolta Bizhub 454E	Konica Minolta Bizhub 4750	Konica Minolta Bizhub 554E	Konica Minolta Bizhub 654E	Konica Minolta Bizhub 754E	Konica Minolta Bizhub 754EB	Konica Minolta Bizhub 288	Konica Minolta Bizhub C308	Konica Minolta Bizhub C3350	Konica Minolta Bizhub C364E	Konica Minolta Bizhub C454E	Konica Minolta Bizhub C554E	Konica Minolta Bizhub C654E	Konica Minolta Bizhub C754E	Konica Minolta Bizhub C754E', 'Konica Minolta AU-205H Card Reader', 2000000, 40, 'au-205h-konica-minolta.jpg', 50, '20x20', 'publish', '2020-03-23 20:04:47', '2020-04-09 12:25:10'),
 (2, 1, 3, 'KM-MP', 'Konica Minolta Mobile Print', 'konica-minolta-mobile-print_km-mp', 'Dengan Konica Minolta Mobile Print Anda bisa menjalankan fungsi pencetak / print dari ponsel yang mudah dengan aplikasi gratis yang bisa Anda download di App store. Ini merupakan solusi gratis untuk meningkatkan fleksibilitas pencetakan/ print dan scan dari seluler.&amp;nbsp;Mencetak dan scan &amp;ndash; selalu di ujung jari Anda dengan Konica Minolta Mobile Print. Lingkungan bisnis modern sering menuntut agar kita bertindak di tempat dalam menghadapi masalah serius, kekurangan dalam dokumentasi atau keterlambatan. Laptop dan perangkat seluler yang terhubung ke internet nirkabel telah membuat komunikasi dan manajemen tugas menjadi lebih mudah, untungnya, dan mobilitas dan fleksibilitas ini telah menyebar ke bidang bisnis lainnya. Konica Minolta Mobile Printing berarti Anda dapat melakukan lebih dari sekadar mengunduh file yang hilang dalam dokumentasi Anda; itu memungkinkan Anda terhubung ke MFP yang dipilih secara instan, sampai Anda memiliki hard copy di tangan Anda beberapa saat kemudian. Pencetakan seluler Konica Minolta hadir dalam aplikasi gratis yang tersedia di ujung jari Anda. Ini memungkinkan Anda mengirim pekerjaan cetak dan memindai dokumen dari jarak jauh, dalam sekejap mata. Jangan khawatir tentang harus tahu cara menggunakan antarmuka yang kompleks: aplikasi jelas dan Konica Minolta Mobile Print adalah aplikasi pencetakan seluler gratis untuk semua platform seluler utama, termasuk iOS, Android, dan Windows 10, yang menghubungkan perangkat seluler dengan sistem output bizhub multifungsi Konica Minolta. Dua fungsi utama dari aplikasi ini? Ini memungkinkan Anda mencetak dari dan memindai ke perangkat genggam, memastikan pengguna bisnis memiliki dokumen penting untuk diserahkan setiap saat. Enkripsi file ujung ke ujung Hak akses pengguna Mengurangi biaya operasional Terintegrasi dengan sistem manajemen akuntansi dan cetak yang umum Dapat diinstal dalam 10 menit Pelepasan pekerjaan cetak yang aman Tidak perlu infrastruktur kompleks dan perangkat baru yang mahal: sekarang Anda dapat terhubung ke salah satu perangkat Anda dengan mudah dan instan, dan mulai mencetak segera. Sumber file tidak masalah, karena cetak seluler dapat dilepaskan dari memori internal perangkat, email, browser, program yang dikenal baik atau layanan Google Cloud Print kapan saja. Bahkan pemindaian seluler dengan Konica Minolta MFP sekarang lebih mudah &amp;ndash; yang perlu Anda lakukan adalah membagikan file dengan rekan kerja Anda, mengirimkannya langsung ke ponsel, atau menyimpan ke cloud. Jenis file juga bukan masalah: Konica Minolta Mobile Print mendukung semua format paling populer, termasuk JPEG, GIF, BMP, PNG, PDF, TIFF, XPS, DOCX, XLSX, PPTX dan lainnya. Tidak masalah apakah Anda kekurangan versi cetakan dari tata letak atau desain, bagian dari kontrak atau jenis file lain, yang Anda butuhkan hanyalah akses ke printer. Hak akses pengguna yang dikontrol oleh administrator dapat diberikan kepada karyawan. Dengan pencetakan seluler Konica Minolta, Anda tetap super fleksibel. Tamu yang mengunjungi tempat Anda? Anda dapat menetapkan mereka hak akses pencetakan tamu juga, cepat dan mudah. Otentikasi menggunakan PIN, kartu ID atau nama pengguna dan kata sandi adalah cara aman untuk melindungi dokumen rahasia. Jadi, biarkan bisnis Anda berkembang dan cobalah pencetakan seluler secara gratis. Solusi ini akan menghemat waktu, uang, dan usaha Anda, memastikan Anda tetap memegang kendali sepanjang waktu &amp;ndash; di mana pun Anda berada.', 'Konica Minolta Mobile Print', 3000000, 40, 'konika-mobile-print.jpg', 50, '10X10', 'publish', '2020-03-23 20:09:15', '2020-04-08 07:32:22'),
 (3, 1, 1, 'KM-B-308e', 'Konica Minolta Bizhub 308e', 'konica-minolta-bizhub-308e_km-b-308e', 'Mesin Fotocopy &amp;nbsp;multifungsi&amp;nbsp;Konica Minolta Bizhub 308e&amp;nbsp;menyediakan fitur produktivitas yang berguna untuk mempercepat output Anda dalam hitam dan putih. Fotocopy multifungsi hitam-putih ini memiliki kecepatan hingga 30 halaman per menit, pemindaian rangkap single-pass opsional dapat membantu pekerjaan Anda menjadi lebih cepat dan opsi penyelesaian yang kuat untuk ukuran skalabilitas yang benar. Selain itu, kontrol panel yang disempurnakan sekarang memiliki area konektivitas seluler baru sehingga mudah untuk mencetak langsung dari perangkat seluler Anda. Mesin ini mendukung format kertas &amp;nbsp;A6-SRA3, format khusus, dan format spanduk hingga panjang 1,2 meter. Berkat teknologi canggih pada mesin ini yang memberikan hasil berupa pengurangan dampak lingkungan dan konsumsi energi yang sangat rendah sehingga menghemat energi dan uang. Keamanan data yang tinggi dengan berbagai fungsi keamanan sehingga dapat mengurangi risiko kehilangan data dan menjaga kerahasiaan data. Berikut ini spesifikasi lengkap Konica Minolta Bizhub 308e SYSTEM OVERVIEW System memory&amp;nbsp;: 4 GB (when UK-211 is installed) System hard disk&amp;nbsp;: 250 GB Standard Interface&amp;nbsp;: 10-BASE-T / 100-BASE-TX / 1000-BASE-T Ethernet, USB 2.0 Network protocols&amp;nbsp;: TCP/IP (IPv4/IPv6), FTP, SMB v2, SMTP, WebDAV Frame types&amp;nbsp;: Ethernet 802.2, Ethernet 802.3, Ethernet II, Ethernet SNAP Document feeder (optional)&amp;nbsp;: Up to 100 originals / 5.5&amp;Prime; x 8.5&amp;Prime; to 11&amp;Prime; x 17&amp;Prime; / 35-163gsm Reversing automatic document feeder or dual scan document feeder available Printable paper size&amp;nbsp;: Scanning/Copying: up to 11&amp;Prime; x 17&amp;Prime; Printing: up to 11&amp;Prime; x 17&amp;Prime; full bleed on 12&amp;Prime; x 18&amp;Prime; paper Custom paper sizes Banner paper max.: 11.75&amp;Prime; x 47.25&amp;Prime; Printable paper weight&amp;nbsp;: 52&amp;ndash;300 gsm Paper input capacity&amp;nbsp;: Standard: 1,150 sheets / Max.: 6,650 sheets Tray 1&amp;nbsp;: 500 sheets / 5.5&amp;Prime; x 8.5&amp;Prime; to 11&amp;Prime; x 17&amp;Prime; / 52&amp;ndash;256 gsm Tray 2&amp;nbsp;: 500 sheets / 5.5&amp;Prime; x 8.5&amp;Prime; to 12&amp;Prime; x 18&amp;Prime; / 52&amp;ndash;256 gsm PC-115 Paper feed cabinet (optional)&amp;nbsp;: 500 sheets / 5.5&amp;Prime; x 8.5&amp;Prime; to 11&amp;Prime; x 17&amp;Prime; / 52&amp;ndash;256 gsm PC-215 Paper feed cabinet (optional)&amp;nbsp;: 2 x 500 sheets / 5.5&amp;Prime; x 8.5&amp;Prime; to 8.5&amp;Prime; x 11&amp;Prime; / 52&amp;ndash;256 gsm Large capacity tray PC-415 (optional)&amp;nbsp;: 2,500 sheets / 8.5&amp;Prime; x 11&amp;Prime; / 52&amp;ndash;256 gsm Large capacity tray LU-302 (optional)&amp;nbsp;: 3,000 sheets / 8.5&amp;Prime; x 11&amp;Prime; / 52&amp;ndash;256 gsm Manual bypass&amp;nbsp;: 150 sheets / 4&amp;Prime; x 6&amp;Prime; to 12&amp;Prime; x 18&amp;Prime; / custom paper sizes / 50&amp;ndash;300 gsm Automatic duplexing&amp;nbsp;: 5.5&amp;Prime; x 8.5&amp;Prime; to 12&amp;Prime; x 18&amp;Prime; / 52&amp;ndash;256 gsm Finishing modes&amp;nbsp;: Offset, group, sort, staple, punch, half-fold, z-fold, tri-fold, post-insertion, booklet Output capacity&amp;nbsp;: with finisher: 3,200 sheets without finisher: 250 sheets Stapling (optional)&amp;nbsp;: Max.: 50 sheets or 48 sheets + 2 cover sheets (up to 209 gsm) Stapling output capacity&amp;nbsp;: Max.: 1,000 sheets Tri-fold (optional)&amp;nbsp;: Up to 3 sheets Tri-fold capacity&amp;nbsp;: Max.: 30 sheets (tray) Booklet (optional)&amp;nbsp;: Max.: 20 sheets or 19 sheets + 1 cover sheet (up to 209 gsm) Booklet output capacity&amp;nbsp;: Max.: 100 sheets (tray) Copy/print volume&amp;nbsp;: Max.: 150,000 pages/month1 Toner lifetime&amp;nbsp;: 25,000 pages Imaging unit lifetime&amp;nbsp;: 265,000 pages / 600,000 pages (Drum/Developer) Power consumption&amp;nbsp;: 120 V / 60 Hz, less than 1.5 kW (system) System dimensions&amp;nbsp;: 24.2&amp;Prime; x 27&amp;Prime; x 38&amp;Prime; (W x D x H) System weight&amp;nbsp;: Approx. 168 lbs PRINTER SPECIFICATIONS Print resolution&amp;nbsp;: 1,800 (equivalent) x 600 dpi, 1,200 x 1,200 dpi PDL&amp;nbsp;: PCL6 (XL 3.0), PCL5c, PostScript 3 (ver. 3016), XPS Operating systems&amp;nbsp;: Windows (x32 / x64): Vista 7 / 8.1 / 10 Windows Server (x32 / x64): 2008 / 2008 R23 / 20123 / 20163 Macintosh OS X 10.7 or later Linux / Unix/ Citrix Printer fonts&amp;nbsp;: 80 PCL Latin, 137 PostScript 3 Print functions&amp;nbsp;: Direct Print of PCL, PS, TIFF, XPS, PDF, encrypted PDF files and OOXML (DOCX, XLSX, PPTX), mixmedia and mixplex, &amp;ldquo;Easy Set&amp;rdquo; job programming, overlay, watermark, copy protection, carbon copy print &amp;nbsp; COPIER SPECIFICATIONS Copying process&amp;nbsp;: Electrostatic laser copy, tandem, indirect Toner system&amp;nbsp;: Simitri HD Polymerized Toner Print speed (8.5&amp;Prime; x 11&amp;Prime;)&amp;nbsp;: Up to 30 ppm (portrait) Print speed (11&amp;Prime; x 17&amp;Prime;)&amp;nbsp;: Up to 15 ppm (portrait) Autoduplex speed (8.5&amp;Prime; x 11&amp;Prime;)&amp;nbsp;: Up to 30 ppm (portrait) 1st copy out time&amp;nbsp;: 4.8 seconds Warm-up time&amp;nbsp;: Approx. 20 seconds2 Copy resolution&amp;nbsp;: 600 x 600 dpi Gradations&amp;nbsp;: 256 gradations Multi-copy&amp;nbsp;: 1&amp;ndash;9,999 Original format&amp;nbsp;: Up to 11&amp;Prime; x 17&amp;Prime; Magnification&amp;nbsp;: 25&amp;ndash;400% in 0.1% steps, auto zooming Copy functions&amp;nbsp;: Electronic sorting, multi-job, adjustments (contrast, sharpness, image density), proof copy, interrupt mode, color mode, separate scan, sort/group, combination, original selection, ID card copy, 2-in-1, 4-in-1 SCANNER SPECIFICATIONS Scan speed&amp;nbsp;: B&amp;amp;W / Color: up to 160 opm with optional DF-704 Scan resolution&amp;nbsp;: Max.: 600 x 600 dpi Scan modes&amp;nbsp;: Scan-to-Email, Scan-to-SMB, Scan-to-FTP, Scan-to-Box, Scan-to-USB, Scan-to-WebDAV, Scan-to-DPWS, Network TWAIN scan File formats&amp;nbsp;: JPEG, TIFF, PDF, PDF/A 1a and 1b (optional), compact PDF, encrypted PDF and searchable PDF (optional), XPS, compact XPS, PPTX and searchable PPTX (optional), searchable DOCX/XLSX (optional) Scan destinations&amp;nbsp;: 2,100 (shared with fax), LDAP support Scan functions&amp;nbsp;: Annotation (text/time/date) for PDF, up to 400 job programs, realtime scan preview FAX SPECIFICATIONS Fax&amp;nbsp;: Super G3 (optional) Transmission&amp;nbsp;: Analog, Internet Fax, Color i-Fax, IP-Fax Resolution&amp;nbsp;: Max.: 600 x 600 dpi (ultra-fine) Compression&amp;nbsp;: MH, MR, MMR, JBIG Modem&amp;nbsp;: Up to 33.6 Kbps Destinations&amp;nbsp;: 2,100 (single + group) Functions&amp;nbsp;: Polling, time shift, PC-fax, receipt to confidential box, receipt to Email/FTP/SMB, up to 400 job programs', 'Konica Minolta Bizhub 308e', 30000000, 40, 'konica-minolta-bizhub-308e.jpg', 100, '40X40', 'publish', '2020-03-23 23:39:29', '2020-04-08 07:32:01'),
 (4, 1, 1, 'KM-B-368e', 'Konica Minolta Bizhub 368e', 'konica-minolta-bizhub-368e_km-b-368e', 'Mesin fotocopy multifungsi hitam putih&amp;nbsp;Konica Minolta Bizhub 368e&amp;nbsp;ini memiliki kecepatan untuk A4 hingga 36 halaman per menit dan untuk A3 hingga 17 halaman per menit, mendukung format kertas A6-SRA3, format khusus, dan format spanduk hingga panjang 1,2 meter, panel sentuh berwarna 9 inci dengan dukungan multi-sentuh dan area sentuh seluler yang khusus untuk memberikan lebih banyak kenyamanan dan fleksibilitas untuk gaya kerja saat ini. Berkat teknologi canggih pada mesin ini sehingga mampu mengurangi dampak lingkungan sehingga dapat mengurangi konsumsi energy yang sangat rendah, sehingga dapat menghemat energy dan uang. Disamping itu mesin ini dengan berbagai fungsi keamanannya menjadikan mesin fotocopy ini memiliki tingkat keamanan data yang tinggi, sehingga mengurangi resiko kehilangan data dan mampu menjaga kerahasiaan data. Mesin ini sangat ideal untuk kantor dengan bisnis yang sedang berkembang, karena mesin ini adalah mesin fotocopy yang kuat dengan harga yang terjangkau, menggunakan teknologi Simitri dengan kualitas gambar HD yang unggu. Pemindaian ganda opsional yang dapat membawa informasi Anda ke alur kerja dengan cepat dan kesederhanaan layar sentuh yang ditingkatkan tidak pernah memperlambat Anda. Berikut ini spesifikasi lengkap Konica Minolta Bizhub 368e SYSTEM OVERVIEW System memory&amp;nbsp;: 4 GB (when UK-211 is installed) System hard disk&amp;nbsp;: 250 GB Standard Interface&amp;nbsp;: 10-BASE-T / 100-BASE-TX / 1000-BASE-T Ethernet, USB 2.0 Network protocols&amp;nbsp;: TCP/IP (IPv4/IPv6), FTP, SMB v2, SMTP, WebDAV Frame types&amp;nbsp;: Ethernet 802.2, Ethernet 802.3, Ethernet II, Ethernet SNAP Document feeder (optional)&amp;nbsp;: Up to 100 originals / 5.5&amp;Prime; x 8.5&amp;Prime; to 11&amp;Prime; x 17&amp;Prime; / 35-163gsm Reversing automatic document feeder or dual scan document feeder available Printable paper size&amp;nbsp;: Scanning/Copying: up to 11&amp;Prime; x 17&amp;Prime; Printing: up to 11&amp;Prime; x 17&amp;Prime; full bleed on 12&amp;Prime; x 18&amp;Prime; paper Custom paper sizes Banner paper max.: 11.75&amp;Prime; x 47.25&amp;Prime; Printable paper weight&amp;nbsp;: 52&amp;ndash;300 gsm Paper input capacity&amp;nbsp;: Standard: 1,150 sheets / Max.: 6,650 sheets Tray 1&amp;nbsp;: 500 sheets / 5.5&amp;Prime; x 8.5&amp;Prime; to 11&amp;Prime; x 17&amp;Prime; / 52&amp;ndash;256 gsm Tray 2&amp;nbsp;: 500 sheets / 5.5&amp;Prime; x 8.5&amp;Prime; to 12&amp;Prime; x 18&amp;Prime; / 52&amp;ndash;256 gsm PC-115 Paper feed cabinet (optional)&amp;nbsp;: 500 sheets / 5.5&amp;Prime; x 8.5&amp;Prime; to 11&amp;Prime; x 17&amp;Prime; / 52&amp;ndash;256 gsm PC-215 Paper feed cabinet (optional)&amp;nbsp;: 2 x 500 sheets / 5.5&amp;Prime; x 8.5&amp;Prime; to 8.5&amp;Prime; x 11&amp;Prime; / 52&amp;ndash;256 gsm Large capacity tray PC-415 (optional)&amp;nbsp;: 2,500 sheets / 8.5&amp;Prime; x 11&amp;Prime; / 52&amp;ndash;256 gsm Large capacity tray LU-302 (optional)&amp;nbsp;: 3,000 sheets / 8.5&amp;Prime; x 11&amp;Prime; / 52&amp;ndash;256 gsm Manual bypass&amp;nbsp;: 150 sheets / 4&amp;Prime; x 6&amp;Prime; to 12&amp;Prime; x 18&amp;Prime; / custom paper sizes / 50&amp;ndash;300 gsm Automatic duplexing&amp;nbsp;: 5.5&amp;Prime; x 8.5&amp;Prime; to 12&amp;Prime; x 18&amp;Prime; / 52&amp;ndash;256 gsm Finishing modes&amp;nbsp;: Offset, group, sort, staple, punch, half-fold, z-fold, tri-fold, post-insertion, booklet Output capacity&amp;nbsp;: with finisher: 3,200 sheets without finisher: 250 sheets Stapling (optional)&amp;nbsp;: Max.: 50 sheets or 48 sheets + 2 cover sheets (up to 209 gsm) Stapling output capacity&amp;nbsp;: Max.: 1,000 sheets Tri-fold (optional)&amp;nbsp;: Up to 3 sheets Tri-fold capacity&amp;nbsp;: Max.: 30 sheets (tray) Booklet (optional)&amp;nbsp;: Max.: 20 sheets or 19 sheets + 1 cover sheet (up to 209 gsm) Booklet output capacity&amp;nbsp;: Max.: 100 sheets (tray) Copy/print volume&amp;nbsp;: Max.: 175,000 pages/month1 Toner lifetime&amp;nbsp;: 25,000 pages Imaging unit lifetime&amp;nbsp;: 270,000 pages / 600,000 pages (Drum/Developer) Power consumption&amp;nbsp;: 120 V / 60 Hz, less than 1.5 kW (system) System dimensions&amp;nbsp;: 24.2&amp;Prime; x 27&amp;Prime; x 38&amp;Prime; (W x D x H) System weight&amp;nbsp;: Approx. 168 lbs PRINTER SPECIFICATIONS Print resolution&amp;nbsp;: 1,800 (equivalent) x 600 dpi, 1,200 x 1,200 dpi PDL&amp;nbsp;: PCL6 (XL 3.0), PCL5c, PostScript 3 (ver. 3016), XPS Operating systems&amp;nbsp;: Windows (x32 / x64): 7 / 8.1 / 10 Windows Server (x32 / x64): 2008 / 2008 R23 / 20123 / 20163 Macintosh OS X 10.7 or later Linux / Unix/ Citrix Printer fonts&amp;nbsp;: 80 PCL Latin, 137 PostScript 3 Print functions&amp;nbsp;: Direct Print of PCL, PS, TIFF, XPS, PDF, encrypted PDF files and OOXML (DOCX, XLSX, PPTX), mixmedia and mixplex, &amp;ldquo;Easy Set&amp;rdquo; job programming, overlay, watermark, copy protection, carbon copy print COPIER SPECIFICATIONS Copying process&amp;nbsp;: Electrostatic laser copy, tandem, indirect Toner system&amp;nbsp;: Simitri HD Polymerized Toner Print speed (8.5&amp;Prime; x 11&amp;Prime;)&amp;nbsp;: Up to 36 ppm (portrait) Print speed (11&amp;Prime; x 17&amp;Prime;)&amp;nbsp;: Up to 18 ppm (portrait) Autoduplex speed Autoduplex speed (8.5&amp;Prime; x 11&amp;Prime;)&amp;nbsp;: Up to 36 ppm (portrait) 1st copy out time&amp;nbsp;: 4.5 seconds Warm-up time&amp;nbsp;: Approx. 20 seconds2 Copy resolution&amp;nbsp;; 600 x 600 dpi Gradations&amp;nbsp;: 256 gradations Multi-copy&amp;nbsp;: 1&amp;ndash;9,999 Original format&amp;nbsp;: Up to 11&amp;Prime; x 17&amp;Prime; Magnification&amp;nbsp;: 25&amp;ndash;400% in 0.1% steps, auto zooming Copy functions&amp;nbsp;: Electronic sorting, multi-job, adjustments (contrast, sharpness, image density), proof copy, interrupt mode, color mode, separate scan, sort/group, combination, original selection, ID card copy, 2-in-1, 4-in-1 SCANNER SPECIFICATIONS Scan speed&amp;nbsp;: B&amp;amp;W / Color: up to 160 opm with optional DF-704 Scan resolution&amp;nbsp;: Max.: 600 x 600 dpi Scan modes&amp;nbsp;: Scan-to-Email, Scan-to-SMB, Scan-to-FTP, Scan-to-Box, Scan-to-USB, Scan-to-WebDAV, Scan-to-DPWS, Network TWAIN scan File formats&amp;nbsp;: JPEG, TIFF, PDF, PDF/A 1a and 1b (optional), compact PDF, encrypted PDF and searchable PDF (optional), XPS, compact XPS, PPTX and searchable PPTX (optional), searchable DOCX/XLSX (optional) Scan destinations&amp;nbsp;: 2,100 (shared with fax), LDAP support Scan functions&amp;nbsp;: Annotation (text/time/date) for PDF, up to 400 job programs, realtime scan preview FAX SPECIFICATIONS Fax: Super G3 (optional) Transmission&amp;nbsp;: Analog, Internet Fax, Color i-Fax, IP-Fax Resolution&amp;nbsp;: Max.: 600 x 600 dpi (ultra-fine) Compression&amp;nbsp;: MH, MR, MMR, JBIG Modem&amp;nbsp;: Up to 33.6 Kbps Destinations&amp;nbsp;: 2,100 (single + group) Functions&amp;nbsp;: Polling, time shift, PC-fax, receipt to confidential box, receipt to Email/FTP/SMB, up to 400 job programs', 'Konica Minolta Bizhub 368e', 34000000, 45, 'konica-minolta-bizhub-368e.jpg', 100, '40X40', 'publish', '2020-03-23 23:41:27', '2020-04-08 07:31:41'),
-(5, 1, 1, 'KM-B-658e', 'Konica Minolta Bizhub 658e', 'konica-minolta-bizhub-658e_km-b-658e', '&lt;p&gt;Dengan Kecepatan untuk A4 hingga 65 halaman per menit dan untuk A3 hingga 32 halaman per menit , mesin fotocopy multifungsi hitam putih&amp;nbsp;Konica Minolta Bizhub 658e&amp;nbsp;ini juga mendukung format kertas A6-SRA3, format khusus, dan juga format spanduk hingga panjang 1,2 mete. Panel kontrol nya menggunakan layar 9 inci dengan dukungan multi-sentuh dan area sentuh seluler yang khusus memberikan lebih banyak kenyamanan dan fleksibilitas untuk gaya kerja saat ini. Berkat teknologi canggihnya, mesin ini dapat mengurangi dampak linkungan, konsumsi energi yang sangat rendah sehingga dapat menghemat energi dan uang, dan memiliki berbagai fungsi keamanan yang dapat mengurangi resiko kehilangan data dan menjaga kerahasiaan data. Mesin ini memiliki fitur canggih yaitu pemindai ganda kecepatan tinggi hingga 240 halaman per menit, sehingga Anda dapat dengan cepat memindai dokumen penting Kantor Anda dan sekaligus disimpan di mesin ini karena mesin ini juga memiliki kapasitas harddisk yang besar yaitu 250 GB. Aksesori Opsional Bizhub 658e 100-Sheet Staple Finisher dengan aksesoris untuk pembuatan buklet 80 halaman, tinju 2/3-lubang, lipat dalam beberapa pola termasuk Z-lipat Finisher stapel ringkas 50-lembar untuk stapel dan penyortiran multi-posisi, dengan opsional untuk pembuatan buklet 80 halaman dan meninju 2/3-lubang Unit Kapasitas Besar dengan kapasitas 2.500 lembar dalam ukuran kertas hingga 12 &amp;ldquo;x 18&amp;rdquo; Unit Kapasitas Besar dengan kapasitas 3.000 lembar (kertas 8-1 / 2 &amp;ldquo;x 11&amp;rdquo;) Opsi mirroring hard disk untuk memastikan bahwa semua data yang disimpan di hard disk drive utama (HDD) selalu disimpan di HDD cadangan juga Spesifikasi lengkap Konica Minolta Bizhub 658e SYSTEM SPECIFICATIONS Panel size/resolution&amp;nbsp;: 9&amp;rdquo; / 800 x 480 System memory (standard/max)&amp;nbsp;: 4,096 MB System hard disk&amp;nbsp;: 250 GB (standard) Interface&amp;nbsp;: 10/100/1,000-Base-T Ethernet; USB 2.0; Wi-Fi 802.11b/g/n (optional) Network protocols&amp;nbsp;: TCP/IP (IPv4 / IPv6); SMB; LPD; IPP; SNMP; HTTP Automatic document feeder (standard)&amp;nbsp;: Up to 300 originals; A6&amp;ndash;A3; 35-210 g/m&amp;sup2;; Dualscan ADF Printable paper size&amp;nbsp;: A6&amp;ndash;SRA3; customised paper sizes; banner paper max. 1,200 x 297 mm Printable paper weight&amp;nbsp;: 52&amp;ndash;300 g/m&amp;sup2; Paper input capacity (standard/max)&amp;nbsp;: 1,150 sheets/6,650 sheets Paper tray input (standard)&amp;nbsp;: 1x 500 sheets; A5&amp;ndash;A3; custom sizes; 52&amp;ndash;256 g/m&amp;sup2;; 1x 500 sheets; A5&amp;ndash;SRA3; custom sizes; 52&amp;ndash;256 g/m&amp;sup2; Paper tray input (optional)&amp;nbsp;: 1x 500 sheets; A5&amp;ndash;A3; 52&amp;ndash;256 g/m&amp;sup2;; 2x 500 sheets; A5&amp;ndash;A3; 52&amp;ndash;256 g/m&amp;sup2;; 1x 2,500 sheets; A4; 52&amp;ndash;256 g/m&amp;sup2; Large capacity tray (optional)&amp;nbsp;: 1x 3,000 sheets; A4; 52&amp;ndash;256 g/m&amp;sup2;; 1x 2,500 sheets; A4&amp;ndash;SRA3; 52&amp;ndash;256 g/m&amp;sup2; Manual bypass&amp;nbsp;: 150 sheets; A6&amp;ndash;SRA3; custom sizes; banner; 60&amp;ndash;300 g/m&amp;sup2; Automatic duplexing&amp;nbsp;: A6 portrait; A5&amp;ndash;SRA3; 52&amp;ndash;256 g/m&amp;sup2; Finishing modes (optional)&amp;nbsp;: Offset; group; sort; staple; punch; post insertion; half-fold; letter-fold; booklet; z-fold Output capacity (standard)&amp;nbsp;: Max. 250 sheets Output capacity (optional)&amp;nbsp;: Max. 3,300 sheets Stapling&amp;nbsp;: Max. 100 sheets or 94 sheets + 2 cover sheets (up to 209 g/m&amp;sup2;) Stapling output capacity&amp;nbsp;: Max. 1,000 sheets Letter fold&amp;nbsp;: Max. 3 sheets Letter fold capacity&amp;nbsp;: Max. 30 sheets; unlimited (without tray) Booklet&amp;nbsp;: Max. 20 sheets or 19 sheets + 1 cover sheet (up to 209 g/m&amp;sup2;) Booklet output capacity&amp;nbsp;: Max. 100 sheets; unlimited (without tray) Copy/print volume (monthly)&amp;nbsp;: Rec. 33,000 pages; Max. 300,000 pages&amp;sup1; Toner lifetime&amp;nbsp;: Up to 26,000 pages Imaging unit lifetime&amp;nbsp;: Up to 300,000/600,000 pages (drum/developer) Power consumption&amp;nbsp;: 220&amp;ndash;240 V / 50/60 Hz; Less than 2.1 kW System dimension (W x D x H)&amp;nbsp;: 615 x 760 x 961 mm (without options) System weight&amp;nbsp;: Approx. 96 kg (without options) PRINTER SPECIFICATIONS Print resolution&amp;nbsp;: 1,800 x 600 dpi; 1,200 x 1,200 dpi Page description language&amp;nbsp;: PCL 6 (XL 3.0); PCL 5; PostScript 3 (CPSI 3016); XPS Operating System&amp;nbsp;: Windows 7 (32/64); Windows 8/8.1 (32/64); Windows 10 (32/64); Windows Server 2008 (32/64); Windows Server 2008 R2; Windows Server 2012; Windows Server 2012 R2; Windows Server 2016; Macintosh OS X 10.8 or later; Unix; Linux; Citrix Printer fonts&amp;nbsp;: 80 PCL Latin; 137 PostScript 3 Emulation Latin Print functions&amp;nbsp;: Direct print of PCL, PS, TIFF, XPS, PDF (v1.7), encrypted PDF files and OOXML (DOCX, XLSX, PPTX); mixmedia and mixplex; &amp;ldquo;Easy Set&amp;rdquo; job programming; overlay; watermark; copy protection; carbon copy print Mobile printing&amp;nbsp;: AirPrint (iOS); Mopria (Android); Konica Minolta Print Service (Android); Konica Minolta Mobile Print (iOS/Android/Windows 10 Mobile); Mobile Authentication and Pairing (iOS/Android); optional: Google Cloud Print; WiFi Direct &amp;nbsp; SCANNER SPECIFICATIONS Scan speed (mono/colour)&amp;nbsp;: Up to 120 ipm in simplex; Up to 240 ipm in duplex Scan resolution&amp;nbsp;: Up to 600 x 600 dpi Scan modes&amp;nbsp;: Scan-to-eMail (Scan-to-Me); Scan-to-SMB (Scanto-Home); Scan-to-FTP; Scan-to-Box; Scan-to-USB; Scan-to-WebDAV; Scan-to-DPWS; Scan-to-URL; TWAIN scan File formats&amp;nbsp;: JPEG; TIFF; PDF; compact PDF; encrypted PDF; XPS; compact XPS; PPTX optional: searchable PDF; PDF/A 1a and 1b; searchable DOCX/PPTX/XLSX Scan destinations&amp;nbsp;: 2,100 (single + group); LDAP support Scan functions&amp;nbsp;: Annotation (text/time/date) for PDF; up to 400 job programs; real-time scan preview COPIER SPECIFICATIONS Imaging technology : Laser Toner technology&amp;nbsp;: Simitri&amp;reg; HD polymerised toner/Polymerised toner Copy/print speed A4 : Up to 65 ppm Copy/print speed A3 : Up to 32 ppm Autoduplex speed A4 : Up to 65 ppm 1st copy out time A4 : 3.0 sec. Warm-up time : Approx. 22 sec. Copy resolution : 600 x 600 dpi Gradation: 256 gradations Multicopy: 1&amp;ndash;9,999 Original format A5&amp;ndash;A3; custom sizes Magnification: 25&amp;ndash;400% in 0.1% steps; auto-zooming Copy function Chapter; cover and page insertion; proof copy (print and screen); adjustment test print; digital art functions; job setting memory; poster mode; image repeat; overlay (optional); stamping; copy protection FAX SPECIFICATIONS Fax standard : Super G3 (optional) Fax transmission : Analogue; i-Fax; Colour i-Fax; IP-Fax Fax resolution : Up to 600 x 600 dpi Fax compression : MH; MR; MMR; JBIG Fax modem : Up to 33.6 Kbps Fax destinations : 2,100 (single + group)&lt;/p&gt;\r\n', 'Konica Minolta Bizhub 658e', 72000000, 40, 'konica-minolta-bizhub-658e.jpg', 100, '40X40', 'publish', '2020-03-23 23:44:10', '2020-04-08 07:31:05'),
+(5, 1, 1, 'KM-B-658e', 'Konica Minolta Bizhub 658e', 'konica-minolta-bizhub-658e_km-b-658e', '&lt;p&gt;Dengan Kecepatan untuk A4 hingga 65 halaman per menit dan untuk A3 hingga 32 halaman per menit , mesin fotocopy multifungsi hitam putih&amp;nbsp;Konica Minolta Bizhub 658e&amp;nbsp;ini juga mendukung format kertas A6-SRA3, format khusus, dan juga format spanduk hingga panjang 1,2 mete. Panel kontrol nya menggunakan layar 9 inci dengan dukungan multi-sentuh dan area sentuh seluler yang khusus memberikan lebih banyak kenyamanan dan fleksibilitas untuk gaya kerja saat ini. Berkat teknologi canggihnya, mesin ini dapat mengurangi dampak linkungan, konsumsi energi yang sangat rendah sehingga dapat menghemat energi dan uang, dan memiliki berbagai fungsi keamanan yang dapat mengurangi resiko kehilangan data dan menjaga kerahasiaan data.&lt;/p&gt;\r\n\r\n&lt;p&gt;Mesin ini memiliki fitur canggih yaitu pemindai ganda kecepatan tinggi hingga 240 halaman per menit, sehingga Anda dapat dengan cepat memindai dokumen penting Kantor Anda dan sekaligus disimpan di mesin ini karena mesin ini juga memiliki kapasitas harddisk yang besar yaitu 250 GB.&lt;/p&gt;\r\n\r\n&lt;h3&gt;Aksesori Opsional Bizhub 658e&lt;/h3&gt;\r\n&amp;nbsp;\r\n\r\n&lt;ul&gt;\r\n	&lt;li&gt;100-Sheet Staple Finisher dengan aksesoris untuk pembuatan buklet 80 halaman, tinju 2/3-lubang, lipat dalam beberapa pola termasuk Z-lipat&lt;/li&gt;\r\n	&lt;li&gt;Finisher stapel ringkas 50-lembar untuk stapel dan penyortiran multi-posisi, dengan opsional untuk pembuatan buklet 80 halaman dan meninju 2/3-lubang&lt;/li&gt;\r\n	&lt;li&gt;Unit Kapasitas Besar dengan kapasitas 2.500 lembar dalam ukuran kertas hingga 12 &amp;ldquo;x 18&amp;rdquo;&lt;/li&gt;\r\n	&lt;li&gt;Unit Kapasitas Besar dengan kapasitas 3.000 lembar (kertas 8-1 / 2 &amp;ldquo;x 11&amp;rdquo;)&lt;/li&gt;\r\n	&lt;li&gt;Opsi mirroring hard disk untuk memastikan bahwa semua data yang disimpan di hard disk drive utama (HDD) selalu disimpan di HDD cadangan juga&lt;/li&gt;\r\n&lt;/ul&gt;\r\n\r\n&lt;p&gt;Spesifikasi lengkap Konica Minolta Bizhub 658e&lt;/p&gt;\r\n\r\n&lt;p&gt;SYSTEM SPECIFICATIONS&lt;br /&gt;\r\n&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;ul&gt;\r\n	&lt;li&gt;&lt;strong&gt;Panel size/resolution&lt;/strong&gt;&amp;nbsp;: 9&amp;rdquo; / 800 x 480&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;System memory (standard/max)&lt;/strong&gt;&amp;nbsp;: 4,096 MB&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;System hard disk&lt;/strong&gt;&amp;nbsp;: 250 GB (standard)&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Interface&lt;/strong&gt;&amp;nbsp;: 10/100/1,000-Base-T Ethernet; USB 2.0; Wi-Fi 802.11b/g/n (optional)&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Network protocols&lt;/strong&gt;&amp;nbsp;: TCP/IP (IPv4 / IPv6); SMB; LPD; IPP; SNMP; HTTP&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Automatic document feeder (standard)&lt;/strong&gt;&amp;nbsp;: Up to 300 originals; A6&amp;ndash;A3; 35-210 g/m&amp;sup2;; Dualscan ADF&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Printable paper size&lt;/strong&gt;&amp;nbsp;: A6&amp;ndash;SRA3; customised paper sizes; banner paper max. 1,200 x 297 mm&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Printable paper weight&lt;/strong&gt;&amp;nbsp;: 52&amp;ndash;300 g/m&amp;sup2;&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Paper input capacity (standard/max)&lt;/strong&gt;&amp;nbsp;: 1,150 sheets/6,650 sheets&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Paper tray input (standard)&lt;/strong&gt;&amp;nbsp;: 1x 500 sheets; A5&amp;ndash;A3; custom sizes; 52&amp;ndash;256 g/m&amp;sup2;; 1x 500 sheets; A5&amp;ndash;SRA3; custom sizes; 52&amp;ndash;256 g/m&amp;sup2;&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Paper tray input (optional)&lt;/strong&gt;&amp;nbsp;: 1x 500 sheets; A5&amp;ndash;A3; 52&amp;ndash;256 g/m&amp;sup2;; 2x 500 sheets; A5&amp;ndash;A3; 52&amp;ndash;256 g/m&amp;sup2;; 1x 2,500 sheets; A4; 52&amp;ndash;256 g/m&amp;sup2;&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Large capacity tray (optional)&lt;/strong&gt;&amp;nbsp;: 1x 3,000 sheets; A4; 52&amp;ndash;256 g/m&amp;sup2;; 1x 2,500 sheets; A4&amp;ndash;SRA3; 52&amp;ndash;256 g/m&amp;sup2;&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Manual bypass&lt;/strong&gt;&amp;nbsp;: 150 sheets; A6&amp;ndash;SRA3; custom sizes; banner; 60&amp;ndash;300 g/m&amp;sup2;&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Automatic duplexing&lt;/strong&gt;&amp;nbsp;: A6 portrait; A5&amp;ndash;SRA3; 52&amp;ndash;256 g/m&amp;sup2;&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Finishing modes (optional)&lt;/strong&gt;&amp;nbsp;: Offset; group; sort; staple; punch; post insertion; half-fold; letter-fold; booklet; z-fold&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Output capacity (standard)&lt;/strong&gt;&amp;nbsp;: Max. 250 sheets&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Output capacity (optional)&lt;/strong&gt;&amp;nbsp;: Max. 3,300 sheets&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Stapling&lt;/strong&gt;&amp;nbsp;: Max. 100 sheets or 94 sheets + 2 cover sheets (up to 209 g/m&amp;sup2;)&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Stapling output capacity&lt;/strong&gt;&amp;nbsp;: Max. 1,000 sheets&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Letter fold&lt;/strong&gt;&amp;nbsp;: Max. 3 sheets&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Letter fold capacity&lt;/strong&gt;&amp;nbsp;: Max. 30 sheets; unlimited (without tray)&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Booklet&lt;/strong&gt;&amp;nbsp;: Max. 20 sheets or 19 sheets + 1 cover sheet (up to 209 g/m&amp;sup2;)&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Booklet output capacity&lt;/strong&gt;&amp;nbsp;: Max. 100 sheets; unlimited (without tray)&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Copy/print volume (monthly)&amp;nbsp;&lt;/strong&gt;: Rec. 33,000 pages; Max. 300,000 pages&amp;sup1;&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Toner lifetime&lt;/strong&gt;&amp;nbsp;: Up to 26,000 pages&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Imaging unit lifetime&lt;/strong&gt;&amp;nbsp;: Up to 300,000/600,000 pages (drum/developer)&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Power consumption&lt;/strong&gt;&amp;nbsp;: 220&amp;ndash;240 V / 50/60 Hz; Less than 2.1 kW&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;System dimension (W x D x H)&lt;/strong&gt;&amp;nbsp;: 615 x 760 x 961 mm (without options)&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;System weight&lt;/strong&gt;&amp;nbsp;: Approx. 96 kg (without options)&lt;/li&gt;\r\n&lt;/ul&gt;\r\n\r\n&lt;p&gt;PRINTER SPECIFICATIONS&lt;br /&gt;\r\n&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;ul&gt;\r\n	&lt;li&gt;&lt;strong&gt;Print resolution&lt;/strong&gt;&amp;nbsp;: 1,800 x 600 dpi; 1,200 x 1,200 dpi&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Page description language&lt;/strong&gt;&amp;nbsp;: PCL 6 (XL 3.0); PCL 5; PostScript 3 (CPSI 3016); XPS&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Operating System&lt;/strong&gt;&amp;nbsp;:\r\n	&lt;ul&gt;\r\n		&lt;li&gt;Windows 7 (32/64); Windows 8/8.1 (32/64);&lt;/li&gt;\r\n		&lt;li&gt;Windows 10 (32/64); Windows Server 2008 (32/64);&lt;/li&gt;\r\n		&lt;li&gt;Windows Server 2008 R2; Windows Server 2012;&lt;/li&gt;\r\n		&lt;li&gt;Windows Server 2012 R2; Windows Server 2016;&lt;/li&gt;\r\n		&lt;li&gt;Macintosh OS X 10.8 or later; Unix; Linux; Citrix&lt;/li&gt;\r\n	&lt;/ul&gt;\r\n	&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Printer fonts&lt;/strong&gt;&amp;nbsp;: 80 PCL Latin; 137 PostScript 3 Emulation Latin&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Print functions&lt;/strong&gt;&amp;nbsp;: Direct print of PCL, PS, TIFF, XPS, PDF (v1.7), encrypted PDF files and OOXML (DOCX, XLSX, PPTX); mixmedia and mixplex; &amp;ldquo;Easy Set&amp;rdquo; job programming; overlay; watermark; copy protection; carbon copy print&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Mobile printing&lt;/strong&gt;&amp;nbsp;: AirPrint (iOS); Mopria (Android); Konica Minolta Print Service (Android); Konica Minolta Mobile Print (iOS/Android/Windows 10 Mobile); Mobile Authentication and Pairing (iOS/Android); optional: Google Cloud Print; WiFi Direct&lt;/li&gt;\r\n&lt;/ul&gt;\r\n\r\n&lt;p&gt;SCANNER SPECIFICATIONS&lt;br /&gt;\r\n&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;ul&gt;\r\n	&lt;li&gt;&lt;strong&gt;Scan speed (mono/colour)&lt;/strong&gt;&amp;nbsp;: Up to 120 ipm in simplex; Up to 240 ipm in duplex&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Scan resolution&lt;/strong&gt;&amp;nbsp;: Up to 600 x 600 dpi&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Scan modes&lt;/strong&gt;&amp;nbsp;: Scan-to-eMail (Scan-to-Me); Scan-to-SMB (Scanto-Home); Scan-to-FTP; Scan-to-Box; Scan-to-USB; Scan-to-WebDAV; Scan-to-DPWS; Scan-to-URL; TWAIN scan&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;File formats&lt;/strong&gt;&amp;nbsp;: JPEG; TIFF; PDF; compact PDF; encrypted PDF; XPS; compact XPS; PPTX optional: searchable PDF; PDF/A 1a and 1b; searchable DOCX/PPTX/XLSX&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Scan destinations&lt;/strong&gt;&amp;nbsp;: 2,100 (single + group); LDAP support&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Scan functions&lt;/strong&gt;&amp;nbsp;: Annotation (text/time/date) for PDF; up to 400 job programs; real-time scan preview&lt;/li&gt;\r\n&lt;/ul&gt;\r\n\r\n&lt;p&gt;COPIER SPECIFICATIONS&lt;br /&gt;\r\n&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;ul&gt;\r\n	&lt;li&gt;Imaging technology : Laser&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Toner technology&amp;nbsp;&lt;/strong&gt;: Simitri&amp;reg; HD polymerised toner/Polymerised toner&lt;/li&gt;\r\n	&lt;li&gt;Copy/print speed A4 : Up to 65 ppm&lt;/li&gt;\r\n	&lt;li&gt;Copy/print speed A3 : Up to 32 ppm&lt;/li&gt;\r\n	&lt;li&gt;Autoduplex speed A4 : Up to 65 ppm&lt;/li&gt;\r\n	&lt;li&gt;1st copy out time A4 : 3.0 sec.&lt;/li&gt;\r\n	&lt;li&gt;Warm-up time : Approx. 22 sec.&lt;/li&gt;\r\n	&lt;li&gt;Copy resolution : 600 x 600 dpi&lt;/li&gt;\r\n	&lt;li&gt;Gradation: 256 gradations&lt;/li&gt;\r\n	&lt;li&gt;Multicopy: 1&amp;ndash;9,999&lt;/li&gt;\r\n	&lt;li&gt;Original format A5&amp;ndash;A3; custom sizes&lt;/li&gt;\r\n	&lt;li&gt;Magnification: 25&amp;ndash;400% in 0.1% steps; auto-zooming&lt;/li&gt;\r\n	&lt;li&gt;Copy function Chapter; cover and page insertion; proof copy&lt;/li&gt;\r\n	&lt;li&gt;(print and screen); adjustment test print; digital art&lt;/li&gt;\r\n	&lt;li&gt;functions; job setting memory; poster mode; image&lt;/li&gt;\r\n	&lt;li&gt;repeat; overlay (optional); stamping; copy protection&lt;/li&gt;\r\n&lt;/ul&gt;\r\n\r\n&lt;p&gt;FAX SPECIFICATIONS&lt;br /&gt;\r\n&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;ul&gt;\r\n	&lt;li&gt;Fax standard : Super G3 (optional)&lt;/li&gt;\r\n	&lt;li&gt;Fax transmission : Analogue; i-Fax; Colour i-Fax; IP-Fax&lt;/li&gt;\r\n	&lt;li&gt;Fax resolution : Up to 600 x 600 dpi&lt;/li&gt;\r\n	&lt;li&gt;Fax compression : MH; MR; MMR; JBIG&lt;/li&gt;\r\n	&lt;li&gt;Fax modem : Up to 33.6 Kbps&lt;/li&gt;\r\n	&lt;li&gt;Fax destinations : 2,100 (single + group)&lt;/li&gt;\r\n&lt;/ul&gt;\r\n', 'Konica Minolta Bizhub 658e', 72000000, 40, 'konica-minolta-bizhub-658e.jpg', 100, '40X40', 'publish', '2020-03-23 23:44:10', '2020-04-17 08:33:20'),
 (6, 1, 1, 'KM-B-3658', 'Konica Minolta Bizhub C658', 'konica-minolta-bizhub-c658_km-b-3658', '&lt;p&gt;Dengan berbagai fitur dan inovasi mutakhir&amp;nbsp;&lt;strong&gt;&lt;a href=&quot;http://www.harmonysistem.co.id/&quot;&gt;Konica Minolta Bizhub C658&lt;/a&gt;&lt;/strong&gt;&amp;nbsp;telah melakukan apa yang Anda butuhkan, memiliki kecepatan cetak dan salin hingga 65 halaman per menit dalam warna dan hitam-putih, kecepatan pemindaian ganda hingga 240 dokumen per menit berwarna dan hitam putih, panel kontrol yang ditingkatkan 10,1 inci dengan antarmuka dan konektivitas seluler yang baru, Server Web internal dan browser web serial, Memori serial 4 GB, Platform sempurna untuk lingkungan kantor yang produktif.&lt;/p&gt;\r\n\r\n&lt;p&gt;Seri bizhub C658 ini juga menyediakan konektivitas yang kuat dengan perangkat seluler, layanan cloud dan aplikasi bisnis pihak ketiga. Dengan standar web browser dan fungsi IWS, menjadikan mesin ini dapat melakukan semua pekerjaan cetak, salin dan pindai dengan sangat handal dan hasil yang memuaskan.&lt;/p&gt;\r\n\r\n&lt;h2&gt;&lt;strong&gt;Berikut ini Spesifikasi lengkap Konica Minolta Bizhub C658&lt;/strong&gt;&lt;/h2&gt;\r\n&amp;nbsp;\r\n\r\n&lt;h3&gt;&lt;strong&gt;System Overview&lt;/strong&gt;&lt;/h3&gt;\r\n\r\n&lt;ul&gt;\r\n	&lt;li&gt;&lt;strong&gt;System memory&lt;/strong&gt;&amp;nbsp;: 4 GB&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;System hard disk&lt;/strong&gt;&amp;nbsp;: 250 GB Standard&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Interface&lt;/strong&gt;&amp;nbsp;: 10-BASE-T/100-BASE-TX/1,000-BASE-T Ethernet, USB 2.0&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Network protocols&lt;/strong&gt;&amp;nbsp;: TCP/IP (IPv4/IPv6), SMB, LPD, IPP, SNMP, HTTP, HTTPS&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Frame types&lt;/strong&gt;&amp;nbsp;: Ethernet 802.2, Ethernet 802.3, Ethernet II, Ethernet SNAP&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Dual scan document feeder&lt;/strong&gt;&amp;nbsp;:\r\n	&lt;ul&gt;\r\n		&lt;li&gt;Up to 300 originals (80gsm, A4)&lt;/li&gt;\r\n		&lt;li&gt;35-210g/m&amp;sup2; (simplex)&lt;/li&gt;\r\n		&lt;li&gt;50-210g/m&amp;sup2; (duplex)&lt;/li&gt;\r\n		&lt;li&gt;(50&amp;ndash;128g/m&amp;sup2; (mix mode)&lt;/li&gt;\r\n	&lt;/ul&gt;\r\n	&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Printable paper size&lt;/strong&gt;&amp;nbsp;:\r\n	&lt;ul&gt;\r\n		&lt;li&gt;Scanning/Copying: up to A3&lt;/li&gt;\r\n		&lt;li&gt;Printing: up to A3 and full bleed on SRA3 paper&lt;/li&gt;\r\n		&lt;li&gt;Custom paper sizes:&lt;/li&gt;\r\n		&lt;li&gt;Banner paper max: 297 x 1,200mm&lt;/li&gt;\r\n	&lt;/ul&gt;\r\n	&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Printable paper weight&lt;/strong&gt;&amp;nbsp;: 52-300gsm&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Paper input capacity&lt;/strong&gt;&amp;nbsp;: Standard: 1,150 sheets/Max: 6,650 sheets&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Tray 1&lt;/strong&gt;&amp;nbsp;: 500 sheets/A5-A3/52-256gsm&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Tray 2&lt;/strong&gt;&amp;nbsp;: 500 sheets/A5-SRA3/52-256gsm&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Tray 3&lt;/strong&gt;&amp;nbsp;: (option 1) 2 x 500 sheets/A5-A3/52-256gsm&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Tray 3&lt;/strong&gt;&amp;nbsp;: (option 2) 2,500 sheets/A4/52-256gsm&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Large capacity tray LU-207 (optional)&lt;/strong&gt;&amp;nbsp;: 2,500 sheets/A4/SRA3/52-256gsm&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Large capacity tray LU-302 (optional)&lt;/strong&gt;&amp;nbsp;: 3,000 sheets/A4/52-256gsm&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Manual bypass&lt;/strong&gt;&amp;nbsp;: 150 sheets/A6-SRA3/custom paper sizes/50-300gsm&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Automatic duplexing&lt;/strong&gt;&amp;nbsp;: A5-SRA3/52-256gsm&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Finishing modes&lt;/strong&gt;&amp;nbsp;: Offset, group, sort, staple, punch, half-fold, z-fold, tri-fold, post-insertion, booklet&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Output capacity&lt;/strong&gt;&amp;nbsp;:\r\n	&lt;ul&gt;\r\n		&lt;li&gt;Max with finisher: 3,300 sheets&lt;/li&gt;\r\n		&lt;li&gt;Max without finisher: 250 sheets&lt;/li&gt;\r\n	&lt;/ul&gt;\r\n	&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Stapling (optional)&lt;/strong&gt;&amp;nbsp;: Max: 100 sheets or 94 sheets + 2 cover sheet (up to 209gsm)&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Stapling output capacity&lt;/strong&gt;&amp;nbsp;: Max: 1,000 sheets&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Tri-fold (optional)&lt;/strong&gt;&amp;nbsp;: Up to 3 sheets&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Tri-fold capacity&lt;/strong&gt;&amp;nbsp;: Max: 30 sheets (tray)&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Booklet (optional)&lt;/strong&gt;&amp;nbsp;: Max: 20 sheets or 19 sheets + 1 cover sheet (up to 209gsm)&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Booklet output capacity&lt;/strong&gt;&amp;nbsp;: Max: 100 sheets (tray)&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Toner lifetime&lt;/strong&gt;&amp;nbsp;: Black: 28,000 pages/CMY: 26,000 pages&lt;/li&gt;\r\n	&lt;li&gt;Imaging unit lifetime :\r\n	&lt;ul&gt;\r\n		&lt;li&gt;Black: 145,000 pages/600,000 pages (Drum/Developer)&lt;/li&gt;\r\n		&lt;li&gt;CMY: 130,000 pages/600,000 pages (Drum/Developer)&lt;/li&gt;\r\n	&lt;/ul&gt;\r\n	&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Power consumption&lt;/strong&gt;&amp;nbsp;: 240 V/60Hz, less than 0.5kW (system)&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;System dimensions&lt;/strong&gt;&amp;nbsp;:\r\n	&lt;ul&gt;\r\n		&lt;li&gt;C658: 615 x 768 x 961mm&lt;/li&gt;\r\n		&lt;li&gt;C558: 615 x 693 x 961mm&lt;/li&gt;\r\n		&lt;li&gt;C458: 615 x 685 x 779mm&lt;/li&gt;\r\n	&lt;/ul&gt;\r\n	&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;System weight&amp;nbsp;&lt;/strong&gt;:\r\n	&lt;ul&gt;\r\n		&lt;li&gt;C658: 113kg&lt;/li&gt;\r\n		&lt;li&gt;C558: 110kg&lt;/li&gt;\r\n		&lt;li&gt;C458: 85kg&lt;/li&gt;\r\n	&lt;/ul&gt;\r\n	&lt;/li&gt;\r\n&lt;/ul&gt;\r\n\r\n&lt;h3&gt;&lt;strong&gt;Copier Specifications&lt;/strong&gt;&lt;/h3&gt;\r\n&amp;nbsp;\r\n\r\n&lt;ul&gt;\r\n	&lt;li&gt;&lt;strong&gt;Copying process&lt;/strong&gt;&amp;nbsp;: Electrostatic laser copy, tandem, indirect&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Toner system&lt;/strong&gt;&amp;nbsp;: Simitri&amp;reg; HD Polymerized Toner&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Print speed (A4)&lt;/strong&gt;&amp;nbsp;: B&amp;amp;W/Colour: up to 65 ppm (portrait)&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;1st copy out time&lt;/strong&gt;&amp;nbsp;:\r\n	&lt;ul&gt;\r\n		&lt;li&gt;C658: 4/3sec (Col/BW)&lt;/li&gt;\r\n		&lt;li&gt;C558: 4.4/3.5sec (Col/BW&lt;/li&gt;\r\n		&lt;li&gt;C458: 5.1/4.0sec (Col/BW)&lt;/li&gt;\r\n	&lt;/ul&gt;\r\n	&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Warm-up time&lt;/strong&gt;&amp;nbsp;:\r\n	&lt;ul&gt;\r\n		&lt;li&gt;C658: 22sec (Col/BW)&lt;/li&gt;\r\n		&lt;li&gt;C558: 22sec (Col/BW&lt;/li&gt;\r\n		&lt;li&gt;C458: 22sec (Col/BW)&lt;/li&gt;\r\n	&lt;/ul&gt;\r\n	&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Copy resolution&lt;/strong&gt;&amp;nbsp;: 600 x 600dpi&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Gradations&lt;/strong&gt;&amp;nbsp;: 256 gradations&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Multi-copy&lt;/strong&gt;&amp;nbsp;: 1-9,999&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Original format&lt;/strong&gt;&amp;nbsp;: Up to A3&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Magnification&lt;/strong&gt;&amp;nbsp;: 25-400% in 0.1% steps, auto zooming&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Copy functions&lt;/strong&gt;&amp;nbsp;: Electronic sorting, multi-job, adjustments (contrast, sharpness, image density), proof copy, interrupt mode, colour mode, separate scan, sort/group, combination, original selection, ID card copy, 2-in-1, 4-in-1&lt;/li&gt;\r\n&lt;/ul&gt;\r\n\r\n&lt;h3&gt;&lt;strong&gt;Printer Specifications&lt;/strong&gt;&lt;/h3&gt;\r\n&amp;nbsp;\r\n\r\n&lt;ul&gt;\r\n	&lt;li&gt;&lt;strong&gt;Print resolution&lt;/strong&gt;&amp;nbsp;: 1,800 x 600 dpi, 1,200 x 1,200 dpi&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;PDL&lt;/strong&gt;&amp;nbsp;: PCL6 (XL 3.0), PCL5e/c, PostScript 3 (ver. 3016), XPS&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Operating systems&lt;/strong&gt;&amp;nbsp;:\r\n	&lt;ul&gt;\r\n		&lt;li&gt;Windows (x32/x64): XP/Vista /7/ 8&lt;/li&gt;\r\n		&lt;li&gt;Windows Server (x32/x64): 2003/2008/2008 R23/20123&lt;/li&gt;\r\n		&lt;li&gt;Macintosh OS X 10.6 or later&lt;/li&gt;\r\n		&lt;li&gt;Linux/Citrix&lt;/li&gt;\r\n	&lt;/ul&gt;\r\n	&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Printer fonts&lt;/strong&gt;&amp;nbsp;: 80 PCL Latin, 137 PostScript 3&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Print functions&lt;/strong&gt;&amp;nbsp;: Direct Print of PCL, PS, TIFF, XPS, PDF, encrypted PDF files and OOXML (DOCX, XLSX, PPTX), mixmedia and&amp;nbsp;mixplex, &amp;ldquo;Easy Set&amp;rdquo; job programming, overlay, watermark,&amp;nbsp;copy protection, carbon copy print&lt;/li&gt;\r\n&lt;/ul&gt;\r\n\r\n&lt;h3&gt;&lt;strong&gt;Optional Print Controller (for graphic intensive applications)&lt;/strong&gt;&lt;/h3&gt;\r\n&amp;nbsp;\r\n\r\n&lt;ul&gt;\r\n	&lt;li&gt;&lt;strong&gt;Print controller&lt;/strong&gt;&amp;nbsp;: Embedded Fiery IC-416 (VI-510 required)&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Memory/HDD&lt;/strong&gt;&amp;nbsp;: 2GB/500GB&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;PDL&lt;/strong&gt;&amp;nbsp;: PostScript 3 (ver. 3019)&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Operating systems&lt;/strong&gt;&amp;nbsp;:\r\n	&lt;ul&gt;\r\n		&lt;li&gt;Windows (x32/x64): XP/Vista/7/ 8&lt;/li&gt;\r\n		&lt;li&gt;Windows Server (x32/x64): 2003/2008/2008 R23/20123&lt;/li&gt;\r\n		&lt;li&gt;Macintosh OS X 10.8 or later&lt;/li&gt;\r\n	&lt;/ul&gt;\r\n	&lt;/li&gt;\r\n&lt;/ul&gt;\r\n\r\n&lt;h3&gt;&lt;strong&gt;Scanner Specifications&lt;/strong&gt;&lt;/h3&gt;\r\n&amp;nbsp;\r\n\r\n&lt;ul&gt;\r\n	&lt;li&gt;&lt;strong&gt;Scan speed&lt;/strong&gt;&amp;nbsp;: B&amp;amp;W/Colour: up to 240ipm&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Scan resolution&lt;/strong&gt;&amp;nbsp;: Max: 600 x 600dpi&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Scan modes&lt;/strong&gt;&amp;nbsp;:&amp;nbsp;Scan-to-Email, Scan-to-SMB, Scan-to-FTP, Scan-to-Box,&amp;nbsp;Scan-to-USB, Scan-to-WebDAV, Scan-to-DPWS,&amp;nbsp;Network TWAIN scan&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;File formats&lt;/strong&gt;&amp;nbsp;: JPEG, TIFF, PDF, PDF/A 1a and 1b (optional), compact&amp;nbsp;PDF, encrypted PDF and searchable PDF (optional), XPS,&amp;nbsp;compact XPS, PPTX and searchable PPTX (optional),&amp;nbsp;searchable DOCX/XLSX (optional)&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Scan destinations&lt;/strong&gt;&amp;nbsp;: 2,100 (shared with fax), LDAP support&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Scan functions&lt;/strong&gt;&amp;nbsp;: Annotation (text/time/date) for PDF, up to 400 job&lt;/li&gt;\r\n	&lt;li&gt;programs, realtime scan preview&lt;/li&gt;\r\n&lt;/ul&gt;\r\n\r\n&lt;h3&gt;&lt;strong&gt;Fax Specifications&lt;/strong&gt;&lt;/h3&gt;\r\n&amp;nbsp;\r\n\r\n&lt;ul&gt;\r\n	&lt;li&gt;&lt;strong&gt;Fax Super&lt;/strong&gt;&amp;nbsp;: G3 (optional)&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Transmission&lt;/strong&gt;&amp;nbsp;: Analog, Internet fax, Color i-Fax, IP-Fax&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Resolution&lt;/strong&gt;&amp;nbsp;: Max: 600 x 600dpi (ultra-fine)&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Compression&lt;/strong&gt;&amp;nbsp;: MH, MR, MMR, JBIG&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Modem&lt;/strong&gt;&amp;nbsp;: Up to 33.6 Kbps&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Destinations&lt;/strong&gt;&amp;nbsp;: 2,100 (single + group)&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Functions&lt;/strong&gt;&amp;nbsp;: Polling, time shift, PC-fax, receipt to confidential box,&amp;nbsp;receipt to email/FTP/SMB, up to 400 job programs&lt;/li&gt;\r\n&lt;/ul&gt;\r\n', 'Konica Minolta Bizhub C658', 68000000, 40, 'konica-minolta-bizhub-c658.jpg', 100, '40X40', 'publish', '2020-03-23 23:58:01', '2020-04-09 12:52:53');
-INSERT INTO `tbl_produk` (`id_produk`, `id_karyawan`, `id_kategori`, `kode_produk`, `nama_produk`, `slug_produk`, `keterangan`, `keywords`, `harga`, `stok`, `gambar`, `berat`, `ukuran`, `status_produk`, `tanggal_post`, `tanggal_update`) VALUES
+INSERT INTO `produk` (`id_produk`, `id_karyawan`, `id_kategori`, `kode_produk`, `nama_produk`, `slug_produk`, `keterangan`, `keywords`, `harga`, `stok`, `gambar`, `berat`, `ukuran`, `status_produk`, `tanggal_post`, `tanggal_update`) VALUES
 (7, 1, 1, 'KM-B-C458', 'Konica Minolta Bizhub C458', 'konica-minolta-bizhub-c458_km-b-c458', '&lt;p&gt;Mesin fotocopy multifungsi warna dan hitam putih&amp;nbsp;&lt;strong&gt;&lt;a href=&quot;http://www.harmonysistem.co.id/&quot;&gt;Konica Minolta Bizhub C458&lt;/a&gt;&amp;nbsp;&lt;/strong&gt;kecepatan nya dibawah seri bizhub C558 yaitu 45 halaman per menit, namun mesin ini sama dengan C558 dalam hal dukungan kertas A6-SRA3 dan merupakan mesin fotocopy warna kelas atas. Kontrol panel nya user friendly menggunakan layar sentuh terbesar yang pernah ada di jajaran Konica Minolta. Mesin seri ini juga merupakan mesin yang sempurna untuk lingkungan kantor yang produktif.&lt;/p&gt;\r\n\r\n&lt;p&gt;Mesin seri ini juga memiliki keungulan output warna dengan resolusi tinggi, mampu membantu Anda mengurangi biaya dan meningkatkan produktivitas secara bersamaan. Mesin ini menggunakan sistem INFO-Palette yang mudah dan cerdas. Kontrol panel yang terpadu mampu memberikan pengalaman penggunaan mesin dengan konsisten dalam situasi bisnis apa pun di banyak perangkat seperti PC, tablet, dan ponsel cerdas. Panel 10,1 inci yang besar memastikan pengoperasian yang cepat dan mudah, sehingga membantu mengurangi kesalahan operasional, panel yang ramah pengguna ini meningkatkan pekerjaan sehari-hari.&lt;/p&gt;\r\n\r\n&lt;h3&gt;&lt;strong&gt;Berikut ini Spesifikasi lengkap Konica Minolta Bizhub C458&lt;/strong&gt;&lt;/h3&gt;\r\n&amp;nbsp;\r\n\r\n&lt;h3&gt;System Overview&lt;/h3&gt;\r\n\r\n&lt;ul&gt;\r\n	&lt;li&gt;&lt;strong&gt;System memory&lt;/strong&gt;&amp;nbsp;: 4 GB&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;System hard disk&lt;/strong&gt;&amp;nbsp;: 250 GB Standard&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Interface&lt;/strong&gt;&amp;nbsp;: 10-BASE-T/100-BASE-TX/1,000-BASE-T Ethernet, USB 2.0&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Network protocols&lt;/strong&gt;&amp;nbsp;: TCP/IP (IPv4/IPv6), SMB, LPD, IPP, SNMP, HTTP, HTTPS&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Frame types&lt;/strong&gt;&amp;nbsp;: Ethernet 802.2, Ethernet 802.3, Ethernet II, Ethernet SNAP&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Dual scan document feeder&lt;/strong&gt;&amp;nbsp;:\r\n	&lt;ul&gt;\r\n		&lt;li&gt;Up to 300 originals (80gsm, A4)&lt;/li&gt;\r\n		&lt;li&gt;35-210g/m&amp;sup2; (simplex)&lt;/li&gt;\r\n		&lt;li&gt;50-210g/m&amp;sup2; (duplex)&lt;/li&gt;\r\n		&lt;li&gt;(50&amp;ndash;128g/m&amp;sup2; (mix mode)&lt;/li&gt;\r\n	&lt;/ul&gt;\r\n	&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Printable paper size&lt;/strong&gt;&amp;nbsp;:\r\n	&lt;ul&gt;\r\n		&lt;li&gt;Scanning/Copying: up to A3&lt;/li&gt;\r\n		&lt;li&gt;Printing: up to A3 and full bleed on SRA3 paper&lt;/li&gt;\r\n		&lt;li&gt;Custom paper sizes:&lt;/li&gt;\r\n		&lt;li&gt;Banner paper max: 297 x 1,200mm&lt;/li&gt;\r\n	&lt;/ul&gt;\r\n	&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Printable paper weight&lt;/strong&gt;&amp;nbsp;: 52-300gsm&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Paper input capacity&lt;/strong&gt;&amp;nbsp;: Standard: 1,150 sheets/Max: 6,650 sheets&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Tray 1&lt;/strong&gt;&amp;nbsp;: 500 sheets/A5-A3/52-256gsm&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Tray 2&lt;/strong&gt;&amp;nbsp;: 500 sheets/A5-SRA3/52-256gsm&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Tray 3&lt;/strong&gt;&amp;nbsp;: (option 1) 2 x 500 sheets/A5-A3/52-256gsm&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Tray 3&lt;/strong&gt;&amp;nbsp;: (option 2) 2,500 sheets/A4/52-256gsm&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Large capacity tray LU-207 (optional)&lt;/strong&gt;&amp;nbsp;: 2,500 sheets/A4/SRA3/52-256gsm&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Large capacity tray LU-302 (optional)&lt;/strong&gt;&amp;nbsp;: 3,000 sheets/A4/52-256gsm&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Manual bypass&lt;/strong&gt;&amp;nbsp;: 150 sheets/A6-SRA3/custom paper sizes/50-300gsm&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Automatic duplexing&lt;/strong&gt;&amp;nbsp;: A5-SRA3/52-256gsm&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Finishing modes&lt;/strong&gt;&amp;nbsp;: Offset, group, sort, staple, punch, half-fold, z-fold, tri-fold, post-insertion, booklet&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Output capacity&lt;/strong&gt;&amp;nbsp;:\r\n	&lt;ul&gt;\r\n		&lt;li&gt;Max with finisher: 3,300 sheets&lt;/li&gt;\r\n		&lt;li&gt;Max without finisher: 250 sheets&lt;/li&gt;\r\n	&lt;/ul&gt;\r\n	&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Stapling (optional)&lt;/strong&gt;&amp;nbsp;: Max: 100 sheets or 94 sheets + 2 cover sheet (up to 209gsm)&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Stapling output capacity&lt;/strong&gt;&amp;nbsp;: Max: 1,000 sheets&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Tri-fold (optional)&lt;/strong&gt;&amp;nbsp;: Up to 3 sheets&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Tri-fold capacity&lt;/strong&gt;&amp;nbsp;: Max: 30 sheets (tray)&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Booklet (optional)&lt;/strong&gt;&amp;nbsp;: Max: 20 sheets or 19 sheets + 1 cover sheet (up to 209gsm)&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Booklet output capacity&lt;/strong&gt;&amp;nbsp;: Max: 100 sheets (tray)&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Toner lifetime&lt;/strong&gt;&amp;nbsp;: Black: 28,000 pages/CMY: 26,000 pages&lt;/li&gt;\r\n	&lt;li&gt;Imaging unit lifetime :\r\n	&lt;ul&gt;\r\n		&lt;li&gt;Black: 145,000 pages/600,000 pages (Drum/Developer)&lt;/li&gt;\r\n		&lt;li&gt;CMY: 130,000 pages/600,000 pages (Drum/Developer)&lt;/li&gt;\r\n	&lt;/ul&gt;\r\n	&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Power consumption&lt;/strong&gt;&amp;nbsp;: 240 V/60Hz, less than 0.5kW (system)&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;System dimensions&lt;/strong&gt;&amp;nbsp;:\r\n	&lt;ul&gt;\r\n		&lt;li&gt;C658: 615 x 768 x 961mm&lt;/li&gt;\r\n		&lt;li&gt;C558: 615 x 693 x 961mm&lt;/li&gt;\r\n		&lt;li&gt;C458: 615 x 685 x 779mm&lt;/li&gt;\r\n	&lt;/ul&gt;\r\n	&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;System weight&amp;nbsp;&lt;/strong&gt;:\r\n	&lt;ul&gt;\r\n		&lt;li&gt;C658: 113kg&lt;/li&gt;\r\n		&lt;li&gt;C558: 110kg&lt;/li&gt;\r\n		&lt;li&gt;C458: 85kg&lt;/li&gt;\r\n	&lt;/ul&gt;\r\n	&lt;/li&gt;\r\n&lt;/ul&gt;\r\n\r\n&lt;h3&gt;&lt;strong&gt;Copier Specifications&lt;/strong&gt;&lt;/h3&gt;\r\n&amp;nbsp;\r\n\r\n&lt;ul&gt;\r\n	&lt;li&gt;&lt;strong&gt;Copying process&lt;/strong&gt;&amp;nbsp;: Electrostatic laser copy, tandem, indirect&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Toner system&lt;/strong&gt;&amp;nbsp;: Simitri&amp;reg; HD Polymerized Toner&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Print speed (A4)&lt;/strong&gt;&amp;nbsp;: B&amp;amp;W/Colour: up to 65 ppm (portrait)&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;1st copy out time&lt;/strong&gt;&amp;nbsp;:\r\n	&lt;ul&gt;\r\n		&lt;li&gt;C658: 4/3sec (Col/BW)&lt;/li&gt;\r\n		&lt;li&gt;C558: 4.4/3.5sec (Col/BW&lt;/li&gt;\r\n		&lt;li&gt;C458: 5.1/4.0sec (Col/BW)&lt;/li&gt;\r\n	&lt;/ul&gt;\r\n	&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Warm-up time&lt;/strong&gt;&amp;nbsp;:\r\n	&lt;ul&gt;\r\n		&lt;li&gt;C658: 22sec (Col/BW)&lt;/li&gt;\r\n		&lt;li&gt;C558: 22sec (Col/BW&lt;/li&gt;\r\n		&lt;li&gt;C458: 22sec (Col/BW)&lt;/li&gt;\r\n	&lt;/ul&gt;\r\n	&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Copy resolution&lt;/strong&gt;&amp;nbsp;: 600 x 600dpi&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Gradations&lt;/strong&gt;&amp;nbsp;: 256 gradations&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Multi-copy&lt;/strong&gt;&amp;nbsp;: 1-9,999&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Original format&lt;/strong&gt;&amp;nbsp;: Up to A3&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Magnification&lt;/strong&gt;&amp;nbsp;: 25-400% in 0.1% steps, auto zooming&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Copy functions&lt;/strong&gt;&amp;nbsp;: Electronic sorting, multi-job, adjustments (contrast, sharpness, image density), proof copy, interrupt mode, colour mode, separate scan, sort/group, combination, original selection, ID card copy, 2-in-1, 4-in-1&lt;/li&gt;\r\n&lt;/ul&gt;\r\n\r\n&lt;h3&gt;&lt;strong&gt;Printer Specifications&lt;/strong&gt;&lt;/h3&gt;\r\n&amp;nbsp;\r\n\r\n&lt;ul&gt;\r\n	&lt;li&gt;&lt;strong&gt;Print resolution&lt;/strong&gt;&amp;nbsp;: 1,800 x 600 dpi, 1,200 x 1,200 dpi&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;PDL&lt;/strong&gt;&amp;nbsp;: PCL6 (XL 3.0), PCL5e/c, PostScript 3 (ver. 3016), XPS&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Operating systems&lt;/strong&gt;&amp;nbsp;:\r\n	&lt;ul&gt;\r\n		&lt;li&gt;Windows (x32/x64): XP/Vista /7/ 8&lt;/li&gt;\r\n		&lt;li&gt;Windows Server (x32/x64): 2003/2008/2008 R23/20123&lt;/li&gt;\r\n		&lt;li&gt;Macintosh OS X 10.6 or later&lt;/li&gt;\r\n		&lt;li&gt;Linux/Citrix&lt;/li&gt;\r\n	&lt;/ul&gt;\r\n	&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Printer fonts&lt;/strong&gt;&amp;nbsp;: 80 PCL Latin, 137 PostScript 3&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Print functions&lt;/strong&gt;&amp;nbsp;: Direct Print of PCL, PS, TIFF, XPS, PDF, encrypted PDF files and OOXML (DOCX, XLSX, PPTX), mixmedia and&amp;nbsp;mixplex, &amp;ldquo;Easy Set&amp;rdquo; job programming, overlay, watermark,&amp;nbsp;copy protection, carbon copy print&lt;/li&gt;\r\n&lt;/ul&gt;\r\n\r\n&lt;h3&gt;&lt;strong&gt;Optional Print Controller (for graphic intensive applications)&lt;/strong&gt;&lt;/h3&gt;\r\n&amp;nbsp;\r\n\r\n&lt;ul&gt;\r\n	&lt;li&gt;&lt;strong&gt;Print controller&lt;/strong&gt;&amp;nbsp;: Embedded Fiery IC-416 (VI-510 required)&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Memory/HDD&lt;/strong&gt;&amp;nbsp;: 2GB/500GB&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;PDL&lt;/strong&gt;&amp;nbsp;: PostScript 3 (ver. 3019)&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Operating systems&lt;/strong&gt;&amp;nbsp;:\r\n	&lt;ul&gt;\r\n		&lt;li&gt;Windows (x32/x64): XP/Vista/7/ 8&lt;/li&gt;\r\n		&lt;li&gt;Windows Server (x32/x64): 2003/2008/2008 R23/20123&lt;/li&gt;\r\n		&lt;li&gt;Macintosh OS X 10.8 or later&lt;/li&gt;\r\n	&lt;/ul&gt;\r\n	&lt;/li&gt;\r\n&lt;/ul&gt;\r\n\r\n&lt;h3&gt;&lt;strong&gt;Scanner Specifications&lt;/strong&gt;&lt;/h3&gt;\r\n\r\n&lt;ul&gt;\r\n	&lt;li&gt;&lt;strong&gt;Scan speed&lt;/strong&gt;&amp;nbsp;: B&amp;amp;W/Colour: up to 240ipm&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Scan resolution&lt;/strong&gt;&amp;nbsp;: Max: 600 x 600dpi&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Scan modes&lt;/strong&gt;&amp;nbsp;:&amp;nbsp;Scan-to-Email, Scan-to-SMB, Scan-to-FTP, Scan-to-Box,&amp;nbsp;Scan-to-USB, Scan-to-WebDAV, Scan-to-DPWS,&amp;nbsp;Network TWAIN scan&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;File formats&lt;/strong&gt;&amp;nbsp;: JPEG, TIFF, PDF, PDF/A 1a and 1b (optional), compact&amp;nbsp;PDF, encrypted PDF and searchable PDF (optional), XPS,&amp;nbsp;compact XPS, PPTX and searchable PPTX (optional),&amp;nbsp;searchable DOCX/XLSX (optional)&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Scan destinations&lt;/strong&gt;&amp;nbsp;: 2,100 (shared with fax), LDAP support&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Scan functions&lt;/strong&gt;&amp;nbsp;: Annotation (text/time/date) for PDF, up to 400 job&lt;/li&gt;\r\n	&lt;li&gt;programs, realtime scan preview&lt;/li&gt;\r\n&lt;/ul&gt;\r\n\r\n&lt;h3&gt;&lt;strong&gt;Fax Specifications&lt;/strong&gt;&lt;/h3&gt;\r\n&amp;nbsp;\r\n\r\n&lt;ul&gt;\r\n	&lt;li&gt;&lt;strong&gt;Fax Super&lt;/strong&gt;&amp;nbsp;: G3 (optional)&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Transmission&lt;/strong&gt;&amp;nbsp;: Analog, Internet fax, Color i-Fax, IP-Fax&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Resolution&lt;/strong&gt;&amp;nbsp;: Max: 600 x 600dpi (ultra-fine)&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Compression&lt;/strong&gt;&amp;nbsp;: MH, MR, MMR, JBIG&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Modem&lt;/strong&gt;&amp;nbsp;: Up to 33.6 Kbps&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Destinations&lt;/strong&gt;&amp;nbsp;: 2,100 (single + group)&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Functions&lt;/strong&gt;&amp;nbsp;: Polling, time shift, PC-fax, receipt to confidential box,&amp;nbsp;receipt to email/FTP/SMB, up to 400 job programs&lt;/li&gt;\r\n&lt;/ul&gt;\r\n', 'Konica Minolta Bizhub C458', 55000000, 8, 'Perbarui_Gambar_c4582.jpg', 100, '40X40', 'publish', '2020-03-24 00:00:16', '2020-04-11 11:48:00'),
 (8, 2, 2, 'RT-TN511-KM', 'Refil Toner TN511 Konica Minolta', 'refil-toner-tn511-konica-minolta_rt-tn511-km', 'Dengan Refil Toner TN511&amp;nbsp;ini, kartrid toner mesin fotocopy Anda yang sudah kosong bisa diisi kembali dengan serbuk toner TN511 yang baru, sehingga kartrid toner TN511 mesin fotocopy Anda bisa dipakai kembali. Satu kantong alumunium foil refill toner ini berisi 250 gram serbuk.\r\n\r\nRefil Toner ini bisa dipakai untuk mesin fotocopy :\r\n\r\n\r\n	Konica Minolta Bizhub 360\r\n	Konica Minolta Bizhub 361\r\n	Konica Minolta Bizhub 420\r\n	Konica Minolta Bizhub 421\r\n	Konica Minolta Bizhub 500\r\n	Konica Minolta Bizhub 501\r\n\r\n\r\nIsi ulang kartrid kosong Anda dengan Uni-Kit Toner Refill Kit untuk Konica Minolta TN511 dan Anda dapat berhemat lebih banyak lagi! Kit isi ulang Uni-Kit hanya berisi toner berkualitas tinggi dan sangat halus. Kit isi ulang mudah dan cepat digunakan dan memberi Anda apa yang Anda butuhkan untuk mengisi ulang kartrid kosong Anda dengan cepat dan bersih.\r\n\r\nAnda bisa mendapatkan Refil Toner TN511 melalui website kami ini atau bisa juga langsung datang ke kantor Kami (alamat dan kontak kami klik ini), Anda mendapatkan keterangan tentang produk-produk Kami yang lainnya. Dengan belanja keperluan mesin fotocopy Konica Minolta Anda di tempat kami, maka Anda akan menikmati penawaran harga yang lebih menarik. Kami juga memiliki tim layanan teknis yang profesional untuk mesin fotocopy Anda. Jika ada keluhan terhadap mesin fotocopy Anda, jangan ragu untuk menghubungi Kami.\r\n', 'Refil Toner TN511 Konica Minolta', 2000000, 40, 'toner-foil-tn511-konica-minolta-300x200.jpg', 10, '10X10', 'publish', '2020-03-24 00:01:53', '2020-03-23 17:01:53'),
 (9, 1, 2, 'TK-M-TN216', 'Toner Konica Minolta TN216', 'toner-konica-minolta-tn216_tk-m-tn216', 'Toner Konica Minolta TN216 adalah toner yang kompatibel dengan mesin fotocopy Konica Minolta C220 dan Konica Minolta C280. Desain kartrid toner ini memungkinkan Anda dapat memasangnya dengan mudah. Toner ini dapat memberikan Anda hasil cetak yang berkualitas, menghasilkan teks hitam yang tajam dan dalam, namun tetap mampu menghasilkan halaman yang tinggi.\r\n\r\nKartrid Toner ini punya kualitas yang tinggi tidak kalah dengan produk yang asli, hasil cetak dapat melekat dengan kuat pada permukaan kertas, dapat menghasilkan gambar dengan kualitas output yang jernih, dan dengan efek yang tetap baik, dokumen gambar dapat disimpan lebih lama, dan masa pakai nya pun lebih lama.\r\n\r\nDengan menggunakan toner ini limbah bubuk toner pada mesin fotocopy Anda berkurang, hasil cetak warna yang cerah, hasil copy nya jelas. yang membuat kualitasnya hampir identik dengan OEM. Jangan pernah khawatir tentang pekerjaan rumah, laporan, atau print head Anda yang tersumbat. Kapasitas hasil cetak untuk setiap kartrid nya adalah :\r\n\r\n\r\n	Kartrid Toner Warna Hitam kira-kira hingga 29.000 halaman.\r\n	Kartrid Toner Warna Cyan kira-kira hingga 26.000 halaman.\r\n	Kartrid Toner Warna Yellow kira-kira hingga 26.000 halaman.\r\n	Kartrid Toner Warna Magenta kira-kira hingga 26.000 halaman.\r\n\r\n\r\nUntuk keterangan lebih lanjut tentang kartrid toner TN216 ini, Anda bisa menghubungi Kami melalui kontak yang tertera pada website ini dan Kami juga memiliki tim layanan teknis yang profesional untuk Anda. Jika ada keluhan terhadap mesin fotocopy Anda, jangan ragu untuk menghubungi Kami.\r\n', 'Toner Konica Minolta TN216', 2500000, 30, 'toner-konica-minolta-tn216-set.png', 10, '10X10', 'publish', '2020-03-24 00:06:51', '2020-03-23 17:06:51'),
 (10, 1, 2, 'TK-M-TN414', 'Toner Konica Minolta TN414', 'toner-konica-minolta-tn414_tk-m-tn414', 'Toner Konica Minolta TN414 adalah toner untuk mesin fotocopy&amp;nbsp;Konica Minolta Bizhub 363&amp;nbsp;dan&amp;nbsp;Konica Minolta Bizhub 423. Desain kartrid toner nya memudahkan Anda memasangnya di mesin fotocopy. Dengan toner ini mesin fotocopy Anda akan menghasilkan cetakan yang berkualitas dengan teks hitam yang tajam dan dalam namun tetap dapat menghasilkan cetakan halaman yang tinggi. Toner ini punya kualitas tinggi, hasil cetakannya dapat melekat dengan kuat pada permukaan kertas, kualitas output gambar yang jernih, dengan efek yang tetap baik, dokumen-dokumen Anda yang dicetak dengan menggunakan toner tn414 dapat disimpan lebih lama, dan masa pakai toner ini pun lebih lama karena kapasitas nya mencapai hingga 25.000 Halaman. Dengan menggunakan toner tn414 ini limbah bubuk toner pada mesin fotocopy Anda akan berkurang, hasil cetak menjadi cerah dan tajam, hasil copy nya juga jelas, sehigga Anda tidak perlu khawatir lagi akan hasil cetakan yang buruk pada pekerjaan laporan, atau dokumen Anda. Untuk keterangan lebih lanjut tentang kartrid toner TN414 ini, Anda bisa menghubungi Kami melalui kontak yang tertera pada website ini dan Kami juga memiliki tim layanan teknis yang profesional untuk Anda. Jika ada keluhan terhadap mesin fotocopy Anda, jangan ragu untuk menghubungi Kami.\r\n', 'Toner Konica Minolta TN414', 1500000, 40, 'toner-konica-minolta-tn414.jpg', 8, '10X10', 'publish', '2020-03-24 00:08:22', '2020-03-23 17:08:22'),
-(11, 1, 1, 'KM-DI3510', 'Konica Minolta DI3510', 'konica-minolta-di3510_km-di3510', '&lt;p&gt;&lt;a href=&quot;http://www.harmonysistem.co.id/&quot;&gt;&lt;strong&gt;Konica Minolta DI3510&lt;/strong&gt;&lt;/a&gt;&amp;nbsp;adalah mesin fotokopi standar dengan opsi untuk menambah kemampuan cetak, pindai, dan faks Internet. Dengan siklus tugas bulanan yang cukup besar, 150.000 halaman, Anda dapat memenuhi tuntutan dokumen terberat. Di3510 sangat ideal untuk usaha kecil menengah, departemen dan kantor.&lt;/p&gt;\r\n\r\n&lt;p&gt;Cetakan berkualitas tinggi dibuat oleh Di 3510 dengan kecepatan hingga 35 ppm dan waktu penyalinan pertama berada di bawah 5 detik. Pilihan yang tersedia untuk bizhub Di3510 meliputi; pilihan finishing, pemindaian kuat, RADF (hingga 70 spm), dan kapasitas kertas standar 1.210-lembar yang dapat di-upgrade hingga 4.000-lembar semua yang dapat menghemat waktu dan uang.&lt;/p&gt;\r\n\r\n&lt;p&gt;Ketika saatnya tiba untuk mengganti toner hitam DI3510; ada pilihan kartrid Konica Minolta asli (8937-753); atau menghemat uang pada kartrid toner kompatibel Premium presisi. Perkiraan hasil toner adalah 14.000 halaman pada 5 persen.&lt;/p&gt;\r\n\r\n&lt;h3&gt;&lt;strong&gt;Kelebihan Konica Minolta DI3510:&lt;/strong&gt;&lt;/h3&gt;\r\n&amp;nbsp;\r\n\r\n&lt;ul&gt;\r\n	&lt;li&gt;Opsi peningkatan&lt;/li&gt;\r\n	&lt;li&gt;Siklus tugas bulanan yang besar&lt;/li&gt;\r\n	&lt;li&gt;Dua Penghargaan Musim Semi Terbaik 2004 dari BERTL&lt;/li&gt;\r\n&lt;/ul&gt;\r\n\r\n&lt;h3&gt;&lt;strong&gt;Spesifikasi Konica Minolta DI3510:&lt;/strong&gt;&lt;/h3&gt;\r\n&amp;nbsp;\r\n\r\n&lt;ul&gt;\r\n	&lt;li&gt;Toner Cartridge Yield, Black: Toner Cartridge Yield, Black Estimated 14,000 @ 5%&lt;/li&gt;\r\n	&lt;li&gt;Hasil Pengembang, Hitam: Hasil Pengembang, Hitam Diperkirakan 100.000 Halaman&lt;/li&gt;\r\n	&lt;li&gt;Hasil Drum, Hitam: Hasil Drum, Hitam Diperkirakan 100.000 Halaman&lt;/li&gt;\r\n	&lt;li&gt;Halaman per Menit, Hitam: Halaman per Menit, Hitam 35 Surat / 23 Legal / 20 Buku Besar&lt;/li&gt;\r\n	&lt;li&gt;Siklus Tugas Bulanan: Siklus Tugas Bulanan 150.000 Halaman&lt;/li&gt;\r\n	&lt;li&gt;Waktu Cetak Halaman Pertama: Waktu Cetak Halaman Pertama 4.8 detik&lt;/li&gt;\r\n	&lt;li&gt;Pencetakan Dua Sisi: Pencetakan Otomatis Dua Sisi&lt;/li&gt;\r\n	&lt;li&gt;Ukuran Halaman yang Didukung: Ukuran Halaman yang Didukung Half-Letter, Letter, Legal, Ledger&lt;/li&gt;\r\n&lt;/ul&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Aksesoris Konica Minolta DI3510:&lt;/strong&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;Standar: Duplexer: Konica Minolta AD16&lt;/p&gt;\r\n\r\n&lt;h3&gt;&lt;strong&gt;Opsi Konica Minolta DI3510:&lt;/strong&gt;&lt;/h3&gt;\r\n&amp;nbsp;\r\n\r\n&lt;p&gt;Pilihan:&lt;/p&gt;\r\n\r\n&lt;ul&gt;\r\n	&lt;li&gt;Peningkatan Memori 128 MB (M128-3)&lt;/li&gt;\r\n	&lt;li&gt;Peningkatan Memori 32MB (M32-4)&lt;/li&gt;\r\n	&lt;li&gt;Hard Drive 40MB (HDD-6)&lt;/li&gt;\r\n	&lt;li&gt;Peningkatan Memori 64MB (M64-2)&lt;/li&gt;\r\n	&lt;li&gt;Bin Kit Tambahan (AK-1)&lt;/li&gt;\r\n	&lt;li&gt;Copy Desk (CD-4M)&lt;/li&gt;\r\n	&lt;li&gt;Internet Fax / Network Scan Kit (SU-3)&lt;/li&gt;\r\n	&lt;li&gt;Multiport (MP-5)&lt;/li&gt;\r\n	&lt;li&gt;Kit Pemindaian Jaringan (SU-2)&lt;/li&gt;\r\n	&lt;li&gt;PCL Controller (PI-3505E)&lt;/li&gt;\r\n	&lt;li&gt;PS3 + PCL Controller (PI-3505E)&lt;/li&gt;\r\n&lt;/ul&gt;\r\n\r\n&lt;ul&gt;\r\n&lt;/ul&gt;\r\n', 'Konica Minolta DI3510', 18000000, 10, 'Di3510-Mesin-Fotocopy.jpg', 100, '70x70', 'publish', '2020-04-09 18:47:44', '2020-04-11 11:47:50');
+(11, 1, 1, 'KM-DI3510', 'Konica Minolta DI3510', 'konica-minolta-di3510_km-di3510', '&lt;p&gt;&lt;a href=&quot;http://www.harmonysistem.co.id/&quot;&gt;&lt;strong&gt;Konica Minolta DI3510&lt;/strong&gt;&lt;/a&gt;&amp;nbsp;adalah mesin fotokopi standar dengan opsi untuk menambah kemampuan cetak, pindai, dan faks Internet. Dengan siklus tugas bulanan yang cukup besar, 150.000 halaman, Anda dapat memenuhi tuntutan dokumen terberat. Di3510 sangat ideal untuk usaha kecil menengah, departemen dan kantor.&lt;/p&gt;\r\n\r\n&lt;p&gt;Cetakan berkualitas tinggi dibuat oleh Di 3510 dengan kecepatan hingga 35 ppm dan waktu penyalinan pertama berada di bawah 5 detik. Pilihan yang tersedia untuk bizhub Di3510 meliputi; pilihan finishing, pemindaian kuat, RADF (hingga 70 spm), dan kapasitas kertas standar 1.210-lembar yang dapat di-upgrade hingga 4.000-lembar semua yang dapat menghemat waktu dan uang.&lt;/p&gt;\r\n\r\n&lt;p&gt;Ketika saatnya tiba untuk mengganti toner hitam DI3510; ada pilihan kartrid Konica Minolta asli (8937-753); atau menghemat uang pada kartrid toner kompatibel Premium presisi. Perkiraan hasil toner adalah 14.000 halaman pada 5 persen.&lt;/p&gt;\r\n\r\n&lt;h3&gt;&lt;strong&gt;Kelebihan Konica Minolta DI3510:&lt;/strong&gt;&lt;/h3&gt;\r\n&amp;nbsp;\r\n\r\n&lt;ul&gt;\r\n	&lt;li&gt;Opsi peningkatan&lt;/li&gt;\r\n	&lt;li&gt;Siklus tugas bulanan yang besar&lt;/li&gt;\r\n	&lt;li&gt;Dua Penghargaan Musim Semi Terbaik 2004 dari BERTL&lt;/li&gt;\r\n&lt;/ul&gt;\r\n\r\n&lt;h3&gt;&lt;strong&gt;Spesifikasi Konica Minolta DI3510:&lt;/strong&gt;&lt;/h3&gt;\r\n&amp;nbsp;\r\n\r\n&lt;ul&gt;\r\n	&lt;li&gt;Toner Cartridge Yield, Black: Toner Cartridge Yield, Black Estimated 14,000 @ 5%&lt;/li&gt;\r\n	&lt;li&gt;Hasil Pengembang, Hitam: Hasil Pengembang, Hitam Diperkirakan 100.000 Halaman&lt;/li&gt;\r\n	&lt;li&gt;Hasil Drum, Hitam: Hasil Drum, Hitam Diperkirakan 100.000 Halaman&lt;/li&gt;\r\n	&lt;li&gt;Halaman per Menit, Hitam: Halaman per Menit, Hitam 35 Surat / 23 Legal / 20 Buku Besar&lt;/li&gt;\r\n	&lt;li&gt;Siklus Tugas Bulanan: Siklus Tugas Bulanan 150.000 Halaman&lt;/li&gt;\r\n	&lt;li&gt;Waktu Cetak Halaman Pertama: Waktu Cetak Halaman Pertama 4.8 detik&lt;/li&gt;\r\n	&lt;li&gt;Pencetakan Dua Sisi: Pencetakan Otomatis Dua Sisi&lt;/li&gt;\r\n	&lt;li&gt;Ukuran Halaman yang Didukung: Ukuran Halaman yang Didukung Half-Letter, Letter, Legal, Ledger&lt;/li&gt;\r\n&lt;/ul&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Aksesoris Konica Minolta DI3510:&lt;/strong&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;Standar: Duplexer: Konica Minolta AD16&lt;/p&gt;\r\n\r\n&lt;h3&gt;&lt;strong&gt;Opsi Konica Minolta DI3510:&lt;/strong&gt;&lt;/h3&gt;\r\n&amp;nbsp;\r\n\r\n&lt;p&gt;Pilihan:&lt;/p&gt;\r\n\r\n&lt;ul&gt;\r\n	&lt;li&gt;Peningkatan Memori 128 MB (M128-3)&lt;/li&gt;\r\n	&lt;li&gt;Peningkatan Memori 32MB (M32-4)&lt;/li&gt;\r\n	&lt;li&gt;Hard Drive 40MB (HDD-6)&lt;/li&gt;\r\n	&lt;li&gt;Peningkatan Memori 64MB (M64-2)&lt;/li&gt;\r\n	&lt;li&gt;Bin Kit Tambahan (AK-1)&lt;/li&gt;\r\n	&lt;li&gt;Copy Desk (CD-4M)&lt;/li&gt;\r\n	&lt;li&gt;Internet Fax / Network Scan Kit (SU-3)&lt;/li&gt;\r\n	&lt;li&gt;Multiport (MP-5)&lt;/li&gt;\r\n	&lt;li&gt;Kit Pemindaian Jaringan (SU-2)&lt;/li&gt;\r\n	&lt;li&gt;PCL Controller (PI-3505E)&lt;/li&gt;\r\n	&lt;li&gt;PS3 + PCL Controller (PI-3505E)&lt;/li&gt;\r\n&lt;/ul&gt;\r\n\r\n&lt;ul&gt;\r\n&lt;/ul&gt;\r\n', 'Konica Minolta DI3510', 18000000, 10, 'Di3510-Mesin-Fotocopy.jpg', 100, '70x70', 'publish', '2020-04-09 18:47:44', '2020-04-11 11:47:50'),
+(12, 1, 1, 'KM-B-C284e', 'Konica Minolta Bizhub C284e', 'konica-minolta-bizhub-c284e_km-b-c284e', '&lt;p&gt;Konica Minolta Bizhub C284e&amp;nbsp;mesin fotocopy multifungsi yang dapat menghasilkan cetakan warna dan hitam putih dengan kecepatan hingga 28 halaman per menit. Mesin ini memiliki fitur opsional dual scanning 160 opm, pilihan finishing modular, serta peningkatan kontrol panel multi-sentuh dan operasi yang hemat energi yang membantu Anda melakukan lebih banyak pekerjaan dengan biaya lebih murah.&lt;/p&gt;\r\n\r\n&lt;p&gt;Dengan mesin fotocopy ini Anda dapat melakukan semua pekerjaan cetak, pindai dan fax dengan cepat dan hasil yang memuaskan, karena mesin ini pada saat pertama kali dihidupkan waktu pemanasan nya sangat cepat hanya 20 detik atau kurang dan hasil salin pertamanya dalam 7 detik atau kurang sehingga bisa menghilangkan waktu tunggu yang tidak produktif .&lt;/p&gt;\r\n\r\n&lt;p&gt;Dengan mesin ini Anda dapat memindai dokumen ke email, FTP, SMB menggunakan ikon perintah sederhana di panel layar sentuh &amp;nbsp;bizhub C284e Anda. Kemampuan &amp;nbsp;Scan-to-Me dan Scan-to-Home memungkinkan Anda memindahkan dokumen dengan cepat. Anda juga dapat memindai langsung ke pengguna perorangan, departemen, kelompok kerja dan proyek. Memindai ke PowerPoint, Word, dan Excel sehingga memungkinkan Anda mengonversi dokumen cetak menjadi Office.&lt;/p&gt;\r\n\r\n&lt;h3&gt;Spesifikasi Lengkap Konica Minolta Bizhub C284e&lt;/h3&gt;\r\n&amp;nbsp;\r\n\r\n&lt;h3&gt;System Overview&lt;/h3&gt;\r\n\r\n&lt;ul&gt;\r\n	&lt;li&gt;&lt;strong&gt;System memory&lt;/strong&gt;&amp;nbsp;: 2,048 MB&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;System hard disk&lt;/strong&gt;&amp;nbsp;: 250 GB&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Interface&lt;/strong&gt;&amp;nbsp;: 10-BASE-T/100-BASE-TX/1,000-BASE-T Ethernet, USB 2.0&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Network protocols&lt;/strong&gt;&amp;nbsp;: TCP/IP (IPv4/IPv6), SMB, LPD, IPP, SNMP, HTTP, HTTPS&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Frame types&lt;/strong&gt;&amp;nbsp;: Ethernet 802.2, Ethernet 802.3, Ethernet II, Ethernet SNAP&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Dual scan document feeder (optional)&lt;/strong&gt;&amp;nbsp;: Up to 100 originals / 5.5&amp;Prime; x 8.5&amp;Prime; to 11&amp;Prime; x 17&amp;Prime; / 35-163 gsm Reversing automatic document feeder or dual scan document feeder available&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Printable paper size&lt;/strong&gt;&amp;nbsp;:\r\n	&lt;ul&gt;\r\n		&lt;li&gt;Scanning/Copying: up to 11&amp;Prime; x 17&amp;Prime;&lt;/li&gt;\r\n		&lt;li&gt;Printing: up to 11&amp;Prime; x 17&amp;Prime; full bleed on 12&amp;Prime; x 18&amp;Prime; paper&lt;/li&gt;\r\n		&lt;li&gt;Custom paper sizes&lt;/li&gt;\r\n		&lt;li&gt;Banner paper max.: 11.75&amp;Prime; x 47.25&amp;Prime;&lt;/li&gt;\r\n	&lt;/ul&gt;\r\n	&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Printable paper weight&lt;/strong&gt;&amp;nbsp;: 52-300 gsm&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Paper input capacity&lt;/strong&gt;&amp;nbsp;: Standard: 1,150 sheets / Max.: 3,650 sheets&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Tray 1&lt;/strong&gt;&amp;nbsp;: 500 sheets / 5.5&amp;Prime; x 8.5&amp;Prime; to 11&amp;Prime; x 17&amp;Prime; / 52-256 gsm&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Tray 2&lt;/strong&gt;&amp;nbsp;: 500 sheets / 5.5&amp;Prime; x 8.5&amp;Prime; to 12&amp;Prime; x 18&amp;Prime; / 52-256 gsm&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Tray 3&lt;/strong&gt;&amp;nbsp;: (optional) 500 sheets / 5.5&amp;Prime; x 8.5&amp;Prime; to 11&amp;Prime; x 17&amp;Prime; / 52-256 gsm&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Tray 4&lt;/strong&gt;&amp;nbsp;: (optional) 2 x 500 sheets / 5.5&amp;Prime; x 8.5&amp;Prime; to 8.5&amp;Prime; x 11&amp;Prime; / 52-256 gsm&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Large capacity tray PC-410 (optional)&lt;/strong&gt;&amp;nbsp;: 2,500 sheets / 8.5&amp;Prime; x 11&amp;Prime; / 52-256 gsm&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Manual bypass&lt;/strong&gt;&amp;nbsp;: 150 sheets / 4&amp;Prime; x 6&amp;Prime; to 12&amp;Prime; x 18&amp;Prime; / custom paper sizes / 50-300 gsm&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Automatic duplexing&lt;/strong&gt;&amp;nbsp;: 5.5&amp;Prime; x 8.5&amp;Prime; to 12&amp;Prime; x 18&amp;Prime; / 52-256 gsm&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Finishing modes&lt;/strong&gt;&amp;nbsp;: Offset, group, sort, punch, half-fold, tri-fold, booklet&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Output capacity&amp;nbsp;&lt;/strong&gt;:\r\n	&lt;ul&gt;\r\n		&lt;li&gt;with finisher: 3,300 sheets&lt;/li&gt;\r\n		&lt;li&gt;without finisher: 250 sheets&lt;/li&gt;\r\n	&lt;/ul&gt;\r\n	&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Stapling (optional)&lt;/strong&gt;&amp;nbsp;: Max.: 50 sheets or 48 sheets + 1 cover sheet (up to 209 gsm)&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Stapling output capacity&lt;/strong&gt;&amp;nbsp;: Max.: 1,000 sheets&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Tri-fold&lt;/strong&gt;&amp;nbsp;: Up to 3 sheets&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Tri-fold capacity&lt;/strong&gt;&amp;nbsp;: Max.: 30 sheets (tray), unlimited&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Booklet&lt;/strong&gt;&amp;nbsp;: Max.: 20 sheets or 19 sheets + 1 cover sheet (up to 209 gsm)&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Booklet output capacity&lt;/strong&gt;&amp;nbsp;: Max.: 100 sheets (tray), unlimited&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Copy/print volume&lt;/strong&gt;&amp;nbsp;: Max.: 100,000 pages/month1&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Toner lifetime&lt;/strong&gt;&amp;nbsp;: Black: 27,000 pages / CMY: 25,000 pages&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Imaging unit lifetime&lt;/strong&gt;&amp;nbsp;:\r\n	&lt;ul&gt;\r\n		&lt;li&gt;Black: 120,000 pages / 590,000 pages (Drum / Developer)&lt;/li&gt;\r\n		&lt;li&gt;CMY: 75,000 pages&lt;/li&gt;\r\n	&lt;/ul&gt;\r\n	&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Power consumption&lt;/strong&gt;&amp;nbsp;: 120 V / 50/60 Hz, Less than 1.5 kW (system)&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;System dimensions&lt;/strong&gt;&amp;nbsp;: 24.2&amp;Prime; x 27&amp;Prime; x 31&amp;Prime; (W x D x H)&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;System weight&amp;nbsp;&lt;/strong&gt;: Approx. 185.18 lb&lt;/li&gt;\r\n&lt;/ul&gt;\r\n\r\n&lt;h3&gt;Copier Specifications&lt;/h3&gt;\r\n&amp;nbsp;\r\n\r\n&lt;ul&gt;\r\n	&lt;li&gt;&lt;strong&gt;Copying process&lt;/strong&gt;&amp;nbsp;: Electrostatic laser copy, tandem, indirect&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Toner system&lt;/strong&gt;&amp;nbsp;: Simitri&amp;reg; HD Polymerized Toner&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Print speed (8.5&amp;Prime; x 11&amp;Prime;)&lt;/strong&gt;&amp;nbsp;: B&amp;amp;W / Color: up to 28 ppm (Portrait)&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Print speed (11&amp;Prime; x 17&amp;Prime;)&lt;/strong&gt;&amp;nbsp;: B&amp;amp;W / Color: up to 14 ppm (Portrait)&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Autoduplex speed (8.5&amp;Prime; x 11&amp;Prime;)&lt;/strong&gt;&amp;nbsp;: B&amp;amp;W / Color: up to 28 ppm (Portrait)&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;1st copy out time&lt;/strong&gt;&amp;nbsp;: B&amp;amp;W: 5.9 sec. / Color: 7.7 sec.&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Warm-up time&lt;/strong&gt;&amp;nbsp;: Approx. 20 sec.2&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Copy resolution&lt;/strong&gt;&amp;nbsp;: 600 x 600 dpi&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Gradations&lt;/strong&gt;&amp;nbsp;: 256 gradations&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Multi-copy&lt;/strong&gt;&amp;nbsp;: 1-9,999&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Original format&lt;/strong&gt;&amp;nbsp;: Up to 11&amp;Prime; x 17&amp;Prime;&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Magnification&lt;/strong&gt;&amp;nbsp;: 25-400% in 0.1% steps, auto zooming&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Copy functions&lt;/strong&gt;&amp;nbsp;: Electronic sorting, multi-job, adjustments (contrast, sharpness, image density), proof copy, interrupt mode, color mode, separate scan, sort/group, combination, original selection, ID card copy, 2-in-1, 4-in-1&lt;/li&gt;\r\n&lt;/ul&gt;\r\n\r\n&lt;h3&gt;Printer Specifications&lt;/h3&gt;\r\n&amp;nbsp;\r\n\r\n&lt;ul&gt;\r\n	&lt;li&gt;&lt;strong&gt;Print resolution&lt;/strong&gt;&amp;nbsp;: 1,800 x 600 dpi, 1,200 x 1,200 dpi&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;PDL&lt;/strong&gt;&amp;nbsp;: PCL6 (XL 3.0), PCL5c, PostScript 3 (ver. 3016), XPS&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Operating systems&lt;/strong&gt;&amp;nbsp;:\r\n	&lt;ul&gt;\r\n		&lt;li&gt;Windows (x32/x64): XP / Vista / 7 / 8&lt;/li&gt;\r\n		&lt;li&gt;Windows Server (x32/x64): 2003 / 2008 / 2008 R23 / 20123&lt;/li&gt;\r\n		&lt;li&gt;Macintosh OS X 10.2.8 or later&lt;/li&gt;\r\n		&lt;li&gt;UNIX / Linux / Citrix&lt;/li&gt;\r\n	&lt;/ul&gt;\r\n	&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Printer fonts&lt;/strong&gt;&amp;nbsp;: 80 PCL Latin, 137 PostScript 3&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Print functions&lt;/strong&gt;&amp;nbsp;: Direct Print of PCL, PS, TIFF, XPS, PDF, encrypted PDF files and OOXML (DOCX, XLSX, PPTX), mixmedia and mixplex, &amp;ldquo;Easy Set&amp;rdquo; job programming, overlay, watermark, copy protection, carbon copy print&lt;/li&gt;\r\n&lt;/ul&gt;\r\n\r\n&lt;h3&gt;&lt;strong&gt;Printer Specifications (Optional)&lt;/strong&gt;&lt;/h3&gt;\r\n&amp;nbsp;\r\n\r\n&lt;ul&gt;\r\n	&lt;li&gt;&lt;strong&gt;Print controller&lt;/strong&gt;&amp;nbsp;: Embedded Fiery IC-414&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Memory/HDD&lt;/strong&gt;&amp;nbsp;: 2 GB / 160 GB&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;PDL&lt;/strong&gt;&amp;nbsp;:\r\n	&lt;ul&gt;\r\n		&lt;li&gt;PostScript 3 (ver. 3019)&lt;/li&gt;\r\n		&lt;li&gt;PCL 6/5c&lt;/li&gt;\r\n	&lt;/ul&gt;\r\n	&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Operating systems&lt;/strong&gt;&amp;nbsp;:\r\n	&lt;ul&gt;\r\n		&lt;li&gt;Windows (x32/x64): XP / Vista / 7 / 8&lt;/li&gt;\r\n		&lt;li&gt;Windows Server (x32/x64): 2003 / 2008 / 2008 R23 / 20123&lt;/li&gt;\r\n		&lt;li&gt;Macintosh OS X 10.2.8 or later&lt;/li&gt;\r\n	&lt;/ul&gt;\r\n	&lt;/li&gt;\r\n&lt;/ul&gt;\r\n\r\n&lt;h3&gt;&lt;strong&gt;Scanner Specifications&lt;/strong&gt;&lt;/h3&gt;\r\n&amp;nbsp;\r\n\r\n&lt;ul&gt;\r\n	&lt;li&gt;&lt;strong&gt;Scan speed&lt;/strong&gt;&amp;nbsp;: B&amp;amp;W / Color: up to 160 ipm with optional DF-701&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Scan resolution&lt;/strong&gt;&amp;nbsp;: Max.: 600 x 600 dpi&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Scan modes&lt;/strong&gt;&amp;nbsp;: Scan-to-Email, Scan-to-SMB, Scan-to-FTP, Scan-to-Box, Scan-to-USB, Scan-to-WebDAV, Scan-to-DPWS, Network TWAIN scan&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;File formats&lt;/strong&gt;&amp;nbsp;: JPEG, TIFF, PDF, PDF/A 1a and 1b (optional), compact PDF, encrypted PDF and searchable PDF (optional), XPS, compact XPS, PPTX and searchable PPTX (optional), searchable DOCX/XLSX (optional)&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Scan destinations&lt;/strong&gt;&amp;nbsp;: 2,100 (shared with fax), LDAP support&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Scan functions&lt;/strong&gt;&amp;nbsp;: Annotation (text/time/date) for PDF, up to 400 job programs, realtime scan preview&lt;/li&gt;\r\n&lt;/ul&gt;\r\n\r\n&lt;h3&gt;Fax Specifications&lt;/h3&gt;\r\n&amp;nbsp;\r\n\r\n&lt;ul&gt;\r\n	&lt;li&gt;&lt;strong&gt;Fax :&amp;nbsp;&lt;/strong&gt;Super G3 (optional)&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Transmission&lt;/strong&gt;&amp;nbsp;: Analog, i-Fax, Color i-Fax, IP-fax&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Resolution&lt;/strong&gt;&amp;nbsp;: Max.: 600 x 600 dpi (ultra-fine)&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Compression&lt;/strong&gt;&amp;nbsp;: MH, MR, MMR, JBIG&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Modem&lt;/strong&gt;&amp;nbsp;: Up to 33.6 Kbps&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Destinations&lt;/strong&gt;&amp;nbsp;: 2,100 (single + group)&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Functions&lt;/strong&gt;&amp;nbsp;: Polling, time shift, PC-fax, receipt to confidential box, receipt to Email/FTP/SMB, up to 400 job programs&lt;/li&gt;\r\n&lt;/ul&gt;', 'Konica Minolta Bizhub C284e', 18000000, 50, 'konica-minolta-bizhub-c284e.jpg', 100, '50x50', 'publish', '2020-04-17 15:37:18', '2020-04-17 08:37:18'),
+(13, 1, 1, 'KM-B-185', 'Konica Minolta BIZHUB 185', 'konica-minolta-bizhub-185_km-b-185', 'Konica Minolta BIZHUB 185 adalah mesin fotocopy multifungsi hitam putih A3 yang dilengkapi dengan fungsi GDI printing dan TWAIN scanning. Mesin ini memiliki kecepatan salin dan cetak hingga 18 halaman per menit, kapasitas kertas standar 350 lembar (termasuk 100 lembar dari multy bypass tray), mendukung ukuran kertas A5 hingga A3 dan berat kertas 64 hingga 157 gsm. Mesin ini dilengkapi dengan berbagai kontrol yang mudah digunakan, menggunakan panel operasi yang baru yang khusus dirancang untuk kemudahan penggunaan mesin ini.\r\n&lt;p&gt;Mesin ini memiliki Nilai TEC (Total Electron Content) yang lebih rendah dan penggunaan toner yang ramah lingkungan secara drastis mengurangi dampak lingkungan dan TCO (total cost of ownership).&lt;/p&gt;\r\n\r\n&lt;p&gt;Simitri HD Toner dengan partikel kecil berbentuk seragam.&amp;nbsp;Mode keluaran dapat dipilih tergantung pada jenis dokumen, seperti teks atau foto-intensif dokumen.&amp;nbsp;Semua hasil pengujian menunjukkan kualitas yang luar biasa. Akses depan membuat pengumpanan kertas dan penggantian toner cepat dan mudah.&amp;nbsp;Selain kaset standar, baki bypass tersedia untuk A3.&amp;nbsp;Rol umpan kertas yang lebih besar mengurangi kebisingan pengoperasian.&lt;/p&gt;\r\n\r\n&lt;h3&gt;Spesifikasi Lengkap Konica Minolta Bizhub 185&lt;/h3&gt;\r\n&amp;nbsp;\r\n\r\n&lt;p&gt;&lt;strong&gt;General Specifications&lt;/strong&gt;&lt;/p&gt;\r\n\r\n&lt;ul&gt;\r\n	&lt;li&gt;&lt;strong&gt;Standard Functions&lt;/strong&gt;&amp;nbsp;: Digital Copier/Printer/Colour Scanner&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Type&lt;/strong&gt;&amp;nbsp;: Desktop&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Memory&lt;/strong&gt;&amp;nbsp;: 32MB&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Gradation&lt;/strong&gt;&amp;nbsp;: 256&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Type of Originals&lt;/strong&gt;&amp;nbsp;: Sheets, Books&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Original Size&lt;/strong&gt;&amp;nbsp;: A3 (11&amp;Prime;&amp;times;17&amp;Prime;)&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Output Size&lt;/strong&gt;&amp;nbsp;: A3 to A5 (11&amp;Prime;&amp;times;17&amp;Prime; to 5-1/2&amp;Prime;&amp;times;8-1/2&amp;Prime;)&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Image Loss&lt;/strong&gt;&amp;nbsp;:\r\n	&lt;ul&gt;\r\n		&lt;li&gt;Top &amp;amp; bottom edges: 4mm&lt;/li&gt;\r\n		&lt;li&gt;Right &amp;amp; left edges: 4mm&lt;/li&gt;\r\n	&lt;/ul&gt;\r\n	&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Paper Capacity&lt;/strong&gt;&amp;nbsp;:\r\n	&lt;ul&gt;\r\n		&lt;li&gt;Standard 250 sheets&lt;/li&gt;\r\n		&lt;li&gt;Optional 100 sheets (Bypass Tray)&lt;/li&gt;\r\n	&lt;/ul&gt;\r\n	&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Paper Weight&lt;/strong&gt;&amp;nbsp;: Plain paper (64-90g/m2)/Recycle paper (64-90/m2)/Thick paper (91-157g/m2)&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Warm-up Time&lt;/strong&gt;&amp;nbsp;: Less than 29 sec.&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;First Copy Out Time&lt;/strong&gt;&amp;nbsp;: Less than 8 sec.&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Copy Speed&lt;/strong&gt;&amp;nbsp;: bizhub 185: 18 ppm&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Print Speed&lt;/strong&gt;&amp;nbsp;: bizhub 185: 18 ppm&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Resolution&lt;/strong&gt;&amp;nbsp;: 300dpix600dpi, 600dpi&amp;times;600dpi&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Multiple Copy&lt;/strong&gt;&amp;nbsp;: 1-99 sheets&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Magnification&lt;/strong&gt;&amp;nbsp;: 50-200% (Adjustable in 1% increments)&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Exposure Modes&lt;/strong&gt;&amp;nbsp;: Text Mode / Photo Mode / Auto Mode&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Power Requirement&lt;/strong&gt;&amp;nbsp;: AC220-240V 3.5A (50/60Hz)&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Power Consumption&lt;/strong&gt;&amp;nbsp;: 800W or less&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Dimensions (W&lt;/strong&gt;&lt;strong&gt;&amp;times;&lt;/strong&gt;&lt;strong&gt;D&lt;/strong&gt;&lt;strong&gt;&amp;times;&lt;/strong&gt;&lt;strong&gt;H)&lt;/strong&gt;&amp;nbsp;: 570&amp;times;531&amp;times;449mm (22-1/2&amp;Prime;&amp;times;20-3/4&amp;Prime;&amp;times;17-3/4&amp;Prime;)&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Weight&lt;/strong&gt;&amp;nbsp;: 23.5kg&lt;/li&gt;\r\n&lt;/ul&gt;\r\n\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Scan Specifications&lt;/strong&gt;&lt;br /&gt;\r\n&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;ul&gt;\r\n	&lt;li&gt;&lt;strong&gt;Type&lt;/strong&gt;&amp;nbsp;: Flatbed Scanner&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Driver&lt;/strong&gt;&amp;nbsp;: TWAIN&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Scanning Size&lt;/strong&gt;&amp;nbsp;: Max. A3 (11&amp;Prime;&amp;times;17&amp;Prime;)&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Scanning Resolution&lt;/strong&gt;&amp;nbsp;: 150dpi&amp;times;150dpi, 300dpi&amp;times;300dpi, 600dpi&amp;times;600dpi&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Supported OS&lt;/strong&gt;&amp;nbsp;:\r\n	&lt;ul&gt;\r\n		&lt;li&gt;&lt;strong&gt;Server&lt;/strong&gt;: Windows 2000 SP4/Server 2003/Server 2003 64bit/ Server 2008/Server 2008 64bit&lt;/li&gt;\r\n		&lt;li&gt;&lt;strong&gt;Client&lt;/strong&gt;: Windows 2000 SP4, Windows XP SP2/XP 64 bit, Windows Vista/Vista 64bit, Windows 7/Windows 7 64bit&lt;/li&gt;\r\n	&lt;/ul&gt;\r\n	&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Interface&lt;/strong&gt;&amp;nbsp;: USB 1.1/2.0 equivalent&lt;/li&gt;\r\n&lt;/ul&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;GDI Printer Controller (Standard)&lt;/strong&gt;&lt;br /&gt;\r\n&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;ul&gt;\r\n	&lt;li&gt;&lt;strong&gt;Type&lt;/strong&gt;&amp;nbsp;: Embedded&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Print Speed&lt;/strong&gt;&amp;nbsp;: bizhub 185: 18 ppm&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Resolution&lt;/strong&gt;&amp;nbsp;: 300dpi&amp;times;600dpi?600dpi&amp;times;600dpi&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Supported OS&lt;/strong&gt;&amp;nbsp;:\r\n	&lt;ul&gt;\r\n		&lt;li&gt;&lt;strong&gt;Server&lt;/strong&gt;: Windows 2000 SP4/Server 2003/Server 2003 64bit/Server 2008/Server 2008 64bit&lt;/li&gt;\r\n		&lt;li&gt;&lt;strong&gt;Client&lt;/strong&gt;: Windows 2000 SP4, Windows XP SP2/XP 64 bit, Windows Vista/Vista 64bit, Windows 7/Windows 7 64bit&lt;/li&gt;\r\n	&lt;/ul&gt;\r\n	&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Interface&lt;/strong&gt;&amp;nbsp;: USB 1.1/2.0&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Memory&lt;/strong&gt;&amp;nbsp;: 32MB (Shared with copier)&lt;/li&gt;\r\n&lt;/ul&gt;', 'Konica Minolta BIZHUB 185', 16500000, 40, 'konica-minolta-bizhub-185-printer-2.jpg', 100, '50x50', 'publish', '2020-04-17 15:40:40', '2020-04-17 08:40:40'),
+(14, 1, 1, 'KM-B-P-985', 'Konica Minolta Bizhub PRO 985', 'konica-minolta-bizhub-pro-985_km-b-p-985', '&lt;p&gt;Harga kompetitif dan kombinasi produk yang baik adalah faktor penting untuk menjadi sukses di pasar saat ini. Di industri percetakan, sukses di pasar berarti hasil dari kombinasi dari berbagai produk, teknologi andal dan perhitungan biaya yang efektif.&amp;nbsp;&lt;strong&gt;&lt;a href=&quot;http://www.harmonysistem.co.id/&quot;&gt;Konica Minolta bizhub PRO 958&lt;/a&gt;&lt;/strong&gt;&amp;nbsp;adalah jawaban untuk tantangan ini, karena mesin ini menawarkan perpaduan yang baik antara fitur, teknologi, dan investasi untuk mendorong bisnis percetakan menjadi sukses.&lt;/p&gt;\r\n\r\n&lt;p&gt;Keunggulan dari mesin ini adalah Sparepart dan bahan habis pakainya yang tahan lama, sistem Pengembang Penyulingan Otomatis (ARDS), cetakan dengan efisiensi maksimum serta pencetakan jangka pendek yang menguntungkan. Kecepatan mesin ini hingga 95 halaman A4 per menit dan peningkatan keseluruhan dari kinerja pemindaian untuk produktivitas yang lebih tinggi dan lebih banyak pekerjaan di ruang cetak.&lt;/p&gt;\r\n\r\n&lt;h3&gt;Spesifikasi Lengkap Konica Minolta bizhub PRO 958&lt;/h3&gt;\r\n&amp;nbsp;\r\n\r\n&lt;p&gt;&lt;strong&gt;SYSTEM SPECIFICATIONS&lt;/strong&gt;&lt;/p&gt;\r\n\r\n&lt;ul&gt;\r\n	&lt;li&gt;Resolution 1,800 x 600 dpi 1,200 x 1,200 dpi&lt;/li&gt;\r\n	&lt;li&gt;Paper weight 52&amp;ndash;300 gsm&lt;/li&gt;\r\n	&lt;li&gt;Duplex unit Non-stack type; 52&amp;ndash;256 gsm&lt;/li&gt;\r\n	&lt;li&gt;Paper sizes A6&amp;ndash;SRA3; customised paper sizes; banner paper max. 1,200 x 297 mm&lt;/li&gt;\r\n	&lt;li&gt;Maximum image area 307 x 437 mm (SRA3); 302 x 448 mm (A3+)&lt;/li&gt;\r\n	&lt;li&gt;Paper input capacity Standard: 3,650 sheets Max.: 6,650 sheets&lt;/li&gt;\r\n	&lt;li&gt;Paper output capacity Max.: 3,200 sheets&lt;/li&gt;\r\n	&lt;li&gt;Main unit dimensions (W x D x H) 670 x 820 x 1,232 mm&lt;/li&gt;\r\n	&lt;li&gt;Main unit weight 200 kg&lt;/li&gt;\r\n&lt;/ul&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;PRODUCTIVITY&lt;/strong&gt;&lt;br /&gt;\r\n&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;ul&gt;\r\n	&lt;li&gt;A4 Mono &amp;ndash; max. per minute 95 ppm&lt;/li&gt;\r\n	&lt;li&gt;A3 Mono &amp;ndash; max. per minute 48 ppm&lt;/li&gt;\r\n&lt;/ul&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;CONTROLLER&lt;/strong&gt;&lt;/p&gt;\r\n\r\n&lt;ul&gt;\r\n	&lt;li&gt;Internal controller Emperon&amp;trade;&lt;/li&gt;\r\n&lt;/ul&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;SCANNER SPECIFICATIONS&lt;/strong&gt;&lt;br /&gt;\r\n&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;ul&gt;\r\n	&lt;li&gt;Scan speed A4 Up to 240 ipm; one pass duplex scanning&lt;/li&gt;\r\n	&lt;li&gt;Scan resolution 600 x 600 dpi&lt;/li&gt;\r\n	&lt;li&gt;Scan modes\r\n	&lt;ul&gt;\r\n		&lt;li&gt;Scan-to-eMail (Scan-to-Me)&lt;/li&gt;\r\n		&lt;li&gt;Scan-to-SMB (Scan-to-Home)&lt;/li&gt;\r\n		&lt;li&gt;Scan-to-FTP Scan-to-Box&lt;/li&gt;\r\n		&lt;li&gt;Scan-to-USB&lt;/li&gt;\r\n		&lt;li&gt;Scan-to-WebDAV&lt;/li&gt;\r\n		&lt;li&gt;Scan-to-DPWS&lt;/li&gt;\r\n		&lt;li&gt;Network TWAIN scan&lt;/li&gt;\r\n	&lt;/ul&gt;\r\n	&lt;/li&gt;\r\n	&lt;li&gt;Scan formats JPEG; TIFF; PDF; PDF/A 1a and 1b (optional); compact PDF; encrypted PDF; searchable PDF (optional); XPS; compact XPS; PPTX; searchable PPTX (optional); searchable DOCX/XLSX (optional)&lt;/li&gt;\r\n&lt;/ul&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;COPIER SPECIFICATIONS&lt;/strong&gt;&lt;br /&gt;\r\n&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;ul&gt;\r\n	&lt;li&gt;Gradations 256 gradations&lt;/li&gt;\r\n	&lt;li&gt;FCOT 3.1 seconds&lt;/li&gt;\r\n	&lt;li&gt;Magnification 25&amp;ndash;400%, in 0.1% steps&lt;/li&gt;\r\n	&lt;li&gt;Mutliple copies 1&amp;ndash;9,999&lt;/li&gt;\r\n&lt;/ul&gt;', 'Konica Minolta Bizhub PRO 985', 23000000, 50, 'konica-minolta-bizhub-pro-958.jpg', 100, '50x50', 'publish', '2020-04-17 15:45:01', '2020-04-17 08:45:01');
 
 -- --------------------------------------------------------
 
@@ -90577,15 +90604,15 @@ INSERT INTO `tbl_produk` (`id_produk`, `id_karyawan`, `id_kategori`, `kode_produ
 -- Table structure for table `tbl_rekening`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_rekening` (
-`id_rekening` int(11) NOT NULL,
+CREATE TABLE `tbl_rekening` (
+  `id_rekening` int(11) NOT NULL,
   `id_karyawan` int(11) DEFAULT NULL,
   `nama_bank` varchar(30) DEFAULT NULL,
   `nomor_rekening` varchar(20) DEFAULT NULL,
   `nama_pemilik` varchar(30) DEFAULT NULL,
   `gambar` varchar(100) DEFAULT NULL,
-  `tanggal_post` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+  `tanggal_post` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_rekening`
@@ -90598,51 +90625,54 @@ INSERT INTO `tbl_rekening` (`id_rekening`, `id_karyawan`, `nama_bank`, `nomor_re
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_status`
+-- Table structure for table `status`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_status` (
-  `id_status` int(11) NOT NULL DEFAULT '0',
+CREATE TABLE `status` (
+  `id_status` int(11) NOT NULL DEFAULT 0,
   `status_nama` varchar(12) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_status`
+-- Dumping data for table `status`
 --
 
-INSERT INTO `tbl_status` (`id_status`, `status_nama`) VALUES
+INSERT INTO `status` (`id_status`, `status_nama`) VALUES
 (0, 'tidak aktif'),
-(1, 'aktif');
+(1, 'aktif'),
+(2, 'pending'),
+(3, 'read');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_transaksi`
+-- Table structure for table `transaksi`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_transaksi` (
-`id_transaksi` int(11) NOT NULL,
+CREATE TABLE `transaksi` (
+  `id_transaksi` int(11) NOT NULL,
   `id_pelanggan` int(11) DEFAULT NULL,
-  `kode_transaksi` varchar(30) DEFAULT NULL,
+  `order_id` varchar(30) DEFAULT NULL,
   `total` int(11) DEFAULT NULL,
   `sub_total` int(11) DEFAULT NULL,
   `alamat_pengiriman` text NOT NULL,
+  `payment_type` varchar(20) NOT NULL,
   `nama_bank_pelanggan` varchar(30) DEFAULT NULL,
-  `nomor_rekening_pelanggan` varchar(20) DEFAULT NULL,
+  `va_number` varchar(20) DEFAULT NULL,
   `nama_pemilik_pelanggan` varchar(30) DEFAULT NULL,
-  `gambar_pembayaran` varchar(100) DEFAULT NULL,
-  `status_bayar` varchar(20) DEFAULT NULL,
+  `transaction_status` varchar(20) DEFAULT NULL,
   `tanggal_bayar` datetime DEFAULT NULL,
+  `cara_bayar` text NOT NULL,
   `tanggal_transaksi` varchar(20) DEFAULT NULL,
-  `tanggal_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+  `tanggal_update` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_transaksi`
+-- Dumping data for table `transaksi`
 --
 
-INSERT INTO `tbl_transaksi` (`id_transaksi`, `id_pelanggan`, `kode_transaksi`, `total`, `sub_total`, `alamat_pengiriman`, `nama_bank_pelanggan`, `nomor_rekening_pelanggan`, `nama_pemilik_pelanggan`, `gambar_pembayaran`, `status_bayar`, `tanggal_bayar`, `tanggal_transaksi`, `tanggal_update`) VALUES
-(1, 3, 'INV/12042020/HSP/000000001', 86000000, 86000000, 'Jl Kemakmuran 4, KOTA BEKASI, Bekasi Selatan, Margajaya, Jawa Barat, 17141 ', NULL, NULL, NULL, NULL, 'Pending', NULL, '12 Apr 2020, 19:32', '2020-04-12 12:32:15');
+INSERT INTO `transaksi` (`id_transaksi`, `id_pelanggan`, `order_id`, `total`, `sub_total`, `alamat_pengiriman`, `payment_type`, `nama_bank_pelanggan`, `va_number`, `nama_pemilik_pelanggan`, `transaction_status`, `tanggal_bayar`, `cara_bayar`, `tanggal_transaksi`, `tanggal_update`) VALUES
+(1, 3, '24042020HSP000000001', 26000000, 26000000, 'Jl serma marjuki kp.200, KAB. GIANYAR, Gianyar, Tegal Tugu, Bali, 187648 ', 'bank_transfer', 'bni', '9882230152040905', 'Aul aja', 'settlement', '2020-04-24 17:27:05', 'https://app.sandbox.midtrans.com/snap/v1/transactions/5a57f0b0-9856-41ba-89e5-3338e337535d/pdf', '24 Apr 2020, 12:27', '2020-04-24 10:28:15');
 
 -- --------------------------------------------------------
 
@@ -90650,12 +90680,12 @@ INSERT INTO `tbl_transaksi` (`id_transaksi`, `id_pelanggan`, `kode_transaksi`, `
 -- Table structure for table `user_token`
 --
 
-CREATE TABLE IF NOT EXISTS `user_token` (
-`id_token` int(11) NOT NULL,
+CREATE TABLE `user_token` (
+  `id_token` int(11) NOT NULL,
   `email` varchar(50) NOT NULL,
   `token` varchar(128) NOT NULL,
   `date_created` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Indexes for dumped tables
@@ -90665,163 +90695,187 @@ CREATE TABLE IF NOT EXISTS `user_token` (
 -- Indexes for table `kabupaten`
 --
 ALTER TABLE `kabupaten`
- ADD PRIMARY KEY (`id_kab`);
+  ADD PRIMARY KEY (`id_kab`);
 
 --
 -- Indexes for table `kecamatan`
 --
 ALTER TABLE `kecamatan`
- ADD PRIMARY KEY (`id_kec`);
+  ADD PRIMARY KEY (`id_kec`);
 
 --
 -- Indexes for table `kelurahan`
 --
 ALTER TABLE `kelurahan`
- ADD PRIMARY KEY (`id_kel`);
+  ADD PRIMARY KEY (`id_kel`);
 
 --
 -- Indexes for table `provinsi`
 --
 ALTER TABLE `provinsi`
- ADD PRIMARY KEY (`id_prov`);
+  ADD PRIMARY KEY (`id_prov`);
 
 --
--- Indexes for table `tbl_detail_transaksi`
+-- Indexes for table `detail_transaksi`
 --
-ALTER TABLE `tbl_detail_transaksi`
- ADD PRIMARY KEY (`id_detailtransaksi`);
+ALTER TABLE `detail_transaksi`
+  ADD PRIMARY KEY (`id_detailtransaksi`);
 
 --
--- Indexes for table `tbl_gambar`
+-- Indexes for table `gambar`
 --
-ALTER TABLE `tbl_gambar`
- ADD PRIMARY KEY (`id_gambar`);
+ALTER TABLE `gambar`
+  ADD PRIMARY KEY (`id_gambar`);
 
 --
--- Indexes for table `tbl_jabatan`
+-- Indexes for table `jabatan`
 --
-ALTER TABLE `tbl_jabatan`
- ADD PRIMARY KEY (`id_jabatan`);
+ALTER TABLE `jabatan`
+  ADD PRIMARY KEY (`id_jabatan`);
 
 --
--- Indexes for table `tbl_karyawan`
+-- Indexes for table `karyawan`
 --
-ALTER TABLE `tbl_karyawan`
- ADD PRIMARY KEY (`id_karyawan`);
+ALTER TABLE `karyawan`
+  ADD PRIMARY KEY (`id_karyawan`);
 
 --
--- Indexes for table `tbl_karyawan_log`
+-- Indexes for table `karyawan_log`
 --
-ALTER TABLE `tbl_karyawan_log`
- ADD PRIMARY KEY (`id`);
+ALTER TABLE `karyawan_log`
+  ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tbl_kategori`
+-- Indexes for table `kategori`
 --
-ALTER TABLE `tbl_kategori`
- ADD PRIMARY KEY (`id_kategori`);
+ALTER TABLE `kategori`
+  ADD PRIMARY KEY (`id_kategori`);
 
 --
--- Indexes for table `tbl_konfigurasi`
+-- Indexes for table `konfigurasi`
 --
-ALTER TABLE `tbl_konfigurasi`
- ADD PRIMARY KEY (`id_konfigurasi`);
+ALTER TABLE `konfigurasi`
+  ADD PRIMARY KEY (`id_konfigurasi`);
 
 --
--- Indexes for table `tbl_pelanggan`
+-- Indexes for table `pelanggan`
 --
-ALTER TABLE `tbl_pelanggan`
- ADD PRIMARY KEY (`id_pelanggan`);
+ALTER TABLE `pelanggan`
+  ADD PRIMARY KEY (`id_pelanggan`);
 
 --
--- Indexes for table `tbl_produk`
+-- Indexes for table `pesan`
 --
-ALTER TABLE `tbl_produk`
- ADD PRIMARY KEY (`id_produk`);
+ALTER TABLE `pesan`
+  ADD PRIMARY KEY (`id_pesan`);
+
+--
+-- Indexes for table `produk`
+--
+ALTER TABLE `produk`
+  ADD PRIMARY KEY (`id_produk`);
 
 --
 -- Indexes for table `tbl_rekening`
 --
 ALTER TABLE `tbl_rekening`
- ADD PRIMARY KEY (`id_rekening`);
+  ADD PRIMARY KEY (`id_rekening`);
 
 --
--- Indexes for table `tbl_status`
+-- Indexes for table `status`
 --
-ALTER TABLE `tbl_status`
- ADD PRIMARY KEY (`id_status`);
+ALTER TABLE `status`
+  ADD PRIMARY KEY (`id_status`);
 
 --
--- Indexes for table `tbl_transaksi`
+-- Indexes for table `transaksi`
 --
-ALTER TABLE `tbl_transaksi`
- ADD PRIMARY KEY (`id_transaksi`);
+ALTER TABLE `transaksi`
+  ADD PRIMARY KEY (`id_transaksi`);
 
 --
 -- Indexes for table `user_token`
 --
 ALTER TABLE `user_token`
- ADD PRIMARY KEY (`id_token`);
+  ADD PRIMARY KEY (`id_token`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `tbl_detail_transaksi`
+-- AUTO_INCREMENT for table `detail_transaksi`
 --
-ALTER TABLE `tbl_detail_transaksi`
-MODIFY `id_detailtransaksi` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+ALTER TABLE `detail_transaksi`
+  MODIFY `id_detailtransaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
--- AUTO_INCREMENT for table `tbl_gambar`
+-- AUTO_INCREMENT for table `gambar`
 --
-ALTER TABLE `tbl_gambar`
-MODIFY `id_gambar` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+ALTER TABLE `gambar`
+  MODIFY `id_gambar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
--- AUTO_INCREMENT for table `tbl_karyawan`
+-- AUTO_INCREMENT for table `karyawan`
 --
-ALTER TABLE `tbl_karyawan`
-MODIFY `id_karyawan` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+ALTER TABLE `karyawan`
+  MODIFY `id_karyawan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
--- AUTO_INCREMENT for table `tbl_karyawan_log`
+-- AUTO_INCREMENT for table `karyawan_log`
 --
-ALTER TABLE `tbl_karyawan_log`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `karyawan_log`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
--- AUTO_INCREMENT for table `tbl_kategori`
+-- AUTO_INCREMENT for table `kategori`
 --
-ALTER TABLE `tbl_kategori`
-MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+ALTER TABLE `kategori`
+  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
--- AUTO_INCREMENT for table `tbl_konfigurasi`
+-- AUTO_INCREMENT for table `konfigurasi`
 --
-ALTER TABLE `tbl_konfigurasi`
-MODIFY `id_konfigurasi` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+ALTER TABLE `konfigurasi`
+  MODIFY `id_konfigurasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
--- AUTO_INCREMENT for table `tbl_pelanggan`
+-- AUTO_INCREMENT for table `pelanggan`
 --
-ALTER TABLE `tbl_pelanggan`
-MODIFY `id_pelanggan` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+ALTER TABLE `pelanggan`
+  MODIFY `id_pelanggan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
--- AUTO_INCREMENT for table `tbl_produk`
+-- AUTO_INCREMENT for table `pesan`
 --
-ALTER TABLE `tbl_produk`
-MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
+ALTER TABLE `pesan`
+  MODIFY `id_pesan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `produk`
+--
+ALTER TABLE `produk`
+  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
 --
 -- AUTO_INCREMENT for table `tbl_rekening`
 --
 ALTER TABLE `tbl_rekening`
-MODIFY `id_rekening` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id_rekening` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
--- AUTO_INCREMENT for table `tbl_transaksi`
+-- AUTO_INCREMENT for table `transaksi`
 --
-ALTER TABLE `tbl_transaksi`
-MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+ALTER TABLE `transaksi`
+  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `user_token`
 --
 ALTER TABLE `user_token`
-MODIFY `id_token` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_token` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

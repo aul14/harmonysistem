@@ -40,7 +40,7 @@
                     </thead>
                     <tbody>
                         <?php $no = 1; ?>
-                        <?php foreach ($tbl_pelanggan as $u) { ?>
+                        <?php foreach ($pelanggan as $u) { ?>
                             <tr>
                                 <td><?php echo $no++; ?></td>
                                 <td><?php echo $u->nama_pelanggan ?></td>

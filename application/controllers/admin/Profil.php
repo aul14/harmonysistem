@@ -22,7 +22,11 @@ class Profil extends CI_Controller {
     public function index()
     {
         $data['title'] = 'Profil '. $this->session->userdata('nama_karyawan');
-        $data['karyawan'] = $this->db->get_where('tbl_karyawan', [
+        $data['pesan'] = $this->beranda_model->hitungPesan();
+        $data['hitung'] = $this->beranda_model->hitung();
+        $data['transaksi3'] = $this->beranda_model->tampilTransaksi();
+        $data['tbl_pesan'] = $this->beranda_model->tampilPesan();
+        $data['karyawan'] = $this->db->get_where('karyawan', [
             'nama_karyawan' => $this->session->userdata('nama_karyawan')
         ])->row_array();
         $data['tbl_karyawan'] = $this->Karyawan_model->listing_profil();
@@ -36,11 +40,15 @@ class Profil extends CI_Controller {
     {
         $id = decrypt_url($id);
         $data['title'] = 'Profil '. $this->session->userdata('nama_karyawan');
-        $data['karyawan'] = $this->db->get_where('tbl_karyawan', [
+        $data['karyawan'] = $this->db->get_where('karyawan', [
             'nama_karyawan' => $this->session->userdata('nama_karyawan')
         ])->row_array();
+        $data['pesan'] = $this->beranda_model->hitungPesan();
+        $data['hitung'] = $this->beranda_model->hitung();
+        $data['transaksi3'] = $this->beranda_model->tampilTransaksi();
+        $data['tbl_pesan'] = $this->beranda_model->tampilPesan();
         $karyawan = $this->Karyawan_model->listing2();
-        $this->form_validation->set_rules('nama_karyawan', 'Nama Karyawan', 'required|is_unique[tbl_karyawan.nama_karyawan]');
+        $this->form_validation->set_rules('nama_karyawan', 'Nama Karyawan', 'required|is_unique[karyawan.nama_karyawan]');
         $this->form_validation->set_rules('hp_karyawan', 'Hp Karyawan', 'required');
         
         
@@ -54,9 +62,9 @@ class Profil extends CI_Controller {
         } 
       
             if (isset($_POST['edit'])) {
-                $const = $this->db->get_where('tbl_karyawan', ['id_karyawan' =>$this->session->userdata('id_karyawan')])->row_array();
-                $nama = htmlspecialchars($this->input->post('nama_karyawan'));
-                $hp = htmlspecialchars($this->input->post('hp_karyawan'));
+                $const = $this->db->get_where('karyawan', ['id_karyawan' =>$id])->row_array();
+                $nama = stripslashes(htmlspecialchars(strip_tags($this->input->post('nama_karyawan'))));
+                $hp = stripslashes(htmlspecialchars(strip_tags($this->input->post('hp_karyawan'))));
                 $email = $const['email_karyawan'];
                 
                 // cek jika ada gambar yang akan diupload
@@ -88,7 +96,7 @@ class Profil extends CI_Controller {
                 $this->db->set('nama_karyawan', $nama);
                 $this->db->set('hp_karyawan', $hp);
                 $this->db->where('email_karyawan', $email);
-                $this->db->update('tbl_karyawan');
+                $this->db->update('karyawan');
                
                 $this->session->set_userdata('nama_karyawan', $nama);
                 $this->session->set_flashdata('notifProfil', '<div class="alert alert-success alert-dismissible" role="alert">
@@ -107,20 +115,24 @@ class Profil extends CI_Controller {
     public function gantipassword()
     {
         $data['title'] = 'Profil '. $this->session->userdata('nama_karyawan');
-        $data['karyawan'] = $this->db->get_where('tbl_karyawan', [
+        $data['karyawan'] = $this->db->get_where('karyawan', [
             'nama_karyawan' => $this->session->userdata('nama_karyawan')
         ])->row_array();
         $this->form_validation->set_rules('passwordLama', 'Password Lama', 'trim|required', [
             'required' => 'Password Lama Harus diisi!',
         ]);
-        $this->form_validation->set_rules('passwordBaru', 'Password Baru', 'trim|required|min_length[5]|matches[passwordBaru1]', [
+        $this->form_validation->set_rules('passwordBaru', 'Password Baru', 'trim|required|min_length[8]|matches[passwordBaru1]', [
             'required' => 'Password baru harus diisi!',
             'matches' => 'Password Tidak Sama!'
         ]);
-        $this->form_validation->set_rules('passwordBaru1', 'Konfirmasi Password', 'trim|required|min_length[5]|matches[passwordBaru]', [
+        $this->form_validation->set_rules('passwordBaru1', 'Konfirmasi Password', 'trim|required|min_length[8]|matches[passwordBaru]', [
             'required' => 'Konfirmasi password harus diisi!',
             'matches' => 'Password Tidak Sama!'
         ]);
+        $data['pesan'] = $this->beranda_model->hitungPesan();
+        $data['hitung'] = $this->beranda_model->hitung();
+        $data['transaksi3'] = $this->beranda_model->tampilTransaksi();
+        $data['tbl_pesan'] = $this->beranda_model->tampilPesan();
         if ($this->form_validation->run() == false) {
             $this->load->view('admin/layout/head', $data);
             $this->load->view('admin/layout/sidebar');
@@ -128,8 +140,8 @@ class Profil extends CI_Controller {
             $this->load->view('admin/profil/ganti_password', $data);
             $this->load->view('admin/layout/footer');
           } else {
-            $passwordLama = htmlspecialchars($this->input->post('passwordLama'));
-            $passwordBaru = htmlspecialchars($this->input->post('passwordBaru'));
+            $passwordLama = stripslashes(htmlspecialchars(strip_tags($this->input->post('passwordLama'))));
+            $passwordBaru = stripslashes(htmlspecialchars(strip_tags($this->input->post('passwordBaru'))));
 
             if (password_verify($passwordLama, $data['karyawan']['password_karyawan'])) {
                 if ($passwordLama == $passwordBaru) {
@@ -141,7 +153,7 @@ class Profil extends CI_Controller {
                     $hash = password_hash($passwordBaru, PASSWORD_DEFAULT);
                     $this->db->set('password_karyawan', $hash);
                     $this->db->where('nama_karyawan', $this->session->userdata('nama_karyawan'));
-                    $this->db->update('tbl_karyawan');
+                    $this->db->update('karyawan');
                     $this->session->set_flashdata('info', '<div class="alert alert-success text-center" role="alert">
                     Password berhasil diganti! </div>');
                     redirect('admin/profil/gantipassword', 'refresh');
@@ -149,7 +161,8 @@ class Profil extends CI_Controller {
             } else {
                 $this->session->set_flashdata('info', '<div class="alert alert-danger text-center" role="alert">
                  Password lama Salah! </div>');
-                 redirect('admin/profil/gantipassword', 'refresh');            }
+                 redirect('admin/profil/gantipassword', 'refresh');          
+          }
         }
     }
 

@@ -27,10 +27,10 @@ class Login extends CI_Controller {
             $this->load->view('admin/auth/login', $data);
             $this->load->view('admin/auth/auth_footer');
         } else {
-            $emailkaryawan = htmlentities(htmlspecialchars(strip_tags($this->input->post('email_karyawan'))));
-            $password = $this->input->post('password');
+            $emailkaryawan = stripslashes(htmlspecialchars(strip_tags($this->input->post('email_karyawan'))));
+            $password = stripslashes(htmlspecialchars(strip_tags($this->input->post('password'))));
 
-            $check_email = $this->db->get_where('tbl_karyawan', ['email_karyawan' => $emailkaryawan])->row_array();
+            $check_email = $this->db->get_where('karyawan', ['email_karyawan' => $emailkaryawan])->row_array();
 
             if ($check_email) {
                 // if(!$this->karyawan_model->cek_salah_login()){
@@ -81,11 +81,11 @@ class Login extends CI_Controller {
 
     public function logout()
     {
-        $this->session->unset_userdata('email_karyawan');
-        $this->session->unset_userdata('nama_karyawan');
         $this->session->unset_userdata('id_karyawan');
-        $this->session->unset_userdata('id_status');
+        $this->session->unset_userdata('nama_karyawan');
+        $this->session->unset_userdata('email_karyawan');
         $this->session->unset_userdata('id_jabatan');
+        $this->session->unset_userdata('id_status');
         $this->session->sess_destroy();
         redirect('admin/login');
     }

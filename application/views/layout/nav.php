@@ -34,16 +34,16 @@ $nav_produk_mobile = $this->Konfigurasi_model->nav_produk();
 					</ul>
 				</li>
 							
-				<li>
+				<!-- <li>
 					<a href="about.html">Testimonial</a>
+				</li> -->
+
+				<li>
+					<a href="<?= base_url('about') ?>">Tentang Kami</a>
 				</li>
 
 				<li>
-					<a href="about.html">Tentang Kami</a>
-				</li>
-
-				<li>
-					<a href="<?= base_url('kontak') ?>">Kontak</a>
+					<a href="<?= base_url('kontak') ?>">Hubungi Kami</a>
 				</li>
 			</ul>
 		</nav>
@@ -111,7 +111,7 @@ $nav_produk_mobile = $this->Konfigurasi_model->nav_produk();
 					if (empty($keranjang)) {
 					?>
 					<li class="header-cart-item-info">
-						<p class="alert alert-info text-center">Keranjang Belanja Kosong</p>
+						<p class="alert alert-info text-center">Keranjang Belanja Kosong, Yuk Kita Belanja</p>
 					</li>
 					<?php
       				$total_belanja ="Rp. 0";
@@ -166,6 +166,7 @@ $nav_produk_mobile = $this->Konfigurasi_model->nav_produk();
 	</div>
 </div>
 </div>
+
 <!-- Header Mobile -->
 <div class="wrap_header_mobile">
 <!-- Logo moblie -->
@@ -177,9 +178,49 @@ $nav_produk_mobile = $this->Konfigurasi_model->nav_produk();
 <div class="btn-show-menu">
 	<!-- Header Icon mobile -->
 	<div class="header-icons-mobile">
-		<a href="#" class="header-wrapicon1 dis-block">
-			<img src="<?= base_url() ?>assets/template/images/icons/icon-header-01.png" class="header-icon1" alt="ICON">
-		</a>
+	<div class="header-wrapicon1 ">
+			<img src="<?= base_url() ?>assets/template/images/icons/icon-header-01.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
+			&nbsp;<?= $this->session->userdata('nama_pelanggan') ?>
+			<div class="header-cart header-dropdown">
+				<ul class="header-cart-wrapitem">
+				<?php if ($this->session->userdata('email')) { ?>
+				<div class="header-cart-buttons">
+					<div class="header-cart-wrapbtn">
+						<!-- Button -->
+						<a href="<?= base_url('masuk/logout') ?>" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text5 trans-0-4 text-white">
+							Keluar
+						</a>
+					</div>
+					<div class="header-cart-wrapbtn">
+						<!-- Button -->
+						<a href="<?= base_url('beranda/profil') ?>" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text5 trans-0-4 text-white">
+							Profil
+						</a>
+					</div>
+
+				</div>
+				<?php } else { ?>
+					<div class="header-cart-buttons">
+					<div class="header-cart-wrapbtn">
+						<!-- Button -->
+						<a href="<?= base_url('masuk') ?>" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text5 trans-0-4 text-white">
+							Masuk
+						</a>
+					</div>
+
+					<div class="header-cart-wrapbtn">
+						<!-- Button -->
+						<a href="<?= base_url('registrasi') ?>" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text5 trans-0-4 text-white" >
+							Daftar
+						</a>
+					</div>
+				</div>
+
+				<?php } ?>
+			
+				</ul>
+			</div>
+		</div>
 
 		<span class="linedivide2"></span>
 
@@ -292,11 +333,16 @@ $nav_produk_mobile = $this->Konfigurasi_model->nav_produk();
 			
 			</div>
 		</li>
-
+		<?php if($this->session->userdata('email')) { ?>
+		<li class="item-menu-mobile">
+			<a href="<?= base_url('beranda') ?>">Beranda</a>
+		</li>
+		<?php } else { ?>
 		<!-- menu mobile homepage -->
 		<li class="item-menu-mobile">
 			<a href="<?= base_url() ?>">Beranda</a>
 		</li>
+		<?php } ?>
 		<!-- menu mobile produk  -->
 		<li class="item-menu-mobile">
 			<a href="<?= base_url('produk') ?>">Produk &amp; Belanja</a>
@@ -309,16 +355,16 @@ $nav_produk_mobile = $this->Konfigurasi_model->nav_produk();
 			<i class="arrow-main-menu fa fa-angle-right" aria-hidden="true"></i>
 		</li>
 					
-		<li class="item-menu-mobile">
+		<!-- <li class="item-menu-mobile">
 			<a href="about.html">Testimonial</a>
-		</li>
+		</li> -->
 		
 		<li class="item-menu-mobile">
-			<a href="about.html">Tentang Kami</a>
+			<a href="<?= base_url('about') ?>">Tentang Kami</a>
 		</li>
 
 		<li class="item-menu-mobile">
-			<a href="<?= base_url('kontak') ?>">Kontak</a>
+			<a href="<?= base_url('kontak') ?>">Hubungi Kami</a>
 		</li>
 	</ul>
 </nav>

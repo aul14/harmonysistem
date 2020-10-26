@@ -28,10 +28,10 @@ class Masuk extends CI_Controller {
             ];
             $this->load->view('layout/wrapper', $data);
         } else {
-            $email = htmlentities(strip_tags(htmlspecialchars($this->input->post('email'))));
-            $password = $this->input->post('password');
+            $email = stripslashes(strip_tags(htmlspecialchars($this->input->post('email'))));
+            $password = stripslashes(strip_tags(htmlspecialchars($this->input->post('password'))));
 
-            $check_email = $this->db->get_where('tbl_pelanggan', ['email' => $email])->row_array();
+            $check_email = $this->db->get_where('pelanggan', ['email' => $email])->row_array();
 
             if ($check_email) {
                 if ($check_email['id_status'] == 1) {

@@ -25,7 +25,8 @@
        <?=
         validation_errors('<div class="alert alert-warning">','</div>');
        ?>
-      <form action="" method="post">
+      <form action="" method="post" accept-charset="utf-8">
+      <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>">
        <table class="table">
            <thead>
                <tr>
@@ -45,7 +46,7 @@
                    <td><input type="password" name="password"
                    class="form-control" value="<?= set_value('password') ?>" placeholder="Password" required>
                    <br>
-                   <h6> <i style="color:red">*Panjang Password Min 5 Karakter</i></p></h6>
+                   <h6> <i style="color:red">*Minimum 8 karakter termasuk A-Z, a-z, dan 1-9</i></p></h6>
                   </td>
                </tr>
            
@@ -103,8 +104,8 @@
                <tr>
                    <th></th>
                    <td>
-                       <button class="btn btn-success btn-lg"  type="submit"><i class="fa fa-save"></i>&nbsp;Simpan</button>
-                       <button class="btn btn-warning btn-lg" type="reset"><i class="fa fa-close"></i>&nbsp;Reset</button>
+                       <button class="btn btn-success btn-lg"  type="submit"><i class="fa fa-send"></i>&nbsp;Daftar</button>
+                       <button class="btn btn-warning btn-lg" type="reset"><i class="fa fa-close"></i>&nbsp;Batal</button>
                    </td>
                </tr>
            </tbody>

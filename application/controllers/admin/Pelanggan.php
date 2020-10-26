@@ -26,8 +26,12 @@ class Pelanggan extends CI_Controller {
     public function index()
     {
         $data['title'] = "Data Pelanggan";
-        $data['tbl_pelanggan'] = $this->pelanggan_model->listing();
-        $data['karyawan'] = $this->db->get_where('tbl_karyawan', [
+        $data['pelanggan'] = $this->pelanggan_model->listing();
+        $data['pesan'] = $this->beranda_model->hitungPesan();
+        $data['hitung'] = $this->beranda_model->hitung();
+        $data['transaksi3'] = $this->beranda_model->tampilTransaksi();
+        $data['tbl_pesan'] = $this->beranda_model->tampilPesan();
+        $data['karyawan'] = $this->db->get_where('karyawan', [
             'nama_karyawan' => $this->session->userdata('nama_karyawan')
         ])->row_array();
         $this->load->view('admin/layout/head', $data);

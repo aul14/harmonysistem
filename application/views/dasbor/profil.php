@@ -18,14 +18,24 @@
             <h2><?= $title ?></h2>
             <br>
             <div class="row mb-3 col-lg-6">
-                <a class="nav-link btn btn-info bg-info mr-3" href="#">
+                <a class="nav-link btn btn-info bg-info mr-3" href="<?= base_url('beranda/editprofil/'). encrypt_url($pelanggan->id_pelanggan) ?>">
                     <i class="fa fa-edit"></i>
                     <span>Edit Profil</span></a>
-                <a class="nav-link btn btn-info bg-primary mr-3" href="#">
+                <a class="nav-link btn btn-info bg-primary mr-3" href="<?= base_url('beranda/gantipassword') ?>">
                     <i class="fa fa-key"></i>
                     <span>Ganti Password</span></a>
             </div>
-                <?= $this->session->flashdata('sukses'); ?>
+            <?php if ($this->session->flashdata('sukses')
+                ) {
+                    
+                    echo '<div class="alert alert-success alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;&nbsp; &nbsp;</span>
+                    </button>';
+                    echo $this->session->flashdata('sukses');
+                    echo '</div>';
+                    
+                } ?>
 
             <div class="card mb-3 " style="max-width: 440px;">
             <div class="card-body">

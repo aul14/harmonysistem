@@ -17,7 +17,9 @@
     
 </div>
 
-<form action="" method="post" enctype="multipart/form-data">
+<form action="" method="post" enctype="multipart/form-data" accept-charset="utf-8">
+<input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>">
+
     <div class="row mt-3">
         <div class="col-sm-3 offset-1">
             <label for="nama_produk">Nama Produk</label>

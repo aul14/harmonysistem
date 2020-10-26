@@ -33,8 +33,7 @@
                 map_zoom = 14;
 
             var locations = [
-                ['<div class="infobox"><p>Now that you visited our website, how' +
-                ' <br>about checking out our office too?</p></div>'
+                ['<div><p> PT Harmony Sistem</p></div>'
                     , latitude, longitude, 2]
             ];
 

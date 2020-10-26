@@ -1,18 +1,10 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
-  <!-- Breadcrumbs-->
-  <div class="panel panel-flat bg-info">
-    <div class="panel-heading">
-      <h3 class="panel-title">
-        <!-- <marquee scrollamount="8"><span style="color: white"><center>Selamat Datang,
-
-          </center></span></marquee> -->
-      </h3>
-    </div>
-  </div>
-  <br>
-
+ <!-- Page Heading -->
+ <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Beranda</h1>
+          </div>
   <!-- Content Row -->
   <div class="row">
   <?php
@@ -87,7 +79,7 @@
 <div class="row">
     <div class="col-lg-12">
 
-      <div class="calendar"></div>
+      <div id="calendar" class="calendar"></div>
       <div class="box"></div>
       <br>
   </div>
@@ -99,8 +91,8 @@
     <div class="col-xl-8 col-lg-7">
         <div class="card shadow mb-4">
             <!-- Card Header - Dropdown -->
-            <div class="card-header bg-primary py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-white">Total Transaksi Barang Perbulan pada Tahun <?= date('Y'); ?></h6>
+            <div class="card-header bg-info py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-white">Total Transaksi Perbulan pada Tahun <?= date('Y'); ?></h6>
             </div>
             <!-- Card Body -->
             <div class="card-body">

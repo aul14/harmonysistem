@@ -15,6 +15,7 @@ $site = $this->Konfigurasi_model->listing();
 	<meta name="keywords" content="<?= $site->keywords ?>">
 	<meta name="description" content="<?= $title ?>, <?= $site->deskripsi ?>">
 <!--===============================================================================================-->
+    <link href="<?php echo base_url('assets/fontawesome-free/css/all.min.css') ?>" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/template/vendor/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/template/vendor/bootstrap/css/bootstrap.css">
 <!--===============================================================================================-->
@@ -45,6 +46,6 @@ $site = $this->Konfigurasi_model->listing();
 <!--===============================================================================================-->
 	<link href="<?= base_url('assets/css/icons/icomoon/styles.css') ?>" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="<?= base_url('assets/calender/css/style.css') ?>">
-	<link rel="stylesheet" href="<?= base_url('assets/calender/css/pignose.calendar.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('assets/calender/css/pignose.calendar.css') ?>">
 </head>
 <body class="animsition">

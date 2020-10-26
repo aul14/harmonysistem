@@ -25,7 +25,7 @@
                     <thead>
                         <tr>
                             <th>Kode Transaksi</th>
-                            <th><?= $header_transaksi->kode_transaksi ?></th>
+                            <th><?= $header_transaksi->order_id ?></th>
                 
                         </tr>
                     </thead>
@@ -41,7 +41,7 @@
                         </tr>
                         <tr>
                             <td>Status Pembayaran</td>
-                            <td><?= $header_transaksi->status_bayar ?></td>
+                            <td><?= $header_transaksi->transaction_status ?></td>
                         </tr>
                       
                     </tbody>

@@ -3,23 +3,18 @@
   <!-- Page Wrapper -->
   <div id="wrapper">
 
-    <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+     <!-- Sidebar -->
+     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url('admin/beranda') ?>">
         <div class="sidebar-brand-icon">
           <i class="fas fa-calendar-alt"></i>
         </div>
         <div class="sidebar-brand-text mx-3">PT Harmony Sistem</div>
       </a>
 
-      <!-- Divider -->
-      <hr class="sidebar-divider ">
-      <!-- Heading -->
-      <div class="sidebar-heading">
-        Home
-      </div>
+     
       <!-- Nav Item - Dashboard -->
       <li class="<?php if ($this->uri->segment(2) == "beranda") {
                     echo "nav-item active";
@@ -52,7 +47,22 @@
 
       <!-- Heading -->
       <div class="sidebar-heading">
-        Karyawan
+        Pelanggan
+      </div>
+
+      <li class="<?php if ($this->uri->segment(2) == "pelanggan") {
+                    echo "nav-item active";
+                  } else {
+                    echo "nav-item";
+                  } ?>">
+        <a class="nav-link" href="<?= base_url('admin/pelanggan') ?>" >
+          <i class="fas fa-users"></i>
+          <span>Pelanggan</span></a>
+      </li>
+      <hr class="sidebar-divider">
+
+      <div class="sidebar-heading">
+        Data Master
       </div>
 
       <!-- Nav Item - Charts -->
@@ -65,47 +75,11 @@
           <i class="fas fa-address-card"></i>
           <span>Karyawan</span></a>
       </li>
-      <!-- Divider -->
-      <hr class="sidebar-divider">
 
-      <!-- Heading -->
-      <div class="sidebar-heading">
-        Pelanggan
-      </div>
 
-      <!-- Nav Item - Charts -->
-      <li class="<?php if ($this->uri->segment(2) == "pelanggan") {
-                    echo "nav-item active";
-                  } else {
-                    echo "nav-item";
-                  } ?>">
-        <a class="nav-link" href="<?= base_url('admin/pelanggan') ?>" >
-          <i class="fas fa-users"></i>
-          <span>Pelanggan</span></a>
-      </li>
-      <!-- Divider -->
-      <hr class="sidebar-divider">
-
-      <!-- Heading -->
-      <div class="sidebar-heading">
-        Menu
-      </div>
-      <li class="nav-item">
-        <a class="nav-link" href="">
-          <i class="fas fa-shopping-cart"></i>
-          <span>Transaksi Penjualan</span></a>
-      </li>
-       <!-- Nav Item - Charts -->
-          <li class="<?php if ($this->uri->segment(2) == "rekening") {
-                    echo "nav-item active";
-                  } else {
-                    echo "nav-item";
-                  } ?>">
-            <a class="nav-link" href="<?= base_url('admin/rekening') ?>" >
-            <i class="fas fa-money-check-alt"></i>
-              <span>Data Rekening</span></a>
-          </li>
-      <li class="<?php if ($this->uri->segment(2) == "produk") {
+        <!-- Nav Item - Charts -->
+         
+        <li class="<?php if ($this->uri->segment(2) == "produk" or $this->uri->segment(2) == "kategori") {
                     echo "nav-item active";
                   } else {
                     echo "nav-item";
@@ -117,12 +91,41 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Produk:</h6>
+            <?php if ($this->session->userdata('id_jabatan') == 99 or $this->session->userdata('id_jabatan') == 98 or $this->session->userdata('id_jabatan') == 1 or $this->session->userdata('id_jabatan') == 2) { ?>
             <a class="collapse-item" href="<?= base_url('admin/produk/tambah') ?>"><i class="fas fa-cart-plus"></i>&nbsp;&nbsp;Tambah Produk</a>
+            <?php } ?>
             <a class="collapse-item" href="<?= base_url('admin/produk') ?>"><i class="fas fa-calculator"></i>&nbsp;&nbsp;&nbsp;Data Produk</a>
             <a class="collapse-item" href="<?= base_url('admin/kategori') ?>"><i class="fas fa-tags"></i>&nbsp;&nbsp;Kategori Produk</a>
           </div>
         </div>
       </li>
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        Menu
+      </div>
+      <li class="<?php if ($this->uri->segment(2) == "transaksi") {
+                    echo "nav-item active";
+                  } else {
+                    echo "nav-item";
+                  } ?>">
+        <a class="nav-link" href="<?= base_url('admin/transaksi') ?>">
+          <i class="fas fa-shopping-cart"></i>
+          <span>Transaksi Penjualan</span></a>
+      </li>
+      <li class="<?php if ($this->uri->segment(2) == "pesan") {
+                    echo "nav-item active";
+                  } else {
+                    echo "nav-item";
+                  } ?>">
+        <a class="nav-link" href="<?= base_url('admin/pesan') ?>">
+        <i class="fas fa-envelope fa-fw"></i>
+          <span>Pesan Masuk</span></a>
+      </li>
+     
 
       <li class="<?php if ($this->uri->segment(2) == "konfigurasi") {
                     echo "nav-item active";
@@ -145,20 +148,26 @@
 
       <hr class="sidebar-divider">
       <!-- Heading -->
+      <?php if ($this->session->userdata('id_jabatan') == 99 or $this->session->userdata('id_jabatan') == 98 or $this->session->userdata('id_jabatan') == 3) { ?>
       <div class="sidebar-heading">
         Laporan Transaksi
       </div>
 
       <!-- Nav Item - Charts -->
 
-      <li class="nav-item">
-        <a class="nav-link" href="">
-          <i class="fas fa-atlas"></i>
-          <span>Laporan Transaksi</span></a>
+      <li class="<?php if ($this->uri->segment(2) == "laporan") {
+                    echo "nav-item active";
+                  } else {
+                    echo "nav-item";
+                  } ?>">
+        <a class="nav-link" href="<?= base_url('admin/laporan') ?>">
+          <i class="fas fa-print"></i>
+          <span> Cetak Laporan</span></a>
       </li>
 
 
       <hr class="sidebar-divider">
+                <?php } ?>
       <!-- Heading -->
       <div class="sidebar-heading">
         Logout
@@ -166,7 +175,7 @@
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="" data-toggle="modal" data-target="#logoutModal">
+        <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal">
           <i class="fas fa-power-off"></i>
           <span>Logout</span></a>
       </li>

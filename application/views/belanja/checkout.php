@@ -1,7 +1,7 @@
 <script type="text/javascript"
             src="https://app.sandbox.midtrans.com/snap/snap.js"
             data-client-key="SB-Mid-client-G8fuQnJ6BOmSixfK"></script>
- <script src="<?php echo base_url('assets/jquery/jquery.min.js') ?>"></script>
+    <script src="<?= base_url(); ?>assets/vendor/jquery/jquery.min.js"></script>
 <!-- Cart -->
 <section class="cart bgwhite p-t-70 p-b-100">
 <div class="container">
@@ -34,6 +34,7 @@
             $produk = $this->Produk_model->detail($id_produk);
 
             echo form_open(base_url('belanja/update_cart/'.$keranjang['rowid']));
+            
                
          ?>
         <tr class="table-row">
@@ -107,25 +108,15 @@
 <br>
 <div class="container-table-cart pos-relative">
 <div class="wrap-table-shopping-cart bgwhite">
-<form id="payment-form" method="post" action="<?=site_url()?>/snap/finish">
+<form id="payment-form" method="post" action="<?=site_url()?>snap/finish" accept-charset="utf-8">
       <input type="hidden" name="result_type" id="result-type" value=""></div>
       <input type="hidden" name="result_data" id="result-data" value=""></div>
-    </form>
-<form action="" method="post">
+    
 <?php
-$this->db->order_by('kode_transaksi', 'DESC');
-$this->db->limit(1);
-$cek = $this->db->get('tbl_transaksi');
-;
-if ($cek->num_rows() == 0) {
-$date = date('dmY');
-$kode       ="INV/".$date."/HSP/000000001";
-}else{
-$noUrut 	 			= substr($cek->row()->kode_transaksi, 17, 26);
-$noUrut++;
-$kode				="INV/".date('dmY')."/HSP/".sprintf("%09s", $noUrut);
-}
+
+$kode = $this->transaksi_model->get_no_invoice();
 ?>
+    <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>">
     <input type="hidden" name="id_pelanggan" value="<?= $pelanggan->id_pelanggan ?>">
     <input type="hidden" name="total" value="<?= $this->cart->total() ?>">
     <input type="hidden" name="sub_total" value="<?= $this->cart->total() ?>">
@@ -134,7 +125,7 @@ $kode				="INV/".date('dmY')."/HSP/".sprintf("%09s", $noUrut);
            <thead>
                <tr>
                    <th>Kode Transaksi</th>
-                   <th><input type="text" name="kode_transaksi"
+                   <th><input type="text" name="order_id"
                    class="form-control" value="<?= $kode ?>" placeholder="Nama Lengkap" required readonly></th>
                </tr>
                <tr>
@@ -157,14 +148,14 @@ $kode				="INV/".date('dmY')."/HSP/".sprintf("%09s", $noUrut);
                </tr>
                <tr>
                    <th>Alamat Pengiriman</th>
-                   <td><textarea name="alamat_pengiriman"  class="form-control" placeholder="Alamat" ><?= $pelanggan->alamat ?>, <?= $pelanggan->id_kab ?>, <?= $pelanggan->id_kec ?>, <?= $pelanggan->id_kel ?>, <?= $pelanggan->id_prov ?>, <?= $pelanggan->kode_pos ?> </textarea></td>
+                   <td><textarea name="alamat_pengiriman"  class="form-control" id="alamat" placeholder="Alamat" ><?= $pelanggan->alamat ?>, <?= $pelanggan->id_kab ?>, <?= $pelanggan->id_kec ?>, <?= $pelanggan->id_kel ?>, <?= $pelanggan->id_prov ?>, <?= $pelanggan->kode_pos ?> </textarea></td>
                </tr>
               
                <tr>
                    <th></th>
                    <td>
                        <button id="pay-button" class="btn btn-success btn-lg"  type="submit"><i class="fa fa-save"></i>&nbsp;Pembayaran</button>
-                       <button class="btn btn-warning btn-lg" type="reset"><i class="fa fa-close"></i>&nbsp;Reset</button>
+                       <a href="<?= site_url('belanja') ?>" class="btn btn-warning btn-lg" type="reset">Kembali&nbsp;<i class="fas fa-arrow-right"></i></a>
                    </td>
                </tr>
            </tbody>

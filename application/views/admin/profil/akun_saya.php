@@ -34,8 +34,8 @@
             <div class="col-md-8">
                 <div class="card-body">
                     <h5 class="card-title"><?= $karyawan['nama_karyawan']; ?></h5>
-                    <?php foreach($tbl_karyawan as $tbl_karyawan) { ?>
-                    <p class="card-text"><?= $tbl_karyawan->id_jabatan ?></p>
+                    <?php foreach($tbl_karyawan as $u) { ?>
+                    <p class="card-text"><?= $u->id_jabatan ?></p>
                     <?php } ?>
                 </div>
                     <ul class="list-group list-group-flush">

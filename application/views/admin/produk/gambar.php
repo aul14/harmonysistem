@@ -8,7 +8,9 @@
 <div class="col">
 
 
-<form action="" method="post" enctype="multipart/form-data">
+<form action="" method="post" enctype="multipart/form-data" accept-charset="utf-8">
+<input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>">
+
     <div class="form-group row">
         
             <label for="judul_gambar" class="col-sm-2 col-form-label">Judul Gambar</label>

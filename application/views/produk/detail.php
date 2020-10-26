@@ -59,7 +59,7 @@
         IDR <?= number_format($produk->harga, '0',',','.') ?>
         </span>
 
-        <strong><p class="s-text8 p-t-10">
+        <strong><p class="s-text8 p-t-10" style="text-align:justify">
         <?= htmlspecialchars_decode(html_entity_decode($produk->keterangan)) ?>
         </p></strong>
 
@@ -127,8 +127,8 @@
 
              <div class="block2-overlay trans-0-4">
                 <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-                    <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-                    <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
+                <i class="far fa-heart" aria-hidden="true"></i>
+                    <!-- <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i> -->
                 </a>
 
              <div class="block2-btn-addcart w-size1 trans-0-4">

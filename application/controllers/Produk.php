@@ -76,7 +76,7 @@ class Produk extends CI_Controller {
         $config['base_url'] = base_url().'produk/kategori/'.$slug_kategori.'/index/';
         $config['total_rows'] = $total->total;
         $config['use_page_numbers'] = true;
-        $config['per_page'] = 3;
+        $config['per_page'] = 6;
         $config['uri_segment'] = 5;
         $config['num_links'] = 5;
 

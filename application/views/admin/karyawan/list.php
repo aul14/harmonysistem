@@ -14,12 +14,13 @@
         <?= $this->session->flashdata('notifKaryawan'); ?>
         </div>
    
-
+        <?php if ($this->session->userdata('id_jabatan') == 99 or $this->session->userdata('id_jabatan') == 98) { ?>
     <div class="row mb-3 col-lg-6">
-        <a class="nav-link btn btn-info bg-gradient-primary mr-3" href="<?= site_url('admin/karyawan/tambah') ?>">
+        <a class="nav-link btn btn-info bg-gradient-primary mr-3" href="<?= base_url('admin/karyawan/tambah') ?>">
             <i class="fas fa-user-plus"></i>
             <span>Tambah Karyawan Baru</span></a>
     </div>
+        <?php } ?>
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
@@ -39,7 +40,7 @@
                             <th>Alamat Karyawan</th>
                             <th>Jabatan</th>
                             <th>Tanggal Pendaftaran</th>
-                            <?php if ($this->session->userdata('id_jabatan') == 99) { ?>
+                            <?php if ($this->session->userdata('id_jabatan') == 99 or $this->session->userdata('id_jabatan') == 98) { ?>
                             <th>Aksi</th>
                             <?php } ?>
                         </tr>
@@ -58,7 +59,7 @@
                                 <td><?php echo $u->alamat_karyawan ?></td>
                                 <td><?php echo $u->id_jabatan ?></td>
                                 <td><?php echo $u->karyawan_register ?></td>
-                                <?php if ($this->session->userdata('id_jabatan') == 99) { ?>
+                                <?php if ($this->session->userdata('id_jabatan') == 99 or $this->session->userdata('id_jabatan') == 98) { ?>
                                 <td>
                                 <a href="<?= base_url('admin/karyawan/edit/'. encrypt_url($u->id_karyawan)) ?>" class="badge badge-info">Edit</a>
                                 <a href="<?= base_url('admin/karyawan/hapus/'. encrypt_url($u->id_karyawan)) ?>" class="badge badge-danger" onclick="return confirm('Yakin ingin menghapus nama karyawan <?= $u->nama_karyawan ?>?')">Hapus</a>
