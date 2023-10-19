@@ -1,5 +1,7 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
+
 use GuzzleHttp\Client;
+
 class Snap extends CI_Controller
 {
 
@@ -29,12 +31,12 @@ class Snap extends CI_Controller
 		$this->midtrans->config($params);
 		$this->load->helper('url');
 		if (!$_SESSION['email']) {
-            $this->session->set_flashdata('sukses','<strong>Gagal!</strong> Silahkan Login terlebih dahulu');
-            redirect('masuk');
+			$this->session->set_flashdata('sukses', '<strong>Gagal!</strong> Silahkan Login terlebih dahulu');
+			redirect('masuk');
 		}
 		date_default_timezone_set('Asia/Jakarta');
-        error_reporting(E_ALL);
-        ini_set('display_errors', 1);
+		error_reporting(E_ALL);
+		ini_set('display_errors', 1);
 	}
 
 	public function index()
@@ -76,12 +78,12 @@ class Snap extends CI_Controller
 			array_push($item_details, $temp);
 		};
 
-		
+
 
 		// Optional
 		$billing_address = array(
 			'first_name'    => $pelanggan->nama_pelanggan,
-			'address'       => $pelanggan->alamat. $pelanggan->id_kec. $pelanggan->id_kel. $pelanggan->id_prov,
+			'address'       => $pelanggan->alamat . $pelanggan->id_kec . $pelanggan->id_kel . $pelanggan->id_prov,
 			'city'          => $pelanggan->id_kab,
 			'postal_code'   => $pelanggan->kode_pos,
 			'phone'         => $pelanggan->telepon,
@@ -104,7 +106,7 @@ class Snap extends CI_Controller
 			'email'         => $pelanggan->email,
 			'phone'         => $pelanggan->telepon,
 			'billing_address'  => $billing_address,
-		    'shipping_address' => $shipping_address
+			'shipping_address' => $shipping_address
 		);
 
 		// Data yang akan dikirim untuk request redirect_url.
@@ -142,111 +144,109 @@ class Snap extends CI_Controller
 		// var_dump($result);die;
 		// echo '</pre>';
 
-			$kode=$result['order_id'];
-			$total=$result['gross_amount'];
-			$payment_type=$result['payment_type'];
-			$tanggal_bayar=$result['transaction_time'];
-			$transaction_status=$result['transaction_status'];
-			$nama_bank_pelanggan= @$result['va_numbers'][0]['bank'];
-			$va_number = @$result['va_numbers'][0]['va_number'];
-			$biller_code= @$result['biller_code'];
-			$bill_key = @$result['bill_key'];
-			$permata_va_number = @$result['permata_va_number'];
-			$payment_code = @$result['payment_code'];
-			$cara_bayar = @$result['pdf_url'];
-			
-	
+		$kode = $result['order_id'];
+		$total = $result['gross_amount'];
+		$payment_type = $result['payment_type'];
+		$tanggal_bayar = $result['transaction_time'];
+		$transaction_status = $result['transaction_status'];
+		$nama_bank_pelanggan = @$result['va_numbers'][0]['bank'];
+		$va_number = @$result['va_numbers'][0]['va_number'];
+		$biller_code = @$result['biller_code'];
+		$bill_key = @$result['bill_key'];
+		$permata_va_number = @$result['permata_va_number'];
+		$payment_code = @$result['payment_code'];
+		$cara_bayar = @$result['pdf_url'];
 
-			if ($this->session->userdata('email')) {
-				$id = $this->session->userdata('id_pelanggan');
-				$pelanggan = $this->Pelanggan_model->sudah_login($id);
-				$keranjang = $this->cart->contents();
-	
-				$this->form_validation->set_rules('order_id', 'Kode Transaksi', 'trim|required|is_unique[transaksi.order_id]', ['is_unique' => 'Kode Transaksi Sudah digunakan']);
-	
-				
-				if ($this->form_validation->run() ==  FALSE) {
-					$data = array(
-						'title' => 'Proses Pesanan',
-						'keranjang' => $keranjang,
-						'pelanggan' => $pelanggan,
-						'isi' => 'belanja/checkout'
-					);
-					$this->load->view('layout/wrapper', $data);
-				} else {
-					$data = [
-						'id_pelanggan' => $pelanggan->id_pelanggan,
-						'order_id' => $kode,
-						'total' => $total,
-						'sub_total' => htmlspecialchars($this->input->post('sub_total')),
-						'alamat_pengiriman' => htmlspecialchars($this->input->post('alamat_pengiriman')),
-						'payment_type' => $payment_type,
-						'nama_bank_pelanggan' => $nama_bank_pelanggan,
-						'va_number' => $va_number,
-						'biller_code' => $biller_code,
-						'bill_key' => $bill_key,
-						'permata_va_number' => $permata_va_number,
-						'payment_code' => $payment_code,
-						'nama_pemilik_pelanggan' => $this->session->userdata('nama_pelanggan'),
-						'transaction_status' => $transaction_status,
-						'pengiriman' => 'pending',
-						'tanggal_bayar' => $tanggal_bayar,
-						'cara_bayar' => $cara_bayar,
-						'tanggal_transaksi' => date('d M Y, H:i'),
-						'tanggal_update_transaksi' => date('Y-m-d')
-					];
-				//   var_dump($data);die;
-					 $this->db->insert('transaksi', $data);
-					$id = $this->db->insert_id();
-					
-					foreach($keranjang as $keranjang) {
-						$total = $keranjang['price'] * $keranjang['qty'];
-						$data = [
-							'id_transaksi' => $id,
-							'id_produk' => $keranjang['id'],
-							'qty' => $keranjang['qty'],
-							'harga' => $keranjang['price'],
-							'total_harga' => $total
-						];
-					 $this->db->insert('detail_transaksi', $data);
-					}
-					$this->cart->destroy();
-					$this->session->set_flashdata('sukses','Proses Pesanan berhasil, Transaksi Sedang diproses.');
-					
-					redirect('snap/sukses/'.encrypt_url($id),'refresh');
-					
-					// redirect('belanja/sukses', 'refresh');
-				}                
+
+
+		if ($this->session->userdata('email')) {
+			$id = $this->session->userdata('id_pelanggan');
+			$pelanggan = $this->Pelanggan_model->sudah_login($id);
+			$keranjang = $this->cart->contents();
+
+			$this->form_validation->set_rules('order_id', 'Kode Transaksi', 'trim|required|is_unique[transaksi.order_id]', ['is_unique' => 'Kode Transaksi Sudah digunakan']);
+
+
+			if ($this->form_validation->run() ==  FALSE) {
+				$data = array(
+					'title' => 'Proses Pesanan',
+					'keranjang' => $keranjang,
+					'pelanggan' => $pelanggan,
+					'isi' => 'belanja/checkout'
+				);
+				$this->load->view('layout/wrapper', $data);
 			} else {
-				$this->session->set_flashdata('sukses','Silahkan Login atau Registrasi terlebih dahulu');
-				redirect('registrasi','refresh');
-				
-				
+				$data = [
+					'id_pelanggan' => $pelanggan->id_pelanggan,
+					'order_id' => $kode,
+					'total' => $total,
+					'sub_total' => htmlspecialchars($this->input->post('sub_total')),
+					'alamat_pengiriman' => htmlspecialchars($this->input->post('alamat_pengiriman')),
+					'payment_type' => $payment_type,
+					'nama_bank_pelanggan' => $nama_bank_pelanggan,
+					'va_number' => $va_number,
+					'biller_code' => $biller_code,
+					'bill_key' => $bill_key,
+					'permata_va_number' => $permata_va_number,
+					'payment_code' => $payment_code,
+					'nama_pemilik_pelanggan' => $this->session->userdata('nama_pelanggan'),
+					'transaction_status' => $transaction_status,
+					'pengiriman' => 'pending',
+					'tanggal_bayar' => $tanggal_bayar,
+					'cara_bayar' => $cara_bayar,
+					'tanggal_transaksi' => date('d M Y, H:i'),
+					'tanggal_update_transaksi' => date('Y-m-d')
+				];
+				//   var_dump($data);die;
+				$this->db->insert('transaksi', $data);
+				$id = $this->db->insert_id();
+
+				foreach ($keranjang as $keranjang) {
+					$total = $keranjang['price'] * $keranjang['qty'];
+					$data = [
+						'id_transaksi' => $id,
+						'id_produk' => $keranjang['id'],
+						'qty' => $keranjang['qty'],
+						'harga' => $keranjang['price'],
+						'total_harga' => $total
+					];
+					$this->db->insert('detail_transaksi', $data);
+				}
+				$this->cart->destroy();
+				$this->session->set_flashdata('sukses', 'Proses Pesanan berhasil, Transaksi Sedang diproses.');
+
+				redirect('snap/sukses/' . encrypt_url($id), 'refresh');
+
+				// redirect('belanja/sukses', 'refresh');
 			}
+		} else {
+			$this->session->set_flashdata('sukses', 'Silahkan Login atau Registrasi terlebih dahulu');
+			redirect('registrasi', 'refresh');
+		}
 		// echo 'RESULT <br><pre>';
 		// var_dump($result);
 		// echo '</pre>';
 	}
 
 	function sukses()
-    {
+	{
 		$id = decrypt_url($this->uri->segment(3));
-        $detail = $this->db->get_where('transaksi',['id_transaksi'=>$id])->row_array();
-        $data = array(
+		$detail = $this->db->get_where('transaksi', ['id_transaksi' => $id])->row_array();
+		$data = array(
 			'title' => 'Detail Pembayaran',
 			'detail' => $detail,
-            'isi' => 'belanja/sukses'
-        );
-        $this->load->view('layout/wrapper', $data);
-        
+			'isi' => 'belanja/sukses'
+		);
+		$this->load->view('layout/wrapper', $data);
 	}
-	function cekstatus(){
+	function cekstatus()
+	{
 		// $url = file_get_contents("https://api.sandbox.midtrans.com/v2/9692/status");
 		// $data = json_decode($url);
 		// var_dump($url);
 
-	
-		$s = $this->Konfigurasi_model->cekstatus();	
+
+		$s = $this->Konfigurasi_model->cekstatus();
 		echo $s['transaction_status'];
 	}
 }
